@@ -1,1 +1,3 @@
-kordeszlet1
+megjegyzes
+kordeszlet2
+kordeszlet3
