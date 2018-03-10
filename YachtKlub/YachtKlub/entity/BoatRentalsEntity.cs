@@ -6,10 +6,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace YachtKlub.database
+namespace YachtKlub.entity
 {
     [Table("BoatRentals")]
-    class BoatRentals
+    class BoatRentalsEntity
     {
         [Column("FKstartingDate", TypeName="Date", Order = 0)]
         [Key]
@@ -17,11 +17,11 @@ namespace YachtKlub.database
         public DateTime StartingDate { get; set; }
 
         [Key]
-        public Boats FKRentedBoat { get; set; }
+        public BoatsEntity FKRentedBoat { get; set; }
 
-        public TransportDevices FKRentedDevice { get; set; }
+        public TransportDevicesEntity FKRentedDevice { get; set; }
 
-        public Members FKWhoRents { get; set; }
+        public MembersEntity FKWhoRents { get; set; }
 
         [Column("howManyPersonWillTravel", Order = 3)]
         [DataType("decimal(3, 0)")]
