@@ -64,6 +64,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="LoginWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -72,13 +76,12 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="database\BoatRentals.cs" />
-    <Compile Include="database\Boats.cs" />
-    <Compile Include="database\DatabaseContext.cs" />
-    <Compile Include="database\Members.cs" />
-    <Compile Include="database\Requests.cs" />
-    <Compile Include="database\TransportDeviceRequests.cs" />
-    <Compile Include="database\TransportDevices.cs" />
+    <Compile Include="entity\BoatRentalsEntity.cs" />
+    <Compile Include="entity\BoatsEntity.cs" />
+    <Compile Include="entity\DatabaseContextEntity.cs" />
+    <Compile Include="entity\MembersEntity.cs" />
+    <Compile Include="entity\RentRequestsEntity.cs" />
+    <Compile Include="entity\TransportDevicesEntity.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
