@@ -13,7 +13,9 @@ namespace YachtKlub.database
         {
             /*Database.Delete();
             Database.Create();*/
-            Database.SetInitializer(new DropCreateDatabaseAlways<DatabaseContext>());
+            Database.Delete();
+            Database.Create();
+            //Database.SetInitializer(new DropCreateDatabaseAlways<DatabaseContext>());
         }
 
         public DbSet<Members> Members { get; set; }

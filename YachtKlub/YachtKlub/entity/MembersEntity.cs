@@ -50,17 +50,14 @@ namespace YachtKlub.database
         [StringLength(20)]
         public string HouseNumber { get; set; }
 
-
-
-        // image type
+        /** TODO: image type needed */
+        [Column("memberImage", Order = 8)]
         [StringLength(50)]
-        public string Image { get; set; }
+        public string MemberImage { get; set; }
 
-
-
-
-
-
+        public ICollection<RentRequests> RentRequests { get; set; }
         public ICollection<Boats> Boats { get; set; }
+        public ICollection<TransportDevices> TransportDevices { get; set; }
+        public ICollection<BoatRentals> BoatRentals { get; set; }
     }
 }
