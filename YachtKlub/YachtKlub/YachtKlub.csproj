@@ -82,12 +82,50 @@
     <Compile Include="entity\MembersEntity.cs" />
     <Compile Include="entity\RentRequestsEntity.cs" />
     <Compile Include="entity\TransportDevicesEntity.cs" />
+    <Compile Include="LoginWindow.xaml.cs">
+      <DependentUpon>LoginWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="MemberRegisterWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="OfferRequestWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="PasswordChangeWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="PersonalAdminWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="PersonalWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MemberRegisterWindow.xaml.cs">
+      <DependentUpon>MemberRegisterWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="OfferRequestWindow.xaml.cs">
+      <DependentUpon>OfferRequestWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PasswordChangeWindow.xaml.cs">
+      <DependentUpon>PasswordChangeWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PersonalAdminWindow.xaml.cs">
+      <DependentUpon>PersonalAdminWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PersonalWindow.xaml.cs">
+      <DependentUpon>PersonalWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
