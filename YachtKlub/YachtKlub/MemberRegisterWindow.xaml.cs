@@ -24,10 +24,6 @@ namespace YachtKlub
             InitializeComponent();
         }
 
-
-
-        
-
         private void btCancel_Click(object sender, RoutedEventArgs e)
         {
             LoginWindow LogintoWindow = new LoginWindow();
