@@ -77,10 +77,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="StartApp.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -95,10 +91,6 @@
     <Compile Include="entity\TransportDevicesEntity.cs" />
     <Compile Include="LoginWindow.xaml.cs">
       <DependentUpon>LoginWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="StartApp.xaml.cs">
-      <DependentUpon>StartApp.xaml</DependentUpon>
-      <SubType>Code</SubType>
     </Compile>
     <Page Include="MemberRegisterWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
