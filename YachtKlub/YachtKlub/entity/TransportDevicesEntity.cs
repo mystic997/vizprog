@@ -6,10 +6,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace YachtKlub.database
+namespace YachtKlub.entity
 {
     [Table("TransportDevices")]
-    class TransportDevices
+    class TransportDevicesEntity
     {
         [Column("transportDeviceId", Order = 0)]
         [DataType("decimal(9, 0)")]
@@ -44,9 +44,9 @@ namespace YachtKlub.database
         [Column("transportDeviceImage", Order = 6)]
         public string TransportDeviceImage { get; set; }
 
-        public Members FKOwner { get; set; }
+        public MembersEntity FKOwner { get; set; }
 
-        public ICollection<BoatRentals> BoatRentals { get; set; }
-        public ICollection<RentRequests> RentRequests { get; set; }
+        public ICollection<BoatRentalsEntity> BoatRentals { get; set; }
+        public ICollection<RentRequestsEntity> RentRequests { get; set; }
     }
 }
