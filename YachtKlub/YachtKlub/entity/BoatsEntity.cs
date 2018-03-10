@@ -78,6 +78,5 @@ namespace YachtKlub.entity
 
         public ICollection<BoatRentalsEntity> BoatRentals { get; set; }
         public ICollection<RentRequestsEntity> RentRequests { get; set; }
-        public ICollection<RentRequests> RentRequests { get; set; }
     }
 }
