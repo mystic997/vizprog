@@ -29,7 +29,7 @@ namespace YachtKlub
         {
 
             /*Ellenőrizni kell a jelszót és ha helyes beengedni, ha hibás akkor */
-            if (tbEmailLogin.Text == "teszt" && tbPasswordLogin.Text == "teszt" 
+            if (tbEmailLogin.Text == "teszt" && tbPasswordLogin.Text == "teszt"
                 || tbEmailLogin.Text == "admin" && tbPasswordLogin.Text == "admin")
             {
                 if (tbEmailLogin.Text == "teszt" && tbPasswordLogin.Text == "teszt")
@@ -59,10 +59,5 @@ namespace YachtKlub
             registerWindow.Show();
             this.Close();
         }
-
-
-
     }
-
-    
 }
