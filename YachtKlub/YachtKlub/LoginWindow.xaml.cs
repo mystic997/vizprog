@@ -24,7 +24,6 @@ namespace YachtKlub
             InitializeComponent();
         }
 
-
         private void btLogin_Click(object sender, RoutedEventArgs e)
         {
 
