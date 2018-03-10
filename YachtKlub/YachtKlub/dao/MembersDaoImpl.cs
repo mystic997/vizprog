@@ -12,9 +12,9 @@ namespace YachtKlub.dao
         private DatabaseContext databaseContext;
         private List<MembersEntity> MembersList;
 
-        public MembersDaoImpl(DatabaseContext dbContext)
+        public MembersDaoImpl()
         {
-            databaseContext = dbContext;
+            databaseContext = DbContext.databaseContext;
             MembersList = new List<MembersEntity>();
         }
 

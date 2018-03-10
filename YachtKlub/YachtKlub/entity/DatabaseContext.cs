@@ -7,15 +7,10 @@ using System.Threading.Tasks;
 
 namespace YachtKlub.entity
 {
-    class DatabaseContext : DbContext
+    class DatabaseContext : System.Data.Entity.DbContext
     {
         public DatabaseContext() : base("YachtKlubDB")
         {
-            /*Database.Delete();
-            Database.Create();*/
-            //Database.Delete();
-            //Database.Create();
-            //Database.SetInitializer(new DropCreateDatabaseAlways<DatabaseContext>());
         }
 
         public DbSet<MembersEntity> Members { get; set; }

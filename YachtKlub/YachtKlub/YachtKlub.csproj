@@ -64,11 +64,20 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="dao\BoatRentalsDao.cs" />
+    <Compile Include="dao\BoatRentalsDaoImpl.cs" />
+    <Compile Include="dao\BoatsDao.cs" />
+    <Compile Include="dao\BoatsDaoImpl.cs" />
+    <Compile Include="dao\RentRequestsDao.cs" />
+    <Compile Include="dao\RentRequestsDaoImpl.cs" />
+    <Compile Include="dao\TransportDevicedImpl.cs" />
+    <Compile Include="dao\TransportDevicesDao.cs" />
+    <Compile Include="DbContext.cs" />
     <Page Include="LoginWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="MainWindow.xaml">
+    <Page Include="StartApp.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -76,17 +85,19 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="dao\MembersDao.cs" />
+    <Compile Include="dao\MembersDaoImpl.cs" />
     <Compile Include="entity\BoatRentalsEntity.cs" />
     <Compile Include="entity\BoatsEntity.cs" />
-    <Compile Include="entity\DatabaseContextEntity.cs" />
+    <Compile Include="entity\DatabaseContext.cs" />
     <Compile Include="entity\MembersEntity.cs" />
     <Compile Include="entity\RentRequestsEntity.cs" />
     <Compile Include="entity\TransportDevicesEntity.cs" />
     <Compile Include="LoginWindow.xaml.cs">
       <DependentUpon>LoginWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
+    <Compile Include="StartApp.xaml.cs">
+      <DependentUpon>StartApp.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
     <Page Include="MemberRegisterWindow.xaml">
