@@ -22,11 +22,13 @@ namespace YachtKlub
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class StartApp : Window
     {
-        public MainWindow()
+        public StartApp()
         {
             InitializeComponent();
+
+            //new LoginWindow();
 
             try
             {
@@ -34,7 +36,7 @@ namespace YachtKlub
                 dbContext.Database.Delete();
                 dbContext.Database.Create();
 
-                MembersDao mem = new MembersDaoImpl(dbContext);
+                MembersDao mem = new MembersDaoImpl();
                 List<MembersEntity> mems = mem.GetTemplateMembers();
 
                 for (int i = 0; i < mems.Count; i++)
