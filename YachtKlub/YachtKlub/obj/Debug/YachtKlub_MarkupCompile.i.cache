@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\pkrisztian\Desktop\vizprog_beadando\YachtKlub\YachtKlub\App.xaml
-11151548125
+7-832627522
 
-161023166158
+22396783409
 1684864372
-MainWindow.xaml;
+LoginWindow.xaml;MainWindow.xaml;MemberRegisterWindow.xaml;OfferRequestWindow.xaml;PasswordChangeWindow.xaml;PersonalAdminWindow.xaml;PersonalWindow.xaml;
 
 False
 
