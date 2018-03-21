@@ -33,6 +33,7 @@ namespace YachtKlub.entity
 
         public MembersEntity FKOwner { get; set; }
 
+        // AT KELL RAKNI A KOLCSONZESEKHEZ
         [Column("whereIsNowTheBoat", Order = 5)]
         [StringLength(100)]
         [Required]

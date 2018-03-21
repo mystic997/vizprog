@@ -14,6 +14,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using YachtKlub.dao;
 using YachtKlub.entity;
+using YachtKlub.service;
+using YachtKlub.validator;
 
 namespace YachtKlub
 {
@@ -69,6 +71,22 @@ namespace YachtKlub
 
         private void btLogin_Click(object sender, RoutedEventArgs e)
         {
+            Validator val = new Validator();
+            // lehet jobb lenne a mezőket kijelölni inkább
+            val.ValidationComponents.Add(new EmptyFieldValidator(tbEmailLogin.Text, "e-mail cím"));
+            val.ValidationComponents.Add(new EmptyFieldValidator(tbPasswordLogin.Text, "jelszó"));
+            val.ValidationComponents.Add(new EmailFormatValidator(tbEmailLogin.Text));
+            val.ValidateElements();
+            List<string> feedbackMsgs = val.GetFeedbackMessages();
+            MessageBox msgB = new MessageBox(feedbackMsgs, Status.Error);
+            //System.Windows.MessageBox.Show("msg", "cp", MessageBoxButton.OK, MessageBoxImage.Error);
+
+            //ServiceResponse loginServiceResponse = new LoginService(tbEmailLogin.Text, tbPasswordLogin.Text).Login();
+
+
+            //MessageBox.Show("Message", "Vmi mas", MessageBoxButton.OK, MessageBoxImage.Warning);
+
+            // átirányítás
 
             /*Ellenőrizni kell a jelszót és ha helyes beengedni, ha hibás akkor */
             if (tbEmailLogin.Text == "teszt" && tbPasswordLogin.Text == "teszt"

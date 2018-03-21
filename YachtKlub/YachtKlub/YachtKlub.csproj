@@ -73,6 +73,17 @@
     <Compile Include="dao\TransportDevicedImpl.cs" />
     <Compile Include="dao\TransportDevicesDao.cs" />
     <Compile Include="DbContext.cs" />
+    <Compile Include="MessageBox.cs" />
+    <Compile Include="PopupMessage.xaml.cs">
+      <DependentUpon>PopupMessage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="service\LoginService.cs" />
+    <Compile Include="service\ServiceResponse.cs" />
+    <Compile Include="validator\EmailFormatValidator.cs" />
+    <Compile Include="validator\EmptyFieldValidator.cs" />
+    <Compile Include="validator\ValidationBase.cs" />
+    <Compile Include="validator\ValidationResult.cs" />
+    <Compile Include="validator\Validator.cs" />
     <Page Include="LoginWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -111,6 +122,10 @@
     <Page Include="PersonalWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="PopupMessage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
