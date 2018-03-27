@@ -19,9 +19,18 @@ namespace YachtKlub
     /// </summary>
     public partial class PersonalAdminWindow : Window
     {
-        public PersonalAdminWindow(string LoginNev)
+        public PersonalAdminWindow(string email)
         {
             InitializeComponent();
+
+            try
+            {
+                // user data load service
+            }
+            catch (Exception ex)
+            {
+
+            }
         }
 
         private void btCancel_Click(object sender, RoutedEventArgs e)
