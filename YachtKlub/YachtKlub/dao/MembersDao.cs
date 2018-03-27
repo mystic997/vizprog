@@ -10,7 +10,7 @@ namespace YachtKlub.dao
     interface MembersDao
     {
         MembersEntity getMemberById();
-        MembersEntity getMemberByEmail();
+        MembersEntity getMemberByEmail(string email);
         List<MembersEntity> getAllMembers();
         List<MembersEntity> GetTemplateMembers();
 

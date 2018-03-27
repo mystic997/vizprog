@@ -3,35 +3,53 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using YachtKlub.dao;
+using YachtKlub.entity;
 using YachtKlub.validator;
 
 namespace YachtKlub.service
 {
     class LoginService
     {
-        private string email;
-        private string password;
+        public string Email { get; set; }
+        public string Password { get; set; }
 
         public LoginService(string email, string password)
         {
-            this.email = email;
-            this.password = password;
+            Email = email;
+            Password = password;
         }
 
-        public ServiceResponse Login()
+        public ServiceResponse TryToLogin()
         {
-            Validator val = new Validator();
-            // lehet jobb lenne a mezőket kijelölni inkább
-            val.ValidationComponents.Add(new EmptyFieldValidator(email, "e-mail cím"));
-            val.ValidationComponents.Add(new EmptyFieldValidator(password, "jelszó"));
-            val.ValidationComponents.Add(new EmailFormatValidator(email));
-            val.ValidateElements();
-
             ServiceResponse response = new ServiceResponse();
-            for (int i = 0; i < val.ValidationComponents.Count; i++)
+            MembersDao membersDao = new MembersDaoImpl();
+            MembersEntity member = membersDao.getMemberByEmail(Email);
+
+            if (member == null || !member.Password.Equals(Password))
             {
-                if (!string.IsNullOrEmpty(val.ValidationComponents[i].ValidationResult.FeedbackMessage))
-                    response.FeedbackMessages.Add(val.ValidationComponents[i].ValidationResult.FeedbackMessage);
+                response.FeedbackMessage = "Hibás e-mail cím vagy jelszó!";
+                response.ServiceStatus = Status.Error;
+            }
+            else
+            {
+                response.FeedbackMessage = "Sikeres belépés!";
+                response.ServiceStatus = Status.OK;
+
+                if (member.Permission == 0)
+                {
+                    response.ResponseMessage = "Admin";
+                }
+                else
+                {
+                    response.ResponseMessage = "User";
+                }
+            }
+
+            // it must be a method
+            if (!string.IsNullOrEmpty(response.FeedbackMessage) && !string.IsNullOrWhiteSpace(response.FeedbackMessage))
+            {
+                new PrintMessageBox(response.FeedbackMessage, response.ServiceStatus);
             }
 
             return response;

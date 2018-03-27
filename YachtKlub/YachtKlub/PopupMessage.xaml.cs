@@ -13,26 +13,23 @@ using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using YachtKlub.validator;
 
 namespace YachtKlub
 {
-    public enum Status { OK, Error };
-
     /// <summary>
     /// Interaction logic for PopupMessage.xaml
     /// </summary>
     public partial class PopupMessage : Window
     {
-        private Status status;
+        //private Status status;
 
-        public PopupMessage(string msg, Status status)
+        public PopupMessage(string message, Status status)
         {
             InitializeComponent();
 
             this.Top = 0;
             this.Left = SystemParameters.PrimaryScreenWidth - this.Width;
-
-            //this.icon = msgImg.;
 
             if (status == Status.OK)
                 this.gird.Background = new SolidColorBrush(Color.FromRgb(85, 145, 210));
@@ -40,9 +37,9 @@ namespace YachtKlub
                 this.gird.Background = new SolidColorBrush(Color.FromRgb(215, 50, 50));
 
             this.msg.FontWeight = FontWeights.Bold;
-            this.msg.Foreground = System.Windows.Media.Brushes.White;
+            this.msg.Foreground = Brushes.White;
             this.msg.FontSize = 15;
-            this.msg.Content = msg;
+            this.msg.Content = message;
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -68,6 +65,8 @@ namespace YachtKlub
             var anim = new DoubleAnimation(0, (Duration)TimeSpan.FromSeconds(1));
             anim.Completed += (s, _) => this.Close();
             this.BeginAnimation(UIElement.OpacityProperty, anim);
+
+            PopupMargin.Count--;
         }
 
         private void Window_MouseUp(object sender, MouseButtonEventArgs e)

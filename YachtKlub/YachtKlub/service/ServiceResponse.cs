@@ -9,11 +9,15 @@ namespace YachtKlub.service
 {
     class ServiceResponse
     {
-        public List<string> FeedbackMessages { get; set; }
+        public string FeedbackMessage { get; set; }
+        public string ResponseMessage { get; set; }
+        public Status ServiceStatus { get; set; }
 
         public ServiceResponse()
         {
-            FeedbackMessages = new List<string>();
+            ServiceStatus = new Status();
+            FeedbackMessage = null;
+            ResponseMessage = null;
         }
     }
 }

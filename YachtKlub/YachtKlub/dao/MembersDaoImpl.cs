@@ -7,17 +7,8 @@ using YachtKlub.entity;
 
 namespace YachtKlub.dao
 {
-    class MembersDaoImpl : MembersDao
+    class MembersDaoImpl : BaseDao<MembersEntity>, MembersDao
     {
-        private DatabaseContext databaseContext;
-        private List<MembersEntity> MembersList;
-
-        public MembersDaoImpl()
-        {
-            databaseContext = DbContext.databaseContext;
-            MembersList = new List<MembersEntity>();
-        }
-
         public List<MembersEntity> GetTemplateMembers()
         {
             List<MembersEntity> templateMembers = new List<MembersEntity>();
@@ -47,15 +38,23 @@ namespace YachtKlub.dao
 
         public List<MembersEntity> getAllMembers()
         {
-            var linqQuery = from row in databaseContext.Members select row;
-            MembersList = linqQuery.ToList<MembersEntity>();
+            var linqQuery = from row in DbContext.databaseContext.Members select row;
 
-            return MembersList;
+            List<MembersEntity> membersList = linqQuery.ToList();
+
+            return membersList;
         }
 
-        public MembersEntity getMemberByEmail()
+        public MembersEntity getMemberByEmail(string email)
         {
-            throw new NotImplementedException();
+            var linqQuery = from row in DbContext.databaseContext.Members
+                            where row.Email.Equals(email)
+                            select row;
+
+            List<MembersEntity> membersList = linqQuery.ToList();
+            MembersEntity member = GetSingleResultWithoutExc(membersList);
+
+            return member;
         }
 
         public MembersEntity getMemberById()

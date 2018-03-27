@@ -21,12 +21,12 @@ namespace YachtKlub.validator
         {
             if (string.IsNullOrEmpty(field))
             {
-                ValidationResult.ValidationStatus = ValidationStatus.Error;
+                ValidationResult.ValidationStatus = Status.Error;
                 ValidationResult.FeedbackMessage = "A(z) " + fieldName + " mező nem lehet üres!";
             }
             else
             {
-                ValidationResult.ValidationStatus = ValidationStatus.OK;
+                ValidationResult.ValidationStatus = Status.OK;
             }
         }
     }

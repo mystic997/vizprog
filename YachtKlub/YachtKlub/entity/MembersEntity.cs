@@ -20,7 +20,7 @@ namespace YachtKlub.entity
         [Column("permission", Order = 1)]
         [DataType("decimal(1, 0)")]
         [Required]
-        public double Permission { get; set; }
+        public int Permission { get; set; }
 
         [Column("email", Order = 2)]
         [StringLength(50)]

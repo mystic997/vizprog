@@ -23,12 +23,12 @@ namespace YachtKlub.validator
 
             if (!match.Success)
             {
-                ValidationResult.ValidationStatus = ValidationStatus.Error;
+                ValidationResult.ValidationStatus = Status.Error;
                 ValidationResult.FeedbackMessage = "Helytelen e-mail cím formátum!";
             }
             else
             {
-                ValidationResult.ValidationStatus = ValidationStatus.OK;
+                ValidationResult.ValidationStatus = Status.OK;
             }
         }
     }

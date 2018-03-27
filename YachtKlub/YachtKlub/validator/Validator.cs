@@ -21,19 +21,31 @@ namespace YachtKlub.validator
             {
                 ValidationComponents[i].Validate();
             }
+
+            PrintFeedbackMessages();
         }
 
-        public List<string> GetFeedbackMessages()
+        private void PrintFeedbackMessages()
         {
-            List<string> feedbackMessages = new List<string>();
+            bool hasError = false;
 
             for (int i = 0; i < ValidationComponents.Count; i++)
             {
+                if (ValidationComponents[i].ValidationResult.ValidationStatus == Status.Error)
+                {
+                    hasError = true;
+                }
+
                 if (!string.IsNullOrEmpty(ValidationComponents[i].ValidationResult.FeedbackMessage) && !string.IsNullOrWhiteSpace(ValidationComponents[i].ValidationResult.FeedbackMessage))
-                    feedbackMessages.Add(ValidationComponents[i].ValidationResult.FeedbackMessage);
+                {
+                    new PrintMessageBox(ValidationComponents[i].ValidationResult.FeedbackMessage, ValidationComponents[i].ValidationResult.ValidationStatus);
+                }
             }
 
-            return feedbackMessages;
+            if (hasError)
+            {
+                throw new Exception();
+            }
         }
     }
 }

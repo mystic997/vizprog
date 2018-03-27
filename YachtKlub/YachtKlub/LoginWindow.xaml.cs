@@ -71,46 +71,36 @@ namespace YachtKlub
 
         private void btLogin_Click(object sender, RoutedEventArgs e)
         {
-            Validator val = new Validator();
-            // lehet jobb lenne a mezőket kijelölni inkább
-            val.ValidationComponents.Add(new EmptyFieldValidator(tbEmailLogin.Text, "e-mail cím"));
-            val.ValidationComponents.Add(new EmptyFieldValidator(tbPasswordLogin.Text, "jelszó"));
-            val.ValidationComponents.Add(new EmailFormatValidator(tbEmailLogin.Text));
-            val.ValidateElements();
-            List<string> feedbackMsgs = val.GetFeedbackMessages();
-            MessageBox msgB = new MessageBox(feedbackMsgs, Status.Error);
-            //System.Windows.MessageBox.Show("msg", "cp", MessageBoxButton.OK, MessageBoxImage.Error);
-
-            //ServiceResponse loginServiceResponse = new LoginService(tbEmailLogin.Text, tbPasswordLogin.Text).Login();
-
-
-            //MessageBox.Show("Message", "Vmi mas", MessageBoxButton.OK, MessageBoxImage.Warning);
-
-            // átirányítás
-
-            /*Ellenőrizni kell a jelszót és ha helyes beengedni, ha hibás akkor */
-            if (tbEmailLogin.Text == "teszt" && tbPasswordLogin.Text == "teszt"
-                || tbEmailLogin.Text == "admin" && tbPasswordLogin.Text == "admin")
+            try
             {
-                if (tbEmailLogin.Text == "teszt" && tbPasswordLogin.Text == "teszt")
+                string email = tbEmailLogin.Text;
+                string password = tbPasswordLogin.Text;
+
+                Validator loginValidator = new Validator();
+                loginValidator.ValidationComponents.Add(new EmptyFieldValidator(email, "e-mail cím"));
+                loginValidator.ValidationComponents.Add(new EmailFormatValidator(email));
+                loginValidator.ValidationComponents.Add(new EmptyFieldValidator(password, "jelszó"));
+                // kivetelt dob, ha a validalas hibara fut, egyuttal ki is irja a hibauzeneteket
+                loginValidator.ValidateElements();
+
+                // kivetelt dob, ha sikertelen a service, egyuttal ki is irja a hibauzeneteket
+                LoginService loginService = new LoginService(email, password);
+                ServiceResponse serviceResponse = loginService.TryToLogin();
+
+                if (serviceResponse.ResponseMessage.Equals("Admin"))
                 {
-                    tbErrorLogin.Visibility = System.Windows.Visibility.Hidden;
-                    PersonalWindow PersonalWindow = new PersonalWindow(tbEmailLogin.Text);
-                    PersonalWindow.Show();
-                    this.Close();
-                }
-                if (tbEmailLogin.Text == "admin" && tbPasswordLogin.Text == "admin")
-                {
-                    tbErrorLogin.Visibility = System.Windows.Visibility.Hidden;
                     PersonalAdminWindow PersonalAdmintoWindow = new PersonalAdminWindow(tbEmailLogin.Text);
                     PersonalAdmintoWindow.Show();
-                    this.Close();
+                    Close();
+                }
+                else
+                {
+                    PersonalWindow PersonalWindow = new PersonalWindow(tbEmailLogin.Text);
+                    PersonalWindow.Show();
+                    Close();
                 }
             }
-            else
-            {
-                tbErrorLogin.Visibility = System.Windows.Visibility.Visible;
-            }
+            catch (Exception ex) { }
         }
 
         private void btRegister_Click(object sender, RoutedEventArgs e)

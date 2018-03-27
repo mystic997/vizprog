@@ -6,17 +6,17 @@ using System.Threading.Tasks;
 
 namespace YachtKlub.validator
 {
-    public enum ValidationStatus { OK, Error }
+    public enum Status { OK, Error };
 
     class ValidationResult
     {
         public string FeedbackMessage { get; set; }
-        public ValidationStatus ValidationStatus { get; set; }
+        public Status ValidationStatus { get; set; }
 
         public ValidationResult()
         {
-            FeedbackMessage = "";
-            ValidationStatus = new ValidationStatus();
+            ValidationStatus = new Status();
+            FeedbackMessage = null;
         }
     }
 }
