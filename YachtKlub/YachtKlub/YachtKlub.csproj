@@ -79,9 +79,13 @@
       <DependentUpon>PopupMessage.xaml</DependentUpon>
     </Compile>
     <Compile Include="service\LoginService.cs" />
+    <Compile Include="service\RegisterService.cs" />
     <Compile Include="service\ServiceResponse.cs" />
     <Compile Include="validator\EmailFormatValidator.cs" />
     <Compile Include="validator\EmptyFieldValidator.cs" />
+    <Compile Include="validator\FieldCharacterLimitValidator.cs" />
+    <Compile Include="validator\NameFormatValidator.cs" />
+    <Compile Include="validator\SameFieldValidator.cs" />
     <Compile Include="validator\ValidationBase.cs" />
     <Compile Include="validator\ValidationResult.cs" />
     <Compile Include="validator\Validator.cs" />

@@ -7,7 +7,7 @@ using YachtKlub.entity;
 
 namespace YachtKlub.dao
 {
-    class BoatRentalsDaoImpl : BoatRentalsDao
+    class BoatRentalsDaoImpl : BaseDao<BoatRentalsEntity>, BoatRentalsDao
     {
         public List<BoatRentalsEntity> GetAllBoatRents()
         {

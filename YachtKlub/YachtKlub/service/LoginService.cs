@@ -33,9 +33,6 @@ namespace YachtKlub.service
             }
             else
             {
-                response.FeedbackMessage = "Sikeres belépés!";
-                response.ServiceStatus = Status.OK;
-
                 if (member.Permission == 0)
                 {
                     response.ResponseMessage = "Admin";
@@ -44,6 +41,9 @@ namespace YachtKlub.service
                 {
                     response.ResponseMessage = "User";
                 }
+
+                response.FeedbackMessage = "Sikeres belépés!";
+                response.ServiceStatus = Status.OK;
             }
 
             // it must be a method

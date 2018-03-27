@@ -9,6 +9,13 @@ namespace YachtKlub.dao
 {
     class MembersDaoImpl : BaseDao<MembersEntity>, MembersDao
     {
+        DatabaseContext dbc;
+
+        public MembersDaoImpl()
+        {
+            dbc = new DatabaseContext();
+        }
+
         public List<MembersEntity> GetTemplateMembers()
         {
             List<MembersEntity> templateMembers = new List<MembersEntity>();
@@ -38,7 +45,7 @@ namespace YachtKlub.dao
 
         public List<MembersEntity> getAllMembers()
         {
-            var linqQuery = from row in DbContext.databaseContext.Members select row;
+            var linqQuery = from row in dbc.Members select row;
 
             List<MembersEntity> membersList = linqQuery.ToList();
 
@@ -47,7 +54,7 @@ namespace YachtKlub.dao
 
         public MembersEntity getMemberByEmail(string email)
         {
-            var linqQuery = from row in DbContext.databaseContext.Members
+            var linqQuery = from row in dbc.Members
                             where row.Email.Equals(email)
                             select row;
 
