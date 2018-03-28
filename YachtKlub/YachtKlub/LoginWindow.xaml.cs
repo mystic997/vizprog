@@ -85,9 +85,8 @@ namespace YachtKlub
 
                 // kivetelt dob, ha sikertelen a service, egyuttal ki is irja a hibauzeneteket
                 LoginService loginService = new LoginService(email, password);
-                ServiceResponse serviceResponse = loginService.TryToLogin();
 
-                if (serviceResponse.ResponseMessage.Equals("Admin"))
+                if (loginService.ResponseMessage["permission"].Equals("admin"))
                 {
                     PersonalAdminWindow PersonalAdmintoWindow = new PersonalAdminWindow(tbEmailLogin.Text);
                     PersonalAdmintoWindow.Show();

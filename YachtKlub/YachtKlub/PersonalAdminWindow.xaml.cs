@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using YachtKlub.service;
 
 namespace YachtKlub
 {
@@ -25,7 +26,18 @@ namespace YachtKlub
 
             try
             {
-                // user data load service
+                LoadUserDataService loadUserDataService = new LoadUserDataService(email);
+                tbLastname.Text = loadUserDataService.ResponseMessage["firstname"];
+                tbFirstname.Text = loadUserDataService.ResponseMessage["lastname"];
+                tbEmail.Text = loadUserDataService.ResponseMessage["email"];
+                tbEmailAgain.Text = loadUserDataService.ResponseMessage["email"];
+                tbPermission.Text = loadUserDataService.ResponseMessage["permission"];
+                tbCountry.Text = "null";
+                tbCity.Text = loadUserDataService.ResponseMessage["city"];
+                tbStreet.Text = loadUserDataService.ResponseMessage["street"];
+                tbStreetNumber.Text = loadUserDataService.ResponseMessage["houseNumber"];
+
+                // TO DO: IMAGE, COUNTRY
             }
             catch (Exception ex)
             {
@@ -36,6 +48,12 @@ namespace YachtKlub
         private void btCancel_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        private void btChangePassword_Click(object sender, RoutedEventArgs e)
+        {
+            PasswordChangeWindow PasswordChangetoWindow = new PasswordChangeWindow(tbEmail.Text);
+            PasswordChangetoWindow.Show();
         }
     }
 }

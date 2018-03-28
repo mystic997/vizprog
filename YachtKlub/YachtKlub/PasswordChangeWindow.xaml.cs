@@ -23,5 +23,10 @@ namespace YachtKlub
         {
             InitializeComponent();
         }
+
+        private void btCancel_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
     }
 }

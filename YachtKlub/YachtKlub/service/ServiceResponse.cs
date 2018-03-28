@@ -10,14 +10,14 @@ namespace YachtKlub.service
     class ServiceResponse
     {
         public string FeedbackMessage { get; set; }
-        public string ResponseMessage { get; set; }
+        public Dictionary<string, string> ResponseMessage { get; set; }
         public Status ServiceStatus { get; set; }
 
         public ServiceResponse()
         {
             ServiceStatus = new Status();
+            ResponseMessage = new Dictionary<string, string>();
             FeedbackMessage = null;
-            ResponseMessage = null;
         }
     }
 }

@@ -77,7 +77,6 @@ namespace YachtKlub
 
 
                 RegisterService registerService = new RegisterService(firstname, lastname, email, password, country, city, street, houseNumber);
-                ServiceResponse serviceResponse = registerService.TryToRegister();
             }
             catch (Exception ex) { }
         }

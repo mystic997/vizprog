@@ -9,7 +9,7 @@ using YachtKlub.validator;
 
 namespace YachtKlub.service
 {
-    class LoginService
+    class LoginService : ServiceResponse
     {
         public string Email { get; set; }
         public string Password { get; set; }
@@ -18,41 +18,40 @@ namespace YachtKlub.service
         {
             Email = email;
             Password = password;
+
+            TryToLogin();
         }
 
-        public ServiceResponse TryToLogin()
+        private void TryToLogin()
         {
-            ServiceResponse response = new ServiceResponse();
             MembersDao membersDao = new MembersDaoImpl();
             MembersEntity member = membersDao.getMemberByEmail(Email);
 
             if (member == null || !member.Password.Equals(Password))
             {
-                response.FeedbackMessage = "Hibás e-mail cím vagy jelszó!";
-                response.ServiceStatus = Status.Error;
+                FeedbackMessage = "Hibás e-mail cím vagy jelszó!";
+                ServiceStatus = Status.Error;
             }
             else
             {
                 if (member.Permission == 0)
                 {
-                    response.ResponseMessage = "Admin";
+                    ResponseMessage.Add("permission", "admin");
                 }
                 else
                 {
-                    response.ResponseMessage = "User";
+                    ResponseMessage.Add("permission", "user");
                 }
 
-                response.FeedbackMessage = "Sikeres belépés!";
-                response.ServiceStatus = Status.OK;
+                FeedbackMessage = "Sikeres belépés!";
+                ServiceStatus = Status.OK;
             }
 
             // it must be a method
-            if (!string.IsNullOrEmpty(response.FeedbackMessage) && !string.IsNullOrWhiteSpace(response.FeedbackMessage))
+            if (!string.IsNullOrEmpty(FeedbackMessage) && !string.IsNullOrWhiteSpace(FeedbackMessage))
             {
-                new PrintMessageBox(response.FeedbackMessage, response.ServiceStatus);
+                new PrintMessageBox(FeedbackMessage, ServiceStatus);
             }
-
-            return response;
         }
     }
 }

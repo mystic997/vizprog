@@ -28,8 +28,6 @@
         <Label x:Name="lbEmailAgain"  Content="Regisztráció dátuma:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="490,91,0,0" FontSize="12"  Width="130" Height="26" />
         <TextBox x:Name="tbEmailAgain"  HorizontalAlignment="Left" VerticalAlignment="Top" Margin="625,91,0,0" FontSize="12"  Width="170" Height="25" />
 
-        <Label x:Name="lbPermission" Content="Jogosultság:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="218,152,0,0" FontSize="11"  Width="70" Height="26" />
-
         <Button x:Name="btChangePassword" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="625,152,0,0" FontSize="12"  Width="150" Height="25" Content="Jelszó változtatás" Click="btChangePassword_Click"></Button>
 
         <Label x:Name="lbCountry" Content="Ország:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="66,224,0,0" FontSize="12"  Width="150" Height="25" />

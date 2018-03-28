@@ -9,7 +9,7 @@ using YachtKlub.validator;
 
 namespace YachtKlub.service
 {
-    class RegisterService
+    class RegisterService : ServiceResponse
     {
         private string city;
         private string country;
@@ -30,18 +30,19 @@ namespace YachtKlub.service
             this.city = city;
             this.street = street;
             this.houseNumber = houseNumber;
+
+            TryToRegister();
         }
 
-        internal ServiceResponse TryToRegister()
+        private void TryToRegister()
         {
-            ServiceResponse response = new ServiceResponse();
             MembersDao membersDao = new MembersDaoImpl();
             MembersEntity memberAlreadyInDatabase = membersDao.getMemberByEmail(email);
 
             if (memberAlreadyInDatabase != null)
             {
-                response.FeedbackMessage = "Ezzel az e-mail címmel már regisztrált valaki!";
-                response.ServiceStatus = Status.Error;
+                FeedbackMessage = "Ezzel az e-mail címmel már regisztrált valaki!";
+                ServiceStatus = Status.Error;
             }
             else
             {
@@ -60,17 +61,15 @@ namespace YachtKlub.service
                 dbc.Members.Add(newMemberEntity);
                 dbc.SaveChanges();
 
-                response.FeedbackMessage = "Sikeres regisztráció!";
-                response.ServiceStatus = Status.OK;
+                FeedbackMessage = "Sikeres regisztráció!";
+                ServiceStatus = Status.OK;
             }
 
             // it must be a method
-            if (!string.IsNullOrEmpty(response.FeedbackMessage) && !string.IsNullOrWhiteSpace(response.FeedbackMessage))
+            if (!string.IsNullOrEmpty(FeedbackMessage) && !string.IsNullOrWhiteSpace(FeedbackMessage))
             {
-                new PrintMessageBox(response.FeedbackMessage, response.ServiceStatus);
+                new PrintMessageBox(FeedbackMessage, ServiceStatus);
             }
-
-            return response;
         }
     }
 }
