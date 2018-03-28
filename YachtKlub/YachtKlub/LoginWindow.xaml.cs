@@ -31,20 +31,19 @@ namespace YachtKlub
             try
             {
                 // set up the active database
-                //DatabaseContext dbContext = new DatabaseContext();
-                /*if (dbContext.Database.Exists())
+                DatabaseContext dbContext = new DatabaseContext();
+                if (dbContext.Database.Exists())
                     dbContext.Database.Delete();
-                dbContext.Database.Create();*/
-                //DbContext.databaseContext = dbContext;
+                dbContext.Database.Create();
 
                 // fill the database with temporarily data
-                /*MembersDao mem = new MembersDaoImpl();
+                MembersDao mem = new MembersDaoImpl();
                 List<MembersEntity> mems = mem.GetTemplateMembers();
                 for (int i = 0; i < mems.Count; i++)
                 {
                     dbContext.Members.Add(mems[i]);
                 }
-                dbContext.SaveChanges();*/
+                dbContext.SaveChanges();
 
                 // example to get data from database
                 //var datas = mem.getAllMembers();
