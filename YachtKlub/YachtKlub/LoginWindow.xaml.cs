@@ -16,6 +16,7 @@ using YachtKlub.dao;
 using YachtKlub.entity;
 using YachtKlub.service;
 using YachtKlub.validator;
+using System.IO;
 
 namespace YachtKlub
 {
