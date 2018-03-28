@@ -29,7 +29,6 @@
         <TextBox x:Name="tbEmailAgain"  HorizontalAlignment="Left" VerticalAlignment="Top" Margin="625,91,0,0" FontSize="12"  Width="170" Height="25" />
 
         <Label x:Name="lbPermission" Content="Jogosultság:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="218,152,0,0" FontSize="11"  Width="70" Height="26" />
-        <TextBox x:Name="tbPassword" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="293,152,0,0" FontSize="12"  Width="170" Height="25" />
 
         <Button x:Name="btChangePassword" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="625,152,0,0" FontSize="12"  Width="150" Height="25" Content="Jelszó változtatás" Click="btChangePassword_Click"></Button>
 
