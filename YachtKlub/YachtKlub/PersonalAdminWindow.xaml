@@ -37,7 +37,7 @@
         <TextBox x:Name="tbCountry" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="218,224,0,0" FontSize="12"  Width="200" Height="25" />
 
 
-        <Label x:Name="lbCity" Content="Város:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1195,548,-453,-144" FontSize="12"  Width="100" Height="26" />
+        <Label x:Name="lbCity" Content="Város:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="520,223,0,0" FontSize="12"  Width="100" Height="26" />
         <TextBox x:Name="tbCity" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="625,224,0,0" FontSize="12"  Width="200" Height="25" />
 
         <Label x:Name="lbStreet" Content="Utca:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="66,284,0,0" FontSize="12"  Width="150" Height="25" />
@@ -46,10 +46,11 @@
         <Label x:Name="lbStreetNumber" Content="Házszám:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="520,284,0,0" FontSize="12"  Width="100" Height="26" />
         <TextBox x:Name="tbStreetNumber" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="625,284,0,0" FontSize="12"  Width="200" Height="25" />
 
-        <Button x:Name="btSave" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="218,358,0,0" FontSize="12"  Width="255" Height="25" Content="Változtatások mentése" />
+        <Button x:Name="btSave" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="218,358,0,0" FontSize="12"  Width="255" Height="25" Content="Adatok módosítása" Click="btSave_Click" />
         <Button x:Name="btCancel" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="520,358,0,0" FontSize="12"  Width="255" Height="25" Content="Kilépés" Click="btCancel_Click" />
 
-        <Button x:Name="btAdminRegiszter" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="18,358,0,0" FontSize="12"  Width="155" Height="25" Content="Felhasználó regisztrálása" />
+        <Button x:Name="btCloseAdminRegister" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="178,358,0,0" FontSize="12"  Width="25" Height="25" Content="X" Click="btCloseAdminRegister_Click" />
+        <Button x:Name="btAdminRegiszter" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="18,358,0,0" FontSize="12"  Width="155" Height="25" Content="Felhasználó regisztrálása" Click="btAdminRegiszter_Click" />
 
 
 

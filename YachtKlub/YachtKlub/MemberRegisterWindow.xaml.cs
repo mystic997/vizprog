@@ -51,11 +51,11 @@ namespace YachtKlub
                 Validator registerValidator = new Validator();
                 registerValidator.ValidationComponents.Add(new EmptyFieldValidator(firstname, "vezetéknév"));
                 registerValidator.ValidationComponents.Add(new NameFormatValidator(firstname));
-                registerValidator.ValidationComponents.Add(new FieldCharacterLimitValidator(firstname, 3, 999, "vezetéknév"));
+                registerValidator.ValidationComponents.Add(new FieldCharacterLimitValidator(firstname, 2, 999, "vezetéknév"));
 
                 registerValidator.ValidationComponents.Add(new EmptyFieldValidator(lastname, "keresztnév"));
                 registerValidator.ValidationComponents.Add(new NameFormatValidator(lastname));
-                registerValidator.ValidationComponents.Add(new FieldCharacterLimitValidator(lastname, 3, 999, "keresztnév"));
+                registerValidator.ValidationComponents.Add(new FieldCharacterLimitValidator(lastname, 2, 999, "keresztnév"));
 
                 registerValidator.ValidationComponents.Add(new EmptyFieldValidator(email, "e-mail"));
                 registerValidator.ValidationComponents.Add(new EmailFormatValidator(email));
@@ -68,13 +68,13 @@ namespace YachtKlub
                 registerValidator.ValidationComponents.Add(new EmptyFieldValidator(passwordCheck, "jelszó megerősítése"));
                 registerValidator.ValidationComponents.Add(new SameFieldValidator(password, passwordCheck, "jelszó"));
 
+                // need to validate by a regular expression
                 registerValidator.ValidationComponents.Add(new EmptyFieldValidator(country, "ország"));
                 registerValidator.ValidationComponents.Add(new EmptyFieldValidator(city, "város"));
                 registerValidator.ValidationComponents.Add(new EmptyFieldValidator(street, "utca"));
                 registerValidator.ValidationComponents.Add(new EmptyFieldValidator(houseNumber, "házszám"));
 
                 registerValidator.ValidateElements();
-
 
                 RegisterService registerService = new RegisterService(firstname, lastname, email, password, country, city, street, houseNumber);
             }
