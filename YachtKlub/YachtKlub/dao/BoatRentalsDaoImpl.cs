@@ -11,6 +11,14 @@ namespace YachtKlub.dao
     {
         public List<BoatRentalsEntity> GetAllBoatRents()
         {
+            Random random = new Random();
+            List<BoatRentalsEntity> TemplateBoatRentals = new List<BoatRentalsEntity>();
+
+            BoatRentalsEntity templateBoatRental = new BoatRentalsEntity();
+
+            MembersDao membersDao = new MembersDaoImpl();
+            templateBoatRental.FKWhoRents = membersDao.getMemberByEmail("user" + random.Next(0, 10) + "@gmail.com");
+            /*Ez még nincs kész*/
             throw new NotImplementedException();
         }
 
