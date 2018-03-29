@@ -9,7 +9,7 @@ namespace YachtKlub.dao
 {
     interface BoatRentalsDao
     {
-        BoatRentalsEntity GetBoatRentalsById();
+        BoatRentalsEntity GetBoatRentalsById(int v);
         List<BoatRentalsEntity> GetAllBoatRents();
         List<BoatRentalsEntity> GetTemplateBoatRents();
     }
