@@ -10,7 +10,7 @@ namespace YachtKlub.dao
     class BoatRentalsDaoImpl : BaseDao<BoatRentalsEntity>, BoatRentalsDao
     {
         public List<BoatRentalsEntity> GetAllBoatRents()
-        {/*Teszt*/
+        {
             throw new NotImplementedException();
         }
 
