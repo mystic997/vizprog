@@ -14,9 +14,7 @@
 
         <Image x:Name="imgProfilePicture"   HorizontalAlignment="Left" Height="150" Margin="10,10,0,0" VerticalAlignment="Top" Width="203"/>
 
-        <Button  x:Name="btUploadProfilePicture" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="41,165,0,0" FontSize="12"    Width="140" Height="25" RenderTransformOrigin="0.55,3.975" Content="Profilkép feltöltése" Click="btUploadProfilePicture_Click" >
-           
-        </Button>
+        <Button  x:Name="btUploadProfilePicture" Content="Profilkép feltöltése" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="41,165,0,0" FontSize="12"    Width="140" Height="25" RenderTransformOrigin="0.55,3.975" />
 
         <Label  x:Name="lbLastname" Content="Vezetéknév:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="218,30,0,0" FontSize="12"  Width="70" Height="25" />
         <TextBox x:Name="tbLastname" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="293,30,0,0" FontSize="12"  Width="170" Height="25" />
@@ -30,7 +28,7 @@
         <Label x:Name="lbEmailAgain"  Content="Regisztráció dátuma:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="490,91,0,0" FontSize="12"  Width="130" Height="26" />
         <TextBox x:Name="tbEmailAgain"  HorizontalAlignment="Left" VerticalAlignment="Top" Margin="625,91,0,0" FontSize="12"  Width="170" Height="25" />
 
-        <Button x:Name="btChangePassword" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="240,163,0,0" FontSize="12"  Width="535" Height="25" Content="Jelszó változtatás" Click="btChangePassword_Click"></Button>
+        <Button x:Name="btChangePassword" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="625,152,0,0" FontSize="12"  Width="150" Height="25" Content="Jelszó változtatás" Click="btChangePassword_Click"></Button>
 
         <Label x:Name="lbCountry" Content="Ország:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="66,224,0,0" FontSize="12"  Width="150" Height="25" />
         <TextBox x:Name="tbCountry" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="218,224,0,0" FontSize="12"  Width="200" Height="25" />

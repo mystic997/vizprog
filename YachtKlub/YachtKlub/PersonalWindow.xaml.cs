@@ -12,7 +12,6 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using YachtKlub.service;
-using System.IO;
 using YachtKlub.validator;
 
 namespace YachtKlub
@@ -60,25 +59,70 @@ namespace YachtKlub
 
         private void btChangePassword_Click(object sender, RoutedEventArgs e)
         {
-            PasswordChangeWindow ToPasswordChangeWindow = new PasswordChangeWindow(tbEmail.Text);
-            ToPasswordChangeWindow.Show();
+            PasswordChangeWindow PasswordChangetoWindow = new PasswordChangeWindow(tbEmail.Text);
+            PasswordChangetoWindow.Show();
         }
 
         private void btCancel_Click(object sender, RoutedEventArgs e)
         {
-            
-            LoginWindow ToLoginWindow = new LoginWindow();
-            ToLoginWindow.Show();
             this.Close();
         }
 
-        private void btUploadProfilePicture_Click(object sender, RoutedEventArgs e)
+        private void btSave_Click(object sender, RoutedEventArgs e)
         {
-            Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();
-            dlg.DefaultExt = "*.jpg";
-            dlg.Filter = " Pictures (.jpg)|*.jpg";
-            Nullable<bool> result = dlg.ShowDialog();
-            string filename = dlg.FileName;
+            try
+            {
+                string firstname = tbLastname.Text;
+                string lastname = tbFirstname.Text;
+                string email = tbEmail.Text;
+                string emailCheck = tbEmailAgain.Text;
+                string country = tbCountry.Text;
+                string city = tbCity.Text;
+                string street = tbStreet.Text;
+                string houseNumber = tbStreetNumber.Text;
+
+                if (btSave.Content.Equals("Adatok módosítása"))
+                {
+                    btSave.Content = "Módosítások mentése";
+                    fields.ForEach(i => i.IsEnabled = true);
+                }
+                else
+                {
+                    ValidateFields(firstname, lastname, email, emailCheck, country, city, street, houseNumber);
+
+                    UpdateUserDataService updateUserService = new UpdateUserDataService(firstname, lastname, email, country, city, street, houseNumber, 1); // not admin
+
+                    btSave.Content = "Adatok módosítása";
+                    fields.ForEach(i => i.IsEnabled = false);
+                }
+            }
+            catch (Exception ex) { }
+        }
+
+        private void ValidateFields(string firstname, string lastname, string email, string emailCheck, string country, string city, string street, string houseNumber)
+        {
+            Validator registerValidator = new Validator();
+            registerValidator.ValidationComponents.Add(new EmptyFieldValidator(firstname, "vezetéknév"));
+            registerValidator.ValidationComponents.Add(new NameFormatValidator(firstname));
+            registerValidator.ValidationComponents.Add(new FieldCharacterLimitValidator(firstname, 2, 999, "vezetéknév"));
+
+            registerValidator.ValidationComponents.Add(new EmptyFieldValidator(lastname, "keresztnév"));
+            registerValidator.ValidationComponents.Add(new NameFormatValidator(lastname));
+            registerValidator.ValidationComponents.Add(new FieldCharacterLimitValidator(lastname, 2, 999, "keresztnév"));
+
+            registerValidator.ValidationComponents.Add(new EmptyFieldValidator(email, "e-mail"));
+            registerValidator.ValidationComponents.Add(new EmailFormatValidator(email));
+            registerValidator.ValidationComponents.Add(new EmptyFieldValidator(emailCheck, "e-mail megerősítése"));
+            registerValidator.ValidationComponents.Add(new EmailFormatValidator(emailCheck));
+            registerValidator.ValidationComponents.Add(new SameFieldValidator(email, emailCheck, "e-mail cím"));
+
+            // need to validate by a regular expression
+            registerValidator.ValidationComponents.Add(new EmptyFieldValidator(country, "ország"));
+            registerValidator.ValidationComponents.Add(new EmptyFieldValidator(city, "város"));
+            registerValidator.ValidationComponents.Add(new EmptyFieldValidator(street, "utca"));
+            registerValidator.ValidationComponents.Add(new EmptyFieldValidator(houseNumber, "házszám"));
+
+            registerValidator.ValidateElements();
         }
     }
 }
