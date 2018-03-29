@@ -32,16 +32,7 @@ namespace YachtKlub
 
             try
             {
-                LoadUserDataService loadUserDataService = new LoadUserDataService(email);
-                tbLastname.Text = loadUserDataService.ResponseMessage["firstname"];
-                tbFirstname.Text = loadUserDataService.ResponseMessage["lastname"];
-                tbEmail.Text = loadUserDataService.ResponseMessage["email"];
-                tbEmailAgain.Text = loadUserDataService.ResponseMessage["email"];
-                cbPermission.Text = loadUserDataService.ResponseMessage["permission"];
-                tbCountry.Text = "null";
-                tbCity.Text = loadUserDataService.ResponseMessage["city"];
-                tbStreet.Text = loadUserDataService.ResponseMessage["street"];
-                tbStreetNumber.Text = loadUserDataService.ResponseMessage["houseNumber"];
+                btCloseAdminRegister.Visibility = Visibility.Hidden;
 
                 tbEmail.IsEnabled = false;
                 tbEmailAgain.IsEnabled = false;
@@ -78,41 +69,18 @@ namespace YachtKlub
             tbStreet.Text = loadUserDataService.ResponseMessage["street"];
             tbStreetNumber.Text = loadUserDataService.ResponseMessage["houseNumber"];
 
-                // TO DO: IMAGE, COUNTRY
-            }
-            catch (Exception ex)
-            {
-
-            }
+            // TO DO: IMAGE, COUNTRY
         }
 
         private void btCancel_Click(object sender, RoutedEventArgs e)
         {
-            
-            LoginWindow ToLoginWindow = new LoginWindow();
-            ToLoginWindow.Show();
             this.Close();
         }
 
         private void btChangePassword_Click(object sender, RoutedEventArgs e)
         {
-            PasswordChangeWindow ToPasswordChangeWindow = new PasswordChangeWindow(tbEmail.Text);
-            ToPasswordChangeWindow.Show();
-        }
-
-        private void btUploadProfilePicture_Click(object sender, RoutedEventArgs e)
-        {
-            Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();
-            dlg.DefaultExt = "*.jpg";
-            dlg.Filter = " Pictures (.jpg)|*.jpg";
-            Nullable<bool> result = dlg.ShowDialog();
-            string filename = dlg.FileName;
-        }
-
-        private void btAdminRegiszter_Click(object sender, RoutedEventArgs e)
-        {
-            MemberRegisterWindow ToMemberRegisterWindow = new MemberRegisterWindow();
-            ToMemberRegisterWindow.Show();
+            PasswordChangeWindow PasswordChangetoWindow = new PasswordChangeWindow(tbEmail.Text);
+            PasswordChangetoWindow.Show();
         }
 
         private void btSave_Click(object sender, RoutedEventArgs e)

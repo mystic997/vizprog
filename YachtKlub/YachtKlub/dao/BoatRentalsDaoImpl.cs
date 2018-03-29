@@ -14,7 +14,7 @@ namespace YachtKlub.dao
             throw new NotImplementedException();
         }
 
-        public BoatRentalsEntity GetBoatRentalsById(int v)
+        public BoatRentalsEntity GetBoatRentalsById()
         {
             throw new NotImplementedException();
         }
