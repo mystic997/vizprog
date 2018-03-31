@@ -11,6 +11,8 @@ namespace YachtKlub.dao
     {
         RentRequestsEntity GetRentRequestsById();
         List<RentRequestsEntity> GetAllRentRequests();
+        List<RentRequestsEntity> GetAllRentRequestsByWhoBorrows(MembersEntity WhoBorrows);
+        List<RentRequestsEntity> GetAllRentRequestsByBoatToBorrow(BoatsEntity BoatToBorrow);
         List<RentRequestsEntity> GetTemplateRentRequests();
     }
 }
