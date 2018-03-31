@@ -25,6 +25,28 @@ namespace YachtKlub.dao
 
         public List<TransportDevicesEntity> GetTemplateTransportDevices()
         {
+            //List<TransportDevicesEntity> TransportDevices = new List<TransportDevicesEntity>();
+
+            //for (int i = 0; i < 12; i++)
+            //{
+            //    Random random = new Random();
+
+            //    TransportDevicesEntity TemplateTransportDevice = new TransportDevicesEntity();
+
+            //    TemplateTransportDevice.TransportDeviceId = i;
+            //    TemplateTransportDevice.TransportDeviceName = "TransportDevice" + i;
+            //    TemplateTransportDevice.CarryingCapacity = random.Next(1, 50);
+            //    TemplateTransportDevice.TransportDeviceType = "Type" + random.Next(0, 3);
+            //    TemplateTransportDevice.TransportDeviceLength = random.Next(100, 700) / 100;
+            //    TemplateTransportDevice.TransportDeviceWidth = random.Next(50, 300) / 100;
+            //    TemplateTransportDevice.TransportDeviceImage = "TransportDevice" + i;
+            //    TemplateTransportDevice.FKOwner = 
+            //    TemplateTransportDevice.BoatRentals = 
+            //    TemplateTransportDevice.RentRequests = 
+
+
+            //}
+
             throw new NotImplementedException();
         }
 
