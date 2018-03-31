@@ -22,6 +22,7 @@ namespace YachtKlub.dao
             List<RentRequestsEntity> RentRequestsList = linqQuery.ToList();
             return RentRequestsList;
         }
+
         public List<RentRequestsEntity> GetAllRentRequestsByWhoBorrows(MembersEntity WhoBorrows)/*Függvény, ami visszaad egy listát, ami tartalmazza, hogy az adott felhasználónak, milyen kölcsönzési kérelmei vannak vannak*/
         {
             var linqQuery = from row in dbc.RentRequests where row.WhoBorrows.Equals(WhoBorrows) select row;
