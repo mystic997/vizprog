@@ -9,9 +9,22 @@ namespace YachtKlub.dao
 {
     class BoatsDaoImpl : BaseDao<BoatsEntity>, BoatsDao
     {
+        DatabaseContext dbc;
+
+        public BoatsDaoImpl()
+        {
+            dbc = new DatabaseContext();
+        }
+
         public List<BoatsEntity> GetAllBoats()
         {
             throw new NotImplementedException();
+        }
+        public List<BoatsEntity> GetAllBoatsByOwner(MembersEntity Owner)/*Függvény, ami visszaad egy listát, ami tartalmazza, az adott felhasználó hajóit*/
+        {
+            var linqQuery = from row in dbc.Boats where row.FKOwner.Equals(Owner) select row;
+            List<BoatsEntity> BoatsList = linqQuery.ToList();
+            return BoatsList;
         }
 
         public BoatsEntity GetBoatsById()
