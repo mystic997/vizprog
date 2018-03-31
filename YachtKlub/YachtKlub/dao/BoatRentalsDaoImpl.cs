@@ -18,7 +18,9 @@ namespace YachtKlub.dao
 
         public List<BoatRentalsEntity> GetAllBoatRents()
         {
-            throw new NotImplementedException();
+            var linqQuery = from row in dbc.BoatRentals select row;
+            List<BoatRentalsEntity> BoatRentalsList = linqQuery.ToList();
+            return BoatRentalsList;
         }
 
         public List<BoatRentalsEntity> GetBoatRentalsByBoat(BoatsEntity RentedBoat)/*Függvény, ami visszaad egy listát, ami tartalmazza, hogy az adott hajóhoz milyen kölcsönzések vannak*/

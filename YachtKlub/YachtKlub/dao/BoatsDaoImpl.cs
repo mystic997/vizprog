@@ -18,7 +18,9 @@ namespace YachtKlub.dao
 
         public List<BoatsEntity> GetAllBoats()
         {
-            throw new NotImplementedException();
+            var linqQuery = from row in dbc.Boats select row;
+            List<BoatsEntity> BoatsList = linqQuery.ToList();
+            return BoatsList;
         }
         public List<BoatsEntity> GetAllBoatsByOwner(MembersEntity Owner)/*Függvény, ami visszaad egy listát, ami tartalmazza, az adott felhasználó hajóit*/
         {
