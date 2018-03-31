@@ -28,6 +28,13 @@ namespace YachtKlub.dao
             return BoatRentalsList;
         }
 
+        public List<BoatRentalsEntity> GetBoatRentalsByWhoRents(MembersEntity WhoRents)/*Függvény, ami visszaad egy listát, ami tartalmazza, hogy az adott felhaszálónak milyen kölcsönzései vannak*/
+        {
+            var linqQuery = from row in dbc.BoatRentals where row.FKWhoRents.Equals(WhoRents) select row;
+            List<BoatRentalsEntity> BoatRentalsList = linqQuery.ToList();
+            return BoatRentalsList;
+        }
+
         public BoatRentalsEntity GetBoatRentalsById()
         {
             throw new NotImplementedException();
