@@ -9,9 +9,18 @@ namespace YachtKlub.dao
 {
     class TransportDevicedImpl : BaseDao<TransportDevicesEntity>, TransportDevicesDao
     {
+        DatabaseContext dbc;
+
+        public TransportDevicedImpl()
+        {
+            dbc = new DatabaseContext();
+        }
+
         public List<TransportDevicesEntity> GetAllTransportDevices()
         {
-            throw new NotImplementedException();
+            var linqQuery = from row in dbc.TransportDevices select row;
+            List<TransportDevicesEntity> TransportDevicesList = linqQuery.ToList();
+            return TransportDevicesList;
         }
 
         public List<TransportDevicesEntity> GetTemplateTransportDevices()
@@ -19,9 +28,19 @@ namespace YachtKlub.dao
             throw new NotImplementedException();
         }
 
-        public TransportDevicesEntity GetTransportDevicesById()
+        public List<TransportDevicesEntity> GetAllTransportDevicesByOwner(MembersEntity Owner)/*Függvény, ami visszaad egy listát, ami tartalmazza, hogy az adott felhasználónak, milyen szállító eszközei vannak*/
         {
-            throw new NotImplementedException();
+            var linqQuery = from row in dbc.TransportDevices where row.FKOwner.Equals(Owner) select row;
+            List<TransportDevicesEntity> TransportDevicesList = linqQuery.ToList();
+            return TransportDevicesList;
+        }
+
+        public TransportDevicesEntity GetTransportDevicesById(int id)
+        {
+            var linqQuery = from row in dbc.TransportDevices where row.TransportDeviceId.Equals(id) select row;
+            List<TransportDevicesEntity> TransportDevicesList = linqQuery.ToList();
+            TransportDevicesEntity TransportDevices = GetSingleResultWithoutExc(TransportDevicesList);
+            return TransportDevices;
         }
     }
 }
