@@ -40,19 +40,13 @@ namespace YachtKlub.dao
             //    TemplateTransportDevice.TransportDeviceLength = random.Next(100, 700) / 100;
             //    TemplateTransportDevice.TransportDeviceWidth = random.Next(50, 300) / 100;
             //    TemplateTransportDevice.TransportDeviceImage = "TransportDevice" + i;
+            //    TemplateTransportDevice.FKOwner = 
+            //    TemplateTransportDevice.BoatRentals = 
+            //    TemplateTransportDevice.RentRequests = 
 
-            //    MembersDao mem = new MembersDaoImpl();
-            //    List<MembersEntity> mems = mem.GetTemplateMembers();
-
-            //    TemplateTransportDevice.FKOwner = mems[random.Next(0, mems.Count)];
-
-            //    TemplateTransportDevice.BoatRentals = new List<BoatRentalsEntity>();
-            //    TemplateTransportDevice.RentRequests = new List<RentRequestsEntity>();
-
-            //    TransportDevices.Add(TemplateTransportDevice);
 
             //}
-            //return TransportDevices;
+
             throw new NotImplementedException();
         }
 
