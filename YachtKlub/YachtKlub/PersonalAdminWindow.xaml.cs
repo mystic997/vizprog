@@ -13,7 +13,6 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using YachtKlub.service;
 using YachtKlub.validator;
-using System.IO;
 
 namespace YachtKlub
 {
@@ -37,7 +36,7 @@ namespace YachtKlub
 
                 tbEmail.IsEnabled = false;
                 tbEmailAgain.IsEnabled = false;
-                cbPermission.IsEnabled = false;
+                tbPermission.IsEnabled = false;
 
                 fields = new List<TextBox>();
                 fields.Add(tbLastname);
@@ -64,7 +63,7 @@ namespace YachtKlub
             tbFirstname.Text = loadUserDataService.ResponseMessage["lastname"];
             tbEmail.Text = loadUserDataService.ResponseMessage["email"];
             tbEmailAgain.Text = loadUserDataService.ResponseMessage["email"];
-            cbPermission.Text = loadUserDataService.ResponseMessage["permission"];
+            tbPermission.Text = loadUserDataService.ResponseMessage["permission"];
             tbCountry.Text = "null";
             tbCity.Text = loadUserDataService.ResponseMessage["city"];
             tbStreet.Text = loadUserDataService.ResponseMessage["street"];
@@ -75,8 +74,6 @@ namespace YachtKlub
 
         private void btCancel_Click(object sender, RoutedEventArgs e)
         {
-            LoginWindow ToLoginWindow = new LoginWindow();
-            ToLoginWindow.Show();
             this.Close();
         }
 
@@ -176,7 +173,7 @@ namespace YachtKlub
                 int permission;
                 try
                 {
-                    permission = int.Parse(cbPermission.Text);
+                    permission = int.Parse(tbPermission.Text);
                 }
                 catch (Exception)
                 {
@@ -189,8 +186,8 @@ namespace YachtKlub
                     btAdminRegiszter.Content = "Változtatások mentése";
                     fields.ForEach(i => i.IsEnabled = true);
                     fields.ForEach(i => i.Text = "");
-                    cbPermission.IsEnabled = true;
-                    cbPermission.Text = "";
+                    tbPermission.IsEnabled = true;
+                    tbPermission.Text = "";
                     tbEmail.IsEnabled = true;
                     tbEmail.Text = "";
                     tbEmailAgain.IsEnabled = true;
@@ -210,7 +207,7 @@ namespace YachtKlub
                     btSave.IsEnabled = true;
                     btAdminRegiszter.Content = "Felhasználó regisztrálása";
                     fields.ForEach(i => i.IsEnabled = false);
-                    cbPermission.IsEnabled = false;
+                    tbPermission.IsEnabled = false;
                     tbEmail.IsEnabled = false;
                     tbEmailAgain.IsEnabled = false;
 
@@ -227,30 +224,13 @@ namespace YachtKlub
             btSave.IsEnabled = true;
             btAdminRegiszter.Content = "Felhasználó regisztrálása";
             fields.ForEach(i => i.IsEnabled = false);
-            cbPermission.IsEnabled = false;
+            tbPermission.IsEnabled = false;
             tbEmail.IsEnabled = false;
             tbEmailAgain.IsEnabled = false;
 
             btCloseAdminRegister.Visibility = Visibility.Hidden;
 
             fillFieldsWithUserData(adminEmain);
-        }
-
-        private void btUploadProfilePicture_Click(object sender, RoutedEventArgs e)
-        {
-            // Create OpenFileDialog
-            Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();
-            // Set filter for file extension and default file extension
-            dlg.DefaultExt = ".jpg";
-            dlg.Filter = "Pictures (.jpg)|*.jpg";
-            // Display OpenFileDialog by calling ShowDialog method
-            Nullable<bool> result = dlg.ShowDialog();
-            // Get the selected file name and display in a TextBox
-            if (result == true)
-            {
-                // Open document
-                string filename = dlg.FileName;
-            }
         }
     }
 }
