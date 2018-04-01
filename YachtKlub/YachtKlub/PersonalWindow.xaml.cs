@@ -65,6 +65,8 @@ namespace YachtKlub
 
         private void btCancel_Click(object sender, RoutedEventArgs e)
         {
+            LoginWindow ToLoginWindow = new LoginWindow();
+            ToLoginWindow.Show();
             this.Close();
         }
 
@@ -123,6 +125,23 @@ namespace YachtKlub
             registerValidator.ValidationComponents.Add(new EmptyFieldValidator(houseNumber, "házszám"));
 
             registerValidator.ValidateElements();
+        }
+
+        private void btUploadProfilePicture_Click(object sender, RoutedEventArgs e)
+        {
+            // Create OpenFileDialog
+            Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();
+            // Set filter for file extension and default file extension
+            dlg.DefaultExt = ".jpg";
+            dlg.Filter = "Pictures (.jpg)|*.jpg";
+            // Display OpenFileDialog by calling ShowDialog method
+            Nullable<bool> result = dlg.ShowDialog();
+            // Get the selected file name and display in a TextBox
+            if (result == true)
+            {
+                // Open document
+                string filename = dlg.FileName;
+            }
         }
     }
 }

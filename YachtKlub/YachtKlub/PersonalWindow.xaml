@@ -14,7 +14,7 @@
 
         <Image x:Name="imgProfilePicture"   HorizontalAlignment="Left" Height="150" Margin="10,10,0,0" VerticalAlignment="Top" Width="203"/>
 
-        <Button  x:Name="btUploadProfilePicture" Content="Profilkép feltöltése" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="41,165,0,0" FontSize="12"    Width="140" Height="25" RenderTransformOrigin="0.55,3.975" />
+        <Button  x:Name="btUploadProfilePicture" Content="Profilkép feltöltése" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="41,165,0,0" FontSize="12"    Width="140" Height="25" RenderTransformOrigin="0.55,3.975" Click="btUploadProfilePicture_Click" />
 
         <Label  x:Name="lbLastname" Content="Vezetéknév:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="218,30,0,0" FontSize="12"  Width="70" Height="25" />
         <TextBox x:Name="tbLastname" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="293,30,0,0" FontSize="12"  Width="170" Height="25" />
