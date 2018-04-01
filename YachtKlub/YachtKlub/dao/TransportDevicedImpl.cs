@@ -46,8 +46,8 @@ namespace YachtKlub.dao
 
             //    TemplateTransportDevice.FKOwner = mems[random.Next(0, mems.Count)];
 
-            //    TemplateTransportDevice.BoatRentals = new List<BoatRentalsEntity>();
-            //    TemplateTransportDevice.RentRequests = new List<RentRequestsEntity>();
+            //    TemplateTransportDevice.BoatRentals = new List<BoatRentalsEntity>();//Ez csak ideiglenes
+            //    TemplateTransportDevice.RentRequests = new List<RentRequestsEntity>();//Ez csak ideiglenes
 
             //    TransportDevices.Add(TemplateTransportDevice);
 
