@@ -44,7 +44,23 @@ namespace YachtKlub.dao
 
         public List<BoatRentalsEntity> GetTemplateBoatRents()
         {
+            //Random random = new Random();
+
+
+            //List<BoatRentalsEntity> TemplateBoatRentalsEntity = new List<BoatRentalsEntity>();
+
+            //for (int i = 0; i < 12; i++)
+            //{
+
+            //BoatRentalsEntity TemplateBoatRental = new BoatRentalsEntity();
+
+            //TemplateBoatRental.StartingDate = new DateTime(2017,3,1+i);
+
+            //TemplateBoatRental.FKRentedBoat = 
+
+            //}
             throw new NotImplementedException();
+
         }
     }
 }

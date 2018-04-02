@@ -41,8 +41,13 @@ namespace YachtKlub.dao
                 TemplateTransportDevice.TransportDeviceWidth = random.Next(50, 300) / 100;
                 TemplateTransportDevice.TransportDeviceImage = "TransportDevice" + i;
 
+                MembersDao mem = new MembersDaoImpl();
+                List<MembersEntity> mems = mem.GetTemplateMembers();
 
-                TemplateTransportDevice.FKOwner = new MembersEntity();//Ez csak ideiglenes
+
+                TemplateTransportDevice.FKOwner = mems[random.Next(0, mems.Count)];//ez elvileg jó így
+
+                
 
                 TemplateTransportDevice.BoatRentals = new List<BoatRentalsEntity>();//Ez csak ideiglenes
                 TemplateTransportDevice.RentRequests = new List<RentRequestsEntity>();//Ez csak ideiglenes
