@@ -101,11 +101,11 @@ namespace YachtKlub
             catch (Exception ex) { }
         }
 
-        private void btRegister_Click(object sender, RoutedEventArgs e)
-        {
-            MemberRegisterWindow registerWindow = new MemberRegisterWindow();
-            registerWindow.Show();
-            this.Close();
-        }
+        //private void btRegister_Click(object sender, RoutedEventArgs e)
+        //{
+        //    MemberRegisterWindow registerWindow = new MemberRegisterWindow();
+        //    registerWindow.Show();
+        //    this.Close();
+        //}
     }
 }
