@@ -34,18 +34,26 @@ namespace YachtKlub.service
             MembersDao membersDao = new MembersDaoImpl();
             MembersEntity member = membersDao.getMemberByEmail(Email);
 
-            if (!member.Password.Equals(Password))
+            if (!member.Password.Equals(OldPassword))
             {
                 FeedbackMessage = "Hibásan adta meg a régi  jelszót!";
                 ServiceStatus = Status.Error;
             }
             else
             {
+
                 member.Password = Password;
-                DatabaseContext dbc = new DatabaseContext();
-                dbc.SaveChanges();
+                using (var db = new DatabaseContext())
+                {
+                    db.Members.Add(member);
+                    db.Entry(member).State = System.Data.Entity.EntityState.Modified;
+                    db.SaveChanges();
+                }
+                
+
                 FeedbackMessage = "Sikeres jelszó változtatás!";
                 ServiceStatus = Status.OK;
+
             }
 
             // it must be a method
