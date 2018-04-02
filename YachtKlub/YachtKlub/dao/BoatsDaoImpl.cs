@@ -29,9 +29,12 @@ namespace YachtKlub.dao
             return BoatsList;
         }
 
-        public BoatsEntity GetBoatsById()
+        public BoatsEntity GetBoatsById(int id)
         {
-            throw new NotImplementedException();
+            var linqQuery = from row in dbc.Boats where row.BoatId == id select row;
+            List<BoatsEntity> BoatsList = linqQuery.ToList();
+
+            return GetSingleResultWithoutExc(BoatsList);
         }
 
         public List<BoatsEntity> GetTemplateBoats()
@@ -43,7 +46,7 @@ namespace YachtKlub.dao
             for (int i = 0; i < 12; i++)
             {
 
-            BoatsEntity TemplateBoat = new BoatsEntity();
+                BoatsEntity TemplateBoat = new BoatsEntity();
 
                 TemplateBoat.BoatId = i;
                 TemplateBoat.BoatName = "BoatName" + i;

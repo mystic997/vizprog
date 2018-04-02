@@ -51,7 +51,28 @@ namespace YachtKlub.dao
 
         public List<RentRequestsEntity> GetTemplateRentRequests()
         {
-            throw new NotImplementedException();
+            List<RentRequestsEntity> TemplateRequests = new List<RentRequestsEntity>();
+
+            for (int i = 0; i < 10; i++)
+            {
+                RentRequestsEntity req = new RentRequestsEntity();
+
+                MembersDao membersDao = new MembersDaoImpl();
+                MembersEntity member = membersDao.getMemberByEmail("user1gmail.com");
+                BoatsDao boat = new BoatsDaoImpl();
+
+                req.BoatToBorrow = boat.GetBoatsById(0);
+                req.DeviceToBorrow = new TransportDevicesEntity(); // ez null is lehet akar
+                req.WhoBorrows = member;
+
+                req.EndDate = new DateTime();
+                req.StartingDate = new DateTime();
+                req.FromWhere = "Innen";
+                req.ToWhere = "Ide";
+                req.HowManyPersonWillTravel = 5;
+            }
+
+            return TemplateRequests;
         }
     }
 }
