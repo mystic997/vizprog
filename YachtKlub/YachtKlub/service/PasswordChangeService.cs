@@ -11,6 +11,8 @@ namespace YachtKlub.service
 {
     class PasswordChangeService : ServiceResponse
     {
+        DatabaseContext dbc;
+
         public string OldPassword { get; set; }
 
         public string Password { get; set; }
@@ -20,13 +22,12 @@ namespace YachtKlub.service
 
         public PasswordChangeService(string oldPassword, string password, string email)
         {
+            dbc = AliveContext.Context;
             OldPassword = oldPassword;
             Password = password;
             Email = email;
+
             TryToChangePassword();
-
-
-
         }
 
         private void TryToChangePassword()
@@ -34,15 +35,14 @@ namespace YachtKlub.service
             MembersDao membersDao = new MembersDaoImpl();
             MembersEntity member = membersDao.getMemberByEmail(Email);
 
-            if (!member.Password.Equals(Password))
+            if (!member.Password.Equals(OldPassword))
             {
-                FeedbackMessage = "Hibásan adta meg a régi  jelszót!";
+                FeedbackMessage = "Hibásan adta meg a régi jelszót!";
                 ServiceStatus = Status.Error;
             }
             else
             {
                 member.Password = Password;
-                DatabaseContext dbc = new DatabaseContext();
                 dbc.SaveChanges();
                 FeedbackMessage = "Sikeres jelszó változtatás!";
                 ServiceStatus = Status.OK;
