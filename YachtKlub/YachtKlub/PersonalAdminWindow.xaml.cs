@@ -217,7 +217,7 @@ namespace YachtKlub
                     tbEmail.IsEnabled = false;
                     tbEmailAgain.IsEnabled = false;
 
-                    btCloseAdminRegister.Visibility = Visibility.Visible;
+                    btCloseAdminRegister.Visibility = Visibility.Hidden;
 
                     fillFieldsWithUserData(adminEmain);
                 }
