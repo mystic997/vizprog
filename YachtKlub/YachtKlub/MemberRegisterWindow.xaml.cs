@@ -78,10 +78,7 @@ namespace YachtKlub
 
                 RegisterService registerService = new RegisterService(firstname, lastname, email, password, country, city, street, houseNumber);
             }
-            catch (Exception ex)
-            {
-                new ExceptionToConsole(ex);
-            }
+            catch (Exception ex) { }
         }
     }
 }

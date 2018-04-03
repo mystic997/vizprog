@@ -110,10 +110,7 @@ namespace YachtKlub
                     Close();
                 }
             }
-            catch (Exception ex)
-            {
-                new ExceptionToConsole(ex);
-            }
+            catch (Exception ex) { }
         }
 
         //private void btRegister_Click(object sender, RoutedEventArgs e)
