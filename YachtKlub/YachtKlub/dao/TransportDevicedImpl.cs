@@ -9,13 +9,6 @@ namespace YachtKlub.dao
 {
     class TransportDevicedImpl : BaseDao<TransportDevicesEntity>, TransportDevicesDao
     {
-        DatabaseContext dbc;
-
-        public TransportDevicedImpl()
-        {
-            dbc = new DatabaseContext();
-        }
-
         public List<TransportDevicesEntity> GetAllTransportDevices()
         {
             var linqQuery = from row in dbc.TransportDevices select row;
@@ -47,13 +40,13 @@ namespace YachtKlub.dao
 
                 TemplateTransportDevice.FKOwner = mems[random.Next(0, mems.Count)];//ez elvileg jó így
 
-                
+
 
                 TemplateTransportDevice.BoatRentals = new List<BoatRentalsEntity>();//Ez csak ideiglenes
                 TemplateTransportDevice.RentRequests = new List<RentRequestsEntity>();//Ez csak ideiglenes
 
                 TransportDevices.Add(TemplateTransportDevice);
-                
+
             }
             return TransportDevices;
             //throw new NotImplementedException();

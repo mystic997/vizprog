@@ -116,7 +116,10 @@ namespace YachtKlub
                     fields.ForEach(i => i.IsEnabled = false);
                 }
             }
-            catch (Exception ex) { }
+            catch (Exception ex)
+            {
+                new ExceptionToConsole(ex);
+            }
         }
 
         private void ValidateFields(string firstname, string lastname, string email, string emailCheck, string country, string city, string street, string houseNumber)

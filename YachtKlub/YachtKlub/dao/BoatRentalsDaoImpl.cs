@@ -9,13 +9,6 @@ namespace YachtKlub.dao
 {
     class BoatRentalsDaoImpl : BaseDao<BoatRentalsEntity>, BoatRentalsDao
     {
-        DatabaseContext dbc;
-
-        public BoatRentalsDaoImpl()
-        {
-            dbc = new DatabaseContext();
-        }
-
         public List<BoatRentalsEntity> GetAllBoatRents()
         {
             var linqQuery = from row in dbc.BoatRentals select row;

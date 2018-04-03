@@ -32,21 +32,32 @@ namespace YachtKlub
             {
                 // set up the active database
                 DatabaseContext dbContext = new DatabaseContext();
+
                 if (dbContext.Database.Exists())
-                    dbContext.Database.Delete();
-                dbContext.Database.Create();
-
-                // fill the database with temporarily data
-                MembersDao mem = new MembersDaoImpl();
-                List<MembersEntity> mems = mem.GetTemplateMembers();
-                for (int i = 0; i < mems.Count; i++)
                 {
-                    dbContext.Members.Add(mems[i]);
-                }
-                dbContext.SaveChanges();
+                    dbContext.Database.Delete();
+                    dbContext.Database.Create();
 
-                // example to get data from database
-                //var datas = mem.getAllMembers();
+                    // fill the database with temporarily data
+                    MembersDao mem = new MembersDaoImpl();
+                    List<MembersEntity> mems = mem.GetTemplateMembers();
+                    for (int i = 0; i < mems.Count; i++)
+                    {
+                        dbContext.Members.Add(mems[i]);
+                    }
+                    dbContext.SaveChanges();
+
+                    BoatsDao boat = new BoatsDaoImpl();
+                    List<BoatsEntity> boats = boat.GetTemplateBoats();
+                    for (int i = 0; i < boats.Count; i++)
+                    {
+                        dbContext.Boats.Add(boats.SingleOrDefault(b => b.BoatId == i));
+                    }
+
+                    dbContext.SaveChanges();
+                }
+
+                AliveContext.Context = dbContext;
             }
             catch (DbEntityValidationException e)
             {
@@ -62,9 +73,9 @@ namespace YachtKlub
                 }
                 throw;
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
-                Console.WriteLine(e.ToString());
+                new ExceptionToConsole(ex);
             }
         }
 

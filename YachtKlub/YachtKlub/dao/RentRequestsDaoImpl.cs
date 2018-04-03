@@ -9,13 +9,6 @@ namespace YachtKlub.dao
 {
     class RentRequestsDaoImpl : BaseDao<RentRequestsEntity>, RentRequestsDao
     {
-        DatabaseContext dbc;
-
-        public RentRequestsDaoImpl()
-        {
-            dbc = new DatabaseContext();
-        }
-
         public List<RentRequestsEntity> GetAllRentRequests()
         {
             var linqQuery = from row in dbc.RentRequests select row;
@@ -53,7 +46,7 @@ namespace YachtKlub.dao
         {
             List<RentRequestsEntity> TemplateRequests = new List<RentRequestsEntity>();
 
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < 5; i++)
             {
                 RentRequestsEntity req = new RentRequestsEntity();
 
@@ -61,12 +54,12 @@ namespace YachtKlub.dao
                 MembersEntity member = membersDao.getMemberByEmail("user1gmail.com");
                 BoatsDao boat = new BoatsDaoImpl();
 
-                req.BoatToBorrow = boat.GetBoatsById(0);
+                req.BoatToBorrow = boat.GetBoatsById(i);
                 req.DeviceToBorrow = new TransportDevicesEntity(); // ez null is lehet akar
                 req.WhoBorrows = member;
 
-                req.EndDate = new DateTime();
-                req.StartingDate = new DateTime();
+                req.EndDate = new DateTime(2000 + i, 1, 1);
+                req.StartingDate = new DateTime(2000 + i, 1, 1);
                 req.FromWhere = "Innen";
                 req.ToWhere = "Ide";
                 req.HowManyPersonWillTravel = 5;
