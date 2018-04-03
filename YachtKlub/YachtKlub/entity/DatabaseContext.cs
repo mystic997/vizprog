@@ -18,5 +18,6 @@ namespace YachtKlub.entity
         public DbSet<BoatRentalsEntity> BoatRentals { get; set; }
         public DbSet<TransportDevicesEntity> TransportDevices { get; set; }
         public DbSet<RentRequestsEntity> RentRequests { get; set; }
+
     }
 }

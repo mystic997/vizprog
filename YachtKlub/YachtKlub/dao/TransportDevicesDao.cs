@@ -9,8 +9,7 @@ namespace YachtKlub.dao
 {
     interface TransportDevicesDao
     {
-        TransportDevicesEntity GetTransportDevicesById(int id);
-        List<TransportDevicesEntity> GetAllTransportDevicesByOwner(MembersEntity Owner);
+        TransportDevicesEntity GetTransportDevicesById();
         List<TransportDevicesEntity> GetAllTransportDevices();
         List<TransportDevicesEntity> GetTemplateTransportDevices();
     }
