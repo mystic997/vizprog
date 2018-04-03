@@ -19,6 +19,7 @@ namespace YachtKlub.service
         private string lastname;
         private int permission;
         private string street;
+        DatabaseContext dbc;
 
         public UpdateUserDataService(string firstname, string lastname, string email, string country, string city, string street, string houseNumber, int permission)
         {
@@ -31,12 +32,14 @@ namespace YachtKlub.service
             this.houseNumber = houseNumber;
             this.permission = permission;
 
+            dbc = AliveContext.Context;
+
             UpdateUser();
         }
 
         private void UpdateUser()
         {
-            DatabaseContext dbc = new DatabaseContext();
+            //DatabaseContext dbc = new DatabaseContext();
             MembersEntity memberData = dbc.Members.SingleOrDefault(m => m.Email.Equals(email));
 
             memberData.MemberName = firstname + " " + lastname;

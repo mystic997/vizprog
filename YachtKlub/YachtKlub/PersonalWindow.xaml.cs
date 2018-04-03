@@ -54,7 +54,10 @@ namespace YachtKlub
                 tbStreet.Text = loadUserDataService.ResponseMessage["street"];
                 tbStreetNumber.Text = loadUserDataService.ResponseMessage["houseNumber"];
             }
-            catch (Exception ex) { }
+            catch (Exception ex)
+            {
+                new ExceptionToConsole(ex);
+            }
         }
 
         private void btChangePassword_Click(object sender, RoutedEventArgs e)
@@ -65,6 +68,8 @@ namespace YachtKlub
 
         private void btCancel_Click(object sender, RoutedEventArgs e)
         {
+            LoginWindow ToLoginWindow = new LoginWindow();
+            ToLoginWindow.Show();
             this.Close();
         }
 
@@ -96,7 +101,10 @@ namespace YachtKlub
                     fields.ForEach(i => i.IsEnabled = false);
                 }
             }
-            catch (Exception ex) { }
+            catch (Exception ex)
+            {
+                new ExceptionToConsole(ex);
+            }
         }
 
         private void ValidateFields(string firstname, string lastname, string email, string emailCheck, string country, string city, string street, string houseNumber)
@@ -125,14 +133,21 @@ namespace YachtKlub
             registerValidator.ValidateElements();
         }
 
-        private void btBooking_Click(object sender, RoutedEventArgs e)
+        private void btUploadProfilePicture_Click(object sender, RoutedEventArgs e)
         {
-
+            // Create OpenFileDialog
+            Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();
+            // Set filter for file extension and default file extension
+            dlg.DefaultExt = ".jpg";
+            dlg.Filter = "Pictures (.jpg)|*.jpg";
+            // Display OpenFileDialog by calling ShowDialog method
+            Nullable<bool> result = dlg.ShowDialog();
+            // Get the selected file name and display in a TextBox
+            if (result == true)
+            {
+                // Open document
+                string filename = dlg.FileName;
+            }
         }
-
-        private void btMyShips_Click(object sender, RoutedEventArgs e)
-        {
-
-        }               
     }
 }

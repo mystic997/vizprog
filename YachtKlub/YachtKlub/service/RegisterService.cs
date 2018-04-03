@@ -20,6 +20,7 @@ namespace YachtKlub.service
         private string password;
         private int permission;
         private string street;
+        DatabaseContext dbc;
 
         public RegisterService(string firstname, string lastname, string email, string password, string country, string city, string street, string houseNumber)
         {
@@ -31,6 +32,8 @@ namespace YachtKlub.service
             this.city = city;
             this.street = street;
             this.houseNumber = houseNumber;
+
+            dbc = AliveContext.Context;
 
             TryToRegister();
         }
@@ -46,6 +49,8 @@ namespace YachtKlub.service
             this.street = street;
             this.houseNumber = houseNumber;
             this.permission = permission;
+
+            dbc = AliveContext.Context;
 
             TryToRegisterWithPermission();
         }
@@ -73,7 +78,7 @@ namespace YachtKlub.service
                 newMemberEntity.HouseNumber = houseNumber;
                 newMemberEntity.Permission = permission;
 
-                DatabaseContext dbc = new DatabaseContext();
+                //DatabaseContext dbc = new DatabaseContext();
                 dbc.Members.Add(newMemberEntity);
                 dbc.SaveChanges();
 
@@ -111,7 +116,7 @@ namespace YachtKlub.service
                 newMemberEntity.HouseNumber = houseNumber;
                 newMemberEntity.Permission = 1; // not admin
 
-                DatabaseContext dbc = new DatabaseContext();
+                //DatabaseContext dbc = new DatabaseContext();
                 dbc.Members.Add(newMemberEntity);
                 dbc.SaveChanges();
 

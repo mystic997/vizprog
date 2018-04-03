@@ -9,11 +9,12 @@ namespace YachtKlub.dao
 {
     class BaseDao<T>
     {
-        DatabaseContext dbc;
+        protected DatabaseContext dbc;
 
         public BaseDao()
         {
-            dbc = new DatabaseContext();
+            //dbc = new DatabaseContext();
+            dbc = AliveContext.Context;
         }
 
         public T GetSingleResultWithoutExc(List<T> values)

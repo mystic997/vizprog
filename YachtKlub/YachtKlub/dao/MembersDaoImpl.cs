@@ -9,13 +9,6 @@ namespace YachtKlub.dao
 {
     class MembersDaoImpl : BaseDao<MembersEntity>, MembersDao
     {
-        DatabaseContext dbc;
-
-        public MembersDaoImpl()
-        {
-            dbc = new DatabaseContext();
-        }
-
         public List<MembersEntity> GetTemplateMembers()
         {
             List<MembersEntity> templateMembers = new List<MembersEntity>();
