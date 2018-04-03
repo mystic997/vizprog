@@ -53,7 +53,7 @@ namespace YachtKlub
             }
             catch (Exception ex)
             {
-
+                new ExceptionToConsole(ex);
             }
         }
 
@@ -222,7 +222,10 @@ namespace YachtKlub
                     fillFieldsWithUserData(adminEmain);
                 }
             }
-            catch (Exception ex) { }
+            catch (Exception ex)
+            {
+                new ExceptionToConsole(ex);
+            }
         }
 
         private void btCloseAdminRegister_Click(object sender, RoutedEventArgs e)

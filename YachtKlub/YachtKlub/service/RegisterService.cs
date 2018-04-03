@@ -21,6 +21,7 @@ namespace YachtKlub.service
         private int permission;
         private string street;
         DatabaseContext dbc;
+
         public RegisterService(string firstname, string lastname, string email, string password, string country, string city, string street, string houseNumber)
         {
             this.firstname = firstname;
@@ -48,6 +49,8 @@ namespace YachtKlub.service
             this.street = street;
             this.houseNumber = houseNumber;
             this.permission = permission;
+
+            dbc = AliveContext.Context;
 
             TryToRegisterWithPermission();
         }

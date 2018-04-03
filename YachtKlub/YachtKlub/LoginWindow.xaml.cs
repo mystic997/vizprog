@@ -32,6 +32,7 @@ namespace YachtKlub
             {
                 // set up the active database
                 DatabaseContext dbContext = new DatabaseContext();
+                AliveContext.Context = dbContext;
 
                 if (dbContext.Database.Exists())
                 {
@@ -57,7 +58,7 @@ namespace YachtKlub
                     dbContext.SaveChanges();
                 }
 
-                AliveContext.Context = dbContext;
+                //AliveContext.Context = dbContext;
             }
             catch (DbEntityValidationException e)
             {
