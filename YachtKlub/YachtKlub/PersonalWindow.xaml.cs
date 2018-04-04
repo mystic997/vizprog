@@ -24,10 +24,13 @@ namespace YachtKlub
     public partial class PersonalWindow : Window
     {
         List<TextBox> fields;
+        private string email;
 
         public PersonalWindow(string email)
         {
             InitializeComponent();
+
+            this.email = email;
 
             try
             {

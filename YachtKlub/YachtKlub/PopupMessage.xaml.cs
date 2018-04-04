@@ -28,6 +28,7 @@ namespace YachtKlub
         {
             InitializeComponent();
 
+            this.ShowInTaskbar = false;
             this.Top = 0;
             this.Left = SystemParameters.PrimaryScreenWidth - this.Width;
 
