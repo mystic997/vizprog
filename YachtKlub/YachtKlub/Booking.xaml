@@ -24,7 +24,7 @@
         <Label x:Name="lbPrice" Content="Ft/nap&#xD;&#xA;" HorizontalAlignment="Left" Margin="637,108,0,0" VerticalAlignment="Top" Width="48" Height="25"/>
 
         <Label x:Name="lbBoatType" Content="Típus:" HorizontalAlignment="Left" FontSize="12" Margin="480,146,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="tbBoatType" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,148,16,0" FontSize="12"  Width="304" Height="25" TextChanged="tbBoatType_TextChanged" />
+        <TextBox x:Name="tbBoatType" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,148,16,0" FontSize="12"  Width="304" Height="25" />
 
         <Label x:Name="lbBoatConsumption" Content="Fogyasztás:" HorizontalAlignment="Left" FontSize="12" Margin="695,108,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="tbBoatConsumption" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,110,59,0" FontSize="12"  Width="65" Height="25" />
@@ -61,13 +61,13 @@
         <Label x:Name="lbOwnerData" Content="A hajótulajdonos adatai:" HorizontalAlignment="Left" FontSize="13" Margin="30,230,0,0" VerticalAlignment="Top"/>
 
         <Label x:Name="lbOwnerName" Content="Név:" HorizontalAlignment="Left" FontSize="12" Margin="30,268,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="tbOwnerName" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,270,562,0" FontSize="12"  Width="232" Height="25" TextChanged="tbBoatName_Copy_TextChanged" />
+        <TextBox x:Name="tbOwnerName" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,270,562,0" FontSize="12"  Width="232" Height="25"/>
 
         <Label x:Name="lbOwnerEmail" Content="Email cím:" HorizontalAlignment="Left" FontSize="12" Margin="30,306,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="tbOwnerEmail" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,308,562,0" FontSize="12"  Width="232" Height="25" TextChanged="tbBoatName_Copy_TextChanged" />
+        <TextBox x:Name="tbOwnerEmail" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,308,562,0" FontSize="12"  Width="232" Height="25" />
 
         <Label x:Name="lbOwnerResidency" Content="Lakhely:" HorizontalAlignment="Left" FontSize="12" Margin="30,344,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="tbOwnerResidency" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,346,562,0" FontSize="12"  Width="232" Height="25" TextChanged="tbBoatName_Copy_TextChanged" />
+        <TextBox x:Name="tbOwnerResidency" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,346,562,0" FontSize="12"  Width="232" Height="25" />
 
         <Label x:Name="lbOwnerPicture" Content="Profilkép:" HorizontalAlignment="Left" FontSize="12" Margin="30,382,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.458,0.462"/>
         <Image x:Name="imgOwnrePicture" HorizontalAlignment="Left" Height="100" Margin="98,382,0,0" VerticalAlignment="Top" Width="100"/>
