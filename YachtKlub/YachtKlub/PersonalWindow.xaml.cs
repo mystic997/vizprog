@@ -138,18 +138,17 @@ namespace YachtKlub
 
         private void btUploadProfilePicture_Click(object sender, RoutedEventArgs e)
         {
-            // Create OpenFileDialog
-            Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();
-            // Set filter for file extension and default file extension
-            dlg.DefaultExt = ".jpg";
-            dlg.Filter = "Pictures (.jpg)|*.jpg";
-            // Display OpenFileDialog by calling ShowDialog method
-            Nullable<bool> result = dlg.ShowDialog();
-            // Get the selected file name and display in a TextBox
+            Microsoft.Win32.OpenFileDialog dialog = new Microsoft.Win32.OpenFileDialog();
+
+            dialog.DefaultExt = ".jpg";
+            dialog.Filter = "All supported graphics|*.jpg;*.jpeg;*.png|" + "JPEG (*.jpg;*.jpeg)|*.jpg;*.jpeg|" + "Portable Network Graphic (*.png)|*.png";
+
+            Nullable<bool> result = dialog.ShowDialog();
+
             if (result == true)
             {
                 // Open document
-                string filename = dlg.FileName;
+                string filename = dialog.FileName;
             }
         }
 
