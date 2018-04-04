@@ -18,14 +18,14 @@ using System.IO;
 namespace YachtKlub
 {
     /// <summary>
-    /// Interaction logic for AdminWindow.xaml
+    /// Interaction logic for PersonalAdminWindow.xaml
     /// </summary>
-    public partial class AdminWindow : Window
+    public partial class PersonalAdminWindow : Window
     {
         private List<TextBox> fields;
         private string adminEmain;
 
-        public AdminWindow(string email)
+        public PersonalAdminWindow(string email)
         {
             InitializeComponent();
 

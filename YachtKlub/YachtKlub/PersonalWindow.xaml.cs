@@ -21,12 +21,12 @@ namespace YachtKlub
     /// </summary>
     /// 
 
-    public partial class UserWindow : Window
+    public partial class PersonalWindow : Window
     {
         List<TextBox> fields;
         private string email;
 
-        public UserWindow(string email)
+        public PersonalWindow(string email)
         {
             InitializeComponent();
 

@@ -70,8 +70,8 @@
     <Compile Include="BookableBoatsUC.xaml.cs">
       <DependentUpon>BookableBoatsUC.xaml</DependentUpon>
     </Compile>
-    <Compile Include="BookingWindow.xaml.cs">
-      <DependentUpon>BookingWindow.xaml</DependentUpon>
+    <Compile Include="Booking.xaml.cs">
+      <DependentUpon>Booking.xaml</DependentUpon>
     </Compile>
     <Compile Include="dao\BaseDao.cs" />
     <Compile Include="dao\BoatRentalsDao.cs" />
@@ -106,7 +106,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="BookingWindow.xaml">
+    <Page Include="Booking.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -137,11 +137,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="AdminWindow.xaml">
+    <Page Include="PersonalAdminWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="UserWindow.xaml">
+    <Page Include="PersonalWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -157,11 +157,11 @@
     <Compile Include="PasswordChangeWindow.xaml.cs">
       <DependentUpon>PasswordChangeWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="AdminWindow.xaml.cs">
-      <DependentUpon>AdminWindow.xaml</DependentUpon>
+    <Compile Include="PersonalAdminWindow.xaml.cs">
+      <DependentUpon>PersonalAdminWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserWindow.xaml.cs">
-      <DependentUpon>UserWindow.xaml</DependentUpon>
+    <Compile Include="PersonalWindow.xaml.cs">
+      <DependentUpon>PersonalWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
