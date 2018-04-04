@@ -258,5 +258,11 @@ namespace YachtKlub
                 string filename = dlg.FileName;
             }
         }
+
+        private void btBooking_Click(object sender, RoutedEventArgs e)
+        {
+            Booking ToBooking = new Booking(tbEmail.Text);
+            ToBooking.Show();
+        }
     }
 }

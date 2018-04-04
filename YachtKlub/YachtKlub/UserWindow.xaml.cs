@@ -151,5 +151,11 @@ namespace YachtKlub
                 string filename = dialog.FileName;
             }
         }
+
+        private void btBooking_Click(object sender, RoutedEventArgs e)
+        {
+            Booking ToBooking = new Booking(tbEmail.Text);
+            ToBooking.Show();
+        }
     }
 }

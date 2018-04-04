@@ -26,7 +26,7 @@ namespace YachtKlub
 
         private void btBack_Click(object sender, RoutedEventArgs e)
         {
-
+            this.Close();
         }
 
         private void btBook_Click(object sender, RoutedEventArgs e)
