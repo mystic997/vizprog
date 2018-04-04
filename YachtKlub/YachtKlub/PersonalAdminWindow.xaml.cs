@@ -261,7 +261,7 @@ namespace YachtKlub
 
         private void btBooking_Click(object sender, RoutedEventArgs e)
         {
-            Booking ToBooking = new Booking(tbEmail.Text);
+            Booking ToBooking = new Booking();
             ToBooking.Show();
         }
     }
