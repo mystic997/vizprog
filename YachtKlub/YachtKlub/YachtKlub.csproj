@@ -67,6 +67,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="BookableBoatsUC.xaml.cs">
+      <DependentUpon>BookableBoatsUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Booking.xaml.cs">
+      <DependentUpon>Booking.xaml</DependentUpon>
+    </Compile>
     <Compile Include="dao\BaseDao.cs" />
     <Compile Include="dao\BoatRentalsDao.cs" />
     <Compile Include="dao\BoatRentalsDaoImpl.cs" />
@@ -96,6 +102,14 @@
     <Compile Include="validator\ValidationBase.cs" />
     <Compile Include="validator\ValidationResult.cs" />
     <Compile Include="validator\Validator.cs" />
+    <Page Include="BookableBoatsUC.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Booking.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="LoginWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
