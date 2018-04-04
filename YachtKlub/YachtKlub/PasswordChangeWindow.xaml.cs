@@ -24,7 +24,7 @@ namespace YachtKlub
     public partial class PasswordChangeWindow : Window
     {
         private string Email { get; set; }
-            
+
         public PasswordChangeWindow(string email)
         {
             InitializeComponent();
@@ -61,7 +61,10 @@ namespace YachtKlub
                     Close();
                 }
             }
-            catch (Exception ex) { }
+            catch (Exception ex)
+            {
+                new ExceptionToConsole(ex);
+            }
         }
     }
 }
