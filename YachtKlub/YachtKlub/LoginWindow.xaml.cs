@@ -54,7 +54,30 @@ namespace YachtKlub
                     {
                         dbContext.Boats.Add(boats.SingleOrDefault(b => b.BoatId == i));
                     }
+                    dbContext.SaveChanges();
 
+                    TransportDevicesDao device = new TransportDevicesDaoImpl();
+                    List<TransportDevicesEntity> devices = device.GetTemplateTransportDevices();
+                    for (int i = 0; i < devices.Count; i++)
+                    {
+                        dbContext.TransportDevices.Add(devices.SingleOrDefault(d => d.TransportDeviceId == i));
+                    }
+                    dbContext.SaveChanges();
+
+                    RentRequestsDao rent = new RentRequestsDaoImpl();
+                    List<RentRequestsEntity> rents = rent.GetTemplateRentRequests();
+                    for (int i = 0; i < rents.Count; i++)
+                    {
+                        dbContext.RentRequests.Add(rents[i]);
+                    }
+                    dbContext.SaveChanges();
+
+                    BoatRentalsDao boatRent = new BoatRentalsDaoImpl();
+                    List<BoatRentalsEntity> boatRents = boatRent.GetTemplateBoatRents();
+                    for (int i = 0; i < boatRents.Count; i++)
+                    {
+                        dbContext.BoatRentals.Add(boatRents[i]);
+                    }
                     dbContext.SaveChanges();
                 }
 

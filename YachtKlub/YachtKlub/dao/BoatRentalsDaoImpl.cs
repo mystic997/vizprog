@@ -37,23 +37,49 @@ namespace YachtKlub.dao
 
         public List<BoatRentalsEntity> GetTemplateBoatRents()
         {
-            //Random random = new Random();
+            Random random = new Random();
+            List<BoatRentalsEntity> TemplateBoatRentals = new List<BoatRentalsEntity>();
 
+            for (int i = 0; i < 5; i++)
+            {
+                BoatRentalsEntity TemplateBoatRental = new BoatRentalsEntity();
 
-            //List<BoatRentalsEntity> TemplateBoatRentalsEntity = new List<BoatRentalsEntity>();
+                TemplateBoatRental.FromWhere = "Innen";
+                TemplateBoatRental.ToWhere = "Ide";
+                TemplateBoatRental.HowManyPersonWillTravel = 4;
 
-            //for (int i = 0; i < 12; i++)
-            //{
+                // FK's
+                MembersDao mem = new MembersDaoImpl();
+                List<MembersEntity> mems = mem.GetAllMembers();
+                TemplateBoatRental.FKWhoRents = mems[random.Next(0, mems.Count)];
 
-            //BoatRentalsEntity TemplateBoatRental = new BoatRentalsEntity();
+                BoatsDao boat = new BoatsDaoImpl();
+                List<BoatsEntity> boats = boat.GetAllBoats();
+                TemplateBoatRental.FKRentedBoat = boats[random.Next(0, boats.Count)];
 
-            //TemplateBoatRental.StartingDate = new DateTime(2017,3,1+i);
+                TransportDevicesDao device = new TransportDevicesDaoImpl();
+                List<TransportDevicesEntity> devices = device.GetAllTransportDevices();
+                TemplateBoatRental.FKRentedDevice = devices[random.Next(0, devices.Count)];
 
-            //TemplateBoatRental.FKRentedBoat = 
+                TemplateBoatRentals.Add(TemplateBoatRental);
+            }
 
-            //}
-            throw new NotImplementedException();
+            TemplateBoatRentals[0].StartingDate = new DateTime(2018, 4, 4);
+            TemplateBoatRentals[0].EndDate = new DateTime(2018, 4, 10);
 
+            TemplateBoatRentals[1].StartingDate = new DateTime(2018, 3, 4);
+            TemplateBoatRentals[1].EndDate = new DateTime(2018, 3, 10);
+
+            TemplateBoatRentals[2].StartingDate = new DateTime(2018, 6, 4);
+            TemplateBoatRentals[2].EndDate = new DateTime(2018, 6, 10);
+
+            TemplateBoatRentals[3].StartingDate = new DateTime(2018, 4, 2);
+            TemplateBoatRentals[3].EndDate = new DateTime(2018, 4, 6);
+
+            TemplateBoatRentals[4].StartingDate = new DateTime(2018, 7, 4);
+            TemplateBoatRentals[4].EndDate = new DateTime(2018, 8, 10);
+
+            return TemplateBoatRentals;
         }
     }
 }

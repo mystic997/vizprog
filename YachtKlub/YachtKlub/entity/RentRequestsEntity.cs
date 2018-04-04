@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace YachtKlub.entity
 {
-    [Table("Rentals")]
+    [Table("RentRequests")]
     class RentRequestsEntity
     {
         [Column("startingDate", TypeName = "Date", Order = 0)]
@@ -40,5 +40,10 @@ namespace YachtKlub.entity
         [StringLength(100)]
         [Required]
         public string ToWhere { get; set; }
+
+        [Column("status", Order = 7)]
+        [DataType("decimal(1, 0)")]
+        [Required]
+        public int Status { get; set; }
     }
 }

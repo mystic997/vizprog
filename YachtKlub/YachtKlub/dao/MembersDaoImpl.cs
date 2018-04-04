@@ -36,7 +36,7 @@ namespace YachtKlub.dao
             return templateMembers;
         }
 
-        public List<MembersEntity> getAllMembers()
+        public List<MembersEntity> GetAllMembers()
         {
             var linqQuery = from row in dbc.Members select row;
 

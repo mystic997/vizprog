@@ -74,7 +74,7 @@
     <Compile Include="dao\BoatsDaoImpl.cs" />
     <Compile Include="dao\RentRequestsDao.cs" />
     <Compile Include="dao\RentRequestsDaoImpl.cs" />
-    <Compile Include="dao\TransportDevicedImpl.cs" />
+    <Compile Include="dao\TransportDevicesDaoImpl.cs" />
     <Compile Include="dao\TransportDevicesDao.cs" />
     <Compile Include="AliveContext.cs" />
     <Compile Include="ExceptionToConsole.cs" />

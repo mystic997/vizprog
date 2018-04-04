@@ -44,25 +44,33 @@ namespace YachtKlub.dao
 
         public List<RentRequestsEntity> GetTemplateRentRequests()
         {
+            Random random = new Random();
             List<RentRequestsEntity> TemplateRequests = new List<RentRequestsEntity>();
 
-            for (int i = 0; i < 5; i++)
+            for (int i = 0; i < 20; i++)
             {
                 RentRequestsEntity req = new RentRequestsEntity();
 
-                MembersDao membersDao = new MembersDaoImpl();
-                MembersEntity member = membersDao.getMemberByEmail("user1gmail.com");
+                MembersDao mem = new MembersDaoImpl();
+                List<MembersEntity> mems = mem.GetAllMembers();
+                req.WhoBorrows = mems[random.Next(0, mems.Count)];
+
                 BoatsDao boat = new BoatsDaoImpl();
+                List<BoatsEntity> boats = boat.GetAllBoats();
+                req.BoatToBorrow = boats[random.Next(0, boats.Count)];
 
-                req.BoatToBorrow = boat.GetBoatsById(i);
-                req.DeviceToBorrow = new TransportDevicesEntity(); // ez null is lehet akar
-                req.WhoBorrows = member;
+                TransportDevicesDao dev = new TransportDevicesDaoImpl();
+                List<TransportDevicesEntity> devs = dev.GetAllTransportDevices();
+                req.DeviceToBorrow = devs[random.Next(0, devs.Count)]; // ez null is lehet
 
-                req.EndDate = new DateTime(2000 + i, 1, 1);
-                req.StartingDate = new DateTime(2000 + i, 1, 1);
+                req.EndDate = new DateTime(random.Next(2018, 2020), random.Next(1, 13), random.Next(1, 29));
+                req.StartingDate = new DateTime(2018, random.Next(1, 13), random.Next(1, 29));
                 req.FromWhere = "Innen";
                 req.ToWhere = "Ide";
+                req.Status = 3; // 1 - elfogadva, 2 - elutasitva, 3 - kerve/varakozas valaszra
                 req.HowManyPersonWillTravel = 5;
+
+                TemplateRequests.Add(req);
             }
 
             return TemplateRequests;

@@ -11,7 +11,7 @@ namespace YachtKlub.entity
     [Table("BoatRentals")]
     class BoatRentalsEntity
     {
-        [Column("FKstartingDate", TypeName="Date", Order = 0)]
+        [Column("startingDate", TypeName = "Date", Order = 0)]
         [Key]
         [Required]
         public DateTime StartingDate { get; set; }
@@ -38,7 +38,7 @@ namespace YachtKlub.entity
         [Required]
         public string ToWhere { get; set; }
 
-        [Column("endDate", TypeName="Date", Order = 6)]
+        [Column("endDate", TypeName = "Date", Order = 6)]
         [Required]
         public DateTime EndDate { get; set; }
     }

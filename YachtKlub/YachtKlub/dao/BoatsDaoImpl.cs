@@ -16,6 +16,7 @@ namespace YachtKlub.dao
             List<BoatsEntity> BoatsList = linqQuery.ToList();
             return BoatsList;
         }
+
         public List<BoatsEntity> GetAllBoatsByOwner(MembersEntity Owner)/*Függvény, ami visszaad egy listát, ami tartalmazza, az adott felhasználó hajóit*/
         {
             var linqQuery = from row in dbc.Boats where row.FKOwner.Equals(Owner) select row;
@@ -34,16 +35,11 @@ namespace YachtKlub.dao
         public List<BoatsEntity> GetTemplateBoats()
         {
             Random random = new Random();
-
             List<BoatsEntity> TemplateBoats = new List<BoatsEntity>();
 
             for (int i = 0; i < 12; i++)
             {
                 BoatsEntity TemplateBoat = new BoatsEntity();
-
-                MembersDao mem = new MembersDaoImpl();
-                List<MembersEntity> mems = mem.getAllMembers();
-                TemplateBoat.FKOwner = mems[random.Next(0, mems.Count)];
 
                 TemplateBoat.BoatId = i;
                 TemplateBoat.BoatName = "BoatName" + i;
@@ -55,12 +51,16 @@ namespace YachtKlub.dao
                 TemplateBoat.MaxSpeed = random.Next(5, 50);
                 TemplateBoat.DiveDepth = random.Next(100, 300) / 100;
                 TemplateBoat.Consumption = random.Next(100, 500) / 100;
-                TemplateBoat.YearOfManufacture = new DateTime(2018, 4, 2);
+                TemplateBoat.YearOfManufacture = new DateTime(random.Next(1990, 2018), random.Next(1, 12), random.Next(1, 28));
                 TemplateBoat.BoatLength = random.Next(150, 700) / 100;
                 TemplateBoat.BoatWidth = random.Next(150, 400) / 100;
                 TemplateBoat.BoatImage = "BoatImage" + i;
+                TemplateBoat.WhereIsNowTheBoat = "Itt";
 
-
+                // FK's
+                MembersDao mem = new MembersDaoImpl();
+                List<MembersEntity> mems = mem.GetAllMembers();
+                TemplateBoat.FKOwner = mems[random.Next(0, mems.Count)];
                 TemplateBoat.BoatRentals = new List<BoatRentalsEntity>();
                 TemplateBoat.RentRequests = new List<RentRequestsEntity>();
 
@@ -68,7 +68,6 @@ namespace YachtKlub.dao
             }
 
             return TemplateBoats;
-
         }
     }
 }
