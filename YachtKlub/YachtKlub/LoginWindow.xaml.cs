@@ -30,7 +30,7 @@ namespace YachtKlub
 
             try
             {
-                // set up the active database CSAK EGY COMMIT MEG EGY COMMIT
+                // set up the active database
                 DatabaseContext dbContext = new DatabaseContext();
                 AliveContext.Context = dbContext;
 
