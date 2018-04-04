@@ -48,9 +48,9 @@ namespace YachtKlub
 
                 PasswordChangeValidator.ValidationComponents.Add(new EmptyFieldValidator(oldPassword, "régi jelszó"));
                 PasswordChangeValidator.ValidationComponents.Add(new EmptyFieldValidator(password, "új jelszó"));
-                PasswordChangeValidator.ValidationComponents.Add(new FieldCharacterLimitValidator(password, 8, 40, "új jelszó"));
-                PasswordChangeValidator.ValidationComponents.Add(new SameFieldValidator(password, passwordAgain, "jelszó"));
                 PasswordChangeValidator.ValidationComponents.Add(new EmptyFieldValidator(passwordAgain, "új jelszó megerősítése"));
+
+                PasswordChangeValidator.ValidationComponents.Add(new SameFieldValidator(password, passwordAgain, "jelszó"));
 
                 // kivetelt dob, ha a validalas hibara fut, egyuttal ki is irja a hibauzeneteket
                 PasswordChangeValidator.ValidateElements();
