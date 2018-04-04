@@ -122,13 +122,13 @@ namespace YachtKlub
 
                 if (loginService.ResponseMessage["permission"].Equals("admin"))
                 {
-                    PersonalAdminWindow PersonalAdmintoWindow = new PersonalAdminWindow(tbEmailLogin.Text);
+                    AdminWindow PersonalAdmintoWindow = new AdminWindow(tbEmailLogin.Text);
                     PersonalAdmintoWindow.Show();
                     Close();
                 }
                 else
                 {
-                    PersonalWindow PersonalWindow = new PersonalWindow(tbEmailLogin.Text);
+                    UserWindow PersonalWindow = new UserWindow(tbEmailLogin.Text);
                     PersonalWindow.Show();
                     Close();
                 }

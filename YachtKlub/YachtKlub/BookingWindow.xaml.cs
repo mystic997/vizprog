@@ -15,11 +15,11 @@ using System.Windows.Shapes;
 namespace YachtKlub
 {
     /// <summary>
-    /// Interaction logic for Booking.xaml
+    /// Interaction logic for BookingWindow.xaml
     /// </summary>
-    public partial class Booking : Window
+    public partial class BookingWindow : Window
     {
-        public Booking()
+        public BookingWindow()
         {
             InitializeComponent();
         }
