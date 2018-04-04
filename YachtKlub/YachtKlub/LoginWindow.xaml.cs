@@ -30,7 +30,7 @@ namespace YachtKlub
 
             try
             {
-                // set up the active database
+                // set up the active database MASIK COMMIT
                 DatabaseContext dbContext = new DatabaseContext();
                 AliveContext.Context = dbContext;
 
