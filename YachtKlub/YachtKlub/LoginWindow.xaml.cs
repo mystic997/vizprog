@@ -117,7 +117,7 @@ namespace YachtKlub
                 // kivetelt dob, ha a validalas hibara fut, egyuttal ki is irja a hibauzeneteket
                 loginValidator.ValidateElements();
 
-                // kivetelt dob, ha sikertelen a service, egyuttal ki is irja a hibauzeneteket
+                // kivetelt dob, ha sikertelen a service, egyuttal ki is irja a hibauzeneteket VALTOZTATAS
                 LoginService loginService = new LoginService(email, password);
 
                 if (loginService.ResponseMessage["permission"].Equals("admin"))
