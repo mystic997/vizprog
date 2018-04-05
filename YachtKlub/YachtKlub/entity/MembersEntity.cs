@@ -38,20 +38,23 @@ namespace YachtKlub.entity
         [Required]
         public string MemberName { get; set; }
 
-        [Column("city", Order = 5)]
+        [Column("country", Order = 5)]
+        [StringLength(100)]
+        public string Country { get; set; }
+
+        [Column("city", Order = 6)]
         [StringLength(100)]
         public string City { get; set; }
 
-        [Column("street", Order = 6)]
+        [Column("street", Order = 7)]
         [StringLength(100)]
         public string Street { get; set; }
 
-        [Column("houseNumber", Order = 7)]
+        [Column("houseNumber", Order = 8)]
         [StringLength(20)]
         public string HouseNumber { get; set; }
 
-        /** TODO: image type needed */
-        [Column("memberImage", Order = 8)]
+        [Column("memberImage", Order = 9)]
         [StringLength(50)]
         public string MemberImage { get; set; }
 

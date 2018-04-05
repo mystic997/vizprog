@@ -20,6 +20,7 @@ namespace YachtKlub.dao
                 templateMember.Email = "user" + i + "@gmail.com";
                 templateMember.MemberName = "user" + i;
                 templateMember.MemberImage = "userImage" + i;
+                templateMember.Country = "Hungary";
                 templateMember.City = "userCity" + i;
                 templateMember.Street = "userStreet" + i;
                 templateMember.HouseNumber = "userHouseNumber" + i;

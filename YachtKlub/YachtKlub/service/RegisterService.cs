@@ -72,7 +72,7 @@ namespace YachtKlub.service
                 newMemberEntity.MemberName = firstname + " " + lastname;
                 newMemberEntity.Email = email;
                 newMemberEntity.Password = password;
-                // country hianyzik
+                newMemberEntity.Country = country;
                 newMemberEntity.City = city;
                 newMemberEntity.Street = street;
                 newMemberEntity.HouseNumber = houseNumber;
@@ -110,13 +110,12 @@ namespace YachtKlub.service
                 newMemberEntity.MemberName = firstname + " " + lastname;
                 newMemberEntity.Email = email;
                 newMemberEntity.Password = password;
-                // country hianyzik
+                newMemberEntity.Country = country;
                 newMemberEntity.City = city;
                 newMemberEntity.Street = street;
                 newMemberEntity.HouseNumber = houseNumber;
                 newMemberEntity.Permission = 1; // not admin
 
-                //DatabaseContext dbc = new DatabaseContext();
                 dbc.Members.Add(newMemberEntity);
                 dbc.SaveChanges();
 

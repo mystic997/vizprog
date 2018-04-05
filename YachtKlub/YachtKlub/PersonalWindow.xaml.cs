@@ -52,7 +52,7 @@ namespace YachtKlub
                 tbFirstname.Text = loadUserDataService.ResponseMessage["lastname"];
                 tbEmail.Text = loadUserDataService.ResponseMessage["email"];
                 tbEmailAgain.Text = loadUserDataService.ResponseMessage["email"];
-                tbCountry.Text = "null";
+                tbCountry.Text = loadUserDataService.ResponseMessage["country"];
                 tbCity.Text = loadUserDataService.ResponseMessage["city"];
                 tbStreet.Text = loadUserDataService.ResponseMessage["street"];
                 tbStreetNumber.Text = loadUserDataService.ResponseMessage["houseNumber"];

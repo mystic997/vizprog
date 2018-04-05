@@ -36,7 +36,7 @@ namespace YachtKlub.service
             ResponseMessage.Add("firstname", firstname);
             ResponseMessage.Add("lastname", lastname);
 
-            // TO DO: country
+            ResponseMessage.Add("country", member.Country);
             ResponseMessage.Add("city", member.City);
             ResponseMessage.Add("street", member.Street);
             ResponseMessage.Add("houseNumber", member.HouseNumber);
