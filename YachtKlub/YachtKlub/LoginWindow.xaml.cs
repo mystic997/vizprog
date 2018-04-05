@@ -183,6 +183,21 @@ namespace YachtKlub
             }
         }
 
+        
+
+        private void tbPasswordLogin_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+                btLogin_Click(sender,e);
+        }
+
+        private void btLogin_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            tbEmailLogin.Text = "user0@gmail.com";
+            tbPasswordLogin.Text = "user0";
+            btLogin_Click(sender, e);
+        }
+
         //private void btRegister_Click(object sender, RoutedEventArgs e)
         //{
         //    MemberRegisterWindow registerWindow = new MemberRegisterWindow();

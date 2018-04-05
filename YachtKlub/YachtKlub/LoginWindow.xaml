@@ -31,9 +31,9 @@
             <TextBox x:Name="tbEmailLogin" Grid.Row="1" Width="170" FontSize="14" Grid.ColumnSpan="2" Margin="108,0"></TextBox>
 
             <Label x:Name="lbPasswordLogin" Grid.Row="2" Width="50" FontSize="14" HorizontalAlignment="Left" Margin="35,0,0,0">jelszó</Label>
-            <TextBox x:Name="tbPasswordLogin" Grid.Row="2" Width="170" FontSize="14" Grid.ColumnSpan="2" Margin="108,0"></TextBox>
+            <TextBox x:Name="tbPasswordLogin" Grid.Row="2" Width="170" FontSize="14" Grid.ColumnSpan="2" Margin="108,0" KeyDown="tbPasswordLogin_KeyDown"></TextBox>
 
-            <Button x:Name="btLogin" Grid.Row="3" Width="170" FontSize="14" Click="btLogin_Click" Grid.ColumnSpan="2" Margin="108,0">Belépés</Button>
+            <Button x:Name="btLogin" Grid.Row="3" Width="170" FontSize="14" Click="btLogin_Click" Grid.ColumnSpan="2" Margin="108,0" MouseRightButtonDown="btLogin_MouseRightButtonDown">Belépés</Button>
 
             <!--
                 <TextBox x:Name="tbErrorLogin" Grid.Row="5" Height="30" Width="220" FontSize="14" Margin="83,20,83,11" HorizontalContentAlignment="Center" Background="#FFCE2B2B" VerticalContentAlignment="Center" Visibility="Hidden" Grid.ColumnSpan="1">Hibás e-mail vagy jelszó!</TextBox>
