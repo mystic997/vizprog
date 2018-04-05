@@ -7,14 +7,14 @@
         mc:Ignorable="d"
         Title="Foglalások" Height="600" Width="900">
     <Grid>
-        
-        <Label  x:Name="lbBookableBoats" Content="Foglalható hajók:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="30,30,0,0" FontSize="13"  Width="110" Height="30" />
-        <StackPanel x:Name="spBookableBoatsUC" HorizontalAlignment="Left" Height="150" VerticalAlignment="Top" Width="300" Margin="30,60,0,0" />
 
-        <Label x:Name="lbBoatData" Content="Kiválasztott hajó adatai:" HorizontalAlignment="Left" FontSize="13" Margin="350,30,0,0" VerticalAlignment="Top"/>
+        <Label  x:Name="lbBookableBoats" Content="Foglalható hajók:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="30,100,0,0" FontSize="13"  Width="110" Height="30" />
+        <StackPanel x:Name="spBookableBoatsUC" HorizontalAlignment="Left" Height="170" VerticalAlignment="Top" Width="300" Margin="30,130,0,0" />
 
-        <Label x:Name="lbBoatPicture" Content="A hajó képe:" HorizontalAlignment="Left" FontSize="12" Margin="350,70,0,0" VerticalAlignment="Top"/>
-        <Image x:Name="imgBoatPicture" HorizontalAlignment="Left" Height="100" Margin="350,110,0,0" VerticalAlignment="Top" Width="100"/>
+        <Label x:Name="lbBoatData" Content="Kiválasztott hajó adatai:" HorizontalAlignment="Left" FontSize="18" Margin="480,41,0,0" VerticalAlignment="Top"/>
+
+        <Label x:Name="lbBoatPicture" Content="A hajó képe:" HorizontalAlignment="Left" FontSize="12" Margin="480,347,0,0" VerticalAlignment="Top"/>
+        <Image x:Name="imgBoatPicture" HorizontalAlignment="Left" Height="150" Margin="595,347,0,0" VerticalAlignment="Top" Width="150"/>
 
         <Label x:Name="lbBoatName" Content="Név:" HorizontalAlignment="Left" FontSize="12" Margin="480,70,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="tbBoatName" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,72,16,0" FontSize="12"  Width="304" Height="25" />
@@ -28,7 +28,7 @@
 
         <Label x:Name="lbBoatConsumption" Content="Fogyasztás:" HorizontalAlignment="Left" FontSize="12" Margin="695,108,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="tbBoatConsumption" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,110,59,0" FontSize="12"  Width="65" Height="25" />
-        <Label x:Name="lbConsumption" Content="l/óra" HorizontalAlignment="Left" Margin="833,108,0,0" VerticalAlignment="Top" Width="35" Height="25"/>
+        <Label x:Name="lbConsumption" Content="l/h" HorizontalAlignment="Left" Margin="833,108,0,0" VerticalAlignment="Top" Width="35" Height="25"/>
 
         <Label x:Name="lbBoatManpower" Content="Max. létszám:" HorizontalAlignment="Left" FontSize="12" Margin="480,184,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="tbBoatManpower" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,186,255,0" FontSize="12"  Width="65" Height="25" />
@@ -36,7 +36,7 @@
 
         <Label x:Name="lbBoatSpeed" Content="Max. sebesség:" HorizontalAlignment="Left" FontSize="12" Margin="676,184,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="tbBoatSpeed" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,185,59,0" FontSize="12"  Width="65" Height="25" RenderTransformOrigin="0.162,0.56" />
-        <Label x:Name="lbSpeed" Content="km/óra" HorizontalAlignment="Left" Margin="833,184,0,0" VerticalAlignment="Top" Width="51" Height="25"/>
+        <Label x:Name="lbSpeed" Content="km/h" HorizontalAlignment="Left" Margin="833,184,0,0" VerticalAlignment="Top" Width="51" Height="25"/>
 
         <Label x:Name="lbBoatWidth" Content="Szélesség:" HorizontalAlignment="Left" FontSize="12" Margin="480,222,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="tbBoatWidth" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,224,255,0" FontSize="12"  Width="65" Height="25" />
@@ -58,29 +58,30 @@
 
 
 
-        <Label x:Name="lbOwnerData" Content="A hajótulajdonos adatai:" HorizontalAlignment="Left" FontSize="13" Margin="30,230,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lbOwnerData" Content="A hajótulajdonos adatai:" HorizontalAlignment="Left" FontSize="13" Margin="30,300,0,0" VerticalAlignment="Top"/>
 
-        <Label x:Name="lbOwnerName" Content="Név:" HorizontalAlignment="Left" FontSize="12" Margin="30,268,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="tbOwnerName" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,270,562,0" FontSize="12"  Width="232" Height="25"/>
+        <Label x:Name="lbOwnerName" Content="Név:" HorizontalAlignment="Left" FontSize="12" Margin="30,338,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="tbOwnerName" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,340,562,0" FontSize="12"  Width="232" Height="25"/>
 
-        <Label x:Name="lbOwnerEmail" Content="Email cím:" HorizontalAlignment="Left" FontSize="12" Margin="30,306,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="tbOwnerEmail" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,308,562,0" FontSize="12"  Width="232" Height="25" />
+        <Label x:Name="lbOwnerEmail" Content="Email cím:" HorizontalAlignment="Left" FontSize="12" Margin="30,376,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="tbOwnerEmail" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,378,562,0" FontSize="12"  Width="232" Height="25" />
 
-        <Label x:Name="lbOwnerResidency" Content="Lakhely:" HorizontalAlignment="Left" FontSize="12" Margin="30,344,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="tbOwnerResidency" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,346,562,0" FontSize="12"  Width="232" Height="25" />
+        <Label x:Name="lbOwnerResidency" Content="Lakhely:" HorizontalAlignment="Left" FontSize="12" Margin="30,414,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="tbOwnerResidency" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,416,562,0" FontSize="12"  Width="232" Height="25" />
 
-        <Label x:Name="lbOwnerPicture" Content="Profilkép:" HorizontalAlignment="Left" FontSize="12" Margin="30,382,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.458,0.462"/>
-        <Image x:Name="imgOwnrePicture" HorizontalAlignment="Left" Height="100" Margin="98,382,0,0" VerticalAlignment="Top" Width="100"/>
+        <Label x:Name="lbOwnerPicture" Content="Profilkép:" HorizontalAlignment="Left" FontSize="12" Margin="30,452,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.458,0.462"/>
+        <Image x:Name="imgOwnrePicture" HorizontalAlignment="Left" Height="100" Margin="98,452,0,0" VerticalAlignment="Top" Width="100"/>
 
-        <Label x:Name="lbStart" Content="Bérlés kezdete:" HorizontalAlignment="Left" FontSize="12" Margin="480,382,0,0" VerticalAlignment="Top"/>
-        <DatePicker x:Name="dpStart" HorizontalAlignment="Left" Margin="482,409,0,0" VerticalAlignment="Top" Height="25" Width="150" RenderTransformOrigin="0.5,-0.72"/>
+        <Label x:Name="lbStart" Content="Bérlés kezdete:" HorizontalAlignment="Left" FontSize="12" Margin="30,39,0,0" VerticalAlignment="Top"/>
+        <DatePicker x:Name="dpStart" HorizontalAlignment="Left" Margin="29,65,0,0" VerticalAlignment="Top" Height="25" Width="150" RenderTransformOrigin="0.5,-0.72"/>
 
-        <Label x:Name="lbEnd" Content="Bérlés vége:" HorizontalAlignment="Left" FontSize="12" Margin="694,382,0,0" VerticalAlignment="Top"/>
-        <DatePicker x:Name="dpEnd" HorizontalAlignment="Left" Margin="694,409,0,0" VerticalAlignment="Top" Height="25" Width="150"/>
+        <Label x:Name="lbEnd" Content="Bérlés vége:" HorizontalAlignment="Left" FontSize="12" Margin="238,39,0,0" VerticalAlignment="Top"/>
+        <DatePicker x:Name="dpEnd" HorizontalAlignment="Left" Margin="238,65,0,0" VerticalAlignment="Top" Height="25" Width="150"/>
 
-        
-        <Button x:Name="btBook" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,534,204,0" FontSize="12"  Width="150" Height="25" Content="Foglalás" Click="btBook_Click" />
+
+        <Button x:Name="btBook" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,534,204,0" FontSize="12"  Width="150" Height="25" Content="A hajó foglalása" Click="btBook_Click" />
         <Button x:Name="btBack" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,534,16,0" FontSize="12"  Width="150" Height="25" Content="Mégsem" Click="btBack_Click" />
+        <Label Content="Adja meg, mely időszakban szüksége hajóra, majd válasszon az ajánlatok közül: " HorizontalAlignment="Left" Height="37" Margin="10,10,0,0" VerticalAlignment="Top" Width="840" FontWeight="Bold" FontSize="18"/>
 
 
 
