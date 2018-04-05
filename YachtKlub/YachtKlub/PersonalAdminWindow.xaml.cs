@@ -198,6 +198,12 @@ namespace YachtKlub
                     tbEmail.Text = "";
                     tbEmailAgain.IsEnabled = true;
                     tbEmailAgain.Text = "";
+                    btChangePassword.Visibility = Visibility.Hidden;
+                    btBooking.IsEnabled = false;
+                    lbPassword.Visibility = Visibility.Visible;
+                    tbPassword.Visibility = Visibility.Visible;
+                    lbPasswordAgain.Visibility = Visibility.Visible;
+                    tbPasswordAgain.Visibility = Visibility.Visible;
 
                     btCloseAdminRegister.Visibility = Visibility.Visible;
                 }
@@ -236,6 +242,13 @@ namespace YachtKlub
             cbPermission.IsEnabled = false;
             tbEmail.IsEnabled = false;
             tbEmailAgain.IsEnabled = false;
+
+            btChangePassword.Visibility = Visibility.Visible;
+            btBooking.IsEnabled = true;
+            lbPassword.Visibility = Visibility.Hidden;
+            tbPassword.Visibility = Visibility.Hidden;
+            lbPasswordAgain.Visibility = Visibility.Hidden;
+            tbPasswordAgain.Visibility = Visibility.Hidden;
 
             btCloseAdminRegister.Visibility = Visibility.Hidden;
 

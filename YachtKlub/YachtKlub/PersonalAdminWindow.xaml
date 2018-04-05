@@ -36,6 +36,13 @@
 
         <Button x:Name="btChangePassword" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="625,152,0,0" FontSize="12"  Width="150" Height="25" Content="Jelszó változtatás" Click="btChangePassword_Click"></Button>
 
+        <Label x:Name="lbPassword"  Content="Jelszó:" Visibility="Hidden" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="490,136,0,0" FontSize="12"  Width="130" Height="26" />
+        <TextBox x:Name="tbPassword"  HorizontalAlignment="Left" Visibility="Hidden" VerticalAlignment="Top" Margin="625,136,0,0" FontSize="12"  Width="170" Height="25" />
+        
+        <Label x:Name="lbPasswordAgain"  Content="Jelszó megerősítése:" Visibility="Hidden" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="490,176,0,0" FontSize="12"  Width="130" Height="26" />
+        <TextBox x:Name="tbPasswordAgain"  HorizontalAlignment="Left" Visibility="Hidden" VerticalAlignment="Top" Margin="625,176,0,0" FontSize="12"  Width="170" Height="25" />
+
+
         <Label x:Name="lbCountry" Content="Ország:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="66,224,0,0" FontSize="12"  Width="150" Height="25" />
         <TextBox x:Name="tbCountry" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="218,224,0,0" FontSize="12"  Width="200" Height="25" />
 
