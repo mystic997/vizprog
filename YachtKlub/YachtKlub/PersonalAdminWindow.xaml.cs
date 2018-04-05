@@ -166,8 +166,8 @@ namespace YachtKlub
         {
             try
             {
-                string firstname = tbLastname.Text;
-                string lastname = tbFirstname.Text;
+                string firstname = tbFirstname.Text;
+                string lastname = tbLastname.Text;
                 string email = tbEmail.Text;
                 string emailCheck = tbEmailAgain.Text;
                 string password = "12345678";                   // TO DO: password fields in GUI!
