@@ -13,6 +13,6 @@ namespace YachtKlub.dao
         List<BoatsEntity> GetAllBoatsByOwner(MembersEntity Owner);
         List<BoatsEntity> GetAllBoats();
         List<BoatsEntity> GetTemplateBoats();
-        List<BoatsEntity> GetBookableBoats();
+        List<BoatsEntity> GetBookableBoats(DateTime startingDate, DateTime endingDate);
     }
 }

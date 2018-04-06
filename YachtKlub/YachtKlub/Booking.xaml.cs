@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using YachtKlub.dao;
+using YachtKlub.entity;
 using YachtKlub.service;
 
 namespace YachtKlub
@@ -63,10 +64,11 @@ namespace YachtKlub
         private void ListBookableBoats()
         {
             Console.WriteLine("...LISTING...");
-            BoatsDao bookableBoats = new BoatsDaoImpl();
-            bookableBoats.GetBookableBoats();
+
 
             LoadBookableBoatsService loadBookableBoats = new LoadBookableBoatsService(startingDate, endingDate);
+            for (int i = 0; i < loadBookableBoats.BookableBoatsUCs.Count; i++)
+                this.spBookableBoatsUC.Children.Add(loadBookableBoats.BookableBoatsUCs[i]);
         }
     }
 }

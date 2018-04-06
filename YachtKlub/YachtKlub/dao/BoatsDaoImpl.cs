@@ -32,28 +32,27 @@ namespace YachtKlub.dao
             return GetSingleResultWithoutExc(BoatsList);
         }
 
-        public List<BoatsEntity> GetBookableBoats()
+        public List<BoatsEntity> GetBookableBoats(DateTime startingDate, DateTime endingDate)
         {
-            //from t1 in db.Table1
-            //join t2 in db.Table2 on t1.field equals t2.field
-            //select new { t1.field2, t2.field3 }
+            var linqQuery = from boat in dbc.Boats
+                            join rental in dbc.BoatRentals on boat.BoatId equals rental.FKRentedBoat.BoatId
+                            where boat.IsLoan == "true" && !(
+                                    startingDate < rental.EndDate &&
+                                    endingDate > rental.StartingDate
+                            )
+                            select rental.FKRentedBoat;
 
-            //var linqQuery = from boat in dbc.Boats
-            //                join rental in dbc.BoatRentals on boat.BoatId equals rental.FKRentedBoat.BoatId
-            //                where boat.IsLoan == "true"
-            //                select new {
-            //                    startDate = rental.StartingDate,
-            //                    endDate = rental.EndDate
-            //                    //from boat in dbc.Boats
-            //                    //join rental in dbc.BoatRentals on boat.BoatId equals rental.FKRentedBoat.BoatId
-            //                    //select boat;
-            //                };
+            var linqQuery2 = from boat in dbc.Boats
+                             where boat.IsLoan == "true" &&
+                             !(from rent in dbc.BoatRentals
+                               select rent.FKRentedBoat.BoatId).Contains(boat.BoatId)
+                             select boat;
 
+            var list1 = linqQuery.ToList().Distinct().ToList();
+            var list2 = linqQuery2.ToList().Distinct().ToList();
+            var union = list1.Union(list2).ToList();
 
-
-            //List<BoatsEntity> BoatsList = linqQuery.ToList();
-
-            throw new NotImplementedException();
+            return union;
         }
 
         public List<BoatsEntity> GetTemplateBoats()

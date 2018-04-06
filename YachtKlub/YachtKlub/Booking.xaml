@@ -9,7 +9,16 @@
     <Grid>
 
         <Label  x:Name="lbBookableBoats" Content="Foglalható hajók:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="30,100,0,0" FontSize="13"  Width="110" Height="30" />
-        <StackPanel x:Name="spBookableBoatsUC" HorizontalAlignment="Left" Height="429" VerticalAlignment="Top" Width="150" Margin="30,130,0,0" />
+
+        <ScrollViewer HorizontalContentAlignment="Center" CanContentScroll="True" PanningMode="HorizontalOnly" SnapsToDevicePixels="True" HorizontalScrollBarVisibility="Visible" DataContext="{Binding}">
+            <!--<scrollviewer.background>
+                <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
+                    <GradientStop Color="Black" Offset="0" />
+                    <GradientStop Color="Red" Offset="1" />
+                </LinearGradientBrush>
+            </scrollviewer.background>-->
+            <StackPanel x:Name="spBookableBoatsUC" HorizontalAlignment="Left" Height="429" VerticalAlignment="Top" Width="150" Margin="30,130,0,0" />
+        </ScrollViewer>
 
         <Label x:Name="lbBoatData" Content="Kiválasztott hajó adatai:" HorizontalAlignment="Left" FontSize="18" Margin="480,96,0,0" VerticalAlignment="Top"/>
 
