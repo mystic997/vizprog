@@ -32,6 +32,30 @@ namespace YachtKlub.dao
             return GetSingleResultWithoutExc(BoatsList);
         }
 
+        public List<BoatsEntity> GetBookableBoats()
+        {
+            //from t1 in db.Table1
+            //join t2 in db.Table2 on t1.field equals t2.field
+            //select new { t1.field2, t2.field3 }
+
+            //var linqQuery = from boat in dbc.Boats
+            //                join rental in dbc.BoatRentals on boat.BoatId equals rental.FKRentedBoat.BoatId
+            //                where boat.IsLoan == "true"
+            //                select new {
+            //                    startDate = rental.StartingDate,
+            //                    endDate = rental.EndDate
+            //                    //from boat in dbc.Boats
+            //                    //join rental in dbc.BoatRentals on boat.BoatId equals rental.FKRentedBoat.BoatId
+            //                    //select boat;
+            //                };
+
+
+
+            //List<BoatsEntity> BoatsList = linqQuery.ToList();
+
+            throw new NotImplementedException();
+        }
+
         public List<BoatsEntity> GetTemplateBoats()
         {
             Random random = new Random();

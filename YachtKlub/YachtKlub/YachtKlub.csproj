@@ -88,6 +88,7 @@
     <Compile Include="PopupMessage.xaml.cs">
       <DependentUpon>PopupMessage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="service\LoadBookableBoatsService.cs" />
     <Compile Include="service\LoadUserDataService.cs" />
     <Compile Include="service\LoginService.cs" />
     <Compile Include="service\PasswordChangeService.cs" />

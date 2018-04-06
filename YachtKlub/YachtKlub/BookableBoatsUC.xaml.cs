@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace YachtKlub
 {
     /// <summary>
-    /// Interaction logic for BookableShips.xaml
+    /// Interaction logic for BookableBoatsUC.xaml
     /// </summary>
-    public partial class BookableShips : UserControl
+    public partial class BookableBoatsUC : UserControl
     {
-        public BookableShips()
+        public BookableBoatsUC()
         {
             InitializeComponent();
         }
