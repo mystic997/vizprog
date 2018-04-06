@@ -25,8 +25,8 @@
         <Label x:Name="lbEmail"  Content="E-mail cím:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="218,91,0,0" FontSize="12"  Width="70" Height="26" />
         <TextBox x:Name="tbEmail"  HorizontalAlignment="Left" VerticalAlignment="Top" Margin="293,91,0,0" FontSize="12"  Width="170" Height="25" />
 
-        <Label x:Name="lbEmailAgain"  Content="E-mail megerősítése:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="490,91,0,0" FontSize="12"  Width="130" Height="26" />
-        <TextBox x:Name="tbEmailAgain"  HorizontalAlignment="Left" VerticalAlignment="Top" Margin="625,91,0,0" FontSize="12"  Width="170" Height="25" />
+        <Label x:Name="lbEmailAgain"  Visibility="Hidden" Content="E-mail megerősítése:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="490,91,0,0" FontSize="12"  Width="130" Height="26" />
+        <TextBox x:Name="tbEmailAgain"  Visibility="Hidden" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="625,91,0,0" FontSize="12"  Width="170" Height="25" />
 
         <Label x:Name="lbPermission" Content="Jogosultság:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="218,152,0,0" FontSize="11"  Width="70" Height="26" />
         <ComboBox x:Name="cbPermission" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="293,152,0,0" FontSize="12"  Width="170" Height="25" >

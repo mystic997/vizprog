@@ -35,7 +35,6 @@ namespace YachtKlub
             try
             {
                 tbEmail.IsEnabled = false;
-                tbEmailAgain.IsEnabled = false;
 
                 fields = new List<TextBox>();
                 fields.Add(tbLastname);
@@ -51,7 +50,6 @@ namespace YachtKlub
                 tbLastname.Text = loadUserDataService.ResponseMessage["firstname"];
                 tbFirstname.Text = loadUserDataService.ResponseMessage["lastname"];
                 tbEmail.Text = loadUserDataService.ResponseMessage["email"];
-                tbEmailAgain.Text = loadUserDataService.ResponseMessage["email"];
                 tbCountry.Text = loadUserDataService.ResponseMessage["country"];
                 tbCity.Text = loadUserDataService.ResponseMessage["city"];
                 tbStreet.Text = loadUserDataService.ResponseMessage["street"];
@@ -83,7 +81,6 @@ namespace YachtKlub
                 string firstname = tbLastname.Text;
                 string lastname = tbFirstname.Text;
                 string email = tbEmail.Text;
-                string emailCheck = tbEmailAgain.Text;
                 string country = tbCountry.Text;
                 string city = tbCity.Text;
                 string street = tbStreet.Text;
@@ -99,7 +96,7 @@ namespace YachtKlub
                 }
                 else
                 {
-                    ValidateFields(firstname, lastname, email, emailCheck, country, city, street, houseNumber);
+                    ValidateFields(firstname, lastname, email, country, city, street, houseNumber);
 
                     UpdateUserDataService updateUserService = new UpdateUserDataService(firstname, lastname, email, country, city, street, houseNumber, 1); // not admin
 
@@ -116,7 +113,7 @@ namespace YachtKlub
             }
         }
 
-        private void ValidateFields(string firstname, string lastname, string email, string emailCheck, string country, string city, string street, string houseNumber)
+        private void ValidateFields(string firstname, string lastname, string email, string country, string city, string street, string houseNumber)
         {
             Validator registerValidator = new Validator();
             registerValidator.ValidationComponents.Add(new EmptyFieldValidator(firstname, "vezetéknév"));
@@ -129,9 +126,7 @@ namespace YachtKlub
 
             registerValidator.ValidationComponents.Add(new EmptyFieldValidator(email, "e-mail"));
             registerValidator.ValidationComponents.Add(new EmailFormatValidator(email));
-            registerValidator.ValidationComponents.Add(new EmptyFieldValidator(emailCheck, "e-mail megerősítése"));
-            registerValidator.ValidationComponents.Add(new EmailFormatValidator(emailCheck));
-            registerValidator.ValidationComponents.Add(new SameFieldValidator(email, emailCheck, "e-mail cím"));
+            
 
             // need to validate by a regular expression
             registerValidator.ValidationComponents.Add(new EmptyFieldValidator(country, "ország"));
