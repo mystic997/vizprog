@@ -22,6 +22,8 @@ namespace YachtKlub
     /// </summary>
     public partial class PopupMessage : Window
     {
+        public int Bottom { get; internal set; }
+
         //private Status status;
 
         public PopupMessage(string message, Status status)
@@ -30,6 +32,7 @@ namespace YachtKlub
 
             this.ShowInTaskbar = false;
             this.Top = 0;
+            this.Margin = new Thickness(0, this.Top, 0, Bottom);
             this.Left = SystemParameters.PrimaryScreenWidth - this.Width;
 
             if (status == Status.OK)
@@ -40,7 +43,7 @@ namespace YachtKlub
             this.msg.FontWeight = FontWeights.Bold;
             this.msg.Foreground = Brushes.White;
             this.msg.FontSize = 15;
-            this.msg.Content = message;
+            this.msg.Text = message;
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)

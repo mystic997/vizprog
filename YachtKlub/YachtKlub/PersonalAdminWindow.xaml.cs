@@ -65,7 +65,7 @@ namespace YachtKlub
             tbEmail.Text = loadUserDataService.ResponseMessage["email"];
             tbEmailAgain.Text = loadUserDataService.ResponseMessage["email"];
             cbPermission.Text = loadUserDataService.ResponseMessage["permission"];
-            tbCountry.Text = "null";
+            tbCountry.Text = loadUserDataService.ResponseMessage["country"];
             tbCity.Text = loadUserDataService.ResponseMessage["city"];
             tbStreet.Text = loadUserDataService.ResponseMessage["street"];
             tbStreetNumber.Text = loadUserDataService.ResponseMessage["houseNumber"];
@@ -102,6 +102,8 @@ namespace YachtKlub
                 if (btSave.Content.Equals("Adatok módosítása"))
                 {
                     btAdminRegiszter.IsEnabled = false;
+                    btBooking.IsEnabled = false;
+                    btMyShips.IsEnabled = false;
                     btSave.Content = "Változtatások mentése";
                     fields.ForEach(i => i.IsEnabled = true);
                     btChangePassword.IsEnabled = false;
@@ -115,6 +117,8 @@ namespace YachtKlub
                     UpdateUserDataService updateUserService = new UpdateUserDataService(firstname, lastname, email, country, city, street, houseNumber, 0); // 0 is admin
 
                     btAdminRegiszter.IsEnabled = true;
+                    btBooking.IsEnabled = true;
+                    btMyShips.IsEnabled = true;
                     btSave.Content = "Adatok módosítása";
                     fields.ForEach(i => i.IsEnabled = false);
                     btChangePassword.IsEnabled = true;
@@ -176,8 +180,8 @@ namespace YachtKlub
                 string lastname = tbLastname.Text;
                 string email = tbEmail.Text;
                 string emailCheck = tbEmailAgain.Text;
-                string password = "12345678";                   // TO DO: password fields in GUI!
-                string passwordCheck = "12345678";
+                string password = tbPassword.Text;
+                string passwordCheck = tbPasswordAgain.Text;
                 string country = tbCountry.Text;
                 string city = tbCity.Text;
                 string street = tbStreet.Text;
@@ -195,6 +199,8 @@ namespace YachtKlub
                 if (btAdminRegiszter.Content.Equals("Felhasználó regisztrálása"))
                 {
                     btSave.IsEnabled = false;
+                    btBooking.IsEnabled = false;
+                    btMyShips.IsEnabled = false;
                     btAdminRegiszter.Content = "Változtatások mentése";
                     fields.ForEach(i => i.IsEnabled = true);
                     fields.ForEach(i => i.Text = "");
@@ -205,7 +211,6 @@ namespace YachtKlub
                     tbEmailAgain.IsEnabled = true;
                     tbEmailAgain.Text = "";
                     btChangePassword.Visibility = Visibility.Hidden;
-                    btBooking.IsEnabled = false;
                     lbPassword.Visibility = Visibility.Visible;
                     tbPassword.Visibility = Visibility.Visible;
                     lbPasswordAgain.Visibility = Visibility.Visible;
@@ -223,6 +228,8 @@ namespace YachtKlub
                         throw new Exception();
 
                     btSave.IsEnabled = true;
+                    btBooking.IsEnabled = true;
+                    btMyShips.IsEnabled = true;
                     btAdminRegiszter.Content = "Felhasználó regisztrálása";
                     fields.ForEach(i => i.IsEnabled = false);
                     cbPermission.IsEnabled = false;
@@ -251,6 +258,7 @@ namespace YachtKlub
 
             btChangePassword.Visibility = Visibility.Visible;
             btBooking.IsEnabled = true;
+            btMyShips.IsEnabled = true;
             lbPassword.Visibility = Visibility.Hidden;
             tbPassword.Visibility = Visibility.Hidden;
             lbPasswordAgain.Visibility = Visibility.Hidden;
@@ -263,14 +271,11 @@ namespace YachtKlub
 
         private void btUploadProfilePicture_Click(object sender, RoutedEventArgs e)
         {
-            // Create OpenFileDialog
             Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();
-            // Set filter for file extension and default file extension
             dlg.DefaultExt = ".jpg";
-            dlg.Filter = "Pictures (.jpg)|*.jpg";
-            // Display OpenFileDialog by calling ShowDialog method
+            dlg.Filter = "All supported graphics|*.jpg;*.jpeg;*.png|" + "JPEG (*.jpg;*.jpeg)|*.jpg;*.jpeg|" + "Portable Network Graphic (*.png)|*.png";
             Nullable<bool> result = dlg.ShowDialog();
-            // Get the selected file name and display in a TextBox
+
             if (result == true)
             {
                 // Open document
@@ -282,6 +287,11 @@ namespace YachtKlub
         {
             Booking ToBooking = new Booking();
             ToBooking.Show();
+        }
+
+        private void btMyShips_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

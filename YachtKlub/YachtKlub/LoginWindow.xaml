@@ -28,7 +28,7 @@
             </Grid.RowDefinitions>
 
             <Label x:Name="lbEmailLogin" Grid.Row="1" Width="50" FontSize="14" HorizontalAlignment="Left" Margin="35,0,0,0">e-mail</Label>
-            <TextBox x:Name="tbEmailLogin" Grid.Row="1" Width="170" FontSize="14" Grid.ColumnSpan="2" Margin="108,0"></TextBox>
+            <TextBox x:Name="tbEmailLogin" Grid.Row="1" Width="170" FontSize="14" Grid.ColumnSpan="2" Margin="108,0" KeyDown="tbEmailLogin_KeyDown"/>
 
             <Label x:Name="lbPasswordLogin" Grid.Row="2" Width="50" FontSize="14" HorizontalAlignment="Left" Margin="35,0,0,0">jelszó</Label>
             <TextBox x:Name="tbPasswordLogin" Grid.Row="2" Width="170" FontSize="14" Grid.ColumnSpan="2" Margin="108,0" KeyDown="tbPasswordLogin_KeyDown"></TextBox>

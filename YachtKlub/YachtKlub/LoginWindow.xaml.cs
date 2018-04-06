@@ -80,7 +80,8 @@ namespace YachtKlub
                     }
                     dbContext.SaveChanges();
                 }
-                else {
+                else
+                {
                     dbContext.Database.Create();
 
                     // fill the database with temporarily data
@@ -154,6 +155,15 @@ namespace YachtKlub
                 string email = tbEmailLogin.Text;
                 string password = tbPasswordLogin.Text;
 
+                // ki kell majd venni!
+                if (email.Equals("") && password.Equals(""))
+                {
+                    tbEmailLogin.Text = "user1@gmail.com";
+                    tbPasswordLogin.Text = "user1";
+                    btLogin_Click(sender, e);
+                    return;
+                }
+
                 Validator loginValidator = new Validator();
                 loginValidator.ValidationComponents.Add(new EmptyFieldValidator(email, "e-mail cím"));
                 loginValidator.ValidationComponents.Add(new EmailFormatValidator(email));
@@ -183,12 +193,16 @@ namespace YachtKlub
             }
         }
 
-        
-
         private void tbPasswordLogin_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Enter)
-                btLogin_Click(sender,e);
+                btLogin_Click(sender, e);
+        }
+
+        private void tbEmailLogin_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+                btLogin_Click(sender, e);
         }
 
         private void btLogin_MouseRightButtonDown(object sender, MouseButtonEventArgs e)

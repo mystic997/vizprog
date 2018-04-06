@@ -69,19 +69,19 @@
         <Label x:Name="lbOwnerResidency" Content="Lakhely:" HorizontalAlignment="Left" FontSize="12" Margin="198,250,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="tbOwnerResidency" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,250,422,0" FontSize="12"  Width="205" Height="25" />
 
-        <Label x:Name="lbOwnerPicture" Content="Profilkép:" HorizontalAlignment="Left" FontSize="12" Margin="198,300,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.458,0.462"/>
+        <Label x:Name="lbOwnerPicture" Content="Kép:" HorizontalAlignment="Left" FontSize="12" Margin="198,300,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.458,0.462"/>
         <Image x:Name="imgOwnrePicture" HorizontalAlignment="Left" Height="150" Margin="266,300,0,0" VerticalAlignment="Top" Width="150"/>
 
         <Label x:Name="lbStart" Content="Bérlés kezdete:" HorizontalAlignment="Left" FontSize="12" Margin="30,39,0,0" VerticalAlignment="Top"/>
-        <DatePicker x:Name="dpStart" HorizontalAlignment="Left" Margin="29,65,0,0" VerticalAlignment="Top" Height="25" Width="150" RenderTransformOrigin="0.5,-0.72"/>
+        <DatePicker x:Name="dpStart" HorizontalAlignment="Left" Margin="29,65,0,0" VerticalAlignment="Top" Height="25" Width="150" RenderTransformOrigin="0.5,-0.72" SelectedDateChanged="dpStart_SelectedDateChanged"/>
 
         <Label x:Name="lbEnd" Content="Bérlés vége:" HorizontalAlignment="Left" FontSize="12" Margin="238,39,0,0" VerticalAlignment="Top"/>
-        <DatePicker x:Name="dpEnd" HorizontalAlignment="Left" Margin="238,65,0,0" VerticalAlignment="Top" Height="25" Width="150"/>
+        <DatePicker x:Name="dpEnd" HorizontalAlignment="Left" Margin="238,65,0,0" VerticalAlignment="Top" Height="25" Width="150" SelectedDateChanged="dpEnd_SelectedDateChanged"/>
 
 
         <Button x:Name="btBook" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,534,204,0" FontSize="12"  Width="150" Height="25" Content="A hajó foglalása" Click="btBook_Click" />
         <Button x:Name="btBack" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,534,16,0" FontSize="12"  Width="150" Height="25" Content="Mégsem" Click="btBack_Click" />
-        <Label Content="Adja meg, mely időszakban szüksége hajóra, majd válasszon az ajánlatok közül: " HorizontalAlignment="Left" Height="37" Margin="10,10,0,0" VerticalAlignment="Top" Width="840" FontWeight="Bold" FontSize="18"/>
+        <Label Content="Adja meg, mely időszakban van szüksége hajóra, majd válasszon az ajánlatok közül: " HorizontalAlignment="Left" Height="37" Margin="10,10,0,0" VerticalAlignment="Top" Width="840" FontWeight="Bold" FontSize="18"/>
 
 
 

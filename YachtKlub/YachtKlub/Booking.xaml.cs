@@ -19,6 +19,9 @@ namespace YachtKlub
     /// </summary>
     public partial class Booking : Window
     {
+        private DateTime startingDate;
+        private DateTime endingDate;
+
         public Booking()
         {
             InitializeComponent();
@@ -32,6 +35,32 @@ namespace YachtKlub
         private void btBook_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void dpStart_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
+        {
+            startingDate = dpStart.SelectedDate.Value.Date;
+
+            if (endingDate != null)
+                if (DateTime.Compare(startingDate, endingDate) < 0)
+                    ListBookableBoats();
+                else
+                    new PrintMessageBox("A kezdődátum nem kisebb, mint a végdátum!", validator.Status.Error);
+        }
+
+        private void dpEnd_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
+        {
+            endingDate = dpEnd.SelectedDate.Value.Date;
+            if (startingDate != null)
+                if (DateTime.Compare(startingDate, endingDate) < 0)
+                    ListBookableBoats();
+                else
+                    new PrintMessageBox("A kezdődátum nem kisebb, mint a végdátum!", validator.Status.Error);
+        }
+
+        private void ListBookableBoats()
+        {
+            Console.WriteLine("...LISTING...");
         }
     }
 }

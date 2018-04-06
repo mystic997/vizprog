@@ -21,12 +21,14 @@ namespace YachtKlub
     {
         public string Messsage { get; set; }
         public int BoxTopMargin { get; set; }
+        public int BoxBottomMargin { get; set; }
         public Status status { get; set; }
 
         public PopupCaller()
         {
             Messsage = "";
             BoxTopMargin = 0;
+            BoxBottomMargin = 0;
             status = Status.OK;
         }
 
@@ -34,6 +36,7 @@ namespace YachtKlub
         {
             var PopupMessage = new PopupMessage(Messsage, status);
             PopupMessage.Top = this.BoxTopMargin;
+            PopupMessage.Bottom = this.BoxBottomMargin;
             PopupMessage.Focusable = false;
             PopupMessage.ShowActivated = false;
             PopupMessage.ShowDialog();
@@ -46,7 +49,10 @@ namespace YachtKlub
         {
             PopupCaller PopupCaller = new PopupCaller();
             PopupCaller.Messsage = message;
-            PopupCaller.BoxTopMargin = 32 * PopupMargin.Count++;
+            if (message.Length > 51)
+                PopupCaller.BoxBottomMargin = 22 * PopupMargin.Count;
+            PopupCaller.BoxTopMargin = 22 * PopupMargin.Count++; //42
+
             PopupCaller.status = status;
 
             var myThread = new System.Threading.Thread(new System.Threading.ThreadStart(PopupCaller.CallPopup));
