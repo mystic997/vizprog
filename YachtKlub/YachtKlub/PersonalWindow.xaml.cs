@@ -93,6 +93,9 @@ namespace YachtKlub
                 {
                     btSave.Content = "Módosítások mentése";
                     fields.ForEach(i => i.IsEnabled = true);
+                    btChangePassword.IsEnabled = false;
+                    btMyShips.IsEnabled = false;
+                    btBooking.IsEnabled = false;
                 }
                 else
                 {
@@ -102,6 +105,9 @@ namespace YachtKlub
 
                     btSave.Content = "Adatok módosítása";
                     fields.ForEach(i => i.IsEnabled = false);
+                    btChangePassword.IsEnabled = true;
+                    btMyShips.IsEnabled = true;
+                    btBooking.IsEnabled = true;
                 }
             }
             catch (Exception ex)
