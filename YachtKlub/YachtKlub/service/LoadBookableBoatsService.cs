@@ -10,11 +10,12 @@ namespace YachtKlub.service
 {
     class LoadBookableBoatsService : ServiceResponse
     {
-        public List<BookableBoatsUC> BookableBoatsUCs { get; set; }
+        public BookableBoatsUC BookableBoatsUC { get; set; }
+        public static List<BoatsEntity> BookableBoats { get; set; }
 
         public LoadBookableBoatsService(DateTime startingDate, DateTime endingDate)
         {
-            BookableBoatsUCs = new List<BookableBoatsUC>();
+            BookableBoatsUC = new BookableBoatsUC();
 
             // ki kell valasztani azokat a halyokat, melyek:
             /*
@@ -24,22 +25,11 @@ namespace YachtKlub.service
              */
 
             BoatsDao bookableBoats = new BoatsDaoImpl();
-            List<BoatsEntity> bookableBoatsList = bookableBoats.GetBookableBoats(startingDate, endingDate);
-            for (int i = 0; i < bookableBoatsList.Count; i++)
-            {
-                var uc = new BookableBoatsUC();
-                //uc.imImage = bookableBoatsList[i].BoatImage; // image??
-                uc.lbName.Content = bookableBoatsList[i].BoatName;
-                uc.lbType.Content = bookableBoatsList[i].BoatType;
-                uc.lbOwner.Content = bookableBoatsList[i].FKOwner.MemberName;
-                uc.lbWidth.Content = bookableBoatsList[i].BoatWidth;
-                uc.lbHeight.Content = bookableBoatsList[i].BoatLength;
-                uc.lbConsumption.Content = bookableBoatsList[i].Consumption;
-                uc.lbMaxPerson.Content = bookableBoatsList[i].MaxPerson;
-                uc.lbMaxSpeed.Content = bookableBoatsList[i].MaxSpeed;
-                uc.lbDailyPrice.Content = bookableBoatsList[i].DailyPrice;
+            BookableBoats = bookableBoats.GetBookableBoats(startingDate, endingDate);
 
-                BookableBoatsUCs.Add(uc);
+            for (int i = 0; i < BookableBoats.Count; i++)
+            {
+                BookableBoatsUC.lbBookalbeShipsUC.Items.Add(BookableBoats[i].BoatName);
             }
         }
     }

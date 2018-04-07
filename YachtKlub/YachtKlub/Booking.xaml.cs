@@ -24,6 +24,12 @@ namespace YachtKlub
     {
         private DateTime startingDate;
         private DateTime endingDate;
+        //public static readonly RoutedEvent ListBoxSelectionChangedEvent = EventManager.RegisterRoutedEvent("ListBoxSelectionChanged", RoutingStrategy.Bubble, typeof(RoutedEventHandler), typeof(BookableBoatsUC));
+        //public event RoutedEvent ListBoxSelectionChanged
+        //{
+        //    add { AddHandler(ListBoxSelectionChangedEvent, value); }
+        //    remove { RemoveHandler(ListBoxSelectionChangedEvent, value); }
+        //}
 
         public Booking()
         {
@@ -63,12 +69,17 @@ namespace YachtKlub
 
         private void ListBookableBoats()
         {
-            Console.WriteLine("...LISTING...");
-
+            this.spBookableBoatsUC.Children.Clear();
 
             LoadBookableBoatsService loadBookableBoats = new LoadBookableBoatsService(startingDate, endingDate);
-            for (int i = 0; i < loadBookableBoats.BookableBoatsUCs.Count; i++)
-                this.spBookableBoatsUC.Children.Add(loadBookableBoats.BookableBoatsUCs[i]);
+
+            this.spBookableBoatsUC.Children.Add(loadBookableBoats.BookableBoatsUC);
+        }
+
+        private static void LoadBoatData()
+        {
+            Console.WriteLine("...element changed...");
+            //var selectedBoat = LoadBookableBoatsService.BookableBoats[BookableBoatIndex];
         }
     }
 }
