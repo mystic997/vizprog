@@ -22,18 +22,16 @@ namespace YachtKlub
     /// </summary>
     public partial class BookableBoatsUC : UserControl
     {
-        //public static List<BoatsEntity> BookableBoats { get; set; }
         public BookableBoatsUC()
         {
             InitializeComponent();
         }
 
-        private void lbBookalbeShipsUC_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void lbBookalbeShipsUC_SelectionChanged(object sender, RoutedEventArgs e)
         {
-            var selectedElementIndex = this.lbBookalbeShipsUC.SelectedIndex;
-
-            //Console.WriteLine("Element changed...");
-            //var bookableBoats = LoadBookableBoatsService.BookableBoats;
+            var selectedElementIndex = lbBookalbeShipsUC.SelectedIndex;
+            // feltoltjuk a Booking ablak SelectedBoatIndex tagjat a megfelelo index-el
+            Booking.SelectedBoatIndex = selectedElementIndex;
         }
     }
 }

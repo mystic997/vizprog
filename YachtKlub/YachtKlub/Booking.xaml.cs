@@ -24,26 +24,40 @@ namespace YachtKlub
     {
         private DateTime startingDate;
         private DateTime endingDate;
-        //public static readonly RoutedEvent ListBoxSelectionChangedEvent = EventManager.RegisterRoutedEvent("ListBoxSelectionChanged", RoutingStrategy.Bubble, typeof(RoutedEventHandler), typeof(BookableBoatsUC));
-        //public event RoutedEvent ListBoxSelectionChanged
-        //{
-        //    add { AddHandler(ListBoxSelectionChangedEvent, value); }
-        //    remove { RemoveHandler(ListBoxSelectionChangedEvent, value); }
-        //}
+        public static int SelectedBoatIndex { get; set; }
 
         public Booking()
         {
             InitializeComponent();
         }
 
-        private void btBack_Click(object sender, RoutedEventArgs e)
+        // esemeny, amely akkor kovetkezik be, ha a UserControlban masik elemet valasztottunk
+        // ekkor toltodik fel a SelectedBoatIndex a megfelelo ertekkel
+        private void SelectionChanged(object sender, RoutedEventArgs e)
         {
-            this.Close();
-        }
+            // kivalasztott hajo entity
+            BoatsEntity selectedBoat = LoadBookableBoatsService.BookableBoats[SelectedBoatIndex];
 
-        private void btBook_Click(object sender, RoutedEventArgs e)
-        {
+            tbOwnerName.Text = selectedBoat.FKOwner.MemberName;
+            tbOwnerEmail.Text = selectedBoat.FKOwner.Email;
+            tbOwnerResidency.Text = selectedBoat.FKOwner.Country + ", " + selectedBoat.FKOwner.City + ", " + selectedBoat.FKOwner.Street + " " + selectedBoat.FKOwner.HouseNumber + ".";
+            //imgOwnerPicture = Image;
 
+            tbBoatName.Text = selectedBoat.BoatName;
+            tbBoatPrice.Text = selectedBoat.DailyPrice.ToString();
+            tbBoatConsumption.Text = selectedBoat.Consumption.ToString();
+            tbBoatType.Text = selectedBoat.BoatType;
+            tbBoatManpower.Text = selectedBoat.MaxPerson.ToString();
+            tbBoatSpeed.Text = selectedBoat.MaxSpeed.ToString();
+            tbBoatWidth.Text = selectedBoat.BoatWidth.ToString();
+            tbBoatLenght.Text = selectedBoat.BoatLength.ToString();
+            tbBoatYear.Text = selectedBoat.YearOfManufacture.ToString();
+            tbBoatDept.Text = selectedBoat.DiveDepth.ToString();
+            tbBoatPlace.Text = selectedBoat.WhereIsNowTheBoat;
+
+            //imgBoatPicture = Image;
+
+            e.Handled = true;
         }
 
         private void dpStart_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
@@ -76,10 +90,14 @@ namespace YachtKlub
             this.spBookableBoatsUC.Children.Add(loadBookableBoats.BookableBoatsUC);
         }
 
-        private static void LoadBoatData()
+        private void btBack_Click(object sender, RoutedEventArgs e)
         {
-            Console.WriteLine("...element changed...");
-            //var selectedBoat = LoadBookableBoatsService.BookableBoats[BookableBoatIndex];
+            this.Close();
+        }
+
+        private void btBook_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
