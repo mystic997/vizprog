@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="Foglalások" Height="600" Width="900">
     <Grid>
-
+        
         <Label  x:Name="lbBookableBoats" Content="Foglalható hajók:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="30,100,0,0" FontSize="13"  Width="110" Height="30" />
 
         <!--<ScrollViewer HorizontalContentAlignment="Center" CanContentScroll="True" PanningMode="HorizontalOnly" SnapsToDevicePixels="True" HorizontalScrollBarVisibility="Visible" DataContext="{Binding}" Margin="0,10,0,-10">-->

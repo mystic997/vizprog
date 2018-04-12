@@ -84,6 +84,9 @@
     <Compile Include="dao\TransportDevicesDao.cs" />
     <Compile Include="AliveContext.cs" />
     <Compile Include="ExceptionToConsole.cs" />
+    <Compile Include="NewBoatWindow.xaml.cs">
+      <DependentUpon>NewBoatWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="PrintMessageBox.cs" />
     <Compile Include="PopupMessage.xaml.cs">
       <DependentUpon>PopupMessage.xaml</DependentUpon>
@@ -133,6 +136,10 @@
     <Page Include="MemberRegisterWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="NewBoatWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="PasswordChangeWindow.xaml">
       <Generator>MSBuild:Compile</Generator>

@@ -299,5 +299,11 @@ namespace YachtKlub
         {
 
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            NewBoatWindow ToNewBoatWindow = new NewBoatWindow();
+            ToNewBoatWindow.Show();
+        }
     }
 }

@@ -5,11 +5,11 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:YachtKlub"
              mc:Ignorable="d" 
-             d:DesignHeight="150" d:DesignWidth="200">
-    <Grid Width="200">
-        <StackPanel x:Name="spBookalbeShipsUC" HorizontalAlignment="Left" Height="150" VerticalAlignment="Top" Width="200" Orientation="Horizontal">
-            <ListBox x:Name="lbBookalbeShipsUC" Height="150" Width="200" SelectionChanged="lbBookalbeShipsUC_SelectionChanged"></ListBox>
+             d:DesignHeight="429" d:DesignWidth="150">
+    <!--<Grid Width="150">-->
+        <StackPanel x:Name="spBookalbeShipsUC" HorizontalAlignment="Left" Height="429" VerticalAlignment="Top" Width="150" Orientation="Horizontal">
+            <ListBox x:Name="lbBookalbeShipsUC" Height="429" Width="150" SelectionChanged="lbBookalbeShipsUC_SelectionChanged"></ListBox>
             <!--<ScrollBar x:Name="sbBookalbeShipsUC" HorizontalAlignment="Right" Margin="0,0,0,0" VerticalAlignment="Top" Height="150" Width="auto"/>-->
         </StackPanel>
-    </Grid>
+    <!--</Grid>-->
 </UserControl>
