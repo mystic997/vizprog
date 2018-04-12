@@ -28,5 +28,19 @@ namespace YachtKlub
         {
             this.Close();
         }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();
+            dlg.DefaultExt = ".jpg";
+            dlg.Filter = "All supported graphics|*.jpg;*.jpeg;*.png|" + "JPEG (*.jpg;*.jpeg)|*.jpg;*.jpeg|" + "Portable Network Graphic (*.png)|*.png";
+            Nullable<bool> result = dlg.ShowDialog();
+
+            if (result == true)
+            {
+                // Open document
+                string filename = dlg.FileName;
+            }
+        }
     }
 }

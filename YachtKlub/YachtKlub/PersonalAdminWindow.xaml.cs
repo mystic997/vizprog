@@ -297,7 +297,8 @@ namespace YachtKlub
 
         private void btMyShips_Click(object sender, RoutedEventArgs e)
         {
-
+            MyBoatsAndDevicesWindow ToMyBoatsAndDevicesWindow = new MyBoatsAndDevicesWindow();
+            ToMyBoatsAndDevicesWindow.Show();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

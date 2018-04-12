@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:YachtKlub"
         mc:Ignorable="d"
-        Title="NewBoatWindow" Height="600" Width="450">
+        Title="Új hajó regisztrálása" Height="600" Width="450">
     <Grid>
         <Canvas Margin="10,133,22,55">
 
@@ -54,7 +54,7 @@
 
             <Label x:Name="lbBoatPlace" Content="Tartózkodási helye:" HorizontalAlignment="Left" FontSize="12" VerticalAlignment="Top" Canvas.Top="228"/>
             <TextBox x:Name="tbBoatPlace" HorizontalAlignment="Right" VerticalAlignment="Top" FontSize="12"  Width="280" Height="24" Canvas.Left="116" Canvas.Top="230" />
-            <Button Content="Kép feltöltése" Width="100" Canvas.Left="260" Canvas.Top="282"/>
+            <Button Content="Kép feltöltése" Width="100" Canvas.Left="260" Canvas.Top="282" Click="Button_Click_1"/>
 
 
 

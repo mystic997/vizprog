@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:YachtKlub"
         mc:Ignorable="d"
-        Title="Foglalások" Height="600" Width="900">
+        Title="Bérlés" Height="600" Width="900">
     <Grid>
         
         <Label  x:Name="lbBookableBoats" Content="Foglalható hajók:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="30,100,0,0" FontSize="13"  Width="110" Height="30" />
