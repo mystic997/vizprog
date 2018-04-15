@@ -50,7 +50,7 @@
 
             <Label x:Name="lbBoatPlace" Content="Tartózkodási helye:" HorizontalAlignment="Left" FontSize="12" VerticalAlignment="Top" Canvas.Top="228"/>
             <TextBox x:Name="tbBoatPlace" HorizontalAlignment="Right" VerticalAlignment="Top" FontSize="12"  Width="281" Height="25" Canvas.Left="115" Canvas.Top="229" />
-            <Button Content="Kép feltöltése" Height="25" Canvas.Left="288" Canvas.Top="277" Width="100"/>
+            <Button Content="Kép feltöltése" Height="25" Canvas.Left="288" Canvas.Top="277" Width="100" Click="btUploadPicture_Click"/>
             <Label Content="Ha új képet töltesz &#xD;&#xA;fel, akkor az előző&#xA;törlésre kerül!" Height="60" FontSize="11" Canvas.Left="288" Canvas.Top="312" Width="100" FontStyle="Italic"/>
 
         </Canvas>
