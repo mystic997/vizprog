@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="Hajóim és eszközeim" Height="600" Width="900">
     <Grid>
-        <Canvas Margin="250,110,238,83">
+        <Canvas x:Name="Boat" Margin="250,110,238,83">
             <Label x:Name="lbBoatPicture" Content="A hajó/eszköz képe:" HorizontalAlignment="Left" FontSize="12" VerticalAlignment="Top" Canvas.Top="304"/>
             <Image x:Name="imgBoatPicture" HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="100" Canvas.Left="133" Canvas.Top="277"/>
 
@@ -50,11 +50,11 @@
 
             <Label x:Name="lbBoatPlace" Content="Tartózkodási helye:" HorizontalAlignment="Left" FontSize="12" VerticalAlignment="Top" Canvas.Top="228"/>
             <TextBox x:Name="tbBoatPlace" HorizontalAlignment="Right" VerticalAlignment="Top" FontSize="12"  Width="281" Height="25" Canvas.Left="115" Canvas.Top="229" />
-            <Button Content="Kép feltöltése" Height="25" Canvas.Left="288" Canvas.Top="277" Width="100" Click="btUploadPicture_Click"/>
+            <Button x:Name="btUploadPic" Content="Kép feltöltése" Height="25" Canvas.Left="288" Canvas.Top="277" Width="100" Click="btUploadPicture_Click"/>
             <Label Content="Ha új képet töltesz &#xD;&#xA;fel, akkor az előző&#xA;törlésre kerül!" Height="60" FontSize="11" Canvas.Left="288" Canvas.Top="312" Width="100" FontStyle="Italic"/>
 
         </Canvas>
-        <Button Content="Kilépés" HorizontalAlignment="Left" Height="25" Margin="744,524,0,0" VerticalAlignment="Top" Width="100" Click="Button_Click"/>
+        <Button x:Name="btExit" Content="Kilépés" HorizontalAlignment="Left" Height="25" Margin="744,524,0,0" VerticalAlignment="Top" Width="100" Click="Exit_Click"/>
         <StackPanel x:Name="spMyBoatsUC" HorizontalAlignment="Left" Height="429" VerticalAlignment="Top" Width="150" Margin="48,84,0,0" >
             <ListView x:Name="lvBoats" Height="426" Margin="0,0,0.4,0">
                 <ListView.ItemTemplate>
@@ -94,6 +94,7 @@
         <Button x:Name="btNewTransport" Content="Új szállítóeszköz" HorizontalAlignment="Left" Height="25" Margin="250,524,0,0" VerticalAlignment="Top" Width="134" Click="AddNewTransport_Click"/>
         <Button x:Name="btNewBoat" Content="Új hajó" HorizontalAlignment="Left" Height="25" Margin="64,524,0,0" VerticalAlignment="Top" Width="134" Click="AddNewBoat_Click"/>
         <Button  x:Name="btSave" Content="Mentés" HorizontalAlignment="Left" Height="25" Margin="440,524,0,0" VerticalAlignment="Top" Width="100" Click="Save_Click"/>
+        <Button  x:Name="btModify" Content="Módosítás" HorizontalAlignment="Left" Height="25" Margin="590,524,0,0" VerticalAlignment="Top" Width="100" Click="Modify_Click"/>
 
 
     </Grid>

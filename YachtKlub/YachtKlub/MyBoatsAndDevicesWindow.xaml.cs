@@ -21,6 +21,9 @@ namespace YachtKlub
     /// </summary>
     public partial class MyBoatsAndDevicesWindow : Window
     {
+        List<TextBox> fields;
+        List<Button> btfields;
+
         public MyBoatsAndDevicesWindow(string email)
         {
             InitializeComponent();
@@ -58,7 +61,40 @@ namespace YachtKlub
 
             this.lvTransports.ItemsSource = TransportLister;
             lvTransports.Items.Refresh();
-            
+
+
+
+            fields = new List<TextBox>();
+            fields.Add(tbBoatConsumption);
+            fields.Add(tbBoatDept);
+            fields.Add(tbBoatLenght);
+            fields.Add(tbBoatManpower);
+            fields.Add(tbBoatName);
+            fields.Add(tbBoatPlace);
+            fields.Add(tbBoatPrice);
+            fields.Add(tbBoatSpeed);
+            fields.Add(tbBoatType);
+            fields.Add(tbBoatWidth);
+            fields.Add(tbBoatYear);
+
+            fields.ForEach(i => i.IsEnabled = false);
+
+            btfields = new List<Button>();
+            btfields.Add(btModify);
+            btfields.Add(btNewBoat);
+            btfields.Add(btNewTransport);
+            btfields.Add(btSave);
+            btfields.Add(btUploadPic);
+            btfields.Add(btExit);
+
+            btfields.ForEach(i => i.IsEnabled = false);
+
+            btNewBoat.IsEnabled = true;
+            btNewTransport.IsEnabled = true;
+            btExit.IsEnabled = true;
+            btModify.IsEnabled = true;
+
+
 
 
         }
@@ -95,7 +131,7 @@ namespace YachtKlub
         return bitmap;
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Exit_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
         }
@@ -105,6 +141,12 @@ namespace YachtKlub
 
             throw new NotImplementedException();     
         }
+        private void Modify_Click(object sender, RoutedEventArgs e)
+        {
+
+            throw new NotImplementedException();
+        }
+        
 
         private void AddNewBoat_Click(object sender, RoutedEventArgs e)
         {
