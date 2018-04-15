@@ -41,8 +41,8 @@ namespace YachtKlub
                 // ki kell majd venni!
                 if (email.Equals("") && password.Equals(""))
                 {
-                    tbEmailLogin.Text = "user1@gmail.com";
-                    tbPasswordLogin.Text = "user1";
+                    tbEmailLogin.Text = "user2@gmail.com";
+                    tbPasswordLogin.Text = "user2";
                     btLogin_Click(sender, e);
                     return;
                 }

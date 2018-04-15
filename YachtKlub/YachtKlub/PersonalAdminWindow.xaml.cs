@@ -72,7 +72,7 @@ namespace YachtKlub
             tbStreet.Text = loadUserDataService.ResponseMessage["street"];
             tbStreetNumber.Text = loadUserDataService.ResponseMessage["houseNumber"];
             imgProfilePicture.Tag = loadUserDataService.ResponseMessage["MemberImage"];
-            var uri = new Uri(Convert.ToString(imgProfilePicture.Tag), UriKind.Relative);
+            var uri = new Uri(Convert.ToString(imgProfilePicture.Tag), UriKind.Absolute);
             var bitmap = new BitmapImage(uri);
             imgProfilePicture.Source = bitmap;
         }
@@ -225,7 +225,10 @@ namespace YachtKlub
                     tbPassword.Visibility = Visibility.Visible;
                     lbPasswordAgain.Visibility = Visibility.Visible;
                     tbPasswordAgain.Visibility = Visibility.Visible;
-
+                    var uri = new Uri(System.AppDomain.CurrentDomain.BaseDirectory + "\\" + "resources" + "\\" + "stock_avatar.png", UriKind.Absolute);
+                    var bitmap = new BitmapImage(uri);
+                    imgProfilePicture.Source = bitmap;
+                    btUploadProfilePicture.IsEnabled = true;
                     btCloseAdminRegister.Visibility = Visibility.Visible;
                 }
                 else
@@ -247,6 +250,7 @@ namespace YachtKlub
                     tbEmailAgain.IsEnabled = false;
                     tbEmailAgain.Visibility = Visibility.Hidden;
                     lbEmailAgain.Visibility = Visibility.Hidden;
+                    btUploadProfilePicture.IsEnabled = false;
 
                     btCloseAdminRegister.Visibility = Visibility.Hidden;
 
@@ -277,6 +281,7 @@ namespace YachtKlub
             tbPasswordAgain.Visibility = Visibility.Hidden;
             tbEmailAgain.Visibility = Visibility.Hidden;
             lbEmailAgain.Visibility = Visibility.Hidden;
+            btUploadProfilePicture.IsEnabled = false;
 
             btCloseAdminRegister.Visibility = Visibility.Hidden;
 
@@ -285,17 +290,29 @@ namespace YachtKlub
 
         private void btUploadProfilePicture_Click(object sender, RoutedEventArgs e)
         {
-            Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();
-            dlg.DefaultExt = ".jpg";
-            dlg.Filter = "All supported graphics|*.jpg;*.jpeg;*.png|" + "JPEG (*.jpg;*.jpeg)|*.jpg;*.jpeg|" + "Portable Network Graphic (*.png)|*.png";
-            Nullable<bool> result = dlg.ShowDialog();
+            Microsoft.Win32.OpenFileDialog dialog = new Microsoft.Win32.OpenFileDialog();
+
+            dialog.DefaultExt = ".jpg";
+            dialog.Filter = "All supported graphics|*.jpg;*.jpeg;*.png|" + "JPEG (*.jpg;*.jpeg)|*.jpg;*.jpeg|" + "Portable Network Graphic (*.png)|*.png";
+
+            Nullable<bool> result = dialog.ShowDialog();
 
             if (result == true)
             {
                 // Open document
-                imgProfilePicture.Tag = dlg.FileName;
+                imgProfilePicture.Tag = dialog.FileName;
+                System.IO.Directory.CreateDirectory(System.AppDomain.CurrentDomain.BaseDirectory + "\\" + "resources");
+                string fileName = System.IO.Path.GetFileName(Convert.ToString(imgProfilePicture.Tag));
+                string newFileName = generateID() + ".jpg";
+                File.Copy(Convert.ToString(imgProfilePicture.Tag), System.AppDomain.CurrentDomain.BaseDirectory + "\\" + "resources" + "\\" + newFileName, true);
+                imgProfilePicture.Tag = System.AppDomain.CurrentDomain.BaseDirectory + "\\" + "resources" + "\\" + newFileName;
+                var uri = new Uri(System.AppDomain.CurrentDomain.BaseDirectory + "\\" + "resources" + "\\" + newFileName, UriKind.Absolute);
+                var bitmap = new BitmapImage(uri);
+                imgProfilePicture.Source = bitmap;
+
             }
         }
+
 
         private void btBooking_Click(object sender, RoutedEventArgs e)
         {
@@ -313,6 +330,10 @@ namespace YachtKlub
         {
             NewBoatWindow ToNewBoatWindow = new NewBoatWindow();
             ToNewBoatWindow.Show();
+        }
+        public string generateID()
+        {
+            return Guid.NewGuid().ToString("N");
         }
     }
 }

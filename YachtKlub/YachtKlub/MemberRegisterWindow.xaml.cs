@@ -84,5 +84,10 @@ namespace YachtKlub
                 new ExceptionToConsole(ex);
             }
         }
+
+        public string generateID()
+        {
+            return Guid.NewGuid().ToString("N");
+        }
     }
 }
