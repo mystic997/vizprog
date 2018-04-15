@@ -55,7 +55,23 @@
 
         </Canvas>
         <Button Content="Kilépés" HorizontalAlignment="Left" Height="25" Margin="744,524,0,0" VerticalAlignment="Top" Width="100" Click="Button_Click"/>
-        <StackPanel x:Name="spMyBoatsUC" HorizontalAlignment="Left" Height="429" VerticalAlignment="Top" Width="150" Margin="48,84,0,0" /> <!--Selector.SelectionChanged="SelectionChanged"--> 
+        <StackPanel x:Name="spMyBoatsUC" HorizontalAlignment="Left" Height="429" VerticalAlignment="Top" Width="150" Margin="48,84,0,0" >
+            <ListView x:Name="lvBoats" Height="426" Margin="0,0,0.4,0">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Height="40">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1*" />
+                                <ColumnDefinition Width="1*" />
+                            </Grid.ColumnDefinitions>
+                            <Image Grid.Column="0" x:Name="imgBoat" Height="40" Source="{Binding imageData}" HorizontalAlignment="Left" />
+                            <Label Grid.Column="1"  x:Name="tbName" Content="{Binding text}" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" />
+                        </Grid>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackPanel>
+        <!--Selector.SelectionChanged="SelectionChanged"--> 
         <StackPanel x:Name="spMyDevicesUC" HorizontalAlignment="Left" Height="429" VerticalAlignment="Top" Width="150" Margin="694,84,0,0" /> <!--Selector.SelectionChanged="SelectionChanged"--> 
         <Label Content="Hajóim:" FontSize="15" HorizontalAlignment="Left" Height="30" Margin="48,54,0,0" VerticalAlignment="Top" Width="128"/>
         <Label Content="Eszközeim:" FontSize="15" HorizontalAlignment="Left" Height="30" Margin="694,54,0,0" VerticalAlignment="Top" Width="90"/>

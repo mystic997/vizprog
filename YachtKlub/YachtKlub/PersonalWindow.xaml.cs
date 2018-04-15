@@ -173,7 +173,7 @@ namespace YachtKlub
         }
         private void btMyShips_Click(object sender, RoutedEventArgs e)
         {
-            MyBoatsAndDevicesWindow ToMyBoatsAndDevicesWindow = new MyBoatsAndDevicesWindow();
+            MyBoatsAndDevicesWindow ToMyBoatsAndDevicesWindow = new MyBoatsAndDevicesWindow(email);
             ToMyBoatsAndDevicesWindow.Show();
         }
         private void btBooking_Click(object sender, RoutedEventArgs e)

@@ -48,7 +48,7 @@ namespace YachtKlub.dao
 
         public List<TransportDevicesEntity> GetAllTransportDevicesByOwner(MembersEntity Owner)/*Függvény, ami visszaad egy listát, ami tartalmazza, hogy az adott felhasználónak, milyen szállító eszközei vannak*/
         {
-            var linqQuery = from row in dbc.TransportDevices where row.FKOwner.Equals(Owner) select row;
+            var linqQuery = from row in dbc.TransportDevices where row.FKOwner.MemberId.Equals(Owner.MemberId) select row;
             List<TransportDevicesEntity> TransportDevicesList = linqQuery.ToList();
             return TransportDevicesList;
         }

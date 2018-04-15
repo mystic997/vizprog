@@ -19,7 +19,7 @@ namespace YachtKlub.dao
 
         public List<BoatsEntity> GetAllBoatsByOwner(MembersEntity Owner)/*Függvény, ami visszaad egy listát, ami tartalmazza, az adott felhasználó hajóit*/
         {
-            var linqQuery = from row in dbc.Boats where row.FKOwner.Equals(Owner) select row;
+            var linqQuery = from row in dbc.Boats where row.FKOwner.MemberId.Equals(Owner.MemberId) select row;
             List<BoatsEntity> BoatsList = linqQuery.ToList();
             return BoatsList;
         }
@@ -77,7 +77,7 @@ namespace YachtKlub.dao
                 TemplateBoat.YearOfManufacture = new DateTime(random.Next(1990, 2018), random.Next(1, 12), random.Next(1, 28));
                 TemplateBoat.BoatLength = random.Next(150, 700) / 100;
                 TemplateBoat.BoatWidth = random.Next(150, 400) / 100;
-                TemplateBoat.BoatImage = "BoatImage" + i;
+                TemplateBoat.BoatImage = "Stock_Boat_image.png";
                 TemplateBoat.WhereIsNowTheBoat = "Itt";
 
                 // FK's
