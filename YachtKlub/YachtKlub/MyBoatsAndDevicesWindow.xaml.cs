@@ -89,16 +89,34 @@ namespace YachtKlub
         }
 
         private BitmapImage LoadImage(string newFileName)
-    {
+        {
         var uri = new Uri(System.AppDomain.CurrentDomain.BaseDirectory + "\\" + "resources" + "\\" + newFileName, UriKind.Absolute);
         var bitmap = new BitmapImage(uri);
         return bitmap;
-    }
+        }
 
-    private void Button_Click(object sender, RoutedEventArgs e)
-    {
-        this.Close();
-    }
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void AddNewTransport_Click(object sender, RoutedEventArgs e)
+        {
+
+            throw new NotImplementedException();     
+        }
+
+        private void AddNewBoat_Click(object sender, RoutedEventArgs e)
+        {
+
+            throw new NotImplementedException();
+        }
+        private void Save_Click(object sender, RoutedEventArgs e)
+        {
+
+            throw new NotImplementedException();
+        }
+
         public string generateID()
         {
             return Guid.NewGuid().ToString("N");
