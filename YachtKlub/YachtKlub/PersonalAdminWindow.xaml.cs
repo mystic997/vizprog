@@ -24,6 +24,7 @@ namespace YachtKlub
     {
         private List<TextBox> fields;
         private string adminEmain;
+        
 
         public PersonalAdminWindow(string email)
         {
@@ -46,6 +47,7 @@ namespace YachtKlub
                 fields.Add(tbCity);
                 fields.Add(tbStreet);
                 fields.Add(tbStreetNumber);
+                btUploadProfilePicture.IsEnabled = false;
 
                 fields.ForEach(i => i.IsEnabled = false);
 
@@ -69,8 +71,10 @@ namespace YachtKlub
             tbCity.Text = loadUserDataService.ResponseMessage["city"];
             tbStreet.Text = loadUserDataService.ResponseMessage["street"];
             tbStreetNumber.Text = loadUserDataService.ResponseMessage["houseNumber"];
-
-            // TO DO: IMAGE, COUNTRY
+            imgProfilePicture.Tag = loadUserDataService.ResponseMessage["MemberImage"];
+            var uri = new Uri(Convert.ToString(imgProfilePicture.Tag), UriKind.Relative);
+            var bitmap = new BitmapImage(uri);
+            imgProfilePicture.Source = bitmap;
         }
 
         private void btCancel_Click(object sender, RoutedEventArgs e)
@@ -98,6 +102,7 @@ namespace YachtKlub
                 string city = tbCity.Text;
                 string street = tbStreet.Text;
                 string houseNumber = tbStreetNumber.Text;
+                string picturePath = Convert.ToString(imgProfilePicture.Tag);
 
                 if (btSave.Content.Equals("Adatok módosítása"))
                 {
@@ -109,12 +114,13 @@ namespace YachtKlub
                     btChangePassword.IsEnabled = false;
                     btMyShips.IsEnabled = false;
                     btBooking.IsEnabled = false;
+                    btUploadProfilePicture.IsEnabled = true;
                 }
                 else
                 {
                     ValidateFields(firstname, lastname, email, emailCheck, country, city, street, houseNumber);
 
-                    UpdateUserDataService updateUserService = new UpdateUserDataService(firstname, lastname, email, country, city, street, houseNumber, 0); // 0 is admin
+                    UpdateUserDataService updateUserService = new UpdateUserDataService(firstname, lastname, email, country, city, street, houseNumber, 0, picturePath); // 0 is admin
 
                     btAdminRegiszter.IsEnabled = true;
                     btBooking.IsEnabled = true;
@@ -124,6 +130,7 @@ namespace YachtKlub
                     btChangePassword.IsEnabled = true;
                     btMyShips.IsEnabled = true;
                     btBooking.IsEnabled = true;
+                    btUploadProfilePicture.IsEnabled = false;
                 }
             }
             catch (Exception ex)
@@ -186,6 +193,7 @@ namespace YachtKlub
                 string city = tbCity.Text;
                 string street = tbStreet.Text;
                 string houseNumber = tbStreetNumber.Text;
+                string picturePath = Convert.ToString(imgProfilePicture.Tag);
                 int permission;
                 try
                 {
@@ -224,7 +232,7 @@ namespace YachtKlub
                 {
                     ValidateFields(firstname, lastname, email, emailCheck, country, city, street, houseNumber, password, passwordCheck);
 
-                    RegisterService registerService = new RegisterService(firstname, lastname, email, password, country, city, street, houseNumber, permission);
+                    RegisterService registerService = new RegisterService(firstname, lastname, email, password, country, city, street, houseNumber, permission, picturePath);
 
                     if (registerService.ServiceStatus == Status.Error)
                         throw new Exception();
@@ -285,7 +293,7 @@ namespace YachtKlub
             if (result == true)
             {
                 // Open document
-                string filename = dlg.FileName;
+                imgProfilePicture.Tag = dlg.FileName;
             }
         }
 

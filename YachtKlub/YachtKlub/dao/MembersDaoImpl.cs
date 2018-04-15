@@ -19,7 +19,8 @@ namespace YachtKlub.dao
                 templateMember.MemberId = i;
                 templateMember.Email = "user" + i + "@gmail.com";
                 templateMember.MemberName = "user" + i;
-                templateMember.MemberImage = "userImage" + i;
+
+                templateMember.MemberImage =System.AppDomain.CurrentDomain.BaseDirectory + "\\" + "resources" + "\\" + "stock_avatar.png";
                 templateMember.Country = "Hungary";
                 templateMember.City = "userCity" + i;
                 templateMember.Street = "userStreet" + i;

@@ -20,9 +20,11 @@ namespace YachtKlub.service
         private string password;
         private int permission;
         private string street;
+        string picturePath;
+
         DatabaseContext dbc;
 
-        public RegisterService(string firstname, string lastname, string email, string password, string country, string city, string street, string houseNumber)
+        public RegisterService(string firstname, string lastname, string email, string password, string country, string city, string street, string houseNumber, string picturePath)
         {
             this.firstname = firstname;
             this.lastname = lastname;
@@ -32,13 +34,14 @@ namespace YachtKlub.service
             this.city = city;
             this.street = street;
             this.houseNumber = houseNumber;
+            this.picturePath = picturePath;
 
             dbc = AliveContext.Context;
 
             TryToRegister();
         }
 
-        public RegisterService(string firstname, string lastname, string email, string password, string country, string city, string street, string houseNumber, int permission)
+        public RegisterService(string firstname, string lastname, string email, string password, string country, string city, string street, string houseNumber, int permission, string picturePath)
         {
             this.firstname = firstname;
             this.lastname = lastname;
@@ -49,6 +52,7 @@ namespace YachtKlub.service
             this.street = street;
             this.houseNumber = houseNumber;
             this.permission = permission;
+            this.picturePath = picturePath;
 
             dbc = AliveContext.Context;
 
@@ -77,6 +81,7 @@ namespace YachtKlub.service
                 newMemberEntity.Street = street;
                 newMemberEntity.HouseNumber = houseNumber;
                 newMemberEntity.Permission = permission;
+                newMemberEntity.MemberImage = picturePath;
 
                 //DatabaseContext dbc = new DatabaseContext();
                 dbc.Members.Add(newMemberEntity);
@@ -115,6 +120,7 @@ namespace YachtKlub.service
                 newMemberEntity.Street = street;
                 newMemberEntity.HouseNumber = houseNumber;
                 newMemberEntity.Permission = 1; // not admin
+                newMemberEntity.MemberImage = picturePath;
 
                 dbc.Members.Add(newMemberEntity);
                 dbc.SaveChanges();

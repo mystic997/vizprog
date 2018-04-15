@@ -47,6 +47,7 @@ namespace YachtKlub
                 string city = tbCity.Text;
                 string street = tbStreet.Text;
                 string houseNumber = tbStreetNumber.Text;
+                string picturePath = Convert.ToString(imgProfilePicture.Tag);
 
                 Validator registerValidator = new Validator();
                 registerValidator.ValidationComponents.Add(new EmptyFieldValidator(firstname, "vezetéknév"));
@@ -76,7 +77,7 @@ namespace YachtKlub
 
                 registerValidator.ValidateElements();
 
-                RegisterService registerService = new RegisterService(firstname, lastname, email, password, country, city, street, houseNumber);
+                RegisterService registerService = new RegisterService(firstname, lastname, email, password, country, city, street, houseNumber, picturePath);
             }
             catch (Exception ex)
             {

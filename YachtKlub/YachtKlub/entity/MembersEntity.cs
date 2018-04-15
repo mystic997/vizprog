@@ -55,7 +55,7 @@ namespace YachtKlub.entity
         public string HouseNumber { get; set; }
 
         [Column("memberImage", Order = 9)]
-        [StringLength(50)]
+        [StringLength(150)]
         public string MemberImage { get; set; }
 
         public ICollection<RentRequestsEntity> RentRequests { get; set; }

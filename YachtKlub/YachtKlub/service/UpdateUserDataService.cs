@@ -19,9 +19,10 @@ namespace YachtKlub.service
         private string lastname;
         private int permission;
         private string street;
+        string picturePath;
         DatabaseContext dbc;
 
-        public UpdateUserDataService(string firstname, string lastname, string email, string country, string city, string street, string houseNumber, int permission)
+        public UpdateUserDataService(string firstname, string lastname, string email, string country, string city, string street, string houseNumber, int permission, string picturePath)
         {
             this.firstname = firstname;
             this.lastname = lastname;
@@ -31,7 +32,7 @@ namespace YachtKlub.service
             this.street = street;
             this.houseNumber = houseNumber;
             this.permission = permission;
-
+            this.picturePath = picturePath;
             dbc = AliveContext.Context;
 
             UpdateUser();
@@ -44,11 +45,12 @@ namespace YachtKlub.service
 
             memberData.MemberName = firstname + " " + lastname;
             memberData.Email = email;
-            // country hianyzik
+            memberData.Country = country;
             memberData.City = city;
             memberData.Street = street;
             memberData.HouseNumber = houseNumber;
             memberData.Permission = permission;
+            memberData.MemberImage = picturePath;
 
             dbc.SaveChanges();
 

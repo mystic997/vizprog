@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -45,6 +46,7 @@ namespace YachtKlub
                 fields.Add(tbStreetNumber);
 
                 fields.ForEach(i => i.IsEnabled = false);
+                btUploadProfilePicture.IsEnabled = false;
 
                 LoadUserDataService loadUserDataService = new LoadUserDataService(email);
                 tbLastname.Text = loadUserDataService.ResponseMessage["firstname"];
@@ -54,6 +56,11 @@ namespace YachtKlub
                 tbCity.Text = loadUserDataService.ResponseMessage["city"];
                 tbStreet.Text = loadUserDataService.ResponseMessage["street"];
                 tbStreetNumber.Text = loadUserDataService.ResponseMessage["houseNumber"];
+                imgProfilePicture.Tag = loadUserDataService.ResponseMessage["MemberImage"];
+                var uri = new Uri(Convert.ToString(imgProfilePicture.Tag), UriKind.Absolute);
+                var bitmap = new BitmapImage(uri);
+                imgProfilePicture.Source = bitmap;
+                
             }
             catch (Exception ex)
             {
@@ -85,12 +92,14 @@ namespace YachtKlub
                 string city = tbCity.Text;
                 string street = tbStreet.Text;
                 string houseNumber = tbStreetNumber.Text;
+                string picturePath = Convert.ToString(imgProfilePicture.Tag);
 
                 if (btSave.Content.Equals("Adatok módosítása"))
                 {
                     btSave.Content = "Módosítások mentése";
                     fields.ForEach(i => i.IsEnabled = true);
                     btChangePassword.IsEnabled = false;
+                    btUploadProfilePicture.IsEnabled = true;
                     btMyShips.IsEnabled = false;
                     btBooking.IsEnabled = false;
                 }
@@ -98,11 +107,12 @@ namespace YachtKlub
                 {
                     ValidateFields(firstname, lastname, email, country, city, street, houseNumber);
 
-                    UpdateUserDataService updateUserService = new UpdateUserDataService(firstname, lastname, email, country, city, street, houseNumber, 1); // not admin
+                    UpdateUserDataService updateUserService = new UpdateUserDataService(firstname, lastname, email, country, city, street, houseNumber, 1, picturePath); // not admin
 
                     btSave.Content = "Adatok módosítása";
                     fields.ForEach(i => i.IsEnabled = false);
                     btChangePassword.IsEnabled = true;
+                    btUploadProfilePicture.IsEnabled = false;
                     btMyShips.IsEnabled = true;
                     btBooking.IsEnabled = true;
                 }
@@ -149,7 +159,16 @@ namespace YachtKlub
             if (result == true)
             {
                 // Open document
-                string filename = dialog.FileName;
+                imgProfilePicture.Tag = dialog.FileName;
+                System.IO.Directory.CreateDirectory(System.AppDomain.CurrentDomain.BaseDirectory + "\\" + "resources");
+                string fileName = System.IO.Path.GetFileName(Convert.ToString(imgProfilePicture.Tag));
+                string newFileName = generateID() + ".jpg";
+                File.Copy(Convert.ToString(imgProfilePicture.Tag), System.AppDomain.CurrentDomain.BaseDirectory + "\\" + "resources" + "\\" + newFileName, true);
+                imgProfilePicture.Tag = System.AppDomain.CurrentDomain.BaseDirectory + "\\" + "resources" + "\\" + newFileName;
+                var uri = new Uri(System.AppDomain.CurrentDomain.BaseDirectory + "\\" + "resources" + "\\" + newFileName, UriKind.Absolute);
+                var bitmap = new BitmapImage(uri);
+                imgProfilePicture.Source = bitmap;
+                
             }
         }
 
@@ -157,6 +176,10 @@ namespace YachtKlub
         {
             Booking ToBooking = new Booking();
             ToBooking.Show();
+        }
+        public string generateID()
+        {
+            return Guid.NewGuid().ToString("N");
         }
     }
 }

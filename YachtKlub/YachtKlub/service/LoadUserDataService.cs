@@ -40,7 +40,7 @@ namespace YachtKlub.service
             ResponseMessage.Add("city", member.City);
             ResponseMessage.Add("street", member.Street);
             ResponseMessage.Add("houseNumber", member.HouseNumber);
-
+            ResponseMessage.Add("MemberImage", member.MemberImage);
             // TO DO: IMAGE
             //ResponseMessage.Add("email", member.MemberImage);
         }
