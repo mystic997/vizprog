@@ -11,7 +11,7 @@
         <!--Ebben az ablakban megnyitáskor minden üres, ahhoz, hogy a mentés sikeres legyen minden mezőnek ki kell lennie töltve.-->
         <!--Ha megnyomjuk a mégse gombot akkor visszakerülünk a Loginképernyőre mentés nélkül.-->
         <!--Ha a mentésre kattintunk és a kitöltés megfelelő, akkor az adatok bekerülnek az adatbázisba és a felhasználó az Accountképernyőre kerül.-->
-        <Image x:Name="imgProfilePicture"   HorizontalAlignment="Left" Height="150" Margin="35,10,0,0" VerticalAlignment="Top" Width="150"/>
+        <Image x:Name="imgProfilePicture"   HorizontalAlignment="Left" Height="150" Margin="35,10,0,0" VerticalAlignment="Top" Width="150" Stretch="UniformToFill"/>
 
         <Button  x:Name="btUploadProfilePicture" Content="Profilkép feltöltése" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="41,165,0,0" FontSize="12"    Width="140" Height="25" RenderTransformOrigin="0.55,3.975" />
 
