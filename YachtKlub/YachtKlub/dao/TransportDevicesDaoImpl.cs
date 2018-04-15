@@ -21,7 +21,7 @@ namespace YachtKlub.dao
             Random random = new Random();
             List<TransportDevicesEntity> TransportDevices = new List<TransportDevicesEntity>();
 
-            for (int i = 0; i < 12; i++)
+            for (int i = 0; i < 35; i++)
             {
                 TransportDevicesEntity TemplateTransportDevice = new TransportDevicesEntity();
 
@@ -31,7 +31,7 @@ namespace YachtKlub.dao
                 TemplateTransportDevice.TransportDeviceType = "Type" + random.Next(0, 3);
                 TemplateTransportDevice.TransportDeviceLength = random.Next(100, 700) / 100;
                 TemplateTransportDevice.TransportDeviceWidth = random.Next(50, 300) / 100;
-                TemplateTransportDevice.TransportDeviceImage = "TransportDevice" + i;
+                TemplateTransportDevice.TransportDeviceImage = "Stock_transport_image.png";
 
                 // FK's
                 MembersDao mem = new MembersDaoImpl();

@@ -60,7 +60,7 @@ namespace YachtKlub.dao
             Random random = new Random();
             List<BoatsEntity> TemplateBoats = new List<BoatsEntity>();
 
-            for (int i = 0; i < 12; i++)
+            for (int i = 0; i < 35; i++)
             {
                 BoatsEntity TemplateBoat = new BoatsEntity();
 
@@ -77,7 +77,7 @@ namespace YachtKlub.dao
                 TemplateBoat.YearOfManufacture = new DateTime(random.Next(1990, 2018), random.Next(1, 12), random.Next(1, 28));
                 TemplateBoat.BoatLength = random.Next(150, 700) / 100;
                 TemplateBoat.BoatWidth = random.Next(150, 400) / 100;
-                TemplateBoat.BoatImage = "Stock_Boat_image.png";
+                TemplateBoat.BoatImage = "Stock_boat_image.png";
                 TemplateBoat.WhereIsNowTheBoat = "Itt";
 
                 // FK's

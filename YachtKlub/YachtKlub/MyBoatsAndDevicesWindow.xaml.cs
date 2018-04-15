@@ -36,8 +36,8 @@ namespace YachtKlub
             }
             for (int i = 0; i < Convert.ToInt32(myBoatsAndTransportsService.ResponseMessage["TransportsCount"]); i++)
             {
-                BoatNames.Add(myBoatsAndTransportsService.ResponseMessage["TransportName" + Convert.ToString(i)]);
-                BoatImages.Add(myBoatsAndTransportsService.ResponseMessage["TransportImage" + Convert.ToString(i)]);
+                TransportNames.Add(myBoatsAndTransportsService.ResponseMessage["TransportName" + Convert.ToString(i)]);
+                TransportImages.Add(myBoatsAndTransportsService.ResponseMessage["TransportImage" + Convert.ToString(i)]);
             }
             ListData[] BoatLister = new ListData[Convert.ToInt32(myBoatsAndTransportsService.ResponseMessage["BoatsCount"])];
             for (int i = 0; i < BoatLister.Length; i++)
@@ -49,7 +49,15 @@ namespace YachtKlub
             this.lvBoats.ItemsSource = BoatLister;
             lvBoats.Items.Refresh();
 
+            ListData[] TransportLister = new ListData[Convert.ToInt32(myBoatsAndTransportsService.ResponseMessage["TransportsCount"])];
+            for (int i = 0; i < TransportLister.Length; i++)
+            {
+                TransportLister[i] = new ListData { text = TransportNames[i], imageData = LoadImage(TransportImages[i]) };
+            }
 
+
+            this.lvTransports.ItemsSource = TransportLister;
+            lvTransports.Items.Refresh();
 
 
 
