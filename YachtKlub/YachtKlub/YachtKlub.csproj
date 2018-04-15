@@ -101,6 +101,9 @@
     <Compile Include="service\RegisterService.cs" />
     <Compile Include="service\ServiceResponse.cs" />
     <Compile Include="service\UpdateUserDataService.cs" />
+    <Compile Include="StartWindow.xaml.cs">
+      <DependentUpon>StartWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="validator\EmailFormatValidator.cs" />
     <Compile Include="validator\EmptyFieldValidator.cs" />
     <Compile Include="validator\FieldCharacterLimitValidator.cs" />
@@ -161,6 +164,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="PopupMessage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="StartWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
