@@ -328,12 +328,12 @@ namespace YachtKlub
 
         private void NewBoat_Click(object sender, RoutedEventArgs e)
         {
-            NewBoatWindow ToNewBoatWindow = new NewBoatWindow(true);
+            NewBoatWindow ToNewBoatWindow = new NewBoatWindow();
             ToNewBoatWindow.Show();
         }
         private void NewTransportDevice_Click(object sender, RoutedEventArgs e)
         {
-            NewBoatWindow ToNewBoatWindow = new NewBoatWindow(false);
+            NewTransportDeviceWindow ToNewBoatWindow = new NewTransportDeviceWindow();
             ToNewBoatWindow.Show();
         }
         public string generateID()

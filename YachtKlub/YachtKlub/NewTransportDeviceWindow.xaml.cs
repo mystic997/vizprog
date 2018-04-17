@@ -16,56 +16,19 @@ using System.Windows.Shapes;
 namespace YachtKlub
 {
     /// <summary>
-    /// Interaction logic for NewBoatWindow.xaml
+    /// Interaction logic for NewTransportDeviceWindow.xaml
     /// </summary>
-    public partial class NewBoatWindow : Window
+    public partial class NewTransportDeviceWindow : Window
     {
-        List<Control> ShouldBeHiddenSometimes;
-        public NewBoatWindow(bool boat)
+        public NewTransportDeviceWindow()
         {
             InitializeComponent();
-            ShouldBeHiddenSometimes = new List<Control>();
-
-            ShouldBeHiddenSometimes.Add(lbBoatDept);
-            ShouldBeHiddenSometimes.Add(tbBoatDept);
-            ShouldBeHiddenSometimes.Add(lbDepth);
-            ShouldBeHiddenSometimes.Add(lbSpeed);
-            ShouldBeHiddenSometimes.Add(tbBoatSpeed);
-            ShouldBeHiddenSometimes.Add(lbBoatSpeed);
-            //ShouldBeHiddenSometimes.Add(lbBoatManpower);
-            //ShouldBeHiddenSometimes.Add(tbBoatManpower);
-            //ShouldBeHiddenSometimes.Add(lbManpower);
-            ShouldBeHiddenSometimes.Add(tbBoatPlace);
-            ShouldBeHiddenSometimes.Add(lbBoatPlace);
-            ShouldBeHiddenSometimes.Add(tbBoatYear);
-            ShouldBeHiddenSometimes.Add(lbBoatYear);
-            ShouldBeHiddenSometimes.Add(lbConsumption);
-            ShouldBeHiddenSometimes.Add(tbBoatConsumption);
-            ShouldBeHiddenSometimes.Add(lbBoatConsumption);
-            ShouldBeHiddenSometimes.Add(lbBoatPrice);
-            ShouldBeHiddenSometimes.Add(tbBoatPrice);
-            ShouldBeHiddenSometimes.Add(lbPrice);
-
-
-
-
-            if (boat)
-            {
-
-            }
-            else
-            {
-                lbBoatManpower.Content = "Teherbírás";
-                lbManpower.Content = "kg";
-                ShouldBeHiddenSometimes.ForEach(i => i.Visibility = Visibility.Hidden);
-                lbHeader.Content = "Új szállítóeszköz regisztrálása";
-                lbHeader2.Content = "A szállítóeszköz adatai";
-
-
-            }
-
         }
 
+        private void Register_Click(object sender, RoutedEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
         private void Exit_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
