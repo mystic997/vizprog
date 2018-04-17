@@ -19,17 +19,36 @@ namespace YachtKlub
     /// </summary>
     public partial class NewBoatWindow : Window
     {
-        public NewBoatWindow()
+        List<object> ShouldBeHiddenSometimes;
+        public NewBoatWindow(bool boat)
         {
             InitializeComponent();
+            ShouldBeHiddenSometimes = new List<object>();
+
+            ShouldBeHiddenSometimes.Add(lbBoatDept);
+            /*folytatom, Dani*/
+
+            if (boat)
+            {
+                
+            }
+            else
+            {
+                lbHeader.Content = "Új szállítóeszköz regisztrálása";
+                lbHeader2.Content = "A szállítóeszköz adatai";
+                lbBoatDept.Visibility = Visibility.Hidden;
+                tbBoatDept.Visibility = Visibility.Hidden;
+
+            }
+
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Exit_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void UploadPic_Click(object sender, RoutedEventArgs e)
         {
             Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();
             dlg.DefaultExt = ".jpg";

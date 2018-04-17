@@ -88,8 +88,8 @@
     <Compile Include="MyBoatsAndDevicesWindow.xaml.cs">
       <DependentUpon>MyBoatsAndDevicesWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="NewBoatWindow.xaml.cs">
-      <DependentUpon>NewBoatWindow.xaml</DependentUpon>
+    <Compile Include="NewBoatOrTransportDeviceWindow.xaml.cs">
+      <DependentUpon>NewBoatOrTransportDeviceWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="PrintMessageBox.cs" />
     <Compile Include="PopupMessage.xaml.cs">
@@ -154,7 +154,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="NewBoatWindow.xaml">
+    <Page Include="NewBoatOrTransportDeviceWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
