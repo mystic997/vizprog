@@ -91,8 +91,6 @@
         <!--Selector.SelectionChanged="SelectionChanged"--> 
         <Label Content="Hajóim:" FontSize="15" HorizontalAlignment="Left" Height="30" Margin="48,54,0,0" VerticalAlignment="Top" Width="128"/>
         <Label Content="Eszközeim:" FontSize="15" HorizontalAlignment="Left" Height="30" Margin="694,54,0,0" VerticalAlignment="Top" Width="90"/>
-        <Button x:Name="btNewTransport" Content="Új szállítóeszköz" HorizontalAlignment="Left" Height="25" Margin="250,524,0,0" VerticalAlignment="Top" Width="134" Click="AddNewTransport_Click"/>
-        <Button x:Name="btNewBoat" Content="Új hajó" HorizontalAlignment="Left" Height="25" Margin="64,524,0,0" VerticalAlignment="Top" Width="134" Click="AddNewBoat_Click"/>
         <Button  x:Name="btSave" Content="Mentés" HorizontalAlignment="Left" Height="25" Margin="440,524,0,0" VerticalAlignment="Top" Width="100" Click="Save_Click"/>
         <Button  x:Name="btModify" Content="Módosítás" HorizontalAlignment="Left" Height="25" Margin="590,524,0,0" VerticalAlignment="Top" Width="100" Click="Modify_Click"/>
 

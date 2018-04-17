@@ -21,8 +21,9 @@ namespace YachtKlub
     /// </summary>
     public partial class MyBoatsAndDevicesWindow : Window
     {
-        List<TextBox> fields;
+        List<TextBox> lbfields;
         List<Button> btfields;
+        List<ListView> lvfields;
 
         public MyBoatsAndDevicesWindow(string email)
         {
@@ -64,33 +65,36 @@ namespace YachtKlub
 
 
 
-            fields = new List<TextBox>();
-            fields.Add(tbBoatConsumption);
-            fields.Add(tbBoatDept);
-            fields.Add(tbBoatLenght);
-            fields.Add(tbBoatManpower);
-            fields.Add(tbBoatName);
-            fields.Add(tbBoatPlace);
-            fields.Add(tbBoatPrice);
-            fields.Add(tbBoatSpeed);
-            fields.Add(tbBoatType);
-            fields.Add(tbBoatWidth);
-            fields.Add(tbBoatYear);
+            lbfields = new List<TextBox>();
+            lbfields.Add(tbBoatConsumption);
+            lbfields.Add(tbBoatDept);
+            lbfields.Add(tbBoatLenght);
+            lbfields.Add(tbBoatManpower);
+            lbfields.Add(tbBoatName);
+            lbfields.Add(tbBoatPlace);
+            lbfields.Add(tbBoatPrice);
+            lbfields.Add(tbBoatSpeed);
+            lbfields.Add(tbBoatType);
+            lbfields.Add(tbBoatWidth);
+            lbfields.Add(tbBoatYear);
 
-            fields.ForEach(i => i.IsEnabled = false);
+            lbfields.ForEach(i => i.IsEnabled = false);
 
             btfields = new List<Button>();
             btfields.Add(btModify);
-            btfields.Add(btNewBoat);
-            btfields.Add(btNewTransport);
             btfields.Add(btSave);
             btfields.Add(btUploadPic);
             btfields.Add(btExit);
 
             btfields.ForEach(i => i.IsEnabled = false);
 
-            btNewBoat.IsEnabled = true;
-            btNewTransport.IsEnabled = true;
+            lvfields = new List<ListView>();
+            lvfields.Add(lvBoats);
+            lvfields.Add(lvTransports);
+
+            lvfields.ForEach(i => i.IsEnabled = true);
+
+           
             btExit.IsEnabled = true;
             btModify.IsEnabled = true;
 
@@ -133,30 +137,51 @@ namespace YachtKlub
 
         private void Exit_Click(object sender, RoutedEventArgs e)
         {
-            this.Close();
+            if (btSave.IsEnabled)
+            {
+                lbfields.ForEach(i => i.IsEnabled = false);
+                btfields.ForEach(i => i.IsEnabled = false);
+
+                /*Módosítások előtti adatok visszatöltése*/
+                lvfields.ForEach(i => i.IsEnabled = true);
+                btModify.IsEnabled = true;
+                btExit.IsEnabled = true;
+                btExit.Content = "Kilépés";
+            }
+            else
+            {
+                this.Close();
+            }
+            
         }
 
-        private void AddNewTransport_Click(object sender, RoutedEventArgs e)
-        {
-
-            throw new NotImplementedException();     
-        }
+        
         private void Modify_Click(object sender, RoutedEventArgs e)
         {
 
-            throw new NotImplementedException();
+            lbfields.ForEach(i => i.IsEnabled = true);
+            btfields.ForEach(i => i.IsEnabled = false);
+            lvfields.ForEach(i => i.IsEnabled = false);
+
+            btUploadPic.IsEnabled = true;
+            btSave.IsEnabled = true;
+            btExit.IsEnabled = true;
+            btExit.Content = "Vissza";
         }
         
 
-        private void AddNewBoat_Click(object sender, RoutedEventArgs e)
-        {
-
-            throw new NotImplementedException();
-        }
         private void Save_Click(object sender, RoutedEventArgs e)
         {
 
-            throw new NotImplementedException();
+            lbfields.ForEach(i => i.IsEnabled = false);
+            btfields.ForEach(i => i.IsEnabled = false);
+
+            /*Adatmódosítás kódja*/
+            lvfields.ForEach(i => i.IsEnabled = true);
+            btModify.IsEnabled = true;
+            btExit.IsEnabled = true;
+            btExit.Content = "Kilépés";
+
         }
 
         public string generateID()
