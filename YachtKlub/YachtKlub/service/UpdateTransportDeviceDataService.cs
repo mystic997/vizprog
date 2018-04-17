@@ -9,7 +9,7 @@ using YachtKlub.validator;
 
 namespace YachtKlub.service
 {
-    class UpdateTransportDeviceDataService
+    class UpdateTransportDeviceDataService : ServiceResponse
     {
 
         private int TransportDeviceId;
@@ -54,6 +54,17 @@ namespace YachtKlub.service
               transportDeviceData.TransportDeviceLength = this.TransportDeviceLength;
               transportDeviceData.TransportDeviceWidth = this.TransportDeviceWidth;
               transportDeviceData.TransportDeviceImage = this.TransportDeviceImage;
+
+            dbc.SaveChanges();
+
+            FeedbackMessage = "Adatok sikeresen módosítva!";
+            ServiceStatus = Status.OK;
+
+            // it must be a method
+            if (!string.IsNullOrEmpty(FeedbackMessage) && !string.IsNullOrWhiteSpace(FeedbackMessage))
+            {
+                new PrintMessageBox(FeedbackMessage, ServiceStatus);
+            }
         }
 
     }
