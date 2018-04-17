@@ -41,8 +41,7 @@ namespace YachtKlub.service
             ResponseMessage.Add("street", member.Street);
             ResponseMessage.Add("houseNumber", member.HouseNumber);
             ResponseMessage.Add("MemberImage", member.MemberImage);
-            // TO DO: IMAGE
-            //ResponseMessage.Add("email", member.MemberImage);
+
         }
     }
 }

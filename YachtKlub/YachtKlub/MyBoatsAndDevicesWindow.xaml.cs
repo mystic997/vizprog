@@ -36,7 +36,7 @@ namespace YachtKlub
             List<string> TransportImages = new List<string>();
             List<string> TransportIds = new List<string>();
             LoadMyBoatsService myBoatsService = new LoadMyBoatsService(email);
-            LoadMyTransportDevices myTransportDevicesService = new LoadMyTransportDevices(email);
+            LoadMyTransportDevicesService myTransportDevicesService = new LoadMyTransportDevicesService(email);
             for (int i = 0; i < Convert.ToInt32(myBoatsService.ResponseMessage["BoatsCount"]); i++)
             {
                 BoatNames.Add(myBoatsService.ResponseMessage["boatName" + Convert.ToString(i)]);

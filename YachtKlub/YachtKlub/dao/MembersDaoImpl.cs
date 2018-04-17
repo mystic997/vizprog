@@ -59,6 +59,18 @@ namespace YachtKlub.dao
             return member;
         }
 
+        public MembersEntity getMemberByBoat(BoatsEntity boat)
+        {
+            var linqQuery = from row in dbc.Members
+                            where row.Email.Equals(boat.FKOwner.Email)
+                            select row;
+
+            List<MembersEntity> membersList = linqQuery.ToList();
+            MembersEntity member = GetSingleResultWithoutExc(membersList);
+
+            return member;
+        }
+
         public MembersEntity getMemberById()
         {
             throw new NotImplementedException();

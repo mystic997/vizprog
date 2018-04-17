@@ -13,6 +13,7 @@ namespace YachtKlub.dao
         MembersEntity getMemberByEmail(string email);
         List<MembersEntity> GetAllMembers();
         List<MembersEntity> GetTemplateMembers();
+        MembersEntity getMemberByBoat(BoatsEntity boat);
 
     }
 }
