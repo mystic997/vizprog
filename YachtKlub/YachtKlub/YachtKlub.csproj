@@ -99,6 +99,7 @@
     <Compile Include="service\LoadMyBoatsService.cs" />
     <Compile Include="service\LoadMyTransportDevicesService.cs" />
     <Compile Include="service\LoadSelectedBoatService.cs" />
+    <Compile Include="service\LoadSelectedTransportDeviceService.cs" />
     <Compile Include="service\LoadUserDataService.cs" />
     <Compile Include="service\LoginService.cs" />
     <Compile Include="service\PasswordChangeService.cs" />

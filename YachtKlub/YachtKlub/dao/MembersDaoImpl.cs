@@ -70,6 +70,18 @@ namespace YachtKlub.dao
 
             return member;
         }
+        public MembersEntity getMemberBTransportDevice(TransportDevicesEntity transportDevice)
+        {
+            var linqQuery = from row in dbc.Members
+                            where row.Email.Equals(transportDevice.FKOwner.Email)
+                            select row;
+
+            List<MembersEntity> membersList = linqQuery.ToList();
+            MembersEntity member = GetSingleResultWithoutExc(membersList);
+
+            return member;
+
+        }
 
         public MembersEntity getMemberById()
         {

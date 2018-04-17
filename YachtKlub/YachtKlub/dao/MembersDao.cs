@@ -14,6 +14,6 @@ namespace YachtKlub.dao
         List<MembersEntity> GetAllMembers();
         List<MembersEntity> GetTemplateMembers();
         MembersEntity getMemberByBoat(BoatsEntity boat);
-
+        MembersEntity getMemberBTransportDevice(TransportDevicesEntity transportDevice);
     }
 }
