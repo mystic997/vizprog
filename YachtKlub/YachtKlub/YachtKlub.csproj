@@ -106,6 +106,7 @@
     <Compile Include="service\RegisterService.cs" />
     <Compile Include="service\ServiceResponse.cs" />
     <Compile Include="service\UpdateBoatDataService.cs" />
+    <Compile Include="service\UpdateTransportDeviceDataService.cs" />
     <Compile Include="service\UpdateUserDataService.cs" />
     <Compile Include="StartWindow.xaml.cs">
       <DependentUpon>StartWindow.xaml</DependentUpon>
