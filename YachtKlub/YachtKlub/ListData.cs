@@ -17,7 +17,12 @@ namespace YachtKlub
             get { return this.Text; }
             set { this.Text = value; }
         }
-
+        private string Id;
+        public string id
+        {
+            get { return this.Id; }
+            set { this.Id = value; }
+        }
         private BitmapImage ImageData;
         public BitmapImage imageData
         {

@@ -96,7 +96,9 @@
       <DependentUpon>PopupMessage.xaml</DependentUpon>
     </Compile>
     <Compile Include="service\LoadBookableBoatsService.cs" />
-    <Compile Include="service\LoadMyBoatsAndTransportsService.cs" />
+    <Compile Include="service\LoadMyBoatsService.cs" />
+    <Compile Include="service\LoadMyTransportDevices.cs" />
+    <Compile Include="service\LoadSelectedBoatService.cs" />
     <Compile Include="service\LoadUserDataService.cs" />
     <Compile Include="service\LoginService.cs" />
     <Compile Include="service\PasswordChangeService.cs" />

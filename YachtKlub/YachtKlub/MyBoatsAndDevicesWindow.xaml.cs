@@ -30,33 +30,40 @@ namespace YachtKlub
             InitializeComponent();
             List<string> BoatNames = new List<string>();
             List<string> BoatImages = new List<string>();
+            List<string> BoatIds = new List<string>();
+
             List<string> TransportNames = new List<string>();
             List<string> TransportImages = new List<string>();
-            LoadMyBoatsAndTransportsService myBoatsAndTransportsService = new LoadMyBoatsAndTransportsService(email);
-            for (int i = 0; i < Convert.ToInt32(myBoatsAndTransportsService.ResponseMessage["BoatsCount"]); i++)
+            List<string> TransportIds = new List<string>();
+            LoadMyBoatsService myBoatsService = new LoadMyBoatsService(email);
+            LoadMyTransportDevices myTransportDevicesService = new LoadMyTransportDevices(email);
+            for (int i = 0; i < Convert.ToInt32(myBoatsService.ResponseMessage["BoatsCount"]); i++)
             {
-                BoatNames.Add(myBoatsAndTransportsService.ResponseMessage["boatName" + Convert.ToString(i)]);
-                BoatImages.Add(myBoatsAndTransportsService.ResponseMessage["boatImage" + Convert.ToString(i)]);
+                BoatNames.Add(myBoatsService.ResponseMessage["boatName" + Convert.ToString(i)]);
+                BoatImages.Add(myBoatsService.ResponseMessage["boatImage" + Convert.ToString(i)]);
+                BoatIds.Add(myBoatsService.ResponseMessage["boatId" + Convert.ToString(i)]);
+
             }
-            for (int i = 0; i < Convert.ToInt32(myBoatsAndTransportsService.ResponseMessage["TransportsCount"]); i++)
+            for (int i = 0; i < Convert.ToInt32(myTransportDevicesService.ResponseMessage["TransportsCount"]); i++)
             {
-                TransportNames.Add(myBoatsAndTransportsService.ResponseMessage["TransportName" + Convert.ToString(i)]);
-                TransportImages.Add(myBoatsAndTransportsService.ResponseMessage["TransportImage" + Convert.ToString(i)]);
+                TransportNames.Add(myTransportDevicesService.ResponseMessage["TransportName" + Convert.ToString(i)]);
+                TransportImages.Add(myTransportDevicesService.ResponseMessage["TransportImage" + Convert.ToString(i)]);
+                TransportIds.Add(myTransportDevicesService.ResponseMessage["TransportId" + Convert.ToString(i)]);
             }
-            ListData[] BoatLister = new ListData[Convert.ToInt32(myBoatsAndTransportsService.ResponseMessage["BoatsCount"])];
+            ListData[] BoatLister = new ListData[Convert.ToInt32(myBoatsService.ResponseMessage["BoatsCount"])];
             for (int i = 0; i < BoatLister.Length; i++)
             {
-                BoatLister[i] = new ListData { text = BoatNames[i], imageData = LoadImage(BoatImages[i]) };
+                BoatLister[i] = new ListData { text = BoatNames[i], imageData = LoadImage(BoatImages[i]), id = BoatIds[i]   };
             }
            
 
             this.lvBoats.ItemsSource = BoatLister;
             lvBoats.Items.Refresh();
 
-            ListData[] TransportLister = new ListData[Convert.ToInt32(myBoatsAndTransportsService.ResponseMessage["TransportsCount"])];
+            ListData[] TransportLister = new ListData[Convert.ToInt32(myTransportDevicesService.ResponseMessage["TransportsCount"])];
             for (int i = 0; i < TransportLister.Length; i++)
             {
-                TransportLister[i] = new ListData { text = TransportNames[i], imageData = LoadImage(TransportImages[i]) };
+                TransportLister[i] = new ListData { text = TransportNames[i], imageData = LoadImage(TransportImages[i]), id = TransportIds[i] };
             }
 
 
