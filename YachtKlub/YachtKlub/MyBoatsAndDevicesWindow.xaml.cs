@@ -195,5 +195,28 @@ namespace YachtKlub
         {
             return Guid.NewGuid().ToString("N");
         }
+
+        void Boats_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+
+            ListViewItem Chosen = ((ListViewItem)sender);
+            ListData listData = (ListData)Chosen.DataContext;
+            LoadSelectedBoatService loadSelectedBoatService = new LoadSelectedBoatService(listData.id);
+            tbBoatName.Text = loadSelectedBoatService.ResponseMessage["BoatName"];
+
+
+        }
+
+        void TransportDevices_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+
+            ListViewItem Chosen = ((ListViewItem)sender);
+            ListData listData = (ListData)Chosen.DataContext;
+            LoadSelectedTransportDeviceService loadSelectedTransportDeviceService = new LoadSelectedTransportDeviceService(listData.id);
+            tbBoatName.Text = loadSelectedTransportDeviceService.ResponseMessage["TransportDeviceName"];
+
+
+        }
+
     }
 }

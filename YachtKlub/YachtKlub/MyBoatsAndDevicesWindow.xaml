@@ -69,6 +69,11 @@
                         </Grid>
                     </DataTemplate>
                 </ListView.ItemTemplate>
+                <ListView.ItemContainerStyle>
+                    <Style TargetType="ListViewItem">
+                        <EventSetter Event="MouseDoubleClick" Handler="Boats_MouseDoubleClick" />
+                    </Style>
+                </ListView.ItemContainerStyle>
             </ListView>
         </StackPanel>
         <!--Selector.SelectionChanged="SelectionChanged"-->
@@ -86,7 +91,12 @@
                     </Grid>
                 </DataTemplate>
             </ListView.ItemTemplate>
-        </ListView>
+                <ListView.ItemContainerStyle>
+                    <Style TargetType="ListViewItem">
+                        <EventSetter Event="MouseDoubleClick" Handler="TransportDevices_MouseDoubleClick" />
+                    </Style>
+                </ListView.ItemContainerStyle>
+            </ListView>
         </StackPanel>
         <!--Selector.SelectionChanged="SelectionChanged"--> 
         <Label Content="Hajóim:" FontSize="15" HorizontalAlignment="Left" Height="30" Margin="48,54,0,0" VerticalAlignment="Top" Width="128"/>
