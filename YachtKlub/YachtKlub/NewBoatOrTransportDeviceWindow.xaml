@@ -12,7 +12,7 @@
 
 
 
-            <Label x:Name="lbBoatPicture" Content="A hajó képe:" HorizontalAlignment="Left" FontSize="12" VerticalAlignment="Top" Canvas.Top="278"/>
+            <Label x:Name="lbBoatPicture" Content="Kép:" HorizontalAlignment="Left" FontSize="12" VerticalAlignment="Top" Canvas.Top="278"/>
             <Image x:Name="imgBoatPicture" HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="100" Canvas.Left="116" Canvas.Top="278"/>
 
             <Label x:Name="lbBoatName" Content="Név:" HorizontalAlignment="Left" FontSize="12" VerticalAlignment="Top"/>
