@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:YachtKlub"
         mc:Ignorable="d"
-        Title="Személyes adatok" Height="510" Width="850">
+        Title="Személyes adatok" Height="510" Width="850" ResizeMode="CanMinimize">
     <Grid>
         <!--Ebben az ablakban megnyitáskor minden ki van töltve, ahhoz, hogy a mentés sikeres legyen minden mezőnek ki kell lennie töltve..-->
         <!--Ha megnyomjuk a mégse gombot akkor visszakerülünk az Accountképernyőre mentés nélkül.-->

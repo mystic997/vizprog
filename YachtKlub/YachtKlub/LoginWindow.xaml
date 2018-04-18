@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:YachtKlub"
         mc:Ignorable="d"
-          Title="Belépés" Height="180" Width="410" MaxHeight="180" MaxWidth="410" MinHeight="180" MinWidth="410" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+          Title="Belépés" Height="180" Width="410" MaxHeight="180" MaxWidth="410" MinHeight="180" MinWidth="410" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="ToolWindow">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />

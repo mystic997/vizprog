@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:YachtKlub"
         mc:Ignorable="d"
-        Title="Hajóim és eszközeim" Height="600" Width="900">
+        Title="Hajóim és eszközeim" Height="600" Width="900" ResizeMode="CanMinimize">
     <Grid>
         <Canvas x:Name="Boat" Margin="250,110,238,83">
             <Label x:Name="lbBoatPicture" Content="A hajó/eszköz képe:" HorizontalAlignment="Left" FontSize="12" VerticalAlignment="Top" Canvas.Top="304"/>
