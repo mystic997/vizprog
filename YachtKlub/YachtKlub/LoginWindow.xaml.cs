@@ -27,8 +27,14 @@ namespace YachtKlub
         public LoginWindow()
         {
             InitializeComponent();
+            MouseDown += Window_MouseDown; //az ablak mozgatásához kell
 
-            
+
+        }
+        private void Window_MouseDown(object sender, MouseButtonEventArgs e) //az ablak mozgatásához kell
+        {
+            if (e.ChangedButton == MouseButton.Left)
+                DragMove();
         }
 
         private void btLogin_Click(object sender, RoutedEventArgs e)
@@ -93,6 +99,11 @@ namespace YachtKlub
             tbEmailLogin.Text = "user0@gmail.com";
             tbPasswordLogin.Text = "user0";
             btLogin_Click(sender, e);
+        }
+
+        private void btExit_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
 
         //private void btRegister_Click(object sender, RoutedEventArgs e)

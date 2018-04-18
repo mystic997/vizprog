@@ -29,6 +29,7 @@ namespace YachtKlub
         public PersonalAdminWindow(string email)
         {
             InitializeComponent();
+            MouseDown += Window_MouseDown;
 
             this.adminEmain = email;
 
@@ -339,6 +340,11 @@ namespace YachtKlub
         public string generateID()
         {
             return Guid.NewGuid().ToString("N");
+        }
+        private void Window_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.ChangedButton == MouseButton.Left)
+                DragMove();
         }
     }
 }
