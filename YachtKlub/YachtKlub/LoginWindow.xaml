@@ -14,7 +14,7 @@
         </LinearGradientBrush>
     </Window.BorderBrush>
     <Window.Background>
-        <SolidColorBrush Color="#FF5228C1" Opacity="0.8"/>
+        <ImageBrush ImageSource="./resources/Background.png"/>
     </Window.Background>
     <Grid RenderTransformOrigin="0.548,0.503" >
         <Grid.RowDefinitions>
@@ -49,17 +49,10 @@
                 </Grid.RowDefinitions>
 
                 <Label x:Name="lbEmailLogin" Grid.Row="2" Width="97"  FontSize="18" HorizontalAlignment="Left" Margin="20,0,0,0" Content="E-mail cím:" Foreground="White"/>
-                <TextBox x:Name="tbEmailLogin" Grid.Row="2" Opacity="1" Width="170" FontSize="18" Margin="117,0" KeyDown="tbEmailLogin_KeyDown" BorderBrush="#FFFF8B00" BorderThickness="3" Grid.ColumnSpan="2">
-                    <TextBox.Background>
-                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                            <GradientStop Color="#FFF1EA56" Offset="0.7"/>
-                            <GradientStop Color="#FF96D38D" Offset="0.157"/>
-                        </LinearGradientBrush>
-                    </TextBox.Background>
-                </TextBox>
+                <TextBox x:Name="tbEmailLogin" Grid.Row="2" Opacity="1" Width="170" FontSize="18" Margin="117,0" KeyDown="tbEmailLogin_KeyDown" BorderBrush="#FFFF8B00" BorderThickness="3" Grid.ColumnSpan="2" Background="White"/>
 
                 <Label x:Name="lbPasswordLogin" Grid.Row="3" Width="60" FontSize="18" HorizontalAlignment="Left" Margin="25,0,0,0" Content="Jelszó:" Foreground="White"/>
-                <TextBox x:Name="tbPasswordLogin" Grid.Row="3" Width="170" FontSize="18" Margin="117,0" KeyDown="tbPasswordLogin_KeyDown" BorderThickness="3" Grid.ColumnSpan="2">
+                <TextBox x:Name="tbPasswordLogin" Grid.Row="3" Width="170" FontSize="18" Margin="117,0" KeyDown="tbPasswordLogin_KeyDown" BorderThickness="3" Grid.ColumnSpan="2" Background="White">
                     <TextBox.BorderBrush>
                         <LinearGradientBrush EndPoint="0,20" MappingMode="Absolute" StartPoint="0,0">
                             <GradientStop Color="#FFABADB3" Offset="0.05"/>
@@ -67,12 +60,6 @@
                             <GradientStop Color="#FFFF8B00" Offset="1"/>
                         </LinearGradientBrush>
                     </TextBox.BorderBrush>
-                    <TextBox.Background>
-                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                            <GradientStop Color="#FF96D390" Offset="0.887"/>
-                            <GradientStop Color="#FFF1EA56" Offset="0.17"/>
-                        </LinearGradientBrush>
-                    </TextBox.Background>
                 </TextBox>
 
                 <Button x:Name="btLogin" Opacity="1" Grid.Row="4" Width="170" FontSize="20" Click="btLogin_Click" Margin="117,0" MouseRightButtonDown="btLogin_MouseRightButtonDown" Content="Belépés" Background="#FF3C53B9" Foreground="#FF5EE063" Grid.ColumnSpan="2"/>
