@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:YachtKlub"
         mc:Ignorable="d"
         
-          Title="Személyes adatok" ResizeMode="CanMinimize" Height="510" Width="850" BorderBrush="#FF812626" Foreground="#FFBF9393" AllowsTransparency="False" WindowStyle="SingleBorderWindow" BorderThickness="5"  Background="#FFF5FFDB">
+          Title="Személyes adatok (Admin)" ResizeMode="CanMinimize" Height="510" Width="850" BorderBrush="#FF812626" Foreground="#FFBF9393" AllowsTransparency="False" WindowStyle="SingleBorderWindow" BorderThickness="5"  Background="#FFF5FFDB">
 
     <Grid>
         <!--Ebben az ablakban megnyitáskor minden ki van töltve, ahhoz, hogy a mentés sikeres legyen minden mezőnek ki kell lennie töltve..-->
@@ -19,7 +19,7 @@
         <Button  x:Name="btUploadProfilePicture" Content="Profilkép feltöltése" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="41,165,0,0" FontSize="12"    Width="140" Height="25" RenderTransformOrigin="0.55,3.975" Click="btUploadProfilePicture_Click" />
 
         <Label  x:Name="lbLastname" Content="Vezetéknév:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="218,30,0,0" FontSize="12"  Width="75" Height="25" />
-        <TextBox x:Name="tbLastname" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="293,30,0,0" FontSize="12"  Width="170" Height="25" Background="#FFE2E2FF" Foreground="#FFFF4242" BorderBrush="#FF3AFF00" CaretBrush="#FFE03C3C"  />
+        <TextBox x:Name="tbLastname" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="293,30,0,0" FontSize="12"  Width="170" Height="25" Background="#FFE2E2FF" Foreground="Black" BorderBrush="{x:Null}"  />
 
         <Label x:Name="lbFirstname" Content="Keresztnév:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="490,30,0,0" FontSize="12"  Width="130" Height="26" />
         <TextBox x:Name="tbFirstname" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="625,30,0,0" FontSize="12"  Width="170" Height="25" Background="#FFE2E2FF" />

@@ -6,17 +6,26 @@
         xmlns:local="clr-namespace:YachtKlub"
         mc:Ignorable="d"
           Title="Belépés" Height="350" Width="380" BorderThickness="10,40,10,10"   ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None" AllowsTransparency="True" Visibility="Visible">
+    <Window.Background>
+        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+            <GradientStop Color="Black" Offset="0"/>
+            <GradientStop Color="White" Offset="1"/>
+        </LinearGradientBrush>
+    </Window.Background>
     <Window.BorderBrush >
 
         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0" Opacity="0.3">
-            <GradientStop Color="#FF00F3FF" Offset="0"/>
+            <GradientStop Color="#FF11ACB4" Offset="0"/>
             <GradientStop Color="#FF005DFF" Offset="1"/>
         </LinearGradientBrush>
     </Window.BorderBrush>
-    <Window.Background>
-        <ImageBrush ImageSource="./resources/Background.png"/>
-    </Window.Background>
     <Grid RenderTransformOrigin="0.548,0.503" >
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#FF0882D3" Offset="1"/>
+                <GradientStop Color="#FF69ABCF"/>
+            </LinearGradientBrush>
+        </Grid.Background>
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
 
@@ -49,21 +58,13 @@
                 </Grid.RowDefinitions>
 
                 <Label x:Name="lbEmailLogin" Grid.Row="2" Width="97"  FontSize="18" HorizontalAlignment="Left" Margin="20,0,0,0" Content="E-mail cím:" Foreground="White"/>
-                <TextBox x:Name="tbEmailLogin" Grid.Row="2" Opacity="1" Width="170" FontSize="18" Margin="117,0" KeyDown="tbEmailLogin_KeyDown" BorderBrush="#FFFF8B00" BorderThickness="3" Grid.ColumnSpan="2" Background="White"/>
+                <TextBox x:Name="tbEmailLogin" Grid.Row="2" Opacity="1" Width="170" FontSize="18" Margin="117,0" KeyDown="tbEmailLogin_KeyDown" BorderBrush="{x:Null}" BorderThickness="3" Grid.ColumnSpan="2" Background="#FF7CB7DA"/>
 
                 <Label x:Name="lbPasswordLogin" Grid.Row="3" Width="60" FontSize="18" HorizontalAlignment="Left" Margin="25,0,0,0" Content="Jelszó:" Foreground="White"/>
-                <TextBox x:Name="tbPasswordLogin" Grid.Row="3" Width="170" FontSize="18" Margin="117,0" KeyDown="tbPasswordLogin_KeyDown" BorderThickness="3" Grid.ColumnSpan="2" Background="White">
-                    <TextBox.BorderBrush>
-                        <LinearGradientBrush EndPoint="0,20" MappingMode="Absolute" StartPoint="0,0">
-                            <GradientStop Color="#FFABADB3" Offset="0.05"/>
-                            <GradientStop Color="#FFE2E3EA" Offset="0.07"/>
-                            <GradientStop Color="#FFFF8B00" Offset="1"/>
-                        </LinearGradientBrush>
-                    </TextBox.BorderBrush>
-                </TextBox>
+                <TextBox x:Name="tbPasswordLogin" Grid.Row="3" Width="170" FontSize="18" Margin="117,0" KeyDown="tbPasswordLogin_KeyDown" BorderThickness="3" Grid.ColumnSpan="2" Background="#FF7CB7DA" BorderBrush="{x:Null}"/>
 
-                <Button x:Name="btLogin" Opacity="1" Grid.Row="4" Width="170" FontSize="20" Click="btLogin_Click" Margin="117,0" MouseRightButtonDown="btLogin_MouseRightButtonDown" Content="Belépés" Background="#FF3C53B9" Foreground="#FF5EE063" Grid.ColumnSpan="2"/>
-                <Button x:Name="btExit" Opacity="1" Grid.Row="5" Width="170" FontSize="20" Margin="117,0"  Content="Bezár" Click="btExit_Click" Background="#FF0E2381" Foreground="#FFA5D12F" Grid.ColumnSpan="2"/>
+                <Button x:Name="btLogin" Opacity="1" Grid.Row="4" Width="170" FontSize="20" Click="btLogin_Click" Margin="117,10,117,30" MouseRightButtonDown="btLogin_MouseRightButtonDown" Content="Belépés" Background="White" Foreground="#FF72AED2" Grid.ColumnSpan="2" Grid.RowSpan="2" BorderBrush="{x:Null}"/>
+                <Button x:Name="btExit" Opacity="1" Grid.Row="5" Width="170" FontSize="20" Margin="117,10"  Content="Bezár" Click="btExit_Click" Background="#FF72AED2" Foreground="White" Grid.ColumnSpan="2" Grid.RowSpan="2" BorderBrush="{x:Null}"/>
 
                 <!--
                 <TextBox x:Name="tbErrorLogin" Grid.Row="5" Height="30" Width="220" FontSize="14" Margin="83,20,83,11" HorizontalContentAlignment="Center" Background="#FFCE2B2B" VerticalContentAlignment="Center" Visibility="Hidden" Grid.ColumnSpan="1">Hibás e-mail vagy jelszó!</TextBox>
@@ -76,7 +77,8 @@
 
         </Canvas>
         <!--<Image x:Name="image" Source="resources/Yacht.png" Stretch="Fill" HorizontalAlignment="Left" Height="300" VerticalAlignment="Top" Width="510" Opacity="1"/>-->
-        <Label x:Name="label" Content="Yacht Club"  HorizontalAlignment="Left" Height="70" Margin="62,26,0,0" VerticalAlignment="Top" FontSize="50" Width="271" Foreground="#FF5ED30D" FontWeight="Bold" FontStyle="Italic"/>
+        <Label x:Name="label" Content="Yacht Club"  HorizontalAlignment="Center" Height="70" Margin="50,60,50,0" VerticalAlignment="Top" FontSize="42" Width="260" Foreground="White" FontWeight="Bold" FontFamily="Courier New"/>
+        <Image x:Name="login_logo_png" Margin="150,0,150,240" Source="login_logo.png" Stretch="Fill"/>
 
 
 
