@@ -78,7 +78,7 @@
         </Canvas>
         <!--<Image x:Name="image" Source="resources/Yacht.png" Stretch="Fill" HorizontalAlignment="Left" Height="300" VerticalAlignment="Top" Width="510" Opacity="1"/>-->
         <Label x:Name="label" Content="Yacht Club"  HorizontalAlignment="Center" Height="70" Margin="50,60,50,0" VerticalAlignment="Top" FontSize="42" Width="260" Foreground="White" FontWeight="Bold" FontFamily="Courier New"/>
-        <Image x:Name="login_logo_png" Margin="150,0,150,240" Source="login_logo.png" Stretch="Fill"/>
+        <Image x:Name="login_logo_png" Margin="150,0,150,240" Source="resources/login_logo.png" Stretch="Fill"/>
 
 
 

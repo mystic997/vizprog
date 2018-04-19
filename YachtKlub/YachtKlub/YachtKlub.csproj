@@ -85,6 +85,9 @@
     <Compile Include="AliveContext.cs" />
     <Compile Include="ExceptionToConsole.cs" />
     <Compile Include="ListData.cs" />
+    <Compile Include="MainMenu.xaml.cs">
+      <DependentUpon>MainMenu.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MyBoatsAndDevicesWindow.xaml.cs">
       <DependentUpon>MyBoatsAndDevicesWindow.xaml</DependentUpon>
     </Compile>
@@ -149,6 +152,10 @@
     <Compile Include="LoginWindow.xaml.cs">
       <DependentUpon>LoginWindow.xaml</DependentUpon>
     </Compile>
+    <Page Include="MainMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MemberRegisterWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -245,13 +252,22 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="resources\menu_ships.png" />
     <Resource Include="resources\Yacht.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="resources\Background.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="login_logo.png" />
+    <Resource Include="resources\login_logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="resources\menu_booking.png" />
+    <Resource Include="resources\menu_books.png" />
+    <Resource Include="resources\menu_profile.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="resources\menu_keret.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
