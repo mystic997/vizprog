@@ -103,6 +103,7 @@
         <Label Content="Eszközeim:" FontSize="15" HorizontalAlignment="Left" Height="30" Margin="694,54,0,0" VerticalAlignment="Top" Width="90"/>
         <Button  x:Name="btSave" Content="Mentés" HorizontalAlignment="Left" Height="25" Margin="440,524,0,0" VerticalAlignment="Top" Width="100" Click="Save_Click"/>
         <Button  x:Name="btModify" Content="Módosítás" HorizontalAlignment="Left" Height="25" Margin="590,524,0,0" VerticalAlignment="Top" Width="100" Click="Modify_Click"/>
+        <Button  x:Name="btStatistics" Content="Statisztika" HorizontalAlignment="Left" Height="25" Margin="295,524,0,0" VerticalAlignment="Top" Width="100" Click="btStatistics_Click"/>
 
 
     </Grid>
