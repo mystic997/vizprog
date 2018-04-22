@@ -27,7 +27,7 @@ namespace YachtKlub.dao
 
                 TemplateTransportDevice.TransportDeviceId = i;
                 TemplateTransportDevice.TransportDeviceName = "TransportDevice" + i;
-                TemplateTransportDevice.CarryingCapacity = random.Next(1, 50);
+                TemplateTransportDevice.CarryingCapacity = random.Next(1, 15)*1000;
                 TemplateTransportDevice.TransportDeviceType = "Type" + random.Next(0, 3);
                 TemplateTransportDevice.TransportDeviceLength = random.Next(100, 700) / 100;
                 TemplateTransportDevice.TransportDeviceWidth = random.Next(50, 300) / 100;

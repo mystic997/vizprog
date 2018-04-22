@@ -203,8 +203,35 @@ namespace YachtKlub
             ListData listData = (ListData)Chosen.DataContext;
             LoadSelectedBoatService loadSelectedBoatService = new LoadSelectedBoatService(listData.id);
             tbBoatName.Text = loadSelectedBoatService.ResponseMessage["BoatName"];
-
-
+            tbBoatPrice.Text = loadSelectedBoatService.ResponseMessage["DailyPrice"];
+            tbBoatConsumption.Text = loadSelectedBoatService.ResponseMessage["Consumption"];
+            tbBoatType.Text = loadSelectedBoatService.ResponseMessage["BoatType"];
+            tbBoatManpower.Text = loadSelectedBoatService.ResponseMessage["MaxPerson"];
+            tbBoatSpeed.Text = loadSelectedBoatService.ResponseMessage["MaxSpeed"];
+            tbBoatWidth.Text = loadSelectedBoatService.ResponseMessage["BoatWidth"];
+            tbBoatLenght.Text = loadSelectedBoatService.ResponseMessage["BoatLength"];
+            tbBoatYear.Text = loadSelectedBoatService.ResponseMessage["YearOfManufacture"];
+            tbBoatDept.Text = loadSelectedBoatService.ResponseMessage["DiveDepth"];
+            tbBoatPlace.Text = loadSelectedBoatService.ResponseMessage["WhereIsNowTheBoat"];
+            imgBoatPicture.Source = LoadImage(loadSelectedBoatService.ResponseMessage["BoatImage"]);
+            tbBoatPlace.Visibility = Visibility.Visible;
+            tbBoatDept.Visibility = Visibility.Visible;
+            tbBoatYear.Visibility = Visibility.Visible;
+            tbBoatSpeed.Visibility = Visibility.Visible;
+            tbBoatConsumption.Visibility = Visibility.Visible;
+            tbBoatPrice.Visibility = Visibility.Visible;
+            lbBoatPlace.Visibility = Visibility.Visible;
+            lbBoatDept.Visibility = Visibility.Visible;
+            lbBoatYear.Visibility = Visibility.Visible;
+            lbBoatSpeed.Visibility = Visibility.Visible;
+            lbBoatConsumption.Visibility = Visibility.Visible;
+            lbBoatPrice.Visibility = Visibility.Visible;
+            lbDepth.Visibility = Visibility.Visible;
+            lbSpeed.Visibility = Visibility.Visible;
+            lbConsumption.Visibility = Visibility.Visible;
+            lbPrice.Visibility = Visibility.Visible;
+            lbBoatManpower.Content = "Max. létszám:";
+            lbManpower.Content = "Ft/nap";
         }
 
         void TransportDevices_MouseDoubleClick(object sender, MouseButtonEventArgs e)
@@ -214,7 +241,38 @@ namespace YachtKlub
             ListData listData = (ListData)Chosen.DataContext;
             LoadSelectedTransportDeviceService loadSelectedTransportDeviceService = new LoadSelectedTransportDeviceService(listData.id);
             tbBoatName.Text = loadSelectedTransportDeviceService.ResponseMessage["TransportDeviceName"];
+            tbBoatPrice.Text = "";
+            tbBoatConsumption.Text = "";
+            tbBoatType.Text = loadSelectedTransportDeviceService.ResponseMessage["TransportDeviceType"];
+            tbBoatManpower.Text = loadSelectedTransportDeviceService.ResponseMessage["CarryingCapacity"];
+            tbBoatSpeed.Text ="";
+            tbBoatWidth.Text = loadSelectedTransportDeviceService.ResponseMessage["TransportDeviceWidth"];
+            tbBoatLenght.Text = loadSelectedTransportDeviceService.ResponseMessage["TransportDeviceLength"];
+            tbBoatYear.Text = "";
+            tbBoatDept.Text = "";
+            tbBoatPlace.Text = "";
+            imgBoatPicture.Source = LoadImage(loadSelectedTransportDeviceService.ResponseMessage["TransportDeviceImage"]);
 
+            tbBoatPlace.Visibility = Visibility.Hidden;
+            tbBoatDept.Visibility = Visibility.Hidden;
+            tbBoatYear.Visibility = Visibility.Hidden;
+            tbBoatSpeed.Visibility = Visibility.Hidden;
+            tbBoatConsumption.Visibility = Visibility.Hidden;
+            tbBoatPrice.Visibility = Visibility.Hidden;
+            lbBoatPlace.Visibility = Visibility.Hidden;
+            lbBoatDept.Visibility = Visibility.Hidden;
+            lbBoatYear.Visibility = Visibility.Hidden;
+            lbBoatSpeed.Visibility = Visibility.Hidden;
+            lbBoatConsumption.Visibility = Visibility.Hidden;
+            lbBoatPrice.Visibility = Visibility.Hidden;
+
+            
+            lbDepth.Visibility = Visibility.Hidden;
+            lbSpeed.Visibility = Visibility.Hidden;
+            lbConsumption.Visibility = Visibility.Hidden;
+            lbPrice.Visibility = Visibility.Hidden;
+            lbBoatManpower.Content = "Kapacitás";
+            lbManpower.Content = "Kg";
 
         }
 
