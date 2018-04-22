@@ -84,7 +84,7 @@ namespace YachtKlub
             lbfields.Add(tbBoatType);
             lbfields.Add(tbBoatWidth);
             lbfields.Add(tbBoatYear);
-            btStatistics.IsEnabled = false;
+
             lbfields.ForEach(i => i.IsEnabled = false);
 
             btfields = new List<Button>();
@@ -232,7 +232,6 @@ namespace YachtKlub
             lbPrice.Visibility = Visibility.Visible;
             lbBoatManpower.Content = "Max. létszám:";
             lbManpower.Content = "Ft/nap";
-            btStatistics.IsEnabled = true;
         }
 
         void TransportDevices_MouseDoubleClick(object sender, MouseButtonEventArgs e)
@@ -267,6 +266,7 @@ namespace YachtKlub
             lbBoatConsumption.Visibility = Visibility.Hidden;
             lbBoatPrice.Visibility = Visibility.Hidden;
 
+            
             lbDepth.Visibility = Visibility.Hidden;
             lbSpeed.Visibility = Visibility.Hidden;
             lbConsumption.Visibility = Visibility.Hidden;
@@ -274,16 +274,7 @@ namespace YachtKlub
             lbBoatManpower.Content = "Kapacitás";
             lbManpower.Content = "Kg";
 
-            btStatistics.IsEnabled = true;
-
         }
 
-        private void btStatistics_Click(object sender, RoutedEventArgs e)
-        {
-            
-            StatisicsWindow1 ToStatisicsWindow1 = new StatisicsWindow1();
-            ToStatisicsWindow1.Show();
-
-        }
     }
 }

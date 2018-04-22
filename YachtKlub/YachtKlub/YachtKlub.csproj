@@ -117,9 +117,6 @@
     <Compile Include="StartWindow.xaml.cs">
       <DependentUpon>StartWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="StatisicsWindow1.xaml.cs">
-      <DependentUpon>StatisicsWindow1.xaml</DependentUpon>
-    </Compile>
     <Compile Include="validator\EmailFormatValidator.cs" />
     <Compile Include="validator\EmptyFieldValidator.cs" />
     <Compile Include="validator\FieldCharacterLimitValidator.cs" />
@@ -192,10 +189,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="StartWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="StatisicsWindow1.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
