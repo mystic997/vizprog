@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using YachtKlub.dao;
+using YachtKlub.entity;
 
 namespace YachtKlub
 {
@@ -19,10 +21,15 @@ namespace YachtKlub
     /// </summary>
     public partial class StatisicsWindow1 : Window
     {
-        public StatisicsWindow1()
+        public StatisicsWindow1(ListData listData)
         {
+            BoatRentalsDao boatRentalsDao = new BoatRentalsDaoImpl();
             InitializeComponent();
-            towerChart(20, 550, 30);
+            for (int i = 0; i < 12; i++)
+            {   
+                towerChart(20 + i * 20, 50, boatRentalsDao.GetHowManyBoatRentalsByMonthAndBoat(i,Convert.ToInt32(listData.id)));
+
+            }
 
         }
 
@@ -31,8 +38,8 @@ namespace YachtKlub
             Rectangle tower = new Rectangle();
             tower.Width = 20;
             tower.Height = height;
-            tower.Stroke = Brushes.Azure;
-            tower.Fill = Brushes.Azure;
+            tower.Stroke = Brushes.CadetBlue;
+            tower.Fill = Brushes.CadetBlue;
             tower.StrokeThickness = 2;
             tower.SetValue(Canvas.LeftProperty, (double)(x));
             tower.SetValue(Canvas.TopProperty, (double)(y));

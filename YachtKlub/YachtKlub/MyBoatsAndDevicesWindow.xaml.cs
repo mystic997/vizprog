@@ -21,6 +21,7 @@ namespace YachtKlub
     /// </summary>
     public partial class MyBoatsAndDevicesWindow : Window
     {
+        ListData listDataGlobal;
         List<TextBox> lbfields;
         List<Button> btfields;
         List<ListView> lvfields;
@@ -200,8 +201,8 @@ namespace YachtKlub
         {
 
             ListViewItem Chosen = ((ListViewItem)sender);
-            ListData listData = (ListData)Chosen.DataContext;
-            LoadSelectedBoatService loadSelectedBoatService = new LoadSelectedBoatService(listData.id);
+            listDataGlobal = (ListData)Chosen.DataContext;
+            LoadSelectedBoatService loadSelectedBoatService = new LoadSelectedBoatService(listDataGlobal.id);
             tbBoatName.Text = loadSelectedBoatService.ResponseMessage["BoatName"];
             tbBoatPrice.Text = loadSelectedBoatService.ResponseMessage["DailyPrice"];
             tbBoatConsumption.Text = loadSelectedBoatService.ResponseMessage["Consumption"];
@@ -239,8 +240,8 @@ namespace YachtKlub
         {
 
             ListViewItem Chosen = ((ListViewItem)sender);
-            ListData listData = (ListData)Chosen.DataContext;
-            LoadSelectedTransportDeviceService loadSelectedTransportDeviceService = new LoadSelectedTransportDeviceService(listData.id);
+            listDataGlobal = (ListData)Chosen.DataContext;
+            LoadSelectedTransportDeviceService loadSelectedTransportDeviceService = new LoadSelectedTransportDeviceService(listDataGlobal.id);
             tbBoatName.Text = loadSelectedTransportDeviceService.ResponseMessage["TransportDeviceName"];
             tbBoatPrice.Text = "";
             tbBoatConsumption.Text = "";
@@ -281,8 +282,11 @@ namespace YachtKlub
         private void btStatistics_Click(object sender, RoutedEventArgs e)
         {
             
-            StatisicsWindow1 ToStatisicsWindow1 = new StatisicsWindow1();
+            StatisicsWindow1 ToStatisicsWindow1 = new StatisicsWindow1( listDataGlobal);
             ToStatisicsWindow1.Show();
+
+            LoadSelectedBoatService loadSelectedBoatService = new LoadSelectedBoatService(listDataGlobal.id);
+            tbBoatName.Text = loadSelectedBoatService.ResponseMessage["BoatName"];
 
         }
     }

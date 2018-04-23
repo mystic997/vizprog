@@ -7,7 +7,7 @@ using System.Windows.Media.Imaging;
 
 namespace YachtKlub
 {
-    class ListData
+    public class ListData
     {
 
 

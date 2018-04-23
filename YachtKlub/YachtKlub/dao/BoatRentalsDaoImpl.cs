@@ -29,7 +29,12 @@ namespace YachtKlub.dao
             List<BoatRentalsEntity> BoatRentalsList = linqQuery.ToList();
             return BoatRentalsList;
         }
-
+        public int GetHowManyBoatRentalsByMonthAndBoat(int numberOfMonth,int id)
+        {
+            var linqQuery = from row in dbc.BoatRentals where (row.StartingDate.Month.Equals(numberOfMonth) & row.FKRentedBoat.BoatId.Equals(id) )select row;
+            List<BoatRentalsEntity> BoatRentalsList = linqQuery.ToList();
+            return BoatRentalsList.Count;
+        }
         public BoatRentalsEntity GetBoatRentalsById()
         {
             throw new NotImplementedException();
@@ -40,7 +45,7 @@ namespace YachtKlub.dao
             Random random = new Random();
             List<BoatRentalsEntity> TemplateBoatRentals = new List<BoatRentalsEntity>();
 
-            for (int i = 0; i < 5; i++)
+            for (int i = 0; i < 50; i++)
             {
                 BoatRentalsEntity TemplateBoatRental = new BoatRentalsEntity();
 
@@ -78,6 +83,12 @@ namespace YachtKlub.dao
 
             TemplateBoatRentals[4].StartingDate = new DateTime(2018, 7, 4);
             TemplateBoatRentals[4].EndDate = new DateTime(2018, 8, 10);
+
+            for (int i = 0; i < random.Next(1,11); i++)
+            { int a = random.Next(1, 12);
+                TemplateBoatRentals[4].StartingDate = new DateTime(2018, a, 4);
+                TemplateBoatRentals[4].EndDate = new DateTime(2018, a+1, 10);
+            }
 
             return TemplateBoatRentals;
         }
