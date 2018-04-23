@@ -27,7 +27,7 @@ namespace YachtKlub
             InitializeComponent();
             for (int i = 0; i < 12; i++)
             {   
-                towerChart(20 + i * 20, 50, boatRentalsDao.GetHowManyBoatRentalsByMonthAndBoat(i,Convert.ToInt32(listData.id)));
+                towerChart(20 + i * 25, 100  - boatRentalsDao.GetHowManyBoatRentalsByMonthAndBoat(i, Convert.ToInt32(listData.id)) * 10, boatRentalsDao.GetHowManyBoatRentalsByMonthAndBoat(i,Convert.ToInt32(listData.id))*10);
 
             }
 

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:YachtKlub"
         mc:Ignorable="d"
-        Title="StatisicsWindow1" Height="300" Width="300">
+        Title="StatisicsWindow1" Height="300" Width="360">
     <Grid>
         <Canvas Name="cvLap">
 

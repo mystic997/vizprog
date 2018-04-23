@@ -44,11 +44,11 @@ namespace YachtKlub.dao
         {
             Random random = new Random();
             List<BoatRentalsEntity> TemplateBoatRentals = new List<BoatRentalsEntity>();
-            int a = 50;
+            int a = 500;
             for (int i = 0; i < a; i++)
             {
                 BoatRentalsEntity TemplateBoatRental = new BoatRentalsEntity();
-
+                TemplateBoatRental.BoatRentalsId = generateID();
                 TemplateBoatRental.FromWhere = "Innen";
                 TemplateBoatRental.ToWhere = "Ide";
                 TemplateBoatRental.HowManyPersonWillTravel = 4;
@@ -79,6 +79,10 @@ namespace YachtKlub.dao
 
 
             return TemplateBoatRentals;
+        }
+        public string generateID()
+        {
+            return Guid.NewGuid().ToString("N");
         }
     }
 }
