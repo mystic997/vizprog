@@ -45,7 +45,7 @@ namespace YachtKlub.dao
             Random random = new Random();
             List<BoatRentalsEntity> TemplateBoatRentals = new List<BoatRentalsEntity>();
 
-            for (int i = 0; i < 50; i++)
+            for (int i = 0; i < 5; i++)
             {
                 BoatRentalsEntity TemplateBoatRental = new BoatRentalsEntity();
 
@@ -83,12 +83,6 @@ namespace YachtKlub.dao
 
             TemplateBoatRentals[4].StartingDate = new DateTime(2018, 7, 4);
             TemplateBoatRentals[4].EndDate = new DateTime(2018, 8, 10);
-
-            for (int i = 0; i < random.Next(1,11); i++)
-            { int a = random.Next(1, 12);
-                TemplateBoatRentals[4].StartingDate = new DateTime(2018, a, 4);
-                TemplateBoatRentals[4].EndDate = new DateTime(2018, a+1, 10);
-            }
 
             return TemplateBoatRentals;
         }
