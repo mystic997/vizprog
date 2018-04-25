@@ -120,5 +120,45 @@ namespace YachtKlub.dao
             List<BoatRentalsEntity> BoatRentalsList = linqQuery.ToList();
             return BoatRentalsList.Count;
         }
+
+        public List<BoatRentalsEntity> GetBoatRentalsByMonthAndBoat(int month, int id)
+        {
+            var linqQuery = from row in dbc.BoatRentals where (row.StartingDate.Month.Equals(month) & row.FKRentedBoat.BoatId.Equals(id)) select row;
+            List<BoatRentalsEntity> BoatRentalsList = linqQuery.ToList();
+            return BoatRentalsList;
+        }
+
+        public List<BoatRentalsEntity> GetBoatRentalsByYearAndBoat(int year, int id)
+        {
+            var linqQuery = from row in dbc.BoatRentals where (row.StartingDate.Year.Equals(year) & row.FKRentedBoat.BoatId.Equals(id)) select row;
+            List<BoatRentalsEntity> BoatRentalsList = linqQuery.ToList();
+            return BoatRentalsList;
+        }
+
+        public List<BoatRentalsEntity> GetBoatRentalsByWeekAndBoat(int week, int id)
+        {
+            DateTimeFormatInfo dfi = DateTimeFormatInfo.CurrentInfo;
+            Calendar calendar = dfi.Calendar;
+            List<BoatRentalsEntity> ReturnList = new List<BoatRentalsEntity>;
+            var linqQuery = from row in dbc.BoatRentals where row.FKRentedBoat.BoatId.Equals(id) select row;
+            List<BoatRentalsEntity> BoatRentalsList = linqQuery.ToList();
+            int RentalCount = 0;
+            for (int i = 0; i < BoatRentalsList.Count; i++)
+            {
+                if (calendar.GetWeekOfYear(BoatRentalsList[i].StartingDate, dfi.CalendarWeekRule, DayOfWeek.Monday).Equals(week))
+                {
+                    ReturnList.Add(BoatRentalsList[i];
+                }
+
+            }
+            return ReturnList;
+        }
+
+        public List<BoatRentalsEntity> GetBoatRentalsByDayAndBoat(int day, int id)
+        {
+            var linqQuery = from row in dbc.BoatRentals where (row.StartingDate.Day.Equals(day) & row.FKRentedBoat.BoatId.Equals(id)) select row;
+            List<BoatRentalsEntity> BoatRentalsList = linqQuery.ToList();
+            return BoatRentalsList; ;
+        }
     }
 }
