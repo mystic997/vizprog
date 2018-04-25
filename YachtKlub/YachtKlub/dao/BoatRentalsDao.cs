@@ -14,6 +14,11 @@ namespace YachtKlub.dao
         List<BoatRentalsEntity> GetBoatRentalsByWhoRents(MembersEntity WhoRents);
         List<BoatRentalsEntity> GetAllBoatRents();
         List<BoatRentalsEntity> GetTemplateBoatRents();
-        int GetHowManyBoatRentalsByMonthAndBoat(int numberOfMonth, int id);
+        int GetHowManyBoatRentalsByMonthAndBoat(int month, int id);
+        int GetHowManyBoatRentalsByYearAndBoat(int year, int id);
+        int GetHowManyBoatRentalsByWeekAndBoat(int week, int id);
+        int GetHowManyBoatRentalsByDayAndBoat(int day, int id);
+
+
     }
 }

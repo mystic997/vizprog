@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -29,12 +30,7 @@ namespace YachtKlub.dao
             List<BoatRentalsEntity> BoatRentalsList = linqQuery.ToList();
             return BoatRentalsList;
         }
-        public int GetHowManyBoatRentalsByMonthAndBoat(int numberOfMonth,int id)
-        {
-            var linqQuery = from row in dbc.BoatRentals where (row.StartingDate.Month.Equals(numberOfMonth) & row.FKRentedBoat.BoatId.Equals(id) )select row;
-            List<BoatRentalsEntity> BoatRentalsList = linqQuery.ToList();
-            return BoatRentalsList.Count;
-        }
+        
         public BoatRentalsEntity GetBoatRentalsById()
         {
             throw new NotImplementedException();
@@ -83,6 +79,46 @@ namespace YachtKlub.dao
         public string generateID()
         {
             return Guid.NewGuid().ToString("N");
+        }
+
+        public int GetHowManyBoatRentalsByYearAndBoat(int year, int id)
+        {
+            var linqQuery = from row in dbc.BoatRentals where (row.StartingDate.Year.Equals(year) & row.FKRentedBoat.BoatId.Equals(id)) select row;
+            List<BoatRentalsEntity> BoatRentalsList = linqQuery.ToList();
+            return BoatRentalsList.Count;
+        }
+
+        public int GetHowManyBoatRentalsByMonthAndBoat(int month, int id)
+        {
+            var linqQuery = from row in dbc.BoatRentals where (row.StartingDate.Month.Equals(month) & row.FKRentedBoat.BoatId.Equals(id)) select row;
+            List<BoatRentalsEntity> BoatRentalsList = linqQuery.ToList();
+            return BoatRentalsList.Count;
+        }
+
+        public int GetHowManyBoatRentalsByWeekAndBoat(int week, int id)
+        {
+            DateTimeFormatInfo dfi = DateTimeFormatInfo.CurrentInfo;
+            Calendar calendar = dfi.Calendar;
+
+            var linqQuery = from row in dbc.BoatRentals where row.FKRentedBoat.BoatId.Equals(id) select row;
+            List<BoatRentalsEntity> BoatRentalsList = linqQuery.ToList();
+            int RentalCount = 0;
+            for (int i = 0; i < BoatRentalsList.Count; i++)
+            {
+                if (calendar.GetWeekOfYear(BoatRentalsList[i].StartingDate, dfi.CalendarWeekRule, DayOfWeek.Monday).Equals(week))
+                {
+                    RentalCount++;
+                } 
+
+            }
+            return RentalCount;
+        }
+
+        public int GetHowManyBoatRentalsByDayAndBoat(int day, int id)
+        {
+            var linqQuery = from row in dbc.BoatRentals where (row.StartingDate.Day.Equals(day) & row.FKRentedBoat.BoatId.Equals(id)) select row;
+            List<BoatRentalsEntity> BoatRentalsList = linqQuery.ToList();
+            return BoatRentalsList.Count;
         }
     }
 }
