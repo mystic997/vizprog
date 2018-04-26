@@ -34,9 +34,61 @@ namespace YachtKlub
         }
         private void Register_Click(object sender, RoutedEventArgs e)
         {
+            try { 
+            BoatsDao boatsDao = new BoatsDaoImpl();
+            BoatsEntity boatsEntity = new BoatsEntity();
+
+            boatsEntity.BoatId = dbc.Boats.OrderByDescending(u => u.BoatId).FirstOrDefault().BoatId;
+            boatsEntity.BoatImage = imgBoatPicture.Tag.ToString();
+            boatsEntity.BoatLength = Convert.ToInt32(tbBoatLenght.Text);
+            boatsEntity.BoatWidth = Convert.ToInt32(tbBoatWidth.Text);
+            boatsEntity.BoatName = tbBoatName.Text;
+            //boatsEntity.BoatRentals = null;
+            boatsEntity.BoatType = tbBoatType.Text;
+            boatsEntity.Consumption = Convert.ToInt32(tbBoatConsumption.Text);
+            boatsEntity.DailyPrice = Convert.ToInt32(tbBoatPrice.Text);
+            boatsEntity.DiveDepth = Convert.ToInt32(tbBoatDept.Text);
+
+                MembersDao membersDao = new MembersDaoImpl();
+                MembersEntity member = membersDao.getMemberByEmail(email);
+
+                boatsEntity.FKOwner = member;
+                boatsEntity.IsLoan = tbIsLoan.IsChecked ?? false;
+                boatsEntity.MaxPerson = Convert.ToInt32(tbBoatManpower.Text);
+                boatsEntity.MaxSpeed = Convert.ToInt32(tbBoatSpeed.Text);
+                boatsEntity.WhereIsNowTheBoat = tbBoatPlace.Text;
+                boatsEntity.YearOfManufacture = Convert.ToInt32(tbBoatYear.Text);
+                Validator registerValidator = new Validator();
+
+            registerValidator.ValidationComponents.Add(new EmptyFieldValidator(imgBoatPicture.Tag.ToString(), "fénykép"));
+            registerValidator.ValidationComponents.Add(new EmptyFieldValidator(tbBoatLenght.Text, "Hossz"));
+            registerValidator.ValidationComponents.Add(new EmptyFieldValidator(tbBoatLenght.Text, "Hossz"));
+            registerValidator.ValidationComponents.Add(new EmptyFieldValidator(tbBoatConsumption.Text, "Fogyasztás"));
+            registerValidator.ValidationComponents.Add(new EmptyFieldValidator(tbBoatPrice.Text, "Ár"));
+            registerValidator.ValidationComponents.Add(new EmptyFieldValidator(tbBoatDept.Text, "Merülési mélység"));
+            registerValidator.ValidationComponents.Add(new EmptyFieldValidator(tbBoatManpower.Text, "Max. Létszám"));
+                registerValidator.ValidationComponents.Add(new EmptyFieldValidator(tbBoatSpeed.Text, "Max. sebesség"));
+                registerValidator.ValidationComponents.Add(new EmptyFieldValidator(tbBoatPlace.Text, "Tartózkodási helye"));
+                registerValidator.ValidationComponents.Add(new EmptyFieldValidator(tbBoatYear.Text, "Gyártási év"));
 
 
-}
+
+
+
+                RegisterBoatService registerService = new RegisterBoatService(ref boatsEntity);
+
+            }
+            catch (Exception ex)
+            {
+                new ExceptionToConsole(ex);
+            }
+
+
+
+
+            
+
+        }
         private void Exit_Click(object sender, RoutedEventArgs e)
         {
             this.Close();

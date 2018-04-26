@@ -15,32 +15,13 @@ namespace YachtKlub.service
         DatabaseContext dbc;
         string email;
 
-        public RegisterBoatService(string email) { this.email = email; }
-        public void RegisterService(ref NewBoatWindow newBoatWindow)
+        public RegisterBoatService(ref BoatsEntity boatsEntity)
         {
-            BoatsDao boatsDao = new BoatsDaoImpl();
-            BoatsEntity boatsEntity = new BoatsEntity();
+            RegisterService(ref boatsEntity);
 
-            boatsEntity.BoatId = dbc.Boats.OrderByDescending(u => u.BoatId).FirstOrDefault().BoatId;
-            boatsEntity.BoatImage = newBoatWindow.imgBoatPicture.Tag.ToString();
-            boatsEntity.BoatLength = Convert.ToInt32(newBoatWindow.tbBoatLenght.Text);
-            boatsEntity.BoatWidth = Convert.ToInt32(newBoatWindow.tbBoatWidth.Text);
-            boatsEntity.BoatName = newBoatWindow.tbBoatName.Text;
-            //boatsEntity.BoatRentals = null;
-            boatsEntity.BoatType = newBoatWindow.tbBoatType.Text;
-            boatsEntity.Consumption = Convert.ToInt32(newBoatWindow.tbBoatConsumption.Text);
-            boatsEntity.DailyPrice = Convert.ToInt32(newBoatWindow.tbBoatPrice.Text);
-            boatsEntity.DiveDepth = Convert.ToInt32(newBoatWindow.tbBoatDept.Text);
-
-            MembersDao membersDao = new MembersDaoImpl();
-            MembersEntity member = membersDao.getMemberByEmail(email);
-
-            boatsEntity.FKOwner = member;
-            boatsEntity.IsLoan = newBoatWindow.tbIsLoan.IsChecked ?? false;
-            boatsEntity.MaxPerson = Convert.ToInt32(newBoatWindow.tbBoatManpower.Text);
-            boatsEntity.MaxSpeed = Convert.ToInt32(newBoatWindow.tbBoatSpeed.Text);
-            boatsEntity.WhereIsNowTheBoat = newBoatWindow.tbBoatPlace.Text;
-            boatsEntity.YearOfManufacture = Convert.ToInt32(newBoatWindow.tbBoatYear.Text);
+        }
+        public void RegisterService(ref BoatsEntity boatsEntity)
+        {
             dbc.Boats.Add(boatsEntity);
             dbc.SaveChanges();
 
