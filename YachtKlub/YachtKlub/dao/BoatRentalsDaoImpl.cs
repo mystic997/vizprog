@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity.Core.Common.CommandTrees.ExpressionBuilder;
 using System.Globalization;
 using System.Linq;
 using System.Text;
@@ -17,20 +18,24 @@ namespace YachtKlub.dao
             return BoatRentalsList;
         }
 
-        public List<BoatRentalsEntity> GetBoatRentalsByBoat(BoatsEntity RentedBoat)/*Függvény, ami visszaad egy listát, ami tartalmazza, hogy az adott hajóhoz milyen kölcsönzések vannak*/
+        public List<BoatRentalsEntity>
+            GetBoatRentalsByBoat(
+                BoatsEntity RentedBoat) /*Függvény, ami visszaad egy listát, ami tartalmazza, hogy az adott hajóhoz milyen kölcsönzések vannak*/
         {
             var linqQuery = from row in dbc.BoatRentals where row.FKRentedBoat.Equals(RentedBoat) select row;
             List<BoatRentalsEntity> BoatRentalsList = linqQuery.ToList();
             return BoatRentalsList;
         }
 
-        public List<BoatRentalsEntity> GetBoatRentalsByWhoRents(MembersEntity WhoRents)/*Függvény, ami visszaad egy listát, ami tartalmazza, hogy az adott felhaszálónak milyen kölcsönzései vannak*/
+        public List<BoatRentalsEntity>
+            GetBoatRentalsByWhoRents(
+                MembersEntity WhoRents) /*Függvény, ami visszaad egy listát, ami tartalmazza, hogy az adott felhaszálónak milyen kölcsönzései vannak*/
         {
             var linqQuery = from row in dbc.BoatRentals where row.FKWhoRents.Equals(WhoRents) select row;
             List<BoatRentalsEntity> BoatRentalsList = linqQuery.ToList();
             return BoatRentalsList;
         }
-        
+
         public BoatRentalsEntity GetBoatRentalsById()
         {
             throw new NotImplementedException();
@@ -64,6 +69,7 @@ namespace YachtKlub.dao
 
                 TemplateBoatRentals.Add(TemplateBoatRental);
             }
+
             for (int i = 0; i < a; i++)
             {
                 int temp = random.Next(1, 12);
@@ -76,21 +82,33 @@ namespace YachtKlub.dao
 
             return TemplateBoatRentals;
         }
+
         public string generateID()
         {
             return Guid.NewGuid().ToString("N");
         }
 
+        public List<BoatRentalsEntity> GeBoatRentalsByBoatId(int id)
+        {
+            var linqQuery = from row in dbc.BoatRentals where row.FKRentedBoat.BoatId.Equals(id) select row;
+            List<BoatRentalsEntity> BoatRentalsList = linqQuery.ToList();
+            return BoatRentalsList;
+        }
+
         public int GetHowManyBoatRentalsByYearAndBoat(int year, int id)
         {
-            var linqQuery = from row in dbc.BoatRentals where (row.StartingDate.Year.Equals(year) & row.FKRentedBoat.BoatId.Equals(id)) select row;
+            var linqQuery = from row in dbc.BoatRentals
+                where (row.StartingDate.Year.Equals(year) & row.FKRentedBoat.BoatId.Equals(id))
+                select row;
             List<BoatRentalsEntity> BoatRentalsList = linqQuery.ToList();
             return BoatRentalsList.Count;
         }
 
         public int GetHowManyBoatRentalsByMonthAndBoat(int month, int id)
         {
-            var linqQuery = from row in dbc.BoatRentals where (row.StartingDate.Month.Equals(month) & row.FKRentedBoat.BoatId.Equals(id)) select row;
+            var linqQuery = from row in dbc.BoatRentals
+                where (row.StartingDate.Month.Equals(month) & row.FKRentedBoat.BoatId.Equals(id))
+                select row;
             List<BoatRentalsEntity> BoatRentalsList = linqQuery.ToList();
             return BoatRentalsList.Count;
         }
@@ -105,32 +123,40 @@ namespace YachtKlub.dao
             int RentalCount = 0;
             for (int i = 0; i < BoatRentalsList.Count; i++)
             {
-                if (calendar.GetWeekOfYear(BoatRentalsList[i].StartingDate, dfi.CalendarWeekRule, DayOfWeek.Monday).Equals(week))
+                if (calendar.GetWeekOfYear(BoatRentalsList[i].StartingDate, dfi.CalendarWeekRule, DayOfWeek.Monday)
+                    .Equals(week))
                 {
                     RentalCount++;
-                } 
+                }
 
             }
+
             return RentalCount;
         }
 
         public int GetHowManyBoatRentalsByDayAndBoat(int day, int id)
         {
-            var linqQuery = from row in dbc.BoatRentals where (row.StartingDate.Day.Equals(day) & row.FKRentedBoat.BoatId.Equals(id)) select row;
+            var linqQuery = from row in dbc.BoatRentals
+                where (row.StartingDate.Day.Equals(day) & row.FKRentedBoat.BoatId.Equals(id))
+                select row;
             List<BoatRentalsEntity> BoatRentalsList = linqQuery.ToList();
             return BoatRentalsList.Count;
         }
 
         public List<BoatRentalsEntity> GetBoatRentalsByMonthAndBoat(int month, int id)
         {
-            var linqQuery = from row in dbc.BoatRentals where (row.StartingDate.Month.Equals(month) & row.FKRentedBoat.BoatId.Equals(id)) select row;
+            var linqQuery = from row in dbc.BoatRentals
+                where (row.StartingDate.Month.Equals(month) & row.FKRentedBoat.BoatId.Equals(id))
+                select row;
             List<BoatRentalsEntity> BoatRentalsList = linqQuery.ToList();
             return BoatRentalsList;
         }
 
         public List<BoatRentalsEntity> GetBoatRentalsByYearAndBoat(int year, int id)
         {
-            var linqQuery = from row in dbc.BoatRentals where (row.StartingDate.Year.Equals(year) & row.FKRentedBoat.BoatId.Equals(id)) select row;
+            var linqQuery = from row in dbc.BoatRentals
+                where (row.StartingDate.Year.Equals(year) & row.FKRentedBoat.BoatId.Equals(id))
+                select row;
             List<BoatRentalsEntity> BoatRentalsList = linqQuery.ToList();
             return BoatRentalsList;
         }
@@ -139,26 +165,129 @@ namespace YachtKlub.dao
         {
             DateTimeFormatInfo dfi = DateTimeFormatInfo.CurrentInfo;
             Calendar calendar = dfi.Calendar;
-            List<BoatRentalsEntity> ReturnList = new List<BoatRentalsEntity>;
+            List<BoatRentalsEntity> ReturnList = new List<BoatRentalsEntity>();
             var linqQuery = from row in dbc.BoatRentals where row.FKRentedBoat.BoatId.Equals(id) select row;
             List<BoatRentalsEntity> BoatRentalsList = linqQuery.ToList();
             int RentalCount = 0;
             for (int i = 0; i < BoatRentalsList.Count; i++)
             {
-                if (calendar.GetWeekOfYear(BoatRentalsList[i].StartingDate, dfi.CalendarWeekRule, DayOfWeek.Monday).Equals(week))
+                if (calendar.GetWeekOfYear(BoatRentalsList[i].StartingDate, dfi.CalendarWeekRule, DayOfWeek.Monday)
+                    .Equals(week))
                 {
-                    ReturnList.Add(BoatRentalsList[i];
+                    ReturnList.Add(BoatRentalsList[i]);
                 }
 
             }
+
             return ReturnList;
         }
 
         public List<BoatRentalsEntity> GetBoatRentalsByDayAndBoat(int day, int id)
         {
-            var linqQuery = from row in dbc.BoatRentals where (row.StartingDate.Day.Equals(day) & row.FKRentedBoat.BoatId.Equals(id)) select row;
+            var linqQuery = from row in dbc.BoatRentals
+                where (row.StartingDate.Day.Equals(day) & row.FKRentedBoat.BoatId.Equals(id))
+                select row;
             List<BoatRentalsEntity> BoatRentalsList = linqQuery.ToList();
-            return BoatRentalsList; ;
+            return BoatRentalsList;
+            ;
         }
-    }
+
+
+        public List<int> GetIncomeBoatRentalsByYearAndBoat(int year, int id)
+        {
+            var linqQuery = from row in dbc.BoatRentals
+                where (row.StartingDate.Year.Equals(year) & row.FKRentedBoat.BoatId.Equals(id))
+                select row;
+            List<BoatRentalsEntity> BoatRentalsList = linqQuery.ToList();
+            BoatsDaoImpl boatsDaoImpl = new BoatsDaoImpl();
+            BoatsEntity boatsEntity = boatsDaoImpl.GetBoatsById(id);
+
+            List<int> Income = new List<int>();
+            for (int i = 0; i < BoatRentalsList.Count; i++)
+            {
+                Income.Add((BoatRentalsList[i].StartingDate - BoatRentalsList[i].EndDate).Days *
+                           Convert.ToInt32(boatsEntity.DailyPrice));
+
+            }
+
+            return Income;
+        }
+
+        public List<int> GetIncomeBoatRentalsByMonthAndBoat(int month, int id)
+        {
+            var linqQuery = from row in dbc.BoatRentals
+                where (row.StartingDate.Month.Equals(month) & row.FKRentedBoat.BoatId.Equals(id))
+                select row;
+            List<BoatRentalsEntity> BoatRentalsList = linqQuery.ToList();
+            BoatsDaoImpl boatsDaoImpl = new BoatsDaoImpl();
+            BoatsEntity boatsEntity = boatsDaoImpl.GetBoatsById(id);
+
+            List<int> Income = new List<int>();
+            for (int i = 0; i < BoatRentalsList.Count; i++)
+            {
+                Income.Add((BoatRentalsList[i].StartingDate - BoatRentalsList[i].EndDate).Days *
+                           Convert.ToInt32(boatsEntity.DailyPrice));
+
+            }
+
+            return Income;
+        }
+
+        public List<int> GetIncomeBoatRentalsByWeekAndBoat(int week, int id)
+        {
+            DateTimeFormatInfo dfi = DateTimeFormatInfo.CurrentInfo;
+            Calendar calendar = dfi.Calendar;
+
+            var linqQuery = from row in dbc.BoatRentals where row.FKRentedBoat.BoatId.Equals(id) select row;
+            List<BoatRentalsEntity> BoatRentalsList = linqQuery.ToList();
+            int RentalCount = 0;
+            List<int> Income = new List<int>();
+            for (int i = 0; i < BoatRentalsList.Count; i++)
+            {
+                if (calendar.GetWeekOfYear(BoatRentalsList[i].StartingDate, dfi.CalendarWeekRule, DayOfWeek.Monday)
+                    .Equals(week))
+                {
+
+                    List<BoatRentalsEntity> BoatRentalsList2 = linqQuery.ToList();
+                    BoatsDaoImpl boatsDaoImpl = new BoatsDaoImpl();
+                    BoatsEntity boatsEntity = boatsDaoImpl.GetBoatsById(id);
+
+                    
+                    for (int g = 0; g < BoatRentalsList2.Count; g++)
+                    {
+                        Income.Add((BoatRentalsList2[g].StartingDate - BoatRentalsList2[g].EndDate).Days *
+                                   Convert.ToInt32(boatsEntity.DailyPrice));
+
+                    }
+
+                    
+                }
+
+            }
+            return Income;
+        }
+
+
+        public List<int> GetIncomeBoatRentalsByDayAndBoat(int day, int id)
+        {
+            var linqQuery = from row in dbc.BoatRentals
+                where (row.StartingDate.Day.Equals(day) & row.FKRentedBoat.BoatId.Equals(id))
+                select row;
+
+            List<BoatRentalsEntity> BoatRentalsList = linqQuery.ToList();
+            BoatsDaoImpl boatsDaoImpl = new BoatsDaoImpl();
+            BoatsEntity boatsEntity = boatsDaoImpl.GetBoatsById(id);
+
+            List<int> Income = new List<int>();
+            for (int i = 0; i < BoatRentalsList.Count; i++)
+            {
+                Income.Add((BoatRentalsList[i].StartingDate - BoatRentalsList[i].EndDate).Days *
+                           Convert.ToInt32(boatsEntity.DailyPrice));
+
+            }
+
+            return Income;
+        }
+    
+}
 }
