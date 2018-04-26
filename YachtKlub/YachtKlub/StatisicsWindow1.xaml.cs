@@ -21,8 +21,11 @@ namespace YachtKlub
     /// </summary>
     public partial class StatisicsWindow1 : Window
     {
+        private ListData listDataGlobal;
         public StatisicsWindow1(ListData listData)
         {
+            listDataGlobal = new ListData();
+            
             BoatRentalsDao boatRentalsDao = new BoatRentalsDaoImpl();
             InitializeComponent();
             int j = 0;
@@ -83,22 +86,26 @@ namespace YachtKlub
 
         private void btStatYearly_Click(object sender, RoutedEventArgs e)
         {
-
+            StatisticsWindow2 statisticsWindow2 = new StatisticsWindow2(listDataGlobal);
+            statisticsWindow2.Show();
         }
 
         private void btStatMonthly_Click(object sender, RoutedEventArgs e)
         {
-
+            StatisticsWindow2 statisticsWindow2 = new StatisticsWindow2(listDataGlobal);
+            statisticsWindow2.Show();
         }
 
         private void btStatWeekly_Click(object sender, RoutedEventArgs e)
         {
-
+            StatisticsWindow2 statisticsWindow2 = new StatisticsWindow2(listDataGlobal);
+            statisticsWindow2.Show();
         }
 
         private void btStatDayly_Click(object sender, RoutedEventArgs e)
         {
-
+            StatisticsWindow2 statisticsWindow2 = new StatisticsWindow2(listDataGlobal);
+            statisticsWindow2.Show();
         }
     }
 }
