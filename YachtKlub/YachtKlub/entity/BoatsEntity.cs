@@ -41,9 +41,8 @@ namespace YachtKlub.entity
 
         /** TO DO: TEMPORARILY IT IS A STRING, MUST BE A BOOL TYPE */
         [Column("isLoan", Order = 6)]
-        [StringLength(5)]
         [Required]
-        public string IsLoan { get; set; }
+        public  bool IsLoan { get; set; }
 
         [Column("maxPerson", Order = 7)]
         [DataType("decimal(3, 0)")]
@@ -62,8 +61,8 @@ namespace YachtKlub.entity
         [DataType("decimal(2, 1)")]
         public double Consumption { get; set; }
 
-        [Column("yearOfManufacture", TypeName = "Date", Order = 11)]
-        public DateTime YearOfManufacture { get; set; }
+        [Column("yearOfManufacture",  Order = 11)]
+        public int YearOfManufacture { get; set; }
 
         [Column("boatLength", Order = 12)]
         [DataType("decimal(3, 2)")]

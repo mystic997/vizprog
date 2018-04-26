@@ -25,9 +25,10 @@ namespace YachtKlub
         List<TextBox> lbfields;
         List<Button> btfields;
         List<ListView> lvfields;
-
+        string email;
         public MyBoatsAndDevicesWindow(string email)
         {
+            this.email = email;
             InitializeComponent();
             List<string> BoatNames = new List<string>();
             List<string> BoatImages = new List<string>();
@@ -199,6 +200,7 @@ namespace YachtKlub
 
         void Boats_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
+            btStatistics.IsEnabled = true;
 
             ListViewItem Chosen = ((ListViewItem)sender);
             listDataGlobal = (ListData)Chosen.DataContext;
@@ -231,14 +233,16 @@ namespace YachtKlub
             lbSpeed.Visibility = Visibility.Visible;
             lbConsumption.Visibility = Visibility.Visible;
             lbPrice.Visibility = Visibility.Visible;
+            tbIsLoan.Visibility = Visibility.Visible; 
             lbBoatManpower.Content = "Max. létszám:";
             lbManpower.Content = "Ft/nap";
             btStatistics.IsEnabled = true;
+            tbIsLoan.IsChecked = Convert.ToBoolean(loadSelectedBoatService.ResponseMessage["IsLoan"]); 
         }
 
         void TransportDevices_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-
+            btStatistics.IsEnabled = false;
             ListViewItem Chosen = ((ListViewItem)sender);
             listDataGlobal = (ListData)Chosen.DataContext;
             LoadSelectedTransportDeviceService loadSelectedTransportDeviceService = new LoadSelectedTransportDeviceService(listDataGlobal.id);
@@ -254,6 +258,9 @@ namespace YachtKlub
             tbBoatDept.Text = "";
             tbBoatPlace.Text = "";
             imgBoatPicture.Source = LoadImage(loadSelectedTransportDeviceService.ResponseMessage["TransportDeviceImage"]);
+
+
+            
 
             tbBoatPlace.Visibility = Visibility.Hidden;
             tbBoatDept.Visibility = Visibility.Hidden;
@@ -271,6 +278,8 @@ namespace YachtKlub
             lbDepth.Visibility = Visibility.Hidden;
             lbSpeed.Visibility = Visibility.Hidden;
             lbConsumption.Visibility = Visibility.Hidden;
+            tbIsLoan.Visibility = Visibility.Hidden;
+
             lbPrice.Visibility = Visibility.Hidden;
             lbBoatManpower.Content = "Kapacitás";
             lbManpower.Content = "Kg";
@@ -279,6 +288,16 @@ namespace YachtKlub
 
         }
 
+        private void NewBoat_Click(object sender, RoutedEventArgs e)
+        {
+            NewBoatWindow ToNewBoatWindow = new NewBoatWindow(email);
+            ToNewBoatWindow.Show();
+        }
+        private void NewTransportDevice_Click(object sender, RoutedEventArgs e)
+        {
+            NewTransportDeviceWindow ToNewBoatWindow = new NewTransportDeviceWindow();
+            ToNewBoatWindow.Show();
+        }
         private void btStatistics_Click(object sender, RoutedEventArgs e)
         {
             

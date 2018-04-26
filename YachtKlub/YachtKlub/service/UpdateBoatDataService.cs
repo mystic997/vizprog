@@ -16,19 +16,19 @@ namespace YachtKlub.service
         private string BoatType;
         private double DailyPrice;
         private string WhereIsNowTheBoat;
-        private string IsLoan;
+        private bool IsLoan;
         private int MaxPerson;
         private double MaxSpeed;
         private double DiveDepth;
         private double Consumption;
-        private DateTime YearOfManufacture;
+        private int YearOfManufacture;
         private double BoatLength;
         private double BoatWidth;
         private string BoatImage;
         DatabaseContext dbc;
 
 
-        public UpdateBoatDataService(int BoatId, string BoatName, string BoatType, double DailyPrice, string WhereIsNowTheBoat, string IsLoan, int MaxPerson, double MaxSpeed, double DiveDepth, double Consumption, DateTime YearOfManufacture, double BoatLength, double BoatWidth, string BoatImage)
+        public UpdateBoatDataService(int BoatId, string BoatName, string BoatType, double DailyPrice, string WhereIsNowTheBoat, bool IsLoan, int MaxPerson, double MaxSpeed, double DiveDepth, double Consumption, int YearOfManufacture, double BoatLength, double BoatWidth, string BoatImage)
         {
             this.BoatId = BoatId;
             this.BoatName = BoatName;

@@ -41,6 +41,7 @@ namespace YachtKlub.service
             ResponseMessage.Add("YearOfManufacture", Convert.ToString(boat.YearOfManufacture));
             ResponseMessage.Add("BoatLength", Convert.ToString(boat.BoatLength));
             ResponseMessage.Add("BoatWidth", Convert.ToString(boat.BoatWidth));
+            
 
 
             /*Member Adatok, ha az is kellene, például a foglalásnál*/

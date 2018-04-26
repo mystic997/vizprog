@@ -109,6 +109,7 @@
     <Compile Include="service\LoadUserDataService.cs" />
     <Compile Include="service\LoginService.cs" />
     <Compile Include="service\PasswordChangeService.cs" />
+    <Compile Include="service\RegisterBoatService.cs" />
     <Compile Include="service\RegisterService.cs" />
     <Compile Include="service\ServiceResponse.cs" />
     <Compile Include="service\UpdateBoatDataService.cs" />

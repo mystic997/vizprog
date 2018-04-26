@@ -12,6 +12,10 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using YachtKlub.dao;
+using YachtKlub.entity;
+using YachtKlub.service;
+using YachtKlub.validator;
 
 namespace YachtKlub
 {
@@ -20,15 +24,19 @@ namespace YachtKlub
     /// </summary>
     public partial class NewBoatWindow : Window
     {
-        public NewBoatWindow()
+        DatabaseContext dbc;
+        string email;
+        public NewBoatWindow(string email)
         {
+            this.email = email;
             InitializeComponent();
 
         }
         private void Register_Click(object sender, RoutedEventArgs e)
         {
-            throw new NotImplementedException();
-        }
+
+
+}
         private void Exit_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
@@ -61,5 +69,7 @@ namespace YachtKlub
         {
             return Guid.NewGuid().ToString("N");
         }
+
+
     }
 }

@@ -55,6 +55,8 @@
             <Label x:Name="lbBoatPlace" Content="Tartózkodási helye:" HorizontalAlignment="Left" FontSize="12" VerticalAlignment="Top" Canvas.Top="228"/>
             <TextBox x:Name="tbBoatPlace" HorizontalAlignment="Right" VerticalAlignment="Top" FontSize="12"  Width="280" Height="24" Canvas.Left="116" Canvas.Top="230" />
             <Button Content="Kép feltöltése" Width="100" Canvas.Left="260" Canvas.Top="282" Click="UploadPic_Click"/>
+            <CheckBox x:Name="tbIsLoan" HorizontalAlignment="Right" VerticalAlignment="Top" FontSize="12"  Width="16" Height="14" RenderTransformOrigin="0.162,0.56" Canvas.Left="344" Canvas.Top="336"  />
+            <Label x:Name="lbIsLoan" Content="Bérelhető" HorizontalAlignment="Left" FontSize="12" VerticalAlignment="Top" Canvas.Left="278" Canvas.Top="332"/>
 
 
 
