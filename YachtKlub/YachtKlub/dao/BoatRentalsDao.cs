@@ -23,10 +23,10 @@ namespace YachtKlub.dao
         List<BoatRentalsEntity> GetBoatRentalsByWeekAndBoat(int week, int id);
         List<BoatRentalsEntity> GetBoatRentalsByDayAndBoat(int day, int id);
         List<BoatRentalsEntity> GeBoatRentalsByBoatId(int id);
-        List<int> GetIncomeBoatRentalsByMonthAndBoat(int month, int id);
-        List<int> GetIncomeBoatRentalsByYearAndBoat(int year, int id);
-        List<int> GetIncomeBoatRentalsByWeekAndBoat(int week, int id);
-        List<int> GetIncomeBoatRentalsByDayAndBoat(int day, int id);
+        int GetIncomeBoatRentalsByMonthAndBoat(int month, int id);
+        int GetIncomeBoatRentalsByYearAndBoat(int year, int id);
+        int GetIncomeBoatRentalsByWeekAndBoat(int week, int id);
+        int GetIncomeBoatRentalsByDayAndBoat(int day, int month, int id);
 
     }
 }

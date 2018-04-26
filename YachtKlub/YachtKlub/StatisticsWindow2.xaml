@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="StatisticsWindow2" Height="300" Width="300">
     <Grid>
-        <ListView x:Name="listView" HorizontalAlignment="Left" Height="269" VerticalAlignment="Top" Width="292">
+        <ListView x:Name="lwIncome" HorizontalAlignment="Left" Height="269" VerticalAlignment="Top" Width="292" >
             <ListView.View>
                 <GridView>
                     <GridViewColumn/>

@@ -73,8 +73,11 @@ namespace YachtKlub.dao
             for (int i = 0; i < a; i++)
             {
                 int temp = random.Next(1, 12);
-                TemplateBoatRentals[i].StartingDate = new DateTime(2018, temp, 4);
-                TemplateBoatRentals[i].EndDate = new DateTime(2018, temp, 10);
+                int temp2 = random.Next(1, 12);
+                int temp3 = temp2 + random.Next(1, 12);
+
+                TemplateBoatRentals[i].StartingDate = new DateTime(2018, temp, temp2);
+                TemplateBoatRentals[i].EndDate = new DateTime(2018, temp, temp3);
 
             }
 
@@ -193,7 +196,7 @@ namespace YachtKlub.dao
         }
 
 
-        public List<int> GetIncomeBoatRentalsByYearAndBoat(int year, int id)
+        public int GetIncomeBoatRentalsByYearAndBoat(int year, int id)
         {
             var linqQuery = from row in dbc.BoatRentals
                 where (row.StartingDate.Year.Equals(year) & row.FKRentedBoat.BoatId.Equals(id))
@@ -202,18 +205,18 @@ namespace YachtKlub.dao
             BoatsDaoImpl boatsDaoImpl = new BoatsDaoImpl();
             BoatsEntity boatsEntity = boatsDaoImpl.GetBoatsById(id);
 
-            List<int> Income = new List<int>();
+            int Income = 0;
             for (int i = 0; i < BoatRentalsList.Count; i++)
             {
-                Income.Add((BoatRentalsList[i].StartingDate - BoatRentalsList[i].EndDate).Days *
-                           Convert.ToInt32(boatsEntity.DailyPrice));
+                Income += ( BoatRentalsList[i].EndDate - BoatRentalsList[i].StartingDate).Days *
+                           Convert.ToInt32(boatsEntity.DailyPrice);
 
             }
 
             return Income;
         }
 
-        public List<int> GetIncomeBoatRentalsByMonthAndBoat(int month, int id)
+        public int GetIncomeBoatRentalsByMonthAndBoat(int month, int id)
         {
             var linqQuery = from row in dbc.BoatRentals
                 where (row.StartingDate.Month.Equals(month) & row.FKRentedBoat.BoatId.Equals(id))
@@ -222,18 +225,18 @@ namespace YachtKlub.dao
             BoatsDaoImpl boatsDaoImpl = new BoatsDaoImpl();
             BoatsEntity boatsEntity = boatsDaoImpl.GetBoatsById(id);
 
-            List<int> Income = new List<int>();
+            int Income = 0;
             for (int i = 0; i < BoatRentalsList.Count; i++)
             {
-                Income.Add((BoatRentalsList[i].StartingDate - BoatRentalsList[i].EndDate).Days *
-                           Convert.ToInt32(boatsEntity.DailyPrice));
+                Income += (BoatRentalsList[i].EndDate - BoatRentalsList[i].StartingDate).Days *
+                           Convert.ToInt32(boatsEntity.DailyPrice);
 
             }
 
             return Income;
         }
 
-        public List<int> GetIncomeBoatRentalsByWeekAndBoat(int week, int id)
+        public int GetIncomeBoatRentalsByWeekAndBoat(int week, int id)
         {
             DateTimeFormatInfo dfi = DateTimeFormatInfo.CurrentInfo;
             Calendar calendar = dfi.Calendar;
@@ -241,7 +244,7 @@ namespace YachtKlub.dao
             var linqQuery = from row in dbc.BoatRentals where row.FKRentedBoat.BoatId.Equals(id) select row;
             List<BoatRentalsEntity> BoatRentalsList = linqQuery.ToList();
             int RentalCount = 0;
-            List<int> Income = new List<int>();
+            int Income = 0;
             for (int i = 0; i < BoatRentalsList.Count; i++)
             {
                 if (calendar.GetWeekOfYear(BoatRentalsList[i].StartingDate, dfi.CalendarWeekRule, DayOfWeek.Monday)
@@ -255,8 +258,8 @@ namespace YachtKlub.dao
                     
                     for (int g = 0; g < BoatRentalsList2.Count; g++)
                     {
-                        Income.Add((BoatRentalsList2[g].StartingDate - BoatRentalsList2[g].EndDate).Days *
-                                   Convert.ToInt32(boatsEntity.DailyPrice));
+                        Income += (BoatRentalsList[i].EndDate - BoatRentalsList[i].StartingDate).Days *
+                                   Convert.ToInt32(boatsEntity.DailyPrice);
 
                     }
 
@@ -268,21 +271,21 @@ namespace YachtKlub.dao
         }
 
 
-        public List<int> GetIncomeBoatRentalsByDayAndBoat(int day, int id)
+        public int GetIncomeBoatRentalsByDayAndBoat(int day, int month, int id)
         {
             var linqQuery = from row in dbc.BoatRentals
-                where (row.StartingDate.Day.Equals(day) & row.FKRentedBoat.BoatId.Equals(id))
+                where (row.StartingDate.Day.Equals(day) & row.StartingDate.Month.Equals(month) & row.FKRentedBoat.BoatId.Equals(id))
                 select row;
 
             List<BoatRentalsEntity> BoatRentalsList = linqQuery.ToList();
             BoatsDaoImpl boatsDaoImpl = new BoatsDaoImpl();
             BoatsEntity boatsEntity = boatsDaoImpl.GetBoatsById(id);
 
-            List<int> Income = new List<int>();
+            int Income = 0;
             for (int i = 0; i < BoatRentalsList.Count; i++)
             {
-                Income.Add((BoatRentalsList[i].StartingDate - BoatRentalsList[i].EndDate).Days *
-                           Convert.ToInt32(boatsEntity.DailyPrice));
+                Income += (BoatRentalsList[i].EndDate - BoatRentalsList[i].StartingDate).Days *
+                           Convert.ToInt32(boatsEntity.DailyPrice);
 
             }
 

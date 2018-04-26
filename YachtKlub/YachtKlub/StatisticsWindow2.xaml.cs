@@ -23,39 +23,116 @@ namespace YachtKlub
     {
         private ListData listDataGlobal;
 
-        public StatisticsWindow2(ListData listData)
+        public StatisticsWindow2(ListData listData, string timeSpan)
         {
-            listDataGlobal = new ListData();
+            listDataGlobal = listData;
 
             BoatRentalsDao boatRentalsDao = new BoatRentalsDaoImpl();
             
             InitializeComponent();
-            int j = 0;
-            for (int i = 2015; i < 2019; i++)
+            if (timeSpan == "yearly")
             {
-                boatRentalsDao.GetIncomeBoatRentalsByYearAndBoat(i, Convert.ToInt32(listData.id));
-                j++;
+                var gridView = new GridView();
+                this.lwIncome.View = gridView;
+                gridView.Columns.Add(new GridViewColumn
+                {
+                    Header = "Id",
+                    DisplayMemberBinding = new Binding("Id")
+                });
+                gridView.Columns.Add(new GridViewColumn
+                {
+                    Header = "Bevétel",
+                    DisplayMemberBinding = new Binding("Income")
+                });
+
+                gridView.Columns[1].Width = 150;
+                int j = 0;
+                for (int i = 2015; i < 2019; i++)
+                {
+                    this.lwIncome.Items.Add(new StatisticsListItem { Id = i.ToString(), Income = Convert.ToString(boatRentalsDao.GetIncomeBoatRentalsByYearAndBoat(i, Convert.ToInt32(listData.id))) + " FT" });
+
+                    j++;
 
 
+
+                }
             }
-            for (int i = 0; i < 12; i++)
+            if (timeSpan == "monthly")
             {
-                boatRentalsDao.GetIncomeBoatRentalsByMonthAndBoat(i, Convert.ToInt32(listData.id));
+                var gridView = new GridView();
+                this.lwIncome.View = gridView;
+                gridView.Columns.Add(new GridViewColumn
+                {
+                    Header = "Id",
+                    DisplayMemberBinding = new Binding("Id")
+                });
+                gridView.Columns.Add(new GridViewColumn
+                {
+                    Header = "Bevétel",
+                    DisplayMemberBinding = new Binding("Income")
+                });
+                gridView.Columns[1].Width = 150;
+                System.Globalization.DateTimeFormatInfo mfi = new
+            System.Globalization.DateTimeFormatInfo();
+                for (int i = 0; i < 12; i++)
+                {
+
+                    this.lwIncome.Items.Add(new StatisticsListItem { Id = mfi.GetMonthName(i + 1), Income = Convert.ToString(boatRentalsDao.GetIncomeBoatRentalsByMonthAndBoat(i, Convert.ToInt32(listData.id))) + " FT" });
+
+                }
+            }
+            if (timeSpan == "weekly")
+            {
+                var gridView = new GridView();
+                this.lwIncome.View = gridView;
+                gridView.Columns.Add(new GridViewColumn
+                {
+                    Header = "Hét",
+                    DisplayMemberBinding = new Binding("Id")
+                });
+                gridView.Columns.Add(new GridViewColumn
+                {
+                    Header = "Bevétel",
+                    DisplayMemberBinding = new Binding("Income")
+                });
+                gridView.Columns[1].Width = 150;
+                for (int i = 0; i < 52; i++)
+                {
+                    this.lwIncome.Items.Add(new StatisticsListItem { Id = (i + 1).ToString() + ".", Income = Convert.ToString(boatRentalsDao.GetIncomeBoatRentalsByWeekAndBoat(i, Convert.ToInt32(listData.id))) + " FT" });
+
+                }
+            }
+            if (timeSpan == "dayly")
+            {
+                var gridView = new GridView();
+                this.lwIncome.View = gridView;
+                gridView.Columns.Add(new GridViewColumn
+                {
+                    Header = "Nap",
+                    DisplayMemberBinding = new Binding("Id")
+                });
+                gridView.Columns[0].Width = 100;
+
+                gridView.Columns.Add(new GridViewColumn
+                {
+                    Header = "Bevétel",
+                    DisplayMemberBinding = new Binding("Income")
+                });
+                gridView.Columns[1].Width = 150;
+                System.Globalization.DateTimeFormatInfo mfi = new
+System.Globalization.DateTimeFormatInfo();
+                for (int k = 0; k < 12; k++)
+                {
+                    
+                    for (int i = 0; i < DateTime.DaysInMonth(2018, k+1); i++)/*szökőév nincs számolva*/
+                    {
+                        this.lwIncome.Items.Add(new StatisticsListItem { Id = mfi.GetMonthName(k + 1) + " " + (i + 1).ToString() + ".", Income = Convert.ToString(boatRentalsDao.GetIncomeBoatRentalsByDayAndBoat(i, k, Convert.ToInt32(listData.id))) + " FT" });
+
+                    }
+                }
                 
             }
-            for (int i = 0; i < 52; i++)
-            {
-                boatRentalsDao.GetIncomeBoatRentalsByWeekAndBoat(i, Convert.ToInt32(listData.id));
-
-            }
-
-            for (int i = 0; i < 365; i++)
-            {
-                boatRentalsDao.GetIncomeBoatRentalsByDayAndBoat(i, Convert.ToInt32(listData.id));
-
-            }
-
-            InitializeComponent();
+            
         }
     }
 }

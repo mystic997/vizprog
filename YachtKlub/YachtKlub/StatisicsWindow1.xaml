@@ -12,14 +12,14 @@
             <TabItem Header="Éves kölcsönzések">
                 <Grid>
                     <Canvas Name="YearlyIncomeCanvas" Margin="0,0,0,0" >
-                        <Button x:Name="btStatYearly" Content="Kimutatás készítése" Width="157" Height="26" HorizontalAlignment="Left" VerticalAlignment="Bottom" Canvas.Top="197" Click="btStatYearly_Click"/>
+                        <Button x:Name="btStatYearly" Content="Bevétel Kimutatás készítése" Width="157" Height="26" HorizontalAlignment="Left" VerticalAlignment="Bottom" Canvas.Top="197" Click="btStatYearly_Click"/>
                     </Canvas>
                 </Grid>
             </TabItem>
             <TabItem Header="Havi kölcsönzések">
                 <Grid>
                     <Canvas Name="MonthlyIncomeCanvas">
-                        <Button x:Name="btStatMonthly" Content="Kimutatás készítése" Width="157" Height="26" HorizontalAlignment="Left" VerticalAlignment="Bottom" Canvas.Top="197" Click="btStatMonthly_Click"/>
+                        <Button x:Name="btStatMonthly" Content="Bevétel Kimutatás készítése" Width="157" Height="26" HorizontalAlignment="Left" VerticalAlignment="Bottom" Canvas.Top="197" Click="btStatMonthly_Click"/>
                     </Canvas>
                 </Grid>
             </TabItem>
@@ -27,7 +27,7 @@
                 <Grid Margin="0,0,0,0">
                     <ScrollViewer HorizontalScrollBarVisibility="Visible" Margin="0,0,0,0">
                         <Canvas Name="WeeklyIncomeCanvas" Width="1522">
-                            <Button x:Name="btStatWeekly" Content="Kimutatás készítése" Width="157" Height="26" HorizontalAlignment="Left" VerticalAlignment="Bottom" Click="btStatWeekly_Click" Canvas.Top="175"/>
+                            <Button x:Name="btStatWeekly" Content="Bevétel Kimutatás készítése" Width="157" Height="26" HorizontalAlignment="Left" VerticalAlignment="Bottom" Click="btStatWeekly_Click" Canvas.Top="175"/>
                         </Canvas>
                     </ScrollViewer>
                 </Grid>
@@ -35,7 +35,7 @@
             <TabItem Header="Napi kölcsönzések">
                 <Grid>
                     <Canvas Name="DailyIncomeCanvas">
-                        <Button x:Name="btStatDayly" Content="Kimutatás készítése" Width="157" Height="36" HorizontalAlignment="Center" VerticalAlignment="Center"  Click="btStatDayly_Click" VerticalContentAlignment="Center" Canvas.Left="132" Canvas.Top="92"/>
+                        <Button x:Name="btStatDayly" Content="Bevétel Kimutatás készítése" Width="157" Height="36" HorizontalAlignment="Center" VerticalAlignment="Center"  Click="btStatDayly_Click" VerticalContentAlignment="Center" Canvas.Left="132" Canvas.Top="92"/>
                     </Canvas>
                 </Grid>
             </TabItem>

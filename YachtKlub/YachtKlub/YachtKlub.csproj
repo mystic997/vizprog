@@ -120,6 +120,7 @@
     <Compile Include="StatisicsWindow1.xaml.cs">
       <DependentUpon>StatisicsWindow1.xaml</DependentUpon>
     </Compile>
+    <Compile Include="StatisticsListItem.cs" />
     <Compile Include="StatisticsWindow2.xaml.cs">
       <DependentUpon>StatisticsWindow2.xaml</DependentUpon>
     </Compile>

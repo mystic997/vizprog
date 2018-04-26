@@ -24,7 +24,7 @@ namespace YachtKlub
         private ListData listDataGlobal;
         public StatisicsWindow1(ListData listData)
         {
-            listDataGlobal = new ListData();
+            listDataGlobal = listData;
             
             BoatRentalsDao boatRentalsDao = new BoatRentalsDaoImpl();
             InitializeComponent();
@@ -68,6 +68,11 @@ namespace YachtKlub
             TB.SetValue(Canvas.TopProperty, (double)(y)+20+height);
 
             TB.Text = " " + (number + 1).ToString() + " ";
+            if (canvas == YearlyIncomeCanvas)
+            {
+                TB.Text = " " + (number).ToString() + " ";
+
+            }
             TB.RenderTransform = new RotateTransform { Angle = 45 };
             TB.Background = System.Windows.Media.Brushes.CadetBlue;
             TB.Foreground = System.Windows.Media.Brushes.Black;
@@ -86,25 +91,25 @@ namespace YachtKlub
 
         private void btStatYearly_Click(object sender, RoutedEventArgs e)
         {
-            StatisticsWindow2 statisticsWindow2 = new StatisticsWindow2(listDataGlobal);
+            StatisticsWindow2 statisticsWindow2 = new StatisticsWindow2(listDataGlobal, "yearly");
             statisticsWindow2.Show();
         }
 
         private void btStatMonthly_Click(object sender, RoutedEventArgs e)
         {
-            StatisticsWindow2 statisticsWindow2 = new StatisticsWindow2(listDataGlobal);
+            StatisticsWindow2 statisticsWindow2 = new StatisticsWindow2(listDataGlobal, "monthly");
             statisticsWindow2.Show();
         }
 
         private void btStatWeekly_Click(object sender, RoutedEventArgs e)
         {
-            StatisticsWindow2 statisticsWindow2 = new StatisticsWindow2(listDataGlobal);
+            StatisticsWindow2 statisticsWindow2 = new StatisticsWindow2(listDataGlobal, "weekly");
             statisticsWindow2.Show();
         }
 
         private void btStatDayly_Click(object sender, RoutedEventArgs e)
         {
-            StatisticsWindow2 statisticsWindow2 = new StatisticsWindow2(listDataGlobal);
+            StatisticsWindow2 statisticsWindow2 = new StatisticsWindow2(listDataGlobal, "dayly");
             statisticsWindow2.Show();
         }
     }
