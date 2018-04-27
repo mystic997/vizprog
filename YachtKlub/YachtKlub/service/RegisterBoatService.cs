@@ -22,6 +22,8 @@ namespace YachtKlub.service
         }
         public void RegisterService(ref BoatsEntity boatsEntity)
         {
+            dbc = AliveContext.Context;
+
             dbc.Boats.Add(boatsEntity);
             dbc.SaveChanges();
 

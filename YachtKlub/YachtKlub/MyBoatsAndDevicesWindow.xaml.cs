@@ -22,14 +22,17 @@ namespace YachtKlub
     public partial class MyBoatsAndDevicesWindow : Window
     {
         ListData listDataGlobal;
-        List<TextBox> lbfields;
+        List<TextBox> tbfields;
         List<Button> btfields;
         List<ListView> lvfields;
         string email;
+        bool boatClicked;
         public MyBoatsAndDevicesWindow(string email)
         {
+
             this.email = email;
             InitializeComponent();
+
             List<string> BoatNames = new List<string>();
             List<string> BoatImages = new List<string>();
             List<string> BoatIds = new List<string>();
@@ -74,20 +77,20 @@ namespace YachtKlub
 
 
 
-            lbfields = new List<TextBox>();
-            lbfields.Add(tbBoatConsumption);
-            lbfields.Add(tbBoatDept);
-            lbfields.Add(tbBoatLenght);
-            lbfields.Add(tbBoatManpower);
-            lbfields.Add(tbBoatName);
-            lbfields.Add(tbBoatPlace);
-            lbfields.Add(tbBoatPrice);
-            lbfields.Add(tbBoatSpeed);
-            lbfields.Add(tbBoatType);
-            lbfields.Add(tbBoatWidth);
-            lbfields.Add(tbBoatYear);
+            tbfields = new List<TextBox>();
+            tbfields.Add(tbBoatConsumption);
+            tbfields.Add(tbBoatDept);
+            tbfields.Add(tbBoatLenght);
+            tbfields.Add(tbBoatManpower);
+            tbfields.Add(tbBoatName);
+            tbfields.Add(tbBoatPlace);
+            tbfields.Add(tbBoatPrice);
+            tbfields.Add(tbBoatSpeed);
+            tbfields.Add(tbBoatType);
+            tbfields.Add(tbBoatWidth);
+            tbfields.Add(tbBoatYear);
             btStatistics.IsEnabled = false;
-            lbfields.ForEach(i => i.IsEnabled = false);
+            tbfields.ForEach(i => i.IsEnabled = false);
 
             btfields = new List<Button>();
             btfields.Add(btModify);
@@ -105,7 +108,7 @@ namespace YachtKlub
 
            
             btExit.IsEnabled = true;
-            btModify.IsEnabled = true;
+            btModify.IsEnabled = false;
 
 
 
@@ -129,7 +132,7 @@ namespace YachtKlub
                 string fileName = System.IO.Path.GetFileName(Convert.ToString(imgBoatPicture.Tag));
                 string newFileName = generateID() + ".jpg";
                 File.Copy(Convert.ToString(imgBoatPicture.Tag), System.AppDomain.CurrentDomain.BaseDirectory + "\\" + "resources" + "\\" + newFileName, true);
-                imgBoatPicture.Tag = System.AppDomain.CurrentDomain.BaseDirectory + "\\" + "resources" + "\\" + newFileName;
+                imgBoatPicture.Tag =  newFileName;
                 var uri = new Uri(System.AppDomain.CurrentDomain.BaseDirectory + "\\" + "resources" + "\\" + newFileName, UriKind.Absolute);
                 var bitmap = new BitmapImage(uri);
                 imgBoatPicture.Source = bitmap;
@@ -148,7 +151,7 @@ namespace YachtKlub
         {
             if (btSave.IsEnabled)
             {
-                lbfields.ForEach(i => i.IsEnabled = false);
+                tbfields.ForEach(i => i.IsEnabled = false);
                 btfields.ForEach(i => i.IsEnabled = false);
 
                 /*Módosítások előtti adatok visszatöltése*/
@@ -168,7 +171,7 @@ namespace YachtKlub
         private void Modify_Click(object sender, RoutedEventArgs e)
         {
 
-            lbfields.ForEach(i => i.IsEnabled = true);
+            tbfields.ForEach(i => i.IsEnabled = true);
             btfields.ForEach(i => i.IsEnabled = false);
             lvfields.ForEach(i => i.IsEnabled = false);
 
@@ -177,12 +180,12 @@ namespace YachtKlub
             btExit.IsEnabled = true;
             btExit.Content = "Vissza";
         }
-        
+
 
         private void Save_Click(object sender, RoutedEventArgs e)
         {
 
-            lbfields.ForEach(i => i.IsEnabled = false);
+            tbfields.ForEach(i => i.IsEnabled = false);
             btfields.ForEach(i => i.IsEnabled = false);
 
             /*Adatmódosítás kódja*/
@@ -190,8 +193,14 @@ namespace YachtKlub
             btModify.IsEnabled = true;
             btExit.IsEnabled = true;
             btExit.Content = "Kilépés";
-
+            if (boatClicked)
+            {
+                UpdateBoatDataService updateBoatDataService = new UpdateBoatDataService(Convert.ToInt32(listDataGlobal.id), tbBoatName.Text, tbBoatType.Text, Convert.ToDouble(tbBoatPrice.Text), tbBoatPlace.Text, Convert.ToBoolean(tbIsLoan.IsChecked ?? false), Convert.ToInt32(tbBoatManpower.Text), Convert.ToInt32(tbBoatSpeed.Text), Convert.ToInt32(tbBoatDept.Text), Convert.ToInt32(tbBoatDept.Text), Convert.ToInt32(tbBoatYear.Text), Convert.ToInt32(tbBoatLenght.Text), Convert.ToInt32(tbBoatWidth.Text), imgBoatPicture.Tag.ToString());
+                lvTransports.Items.Refresh();
+            }
         }
+
+        
 
         public string generateID()
         {
@@ -200,8 +209,9 @@ namespace YachtKlub
 
         void Boats_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
+            boatClicked = true;
             btStatistics.IsEnabled = true;
-
+            btModify.IsEnabled = true;
             ListViewItem Chosen = ((ListViewItem)sender);
             listDataGlobal = (ListData)Chosen.DataContext;
             LoadSelectedBoatService loadSelectedBoatService = new LoadSelectedBoatService(listDataGlobal.id);
@@ -217,6 +227,8 @@ namespace YachtKlub
             tbBoatDept.Text = loadSelectedBoatService.ResponseMessage["DiveDepth"];
             tbBoatPlace.Text = loadSelectedBoatService.ResponseMessage["WhereIsNowTheBoat"];
             imgBoatPicture.Source = LoadImage(loadSelectedBoatService.ResponseMessage["BoatImage"]);
+            imgBoatPicture.Tag = loadSelectedBoatService.ResponseMessage["BoatImage"];
+
             tbBoatPlace.Visibility = Visibility.Visible;
             tbBoatDept.Visibility = Visibility.Visible;
             tbBoatYear.Visibility = Visibility.Visible;
@@ -242,6 +254,9 @@ namespace YachtKlub
 
         void TransportDevices_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
+            boatClicked = false;
+            btModify.IsEnabled = true;
+
             btStatistics.IsEnabled = false;
             ListViewItem Chosen = ((ListViewItem)sender);
             listDataGlobal = (ListData)Chosen.DataContext;
@@ -290,6 +305,8 @@ namespace YachtKlub
 
         private void NewBoat_Click(object sender, RoutedEventArgs e)
         {
+            btModify.IsEnabled = false;
+
             NewBoatWindow ToNewBoatWindow = new NewBoatWindow(email);
             ToNewBoatWindow.Show();
         }

@@ -53,6 +53,8 @@ namespace YachtKlub.service
 
         private void UpdateBoat()
         {
+            dbc = AliveContext.Context;
+
             BoatsEntity boatData  = dbc.Boats.SingleOrDefault(m => m.BoatId.Equals(BoatId));
             boatData.BoatId = this.BoatId;
             boatData.BoatName = this.BoatName;
