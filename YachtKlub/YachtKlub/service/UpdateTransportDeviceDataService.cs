@@ -22,7 +22,7 @@ namespace YachtKlub.service
         DatabaseContext dbc;
 
 
-        UpdateTransportDeviceDataService(
+        public UpdateTransportDeviceDataService(
             int TransportDeviceId,
             string TransportDeviceName,
             double CarryingCapacity,
@@ -45,6 +45,7 @@ namespace YachtKlub.service
 
         public void UpdateTransportDeviceData()
         {
+            dbc = AliveContext.Context;
             TransportDevicesEntity transportDeviceData = dbc.TransportDevices.SingleOrDefault(m => m.TransportDeviceId.Equals(TransportDeviceId));
 
             transportDeviceData.TransportDeviceId = this.TransportDeviceId;

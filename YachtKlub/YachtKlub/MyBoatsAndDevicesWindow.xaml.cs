@@ -106,7 +106,6 @@ namespace YachtKlub
 
             lvfields.ForEach(i => i.IsEnabled = true);
 
-           
             btExit.IsEnabled = true;
             btModify.IsEnabled = false;
 
@@ -198,6 +197,12 @@ namespace YachtKlub
                 UpdateBoatDataService updateBoatDataService = new UpdateBoatDataService(Convert.ToInt32(listDataGlobal.id), tbBoatName.Text, tbBoatType.Text, Convert.ToDouble(tbBoatPrice.Text), tbBoatPlace.Text, Convert.ToBoolean(tbIsLoan.IsChecked ?? false), Convert.ToInt32(tbBoatManpower.Text), Convert.ToInt32(tbBoatSpeed.Text), Convert.ToInt32(tbBoatDept.Text), Convert.ToInt32(tbBoatDept.Text), Convert.ToInt32(tbBoatYear.Text), Convert.ToInt32(tbBoatLenght.Text), Convert.ToInt32(tbBoatWidth.Text), imgBoatPicture.Tag.ToString());
                 lvTransports.Items.Refresh();
             }
+            if (!boatClicked)
+            {
+                UpdateTransportDeviceDataService updateTransportDeviceDataService = new UpdateTransportDeviceDataService(Convert.ToInt32(listDataGlobal.id), tbBoatName.Text, Convert.ToInt32(tbBoatManpower.Text), tbBoatType.Text, Convert.ToInt32(tbBoatLenght.Text), Convert.ToInt32(tbBoatWidth.Text), imgBoatPicture.Tag.ToString());
+                   
+                lvTransports.Items.Refresh();
+            }
         }
 
         
@@ -229,6 +234,7 @@ namespace YachtKlub
             imgBoatPicture.Source = LoadImage(loadSelectedBoatService.ResponseMessage["BoatImage"]);
             imgBoatPicture.Tag = loadSelectedBoatService.ResponseMessage["BoatImage"];
 
+            tbIsLoan.Visibility = Visibility.Visible;
             tbBoatPlace.Visibility = Visibility.Visible;
             tbBoatDept.Visibility = Visibility.Visible;
             tbBoatYear.Visibility = Visibility.Visible;
@@ -272,11 +278,12 @@ namespace YachtKlub
             tbBoatYear.Text = "";
             tbBoatDept.Text = "";
             tbBoatPlace.Text = "";
+            imgBoatPicture.Tag = loadSelectedTransportDeviceService.ResponseMessage["TransportDeviceImage"];
             imgBoatPicture.Source = LoadImage(loadSelectedTransportDeviceService.ResponseMessage["TransportDeviceImage"]);
 
 
-            
 
+            tbIsLoan.Visibility = Visibility.Hidden;
             tbBoatPlace.Visibility = Visibility.Hidden;
             tbBoatDept.Visibility = Visibility.Hidden;
             tbBoatYear.Visibility = Visibility.Hidden;
