@@ -111,6 +111,7 @@
     <Compile Include="service\PasswordChangeService.cs" />
     <Compile Include="service\RegisterBoatService.cs" />
     <Compile Include="service\RegisterService.cs" />
+    <Compile Include="service\RegisterTrasportDeviceService.cs" />
     <Compile Include="service\ServiceResponse.cs" />
     <Compile Include="service\UpdateBoatDataService.cs" />
     <Compile Include="service\UpdateTransportDeviceDataService.cs" />

@@ -109,6 +109,7 @@ namespace YachtKlub
             btExit.IsEnabled = true;
             btModify.IsEnabled = false;
 
+            tbIsLoan.IsEnabled = false;
 
 
 
@@ -173,7 +174,7 @@ namespace YachtKlub
             tbfields.ForEach(i => i.IsEnabled = true);
             btfields.ForEach(i => i.IsEnabled = false);
             lvfields.ForEach(i => i.IsEnabled = false);
-
+            tbIsLoan.IsEnabled = true;
             btUploadPic.IsEnabled = true;
             btSave.IsEnabled = true;
             btExit.IsEnabled = true;
@@ -183,6 +184,7 @@ namespace YachtKlub
 
         private void Save_Click(object sender, RoutedEventArgs e)
         {
+            tbIsLoan.IsEnabled = false; 
 
             tbfields.ForEach(i => i.IsEnabled = false);
             btfields.ForEach(i => i.IsEnabled = false);
@@ -194,11 +196,38 @@ namespace YachtKlub
             btExit.Content = "Kilépés";
             if (boatClicked)
             {
+                Validator registerValidator = new Validator();
+                registerValidator.ValidationComponents.Add(new EmptyFieldValidator(tbBoatName.Text, "Név"));
+                registerValidator.ValidationComponents.Add(new EmptyFieldValidator(tbBoatType.Text, "Típus"));
+                //registerValidator.ValidationComponents.Add(new EmptyFieldValidator(imgBoatPicture.Tag.ToString(), "fénykép"));
+                registerValidator.ValidationComponents.Add(new EmptyFieldValidator(tbBoatLenght.Text, "Hossz"));
+                registerValidator.ValidationComponents.Add(new EmptyFieldValidator(tbBoatWidth.Text, "Szélesség"));
+                registerValidator.ValidationComponents.Add(new EmptyFieldValidator(tbBoatConsumption.Text, "Fogyasztás"));
+                registerValidator.ValidationComponents.Add(new EmptyFieldValidator(tbBoatPrice.Text, "Ár"));
+                registerValidator.ValidationComponents.Add(new EmptyFieldValidator(tbBoatDept.Text, "Merülési mélység"));
+                registerValidator.ValidationComponents.Add(new EmptyFieldValidator(tbBoatManpower.Text, "Max. Létszám"));
+                registerValidator.ValidationComponents.Add(new EmptyFieldValidator(tbBoatSpeed.Text, "Max. sebesség"));
+                registerValidator.ValidationComponents.Add(new EmptyFieldValidator(tbBoatPlace.Text, "Tartózkodási helye"));
+                registerValidator.ValidationComponents.Add(new EmptyFieldValidator(tbBoatYear.Text, "Gyártási év"));
+
+
+                registerValidator.ValidateElements();
                 UpdateBoatDataService updateBoatDataService = new UpdateBoatDataService(Convert.ToInt32(listDataGlobal.id), tbBoatName.Text, tbBoatType.Text, Convert.ToDouble(tbBoatPrice.Text), tbBoatPlace.Text, Convert.ToBoolean(tbIsLoan.IsChecked ?? false), Convert.ToInt32(tbBoatManpower.Text), Convert.ToInt32(tbBoatSpeed.Text), Convert.ToInt32(tbBoatDept.Text), Convert.ToInt32(tbBoatDept.Text), Convert.ToInt32(tbBoatYear.Text), Convert.ToInt32(tbBoatLenght.Text), Convert.ToInt32(tbBoatWidth.Text), imgBoatPicture.Tag.ToString());
                 lvTransports.Items.Refresh();
             }
             if (!boatClicked)
             {
+
+                Validator registerValidator = new Validator();
+
+                //registerValidator.ValidationComponents.Add(new EmptyFieldValidator(imgBoatPicture.Tag.ToString(), "fénykép"));
+                registerValidator.ValidationComponents.Add(new EmptyFieldValidator(tbBoatLenght.Text, "Hossz"));
+                registerValidator.ValidationComponents.Add(new EmptyFieldValidator(tbBoatWidth.Text, "Szélesség"));
+                registerValidator.ValidationComponents.Add(new EmptyFieldValidator(tbBoatManpower.Text, "Kapacitás"));
+                registerValidator.ValidationComponents.Add(new EmptyFieldValidator(tbBoatName.Text, "Név"));
+                registerValidator.ValidationComponents.Add(new EmptyFieldValidator(tbBoatType.Text, "Típus"));
+
+                registerValidator.ValidateElements();
                 UpdateTransportDeviceDataService updateTransportDeviceDataService = new UpdateTransportDeviceDataService(Convert.ToInt32(listDataGlobal.id), tbBoatName.Text, Convert.ToInt32(tbBoatManpower.Text), tbBoatType.Text, Convert.ToInt32(tbBoatLenght.Text), Convert.ToInt32(tbBoatWidth.Text), imgBoatPicture.Tag.ToString());
                    
                 lvTransports.Items.Refresh();
@@ -251,7 +280,10 @@ namespace YachtKlub
             lbSpeed.Visibility = Visibility.Visible;
             lbConsumption.Visibility = Visibility.Visible;
             lbPrice.Visibility = Visibility.Visible;
-            tbIsLoan.Visibility = Visibility.Visible; 
+            tbIsLoan.Visibility = Visibility.Visible;
+
+           lbIsLoan.Visibility = Visibility.Visible;
+
             lbBoatManpower.Content = "Max. létszám:";
             lbManpower.Content = "Ft/nap";
             btStatistics.IsEnabled = true;
@@ -301,6 +333,8 @@ namespace YachtKlub
             lbSpeed.Visibility = Visibility.Hidden;
             lbConsumption.Visibility = Visibility.Hidden;
             tbIsLoan.Visibility = Visibility.Hidden;
+            lbIsLoan.Visibility = Visibility.Hidden;
+
 
             lbPrice.Visibility = Visibility.Hidden;
             lbBoatManpower.Content = "Kapacitás";
@@ -316,11 +350,13 @@ namespace YachtKlub
 
             NewBoatWindow ToNewBoatWindow = new NewBoatWindow(email);
             ToNewBoatWindow.Show();
+            this.Close();
         }
         private void NewTransportDevice_Click(object sender, RoutedEventArgs e)
         {
-            NewTransportDeviceWindow ToNewBoatWindow = new NewTransportDeviceWindow();
+            NewTransportDeviceWindow ToNewBoatWindow = new NewTransportDeviceWindow(email);
             ToNewBoatWindow.Show();
+            this.Close();
         }
         private void btStatistics_Click(object sender, RoutedEventArgs e)
         {
