@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="e49399b6-44e5-465a-9124-1762702bbc90" name="Validator" linkedPackageId="b0c21673-00ef-4b2e-b1a2-e47eb3fd3b51" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
+  <profileInstances>
+    <packageHasProfileInstances Id="30184456-28d9-4eb1-bc2c-bbff1acf1ec5">
+      <profileInstance Id="108d3e24-3db7-42ef-bd7b-a37f542e4052" name="StandardProfileL2">
+        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+      </profileInstance>
+      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="bed3fe4c-9e1a-43bb-9711-958ffcf68516">
+      <profileInstance Id="47c4ca59-fe72-4758-b6f0-b583186e890a" name="StandardProfileL3">
+        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+      </profileInstance>
+      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="a947099e-70dd-4ec2-a62a-a7a58d93d93e" name="a ValidationBase" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="e1bf97a7-74f7-4fe1-aea2-91162546aae0" />
+        <generalsInternal>
+          <generalization Id="2e85cc4d-f920-4374-9b08-d32c17007ee2" isSubstitutable="false">
+            <classMoniker Id="81e6f70f-893c-4def-93d3-f6203057eda1" LastKnownName="ConcreteValidator" />
+            <elementDefinition Id="debe52bf-c83f-442f-97b1-8cf4de070cd4" />
+          </generalization>
+        </generalsInternal>
+        <ownedAttributesInternal>
+          <property Id="adebd556-8278-450b-8c7e-a5e3d884b8ca" name="ValidationResult" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="5c56ea2f-a799-460b-817f-b8543a31b1e3" />
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation Id="27ccb00d-42e2-4b8c-838b-d11112bddd77" name="ValidationBase" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="7d711304-4ef0-415d-990f-7f372670eb0e" />
+          </operation>
+          <operation Id="ac65b95a-a3e0-4088-8bab-1b96abcf116c" name="a Validate" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="64196d2f-6972-4e4c-b246-a7ae25887dcc" />
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="e699653b-37f3-4a5e-91ea-ad2c5f3e431e" name="ValidationResult" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="330535e1-33ad-46a1-9c51-a0704fce3f21" />
+        <suppliersInternal>
+          <dependency Id="d111a4aa-a8d1-4b69-a0de-f036eaf0166a" name="uses">
+            <classMoniker Id="a947099e-70dd-4ec2-a62a-a7a58d93d93e" LastKnownName="a ValidationBase" />
+            <elementDefinition Id="a63e4985-3373-480d-be18-49d344fc9b5a" />
+          </dependency>
+        </suppliersInternal>
+        <ownedAttributesInternal>
+          <property Id="ef2d36e0-5e67-4a6c-a24b-976afa4bfe7f" name="FeedbackMessage" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="559a3f3c-444d-4c40-93a1-d1d16c899109" />
+          </property>
+          <property Id="0222b00d-7c1f-4e5d-b7a2-d526507d0c56" name="ValidationStatus" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="325395e7-3812-4d0e-bb4b-15a4d66a60b4" />
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation Id="29a50f62-b228-44fb-96cb-7ebb60a43de4" name="ValidationResult" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="7c4823b6-8713-403e-8491-dfc63182238a" />
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="5bbbb920-5b94-4812-b5f1-669a062265ad" name="Validator" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="eb65d9ac-8b46-4d7f-8724-4eaea8092fd9" />
+        <suppliersInternal>
+          <dependency Id="c05e99ca-3dad-460e-8b81-6dcc1723f364" name="uses">
+            <classMoniker Id="81e6f70f-893c-4def-93d3-f6203057eda1" LastKnownName="ConcreteValidator" />
+            <elementDefinition Id="3b30856e-0751-4b34-ba61-4beb7b1b37c1" />
+          </dependency>
+          <dependency Id="1306ce2e-e8db-4912-b631-244e78c1ac34" name="uses">
+            <classMoniker Id="a947099e-70dd-4ec2-a62a-a7a58d93d93e" LastKnownName="a ValidationBase" />
+            <elementDefinition Id="ed88a477-7f8c-4d78-8653-0c03b49f0cd7" />
+          </dependency>
+        </suppliersInternal>
+        <ownedAttributesInternal>
+          <property Id="efa65e9f-5a43-4ba9-84dd-5c9e79c0469d" name="ValidationComponents" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="3d6a0c3b-70b6-422f-a2d7-13a99a915cb3" />
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation Id="215ee3f1-8086-41a9-8c0d-4b16ee6c3a2e" name="Validator" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="0d78a5e1-8e81-49b3-883d-1b3f3670f04f" />
+          </operation>
+          <operation Id="e38c90b2-cdee-4926-94be-32323f0f0b6a" name="ValidateElements" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="367672d5-3d67-4d8c-8698-a87908f8784e" />
+          </operation>
+          <operation Id="6d6f9cb3-ebb4-4ef6-ab24-127e3a8ec734" name="PrintFeedbackMessages" visibility="Private" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="8c8edfb1-b7d0-4528-a4dc-eeedc0e20094" />
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="81e6f70f-893c-4def-93d3-f6203057eda1" name="ConcreteValidator" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="5cc32abb-e81b-4ea4-a959-6b9eb4cc29d3" />
+        <ownedAttributesInternal>
+          <property Id="9b11877a-039b-4394-b55f-f3f5652a18fd" name="validationVariable" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="1bf55298-ef20-4091-9c68-a04a5dbbad74" />
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation Id="6243b01c-83b3-452d-a6f3-cfe5a65b3344" name="ConcreteValidator" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="9856f5d1-1512-4b63-acac-e0913de020b4" />
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+  </packagedElements>
+  <package Id="b0c21673-00ef-4b2e-b1a2-e47eb3fd3b51" name="ModelingProject">
+    <elementDefinition Id="1e12b52d-0d26-4d1a-b58e-9f7b5b58b35c" />
+  </package>
+</logicalClassDesignerModel>
