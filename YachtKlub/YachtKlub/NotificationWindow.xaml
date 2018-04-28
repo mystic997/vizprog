@@ -67,9 +67,9 @@
             <Label x:Name="lbStartPlace" Content="Indulási település:" HorizontalAlignment="Left" FontSize="12" VerticalAlignment="Top"/>
             <Label x:Name="lbEndPlace" Content="Érkezési település:" HorizontalAlignment="Left" FontSize="12" VerticalAlignment="Top" Canvas.Left="158"/>
             <Label x:Name="lbPeople" Content="Személyek száma:" HorizontalAlignment="Left" FontSize="12" VerticalAlignment="Top" Canvas.Left="290"/>
-            <TextBox HorizontalAlignment="Left" Height="25" TextWrapping="Wrap"  VerticalAlignment="Top" Width="130" Canvas.Top="26"/>
-            <TextBox HorizontalAlignment="Left" Height="25" TextWrapping="Wrap"  VerticalAlignment="Top" Width="130" Canvas.Left="157" Canvas.Top="26"/>
-            <TextBox HorizontalAlignment="Left" Height="25" TextWrapping="Wrap"  VerticalAlignment="Top" Width="65" Canvas.Left="314" Canvas.Top="26"/>
+            <TextBox Name="tbStartPlace" HorizontalAlignment="Left" Height="25" TextWrapping="Wrap"  VerticalAlignment="Top" Width="130" Canvas.Top="26"/>
+            <TextBox Name="tbEndPlace" HorizontalAlignment="Left" Height="25" TextWrapping="Wrap"  VerticalAlignment="Top" Width="130" Canvas.Left="157" Canvas.Top="26"/>
+            <TextBox Name="tbPeople" HorizontalAlignment="Left" Height="25" TextWrapping="Wrap"  VerticalAlignment="Top" Width="65" Canvas.Left="314" Canvas.Top="26"/>
 
         </Canvas>
         <Button Name="btClose" Visibility="Visible" Content="Kilépés" HorizontalAlignment="Left" Margin="687,534,0,0" VerticalAlignment="Top" Height="25" Width="75" Click="btClose_Click"/>
