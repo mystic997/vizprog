@@ -10,6 +10,10 @@ namespace YachtKlub
     public class ListData
     {
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> parent of 5bd04a6... s
         private string Text;
         public string text
         {
