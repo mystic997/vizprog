@@ -19,7 +19,7 @@ namespace YachtKlub
     /// <summary>
     /// Interaction logic for MyBoatsAndDevicesWindow.xaml
     /// </summary>
-    public partial class MyBoatsAndDevicesWindow : UserControl
+    public partial class MyBoatsAndDevicesWindow : Window
     {
         ListData listDataGlobal;
         List<TextBox> tbfields;
@@ -162,7 +162,7 @@ namespace YachtKlub
             }
             else
             {
-                //this.Close();
+                this.Close();
             }
             
         }
@@ -350,13 +350,13 @@ namespace YachtKlub
 
             NewBoatWindow ToNewBoatWindow = new NewBoatWindow(email);
             ToNewBoatWindow.Show();
-           // this.Close();
+            this.Close();
         }
         private void NewTransportDevice_Click(object sender, RoutedEventArgs e)
         {
             NewTransportDeviceWindow ToNewBoatWindow = new NewTransportDeviceWindow(email);
             ToNewBoatWindow.Show();
-           // this.Close();
+            this.Close();
         }
         private void btStatistics_Click(object sender, RoutedEventArgs e)
         {

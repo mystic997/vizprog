@@ -1,11 +1,11 @@
-﻿<UserControl x:Class="YachtKlub.MyBoatsAndDevicesWindow"
+﻿<Window x:Class="YachtKlub.MyBoatsAndDevicesWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:YachtKlub"
         mc:Ignorable="d"
-        Height="600" Width="900">
+        Title="Hajóim és eszközeim" Height="600" Width="900" ResizeMode="CanMinimize">
     <Grid>
         <Canvas x:Name="Boat" Margin="250,110,238,83">
             <Label x:Name="lbBoatPicture" Content="A hajó/eszköz képe:" HorizontalAlignment="Left" FontSize="12" VerticalAlignment="Top" Canvas.Top="304"/>
@@ -111,4 +111,4 @@
 
 
     </Grid>
-</UserControl>
+</Window>
