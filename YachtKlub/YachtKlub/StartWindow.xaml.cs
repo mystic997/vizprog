@@ -1,4 +1,6 @@
-﻿using System;
+﻿#define GENERATE_DATABASE_ALWAYS
+
+using System;
 using System.Collections.Generic;
 using System.Data.Entity.Validation;
 using System.Linq;
@@ -24,108 +26,80 @@ namespace YachtKlub
     /// </summary>
     public partial class StartWindow : Window
     {
+        private void ReGenerateDatabase()
+        {
+            var dbContext = AliveContext.Context;
+            dbContext.Database.Delete();
+            GenerateDatabase();
+        }
+
+        private void GenerateDatabase()
+        {
+            var dbContext = AliveContext.Context;
+
+            dbContext.Database.Create();
+
+            //fill the database with temporarily data
+            MembersDao mem = new MembersDaoImpl();
+            List<MembersEntity> mems = mem.GetTemplateMembers();
+            for (int i = 0; i < mems.Count; i++)
+            {
+                dbContext.Members.Add(mems[i]);
+            }
+            dbContext.SaveChanges();
+
+            BoatsDao boat = new BoatsDaoImpl();
+            List<BoatsEntity> boats = boat.GetTemplateBoats();
+            for (int i = 0; i < boats.Count; i++)
+            {
+                dbContext.Boats.Add(boats.SingleOrDefault(b => b.BoatId == i));
+            }
+            dbContext.SaveChanges();
+
+            TransportDevicesDao device = new TransportDevicesDaoImpl();
+            List<TransportDevicesEntity> devices = device.GetTemplateTransportDevices();
+            for (int i = 0; i < devices.Count; i++)
+            {
+                dbContext.TransportDevices.Add(devices.SingleOrDefault(d => d.TransportDeviceId == i));
+            }
+            dbContext.SaveChanges();
+
+            RentRequestsDao rent = new RentRequestsDaoImpl();
+            List<RentRequestsEntity> rents = rent.GetTemplateRentRequests();
+            for (int i = 0; i < rents.Count; i++)
+            {
+                dbContext.RentRequests.Add(rents[i]);
+            }
+            dbContext.SaveChanges();
+
+            BoatRentalsDao boatRent = new BoatRentalsDaoImpl();
+            List<BoatRentalsEntity> boatRents = boatRent.GetTemplateBoatRents();
+            for (int i = 0; i < boatRents.Count; i++)
+            {
+                dbContext.BoatRentals.Add(boatRents[i]);
+            }
+            dbContext.SaveChanges();
+        }
+
         public StartWindow()
         {
             InitializeComponent();
             try
             {
                 // set up the active database
-                DatabaseContext dbContext = new DatabaseContext();
+                DatabaseContext dbContext = new YachtKlub.entity.DatabaseContext();
                 AliveContext.Context = dbContext;
 
                 if (dbContext.Database.Exists())
                 {
-                    dbContext.Database.Delete();
-                    dbContext.Database.Create();
-
-                    // fill the database with temporarily data
-                    MembersDao mem = new MembersDaoImpl();
-                    List<MembersEntity> mems = mem.GetTemplateMembers();
-                    for (int i = 0; i < mems.Count; i++)
-                    {
-                        dbContext.Members.Add(mems[i]);
-                    }
-                    dbContext.SaveChanges();
-
-                    BoatsDao boat = new BoatsDaoImpl();
-                    List<BoatsEntity> boats = boat.GetTemplateBoats();
-                    for (int i = 0; i < boats.Count; i++)
-                    {
-                        dbContext.Boats.Add(boats.SingleOrDefault(b => b.BoatId == i));
-                    }
-                    dbContext.SaveChanges();
-
-                    TransportDevicesDao device = new TransportDevicesDaoImpl();
-                    List<TransportDevicesEntity> devices = device.GetTemplateTransportDevices();
-                    for (int i = 0; i < devices.Count; i++)
-                    {
-                        dbContext.TransportDevices.Add(devices.SingleOrDefault(d => d.TransportDeviceId == i));
-                    }
-                    dbContext.SaveChanges();
-
-                    RentRequestsDao rent = new RentRequestsDaoImpl();
-                    List<RentRequestsEntity> rents = rent.GetTemplateRentRequests();
-                    for (int i = 0; i < rents.Count; i++)
-                    {
-                        dbContext.RentRequests.Add(rents[i]);
-                    }
-                    dbContext.SaveChanges();
-
-                    BoatRentalsDao boatRent = new BoatRentalsDaoImpl();
-                    List<BoatRentalsEntity> boatRents = boatRent.GetTemplateBoatRents();
-                    for (int i = 0; i < boatRents.Count; i++)
-                    {
-                        dbContext.BoatRentals.Add(boatRents[i]);
-                    }
-                    dbContext.SaveChanges();
+#if (GENERATE_DATABASE_ALWAYS)
+                    ReGenerateDatabase();
+#endif
                 }
                 else
                 {
-                    dbContext.Database.Create();
-
-                    // fill the database with temporarily data
-                    MembersDao mem = new MembersDaoImpl();
-                    List<MembersEntity> mems = mem.GetTemplateMembers();
-                    for (int i = 0; i < mems.Count; i++)
-                    {
-                        dbContext.Members.Add(mems[i]);
-                    }
-                    dbContext.SaveChanges();
-
-                    BoatsDao boat = new BoatsDaoImpl();
-                    List<BoatsEntity> boats = boat.GetTemplateBoats();
-                    for (int i = 0; i < boats.Count; i++)
-                    {
-                        dbContext.Boats.Add(boats.SingleOrDefault(b => b.BoatId == i));
-                    }
-                    dbContext.SaveChanges();
-
-                    TransportDevicesDao device = new TransportDevicesDaoImpl();
-                    List<TransportDevicesEntity> devices = device.GetTemplateTransportDevices();
-                    for (int i = 0; i < devices.Count; i++)
-                    {
-                        dbContext.TransportDevices.Add(devices.SingleOrDefault(d => d.TransportDeviceId == i));
-                    }
-                    dbContext.SaveChanges();
-
-                    RentRequestsDao rent = new RentRequestsDaoImpl();
-                    List<RentRequestsEntity> rents = rent.GetTemplateRentRequests();
-                    for (int i = 0; i < rents.Count; i++)
-                    {
-                        dbContext.RentRequests.Add(rents[i]);
-                    }
-                    dbContext.SaveChanges();
-
-                    BoatRentalsDao boatRent = new BoatRentalsDaoImpl();
-                    List<BoatRentalsEntity> boatRents = boatRent.GetTemplateBoatRents();
-                    for (int i = 0; i < boatRents.Count; i++)
-                    {
-                        dbContext.BoatRentals.Add(boatRents[i]);
-                    }
-                    dbContext.SaveChanges();
+                    GenerateDatabase();
                 }
-
-                //AliveContext.Context = dbContext;
             }
             catch (DbEntityValidationException e)
             {

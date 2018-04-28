@@ -60,7 +60,7 @@ namespace YachtKlub
                 var uri = new Uri(Convert.ToString(imgProfilePicture.Tag), UriKind.Absolute);
                 var bitmap = new BitmapImage(uri);
                 imgProfilePicture.Source = bitmap;
-                
+
             }
             catch (Exception ex)
             {
@@ -136,7 +136,7 @@ namespace YachtKlub
 
             registerValidator.ValidationComponents.Add(new EmptyFieldValidator(email, "e-mail"));
             registerValidator.ValidationComponents.Add(new EmailFormatValidator(email));
-            
+
 
             // need to validate by a regular expression
             registerValidator.ValidationComponents.Add(new EmptyFieldValidator(country, "ország"));
@@ -168,7 +168,7 @@ namespace YachtKlub
                 var uri = new Uri(System.AppDomain.CurrentDomain.BaseDirectory + "\\" + "resources" + "\\" + newFileName, UriKind.Absolute);
                 var bitmap = new BitmapImage(uri);
                 imgProfilePicture.Source = bitmap;
-                
+
             }
         }
         private void btMyShips_Click(object sender, RoutedEventArgs e)
@@ -178,7 +178,7 @@ namespace YachtKlub
         }
         private void btBooking_Click(object sender, RoutedEventArgs e)
         {
-            Booking ToBooking = new Booking();
+            Booking ToBooking = new Booking(email);
             ToBooking.Show();
         }
         public string generateID()
