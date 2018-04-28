@@ -349,5 +349,11 @@ namespace YachtKlub
             NewTransportDeviceWindow ToNewBoatWindow = new NewTransportDeviceWindow(adminEmain);
             ToNewBoatWindow.Show();
         }
+
+        private void Notification_Click(object sender, RoutedEventArgs e)
+        {
+            NotificationWindow ToNotificationWindow = new NotificationWindow(adminEmain);
+            ToNotificationWindow.Show();
+        }
     }
 }
