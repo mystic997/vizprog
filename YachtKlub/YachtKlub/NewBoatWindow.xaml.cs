@@ -31,14 +31,12 @@ namespace YachtKlub
             this.email = email;
             InitializeComponent();
             tbOwnerName.Text = email;
-
-
         }
+
         private void Register_Click(object sender, RoutedEventArgs e)
         {
-            try {
-
-
+            try
+            {
                 Validator registerValidator = new Validator();
                 registerValidator.ValidationComponents.Add(new EmptyFieldValidator(tbBoatName.Text, "Név"));
                 registerValidator.ValidationComponents.Add(new EmptyFieldValidator(tbBoatType.Text, "Típus"));
@@ -56,24 +54,24 @@ namespace YachtKlub
 
                 registerValidator.ValidateElements();
                 BoatsDao boatsDao = new BoatsDaoImpl();
-            BoatsEntity boatsEntity = new BoatsEntity();
-            dbc = AliveContext.Context;
+                BoatsEntity boatsEntity = new BoatsEntity();
+                dbc = AliveContext.Context;
 
-            boatsEntity.BoatId = dbc.Boats.OrderByDescending(u => u.BoatId).FirstOrDefault().BoatId;
+                boatsEntity.BoatId = dbc.Boats.OrderByDescending(u => u.BoatId).FirstOrDefault().BoatId;
                 if (imgBoatPicture.Tag == null)
                 {
                     imgBoatPicture.Tag = "stock_boat_image.png";
                 }
 
                 boatsEntity.BoatImage = imgBoatPicture.Tag.ToString();
-            boatsEntity.BoatLength = Convert.ToInt32(tbBoatLenght.Text);
-            boatsEntity.BoatWidth = Convert.ToInt32(tbBoatWidth.Text);
-            boatsEntity.BoatName = tbBoatName.Text;
-            //boatsEntity.BoatRentals = null;
-            boatsEntity.BoatType = tbBoatType.Text;
-            boatsEntity.Consumption = Convert.ToInt32(tbBoatConsumption.Text);
-            boatsEntity.DailyPrice = Convert.ToInt32(tbBoatPrice.Text);
-            boatsEntity.DiveDepth = Convert.ToInt32(tbBoatDept.Text);
+                boatsEntity.BoatLength = Convert.ToInt32(tbBoatLenght.Text);
+                boatsEntity.BoatWidth = Convert.ToInt32(tbBoatWidth.Text);
+                boatsEntity.BoatName = tbBoatName.Text;
+                //boatsEntity.BoatRentals = null;
+                boatsEntity.BoatType = tbBoatType.Text;
+                boatsEntity.Consumption = Convert.ToInt32(tbBoatConsumption.Text);
+                boatsEntity.DailyPrice = Convert.ToInt32(tbBoatPrice.Text);
+                boatsEntity.DiveDepth = Convert.ToInt32(tbBoatDept.Text);
 
                 MembersDao membersDao = new MembersDaoImpl();
                 MembersEntity member = membersDao.getMemberByEmail(email);
@@ -96,13 +94,8 @@ namespace YachtKlub
             {
                 new ExceptionToConsole(ex);
             }
-
-
-
-
-            
-
         }
+
         private void Exit_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
