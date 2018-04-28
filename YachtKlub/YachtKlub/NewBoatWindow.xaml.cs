@@ -87,7 +87,7 @@ namespace YachtKlub
 
                 RegisterBoatService registerService = new RegisterBoatService(ref boatsEntity);
                 MyBoatsAndDevicesWindow ToMyBoatsAndDevicesWindow = new MyBoatsAndDevicesWindow(email);
-                ToMyBoatsAndDevicesWindow.Show();
+                //ToMyBoatsAndDevicesWindow.Show();
                 this.Close();
             }
             catch (Exception ex)

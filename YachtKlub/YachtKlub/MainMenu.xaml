@@ -48,7 +48,7 @@
 
             <Button x:Name="btProfil" HorizontalAlignment="Right" Grid.Row="1" FontSize="20" Content="        Profilom" Background="#FFEFF9FF" Foreground="#FF72AED2" Width="240" Grid.ColumnSpan="2" />
             <Button x:Name="btBooking" HorizontalAlignment="Right" Grid.Row="2" FontSize="20" Content="        Hajó foglalása" Background="#FFEFF9FF" Foreground="#FF72AED2" Width="240" Grid.ColumnSpan="2"/>
-            <Button x:Name="btMyShips" HorizontalAlignment="Right" Grid.Row="3" FontSize="20" Content="         Hajóim és eszközeim" Background="#FFEFF9FF" Foreground="#FF72AED2" Width="240" Grid.ColumnSpan="2"/>
+            <Button x:Name="btMyShips" HorizontalAlignment="Right" Grid.Row="3" FontSize="20" Content="         Hajóim és eszközeim" Background="#FFEFF9FF" Foreground="#FF72AED2" Width="240" Grid.ColumnSpan="2" Click="btMyShips_Click"/>
             <Button x:Name="btMyBooks" HorizontalAlignment="Right" Grid.Row="4" FontSize="20" Content="        Foglalásaim" Background="#FFEFF9FF" Foreground="#FF72AED2" Width="240" Grid.ColumnSpan="2"/>
             <!--
             Admin regisztráció:
