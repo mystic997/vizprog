@@ -49,6 +49,11 @@ namespace YachtKlub
                         tbRenterEmail.Text = Requests.WhoBorrows.Email;
                         tbRenterName.Text = Requests.WhoBorrows.MemberName;
                         tbRenterResidency.Text = Requests.WhoBorrows.City;
+
+                        LoadSelectedBoatService loadSelectedBoatService = new LoadSelectedBoatService(Convert.ToString(Requests.BoatToBorrow.BoatId));
+                        imgBoatPicture.Source = LoadImage(loadSelectedBoatService.ResponseMessage["BoatImage"]);
+                        imgBoatPicture.Tag = loadSelectedBoatService.ResponseMessage["BoatImage"];
+
                     }
                 }
 
@@ -56,6 +61,15 @@ namespace YachtKlub
 
 
 
+        }
+
+
+
+        private BitmapImage LoadImage(string newFileName)
+        {
+            var uri = new Uri(System.AppDomain.CurrentDomain.BaseDirectory + "\\" + "resources" + "\\" + newFileName, UriKind.Absolute);
+            var bitmap = new BitmapImage(uri);
+            return bitmap;
         }
 
         private void btClose_Click(object sender, RoutedEventArgs e)
