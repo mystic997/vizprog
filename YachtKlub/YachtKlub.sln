@@ -5,8 +5,6 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YachtKlub", "YachtKlub\YachtKlub.csproj", "{B5D296ED-6390-41F0-AF42-8517D3316FAC}"
 EndProject
-Project("{F088123C-0E9E-452A-89E6-6BA2F21D5CAC}") = "ModelingProject", "ModelingProject\ModelingProject.modelproj", "{CB016CEB-CABC-4C14-96F6-DCBDAA522316}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,10 +15,6 @@ Global
 		{B5D296ED-6390-41F0-AF42-8517D3316FAC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B5D296ED-6390-41F0-AF42-8517D3316FAC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B5D296ED-6390-41F0-AF42-8517D3316FAC}.Release|Any CPU.Build.0 = Release|Any CPU
-		{CB016CEB-CABC-4C14-96F6-DCBDAA522316}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CB016CEB-CABC-4C14-96F6-DCBDAA522316}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CB016CEB-CABC-4C14-96F6-DCBDAA522316}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CB016CEB-CABC-4C14-96F6-DCBDAA522316}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
