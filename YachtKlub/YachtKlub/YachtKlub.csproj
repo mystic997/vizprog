@@ -101,7 +101,6 @@
     <Compile Include="PopupMessage.xaml.cs">
       <DependentUpon>PopupMessage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="service\BookingService.cs" />
     <Compile Include="service\LoadBookableBoatsService.cs" />
     <Compile Include="service\LoadMyBoatsService.cs" />
     <Compile Include="service\LoadMyTransportDevicesService.cs" />
@@ -129,11 +128,8 @@
     </Compile>
     <Compile Include="validator\EmailFormatValidator.cs" />
     <Compile Include="validator\EmptyFieldValidator.cs" />
-    <Compile Include="validator\EnoughSpaceValidator.cs" />
     <Compile Include="validator\FieldCharacterLimitValidator.cs" />
-    <Compile Include="validator\IsDatepickerSetValidator.cs" />
     <Compile Include="validator\NameFormatValidator.cs" />
-    <Compile Include="validator\NumberFormatValidator.cs" />
     <Compile Include="validator\SameFieldValidator.cs" />
     <Compile Include="validator\ValidationBase.cs" />
     <Compile Include="validator\ValidationResult.cs" />
