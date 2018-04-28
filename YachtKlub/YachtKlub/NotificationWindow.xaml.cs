@@ -55,13 +55,9 @@ namespace YachtKlub
 
                         tbBoatName.Text = Requests.ToWhere;
 
-<<<<<<< HEAD
-                        dpEnd.DisplayDate = Requests.EndDate;
-=======
 
                         dpEnd.DisplayDate = Requests.EndDate;
 
->>>>>>> 74e979e2e52ef6649b5bb8c38cf4f9c3e777ff96
                         LoadSelectedBoatService loadSelectedBoatService = new LoadSelectedBoatService(Convert.ToString(Requests.BoatToBorrow.BoatId));
                         imgBoatPicture.Source = LoadImage(loadSelectedBoatService.ResponseMessage["BoatImage"]);
                         imgBoatPicture.Tag = loadSelectedBoatService.ResponseMessage["BoatImage"];
