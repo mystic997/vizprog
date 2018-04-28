@@ -56,7 +56,23 @@ namespace YachtKlub
                         tbBoatName.Text = Requests.ToWhere;
 
 
-                        dpEnd.DisplayDate = Requests.EndDate;
+                        dpEnd.Text = Requests.EndDate.ToString();
+                        dpEnd.IsEnabled = false;
+                        dpStart.Text = Requests.StartingDate.ToString();
+                        dpStart.IsEnabled = false;
+
+                        tbBoatName.Text = Hajok.BoatName;
+                        tbBoatPlace.Text = Hajok.WhereIsNowTheBoat;
+                        tbBoatDept.Text = Hajok.DiveDepth.ToString();
+                        tbBoatPrice.Text = Hajok.DailyPrice.ToString();
+                        tbBoatConsumption.Text = Hajok.Consumption.ToString();
+                        tbBoatType.Text = Hajok.BoatType;
+                        tbBoatManpower.Text = Hajok.MaxPerson.ToString();
+                        tbBoatSpeed.Text = Hajok.MaxSpeed.ToString();
+                        tbBoatWidth.Text = Hajok.BoatWidth.ToString();
+                        tbBoatLenght.Text = Hajok.BoatLength.ToString();
+                        tbBoatYear.Text = Hajok.YearOfManufacture.ToString();
+                        
 
                         LoadSelectedBoatService loadSelectedBoatService = new LoadSelectedBoatService(Convert.ToString(Requests.BoatToBorrow.BoatId));
                         imgBoatPicture.Source = LoadImage(loadSelectedBoatService.ResponseMessage["BoatImage"]);
