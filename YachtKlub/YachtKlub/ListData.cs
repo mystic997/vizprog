@@ -10,7 +10,6 @@ namespace YachtKlub
     public class ListData
     {
 
-
         private string Text;
         public string text
         {
