@@ -181,6 +181,11 @@ namespace YachtKlub
             Booking ToBooking = new Booking(email);
             ToBooking.Show();
         }
+        private void Notification_Click(object sender, RoutedEventArgs e)
+        {
+            NotificationWindow ToNotificationWindow = new NotificationWindow(email);
+            ToNotificationWindow.Show();
+        }
         public string generateID()
         {
             return Guid.NewGuid().ToString("N");

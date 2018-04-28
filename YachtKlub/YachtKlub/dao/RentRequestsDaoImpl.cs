@@ -25,7 +25,7 @@ namespace YachtKlub.dao
 
         public List<RentRequestsEntity> GetAllRentRequestsByBoatToBorrow(BoatsEntity BoatToBorrow)/*Függvény, ami visszaad egy listát, ami tartalmazza, hogy az adott hajónak, milyen kölcsönzési kérelmei vannak vannak*/
         {
-            var linqQuery = from row in dbc.RentRequests where row.BoatToBorrow.Equals(BoatToBorrow) select row;
+            var linqQuery = from row in dbc.RentRequests where row.BoatToBorrow.BoatId.Equals(BoatToBorrow.BoatId) select row;
             List<RentRequestsEntity> RentRequestsList = linqQuery.ToList();
             return RentRequestsList;
         }

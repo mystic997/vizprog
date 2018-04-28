@@ -46,7 +46,7 @@
 
         <Button x:Name="btSave" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="520,358,0,0" FontSize="12"  Width="255" Height="25" Content="Adatok módosítása" Click="btSave_Click" />
         <Button x:Name="btCancel" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="520,408,0,0" FontSize="12"  Width="255" Height="25" Content="Kilépés" Click="btCancel_Click" />
-
+        <Button Content="Értesítések" HorizontalAlignment="Left" Height="25" Margin="200,358,0,0" VerticalAlignment="Top" Width="165" Click="Notification_Click"/>
 
     </Grid>
 </Window>
