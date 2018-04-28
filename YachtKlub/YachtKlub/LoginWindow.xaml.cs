@@ -71,7 +71,7 @@ namespace YachtKlub
                 }
                 else
                 {
-                    PersonalWindow PersonalWindow = new PersonalWindow(tbEmailLogin.Text);
+                    MainMenu PersonalWindow = new MainMenu(tbEmailLogin.Text);
                     PersonalWindow.Show();
                     Close();
                 }
