@@ -52,6 +52,7 @@ namespace YachtKlub
                         tbStartPlace.Text = Requests.FromWhere;
                         tbEndPlace.Text = Requests.ToWhere;
                         tbPeople.Text = Requests.HowManyPersonWillTravel.ToString();
+                        tbBoatName.Text = Requests.ToWhere;
 
                         LoadSelectedBoatService loadSelectedBoatService = new LoadSelectedBoatService(Convert.ToString(Requests.BoatToBorrow.BoatId));
                         imgBoatPicture.Source = LoadImage(loadSelectedBoatService.ResponseMessage["BoatImage"]);
