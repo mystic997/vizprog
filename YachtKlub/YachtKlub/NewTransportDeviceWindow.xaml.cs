@@ -80,7 +80,7 @@ namespace YachtKlub
 
                 RegisterTrasportDeviceService registerService = new RegisterTrasportDeviceService(ref NewEntity);
                 MyBoatsAndDevicesWindow ToMyBoatsAndDevicesWindow = new MyBoatsAndDevicesWindow(email);
-                ToMyBoatsAndDevicesWindow.Show(); ;
+                //ToMyBoatsAndDevicesWindow.Show(); ;
                 this.Close();
             }
             catch (Exception ex)
