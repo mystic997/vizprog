@@ -337,5 +337,17 @@ namespace YachtKlub
             if (e.ChangedButton == MouseButton.Left)
                 DragMove();
         }
+
+        private void NewBoat_Click(object sender, RoutedEventArgs e)
+        {
+            NewBoatWindow ToNewBoatWindow = new NewBoatWindow(adminEmain);
+            ToNewBoatWindow.Show();
+        }
+
+        private void NewTransportDevice_Click(object sender, RoutedEventArgs e)
+        {
+            NewTransportDeviceWindow ToNewBoatWindow = new NewTransportDeviceWindow(adminEmain);
+            ToNewBoatWindow.Show();
+        }
     }
 }
