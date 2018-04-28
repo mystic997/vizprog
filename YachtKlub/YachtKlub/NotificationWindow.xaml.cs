@@ -49,10 +49,10 @@ namespace YachtKlub
                         tbRenterEmail.Text = Requests.WhoBorrows.Email;
                         tbRenterName.Text = Requests.WhoBorrows.MemberName;
                         tbRenterResidency.Text = Requests.WhoBorrows.City;
-                        //tbStartPlace.Text = Requests.FromWhere;
+                        tbStartPlace.Text = Requests.FromWhere;
                         tbEndPlace.Text = Requests.ToWhere;
-                        //tbPeople.Text = Requests.HowManyPersonWillTravel.ToString();
-                        
+                        tbPeople.Text = Requests.HowManyPersonWillTravel.ToString();
+                        dpEnd.DisplayDate = Requests.EndDate;
                         LoadSelectedBoatService loadSelectedBoatService = new LoadSelectedBoatService(Convert.ToString(Requests.BoatToBorrow.BoatId));
                         imgBoatPicture.Source = LoadImage(loadSelectedBoatService.ResponseMessage["BoatImage"]);
                         imgBoatPicture.Tag = loadSelectedBoatService.ResponseMessage["BoatImage"];
