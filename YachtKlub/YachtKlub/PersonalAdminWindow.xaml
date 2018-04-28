@@ -77,6 +77,8 @@
         <Button x:Name="btAdminRegiszter" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="41,358,0,0" FontSize="12"  Width="155" Height="25" Content="Felhasználó regisztrálása" Click="btAdminRegiszter_Click" />
         <Button Content="Új hajó regisztrálása" HorizontalAlignment="Left" VerticalAlignment="Top" Width="165" Height="25" Margin="253,340,0,0" Click="NewBoat_Click"/>
         <Button Content="Új szállítóeszköz regisztrálása" HorizontalAlignment="Left" VerticalAlignment="Top" Width="165" Height="25" Margin="253,378,0,0" Click="NewTransportDevice_Click"/>
+        <Button Content="Értesítések" HorizontalAlignment="Left" Height="25" Margin="253,358,0,0" VerticalAlignment="Top" Width="165" Click="Button_Click"/>
+
 
 
 
