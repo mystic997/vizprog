@@ -24,7 +24,7 @@ namespace YachtKlub
     {
         private List<TextBox> fields;
         private string adminEmain;
-        
+
 
         public PersonalAdminWindow(string email)
         {
@@ -317,7 +317,7 @@ namespace YachtKlub
 
         private void btBooking_Click(object sender, RoutedEventArgs e)
         {
-            Booking ToBooking = new Booking();
+            Booking ToBooking = new Booking(adminEmain);
             ToBooking.Show();
         }
 

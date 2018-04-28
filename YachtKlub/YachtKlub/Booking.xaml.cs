@@ -14,6 +14,7 @@ using System.Windows.Shapes;
 using YachtKlub.dao;
 using YachtKlub.entity;
 using YachtKlub.service;
+using YachtKlub.validator;
 
 namespace YachtKlub
 {
@@ -25,10 +26,27 @@ namespace YachtKlub
         private DateTime startingDate;
         private DateTime endingDate;
         public static int SelectedBoatIndex { get; set; }
+        private BoatsEntity selectedBoat;
+        private TransportDevicesEntity selectedDevice; // TO DO!!!!
+        private string whoBorrowsEmail { get; set; }
 
-        public Booking()
+        public Booking(string whoBorrowsEmail)
         {
             InitializeComponent();
+
+            this.whoBorrowsEmail = whoBorrowsEmail;
+
+            DateTime projectStart = System.DateTime.Today;
+            DateTime projectEnd = new DateTime(9999, 12, 31);
+
+            dpStart.DisplayDateStart = projectStart;
+            dpStart.DisplayDateEnd = projectEnd;
+
+            dpEnd.DisplayDateStart = projectStart;
+            dpEnd.DisplayDateEnd = projectEnd;
+
+            //dpStart.DisplayDate = projectStart;
+            //dpEnd.DisplayDate = projectStart.AddDays(1);
         }
 
         // esemeny, amely akkor kovetkezik be, ha a UserControlban masik elemet valasztottunk
@@ -37,6 +55,7 @@ namespace YachtKlub
         {
             // kivalasztott hajo entity
             BoatsEntity selectedBoat = LoadBookableBoatsService.BookableBoats[SelectedBoatIndex];
+            this.selectedBoat = selectedBoat;
 
             tbOwnerName.Text = selectedBoat.FKOwner.MemberName;
             tbOwnerEmail.Text = selectedBoat.FKOwner.Email;
@@ -97,7 +116,29 @@ namespace YachtKlub
 
         private void btBook_Click(object sender, RoutedEventArgs e)
         {
+            try
+            {
+                string fromWhere = tbFromPlace.Text;
+                string toWhere = tbToPlace.Text;
+                string personNumber = tbNumberOfPerson.Text;
 
+                Validator bookingValidator = new Validator();
+                bookingValidator.ValidationComponents.Add(new EmptyFieldValidator(fromWhere, "indulási település"));
+                bookingValidator.ValidationComponents.Add(new EmptyFieldValidator(toWhere, "érkezési település"));
+                bookingValidator.ValidationComponents.Add(new EmptyFieldValidator(personNumber, "személyek száma"));
+                bookingValidator.ValidationComponents.Add(new NumberFormatValidator(personNumber));
+                bookingValidator.ValidationComponents.Add(new IsDatepickerSetValidator(dpStart));
+                bookingValidator.ValidationComponents.Add(new IsDatepickerSetValidator(dpEnd));
+                bookingValidator.ValidationComponents.Add(new EnoughSpaceValidator(int.Parse(tbNumberOfPerson.Text), int.Parse(tbBoatManpower.Text)));
+                //bookingValidator.ValidationComponents.Add(new EmptyFieldValidator(tbOwnerEmail.Text, "foglalható hajók"));
+                bookingValidator.ValidateElements();
+
+                BookingService bookingService = new BookingService(whoBorrowsEmail, DateTime.Parse(dpStart.ToString()), DateTime.Parse(dpEnd.ToString()), selectedBoat, fromWhere, toWhere, int.Parse(personNumber));
+            }
+            catch (Exception ex)
+            {
+                new ExceptionToConsole(ex);
+            }
         }
     }
 }
