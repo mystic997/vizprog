@@ -27,6 +27,7 @@ namespace YachtKlub
         {
             InitializeComponent();
             this.email = email;
+            MouseDown += Window_MouseDown; //az ablak mozgatásához kell
 
             try
             {
@@ -44,6 +45,11 @@ namespace YachtKlub
             {
                 new ExceptionToConsole(ex);
             }
+        }
+        private void Window_MouseDown(object sender, MouseButtonEventArgs e) //az ablak mozgatásához kell
+        {
+            if (e.ChangedButton == MouseButton.Left)
+                DragMove();
         }
 
         private void btProfil_Click(object sender, RoutedEventArgs e)
