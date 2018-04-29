@@ -36,6 +36,8 @@ namespace YachtKlub
                 var bitmap = new BitmapImage(uri);
                 imgProfilePicture.Source = bitmap;
 
+                lbUdvozlet.Content = "Üdvözöljük " + loadUserDataService.ResponseMessage["lastname"] + loadUserDataService.ResponseMessage["firstname"] + "!";
+
             }
             catch (Exception ex)
             {
