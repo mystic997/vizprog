@@ -20,7 +20,7 @@ namespace YachtKlub
     /// <summary>
     /// Interaction logic for PersonalAdminWindow.xaml
     /// </summary>
-    public partial class PersonalAdminWindow : Window
+    public partial class PersonalAdminWindow : UserControl
     {
         private List<TextBox> fields;
         private string adminEmain;
@@ -82,7 +82,7 @@ namespace YachtKlub
         {
             LoginWindow ToLoginWindow = new LoginWindow();
             ToLoginWindow.Show();
-            this.Close();
+            //this.Close();
         }
 
         private void btChangePassword_Click(object sender, RoutedEventArgs e)
@@ -334,8 +334,8 @@ namespace YachtKlub
         }
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            if (e.ChangedButton == MouseButton.Left)
-                DragMove();
+           // if (e.ChangedButton == MouseButton.Left)
+                //DragMove();
         }
 
         private void NewBoat_Click(object sender, RoutedEventArgs e)

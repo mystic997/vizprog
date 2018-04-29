@@ -88,6 +88,9 @@
     <Compile Include="MainMenu.xaml.cs">
       <DependentUpon>MainMenu.xaml</DependentUpon>
     </Compile>
+    <Compile Include="MainMenuAdmin.xaml.cs">
+      <DependentUpon>MainMenuAdmin.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MyBoatsAndDevicesWindow.xaml.cs">
       <DependentUpon>MyBoatsAndDevicesWindow.xaml</DependentUpon>
     </Compile>
@@ -103,6 +106,9 @@
     <Compile Include="PrintMessageBox.cs" />
     <Compile Include="PopupMessage.xaml.cs">
       <DependentUpon>PopupMessage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="RegisterUC.xaml.cs">
+      <DependentUpon>RegisterUC.xaml</DependentUpon>
     </Compile>
     <Compile Include="service\BookingService.cs" />
     <Compile Include="service\LoadBookableBoatsService.cs" />
@@ -172,6 +178,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="MainMenuAdmin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MemberRegisterWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -205,6 +215,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="PopupMessage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="RegisterUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -300,6 +314,9 @@
   <ItemGroup>
     <Resource Include="resources\menu_bg.png" />
     <Resource Include="resources\menu_logout.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="resources\menu_admin_register.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

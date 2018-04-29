@@ -65,7 +65,7 @@ namespace YachtKlub
 
                 if (loginService.ResponseMessage["permission"].Equals("admin"))
                 {
-                    PersonalAdminWindow PersonalAdmintoWindow = new PersonalAdminWindow(tbEmailLogin.Text);
+                    MainMenuAdmin PersonalAdmintoWindow = new MainMenuAdmin(tbEmailLogin.Text);
                     PersonalAdmintoWindow.Show();
                     Close();
                 }

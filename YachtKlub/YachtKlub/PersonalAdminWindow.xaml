@@ -1,4 +1,4 @@
-﻿<Window x:Class="YachtKlub.PersonalAdminWindow"
+﻿<UserControl x:Class="YachtKlub.PersonalAdminWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:YachtKlub"
         mc:Ignorable="d"
         
-          Title="Személyes adatok (Admin)" ResizeMode="CanMinimize" Height="510" Width="850" BorderBrush="#FF812626" Foreground="#FFBF9393" AllowsTransparency="False" WindowStyle="SingleBorderWindow" BorderThickness="5"  Background="#FFF5FFDB">
+         Height="510" Width="850" BorderBrush="#FF812626" Foreground="#FFBF9393" BorderThickness="5"  Background="#FFF5FFDB">
 
     <Grid>
         <!--Ebben az ablakban megnyitáskor minden ki van töltve, ahhoz, hogy a mentés sikeres legyen minden mezőnek ki kell lennie töltve..-->
@@ -88,4 +88,4 @@
 
 
     </Grid>
-</Window>
+</UserControl>
