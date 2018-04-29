@@ -62,6 +62,7 @@ namespace YachtKlub.dao
                 TransportDevicesDao dev = new TransportDevicesDaoImpl();
                 List<TransportDevicesEntity> devs = dev.GetAllTransportDevices();
                 req.DeviceToBorrow = devs[random.Next(0, devs.Count)]; // ez null is lehet
+                req.BoatRentalsId = generateID();
 
                 req.EndDate = new DateTime(random.Next(2018, 2020), random.Next(1, 13), random.Next(1, 29));
                 req.StartingDate = new DateTime(2018, random.Next(1, 13), random.Next(1, 29));
@@ -74,6 +75,11 @@ namespace YachtKlub.dao
             }
 
             return TemplateRequests;
+        }
+
+        public string generateID()
+        {
+            return Guid.NewGuid().ToString("N");
         }
     }
 }
