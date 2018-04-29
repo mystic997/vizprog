@@ -60,7 +60,14 @@ namespace YachtKlub
             tbOwnerName.Text = selectedBoat.FKOwner.MemberName;
             tbOwnerEmail.Text = selectedBoat.FKOwner.Email;
             tbOwnerResidency.Text = selectedBoat.FKOwner.Country + ", " + selectedBoat.FKOwner.City + ", " + selectedBoat.FKOwner.Street + " " + selectedBoat.FKOwner.HouseNumber + ".";
-            //imgOwnerPicture = Image;
+
+            LoadUserDataService loadUserDataService = new LoadUserDataService(whoBorrowsEmail);
+
+            imgOwnerPicture.Tag = loadUserDataService.ResponseMessage["MemberImage"];
+            var uri = new Uri(Convert.ToString(imgOwnerPicture.Tag), UriKind.Absolute);
+            var bitmap = new BitmapImage(uri);
+            imgOwnerPicture.Source = bitmap;
+
 
             tbBoatName.Text = selectedBoat.BoatName;
             tbBoatPrice.Text = selectedBoat.DailyPrice.ToString();
@@ -77,6 +84,13 @@ namespace YachtKlub
             //imgBoatPicture = Image;
 
             e.Handled = true;
+        }
+
+        private BitmapImage LoadImage(string newFileName)
+        {
+            var uri = new Uri(System.AppDomain.CurrentDomain.BaseDirectory + "\\" + "resources" + "\\" + newFileName, UriKind.Absolute);
+            var bitmap = new BitmapImage(uri);
+            return bitmap;
         }
 
         private void dpStart_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
