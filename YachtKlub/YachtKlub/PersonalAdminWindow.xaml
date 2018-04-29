@@ -4,9 +4,8 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:YachtKlub"
-        mc:Ignorable="d"
-        
-         Height="510" Width="850" BorderBrush="#FF812626" Foreground="#FFBF9393" BorderThickness="5"  Background="#FFF5FFDB">
+        mc:Ignorable="d"     
+         Height="600" Width="900">
 
     <Grid>
         <!--Ebben az ablakban megnyitáskor minden ki van töltve, ahhoz, hogy a mentés sikeres legyen minden mezőnek ki kell lennie töltve..-->
@@ -54,30 +53,30 @@
         <TextBox x:Name="tbPasswordAgain"  HorizontalAlignment="Left" Visibility="Hidden" VerticalAlignment="Top" Margin="625,176,0,0" FontSize="12"  Width="170" Height="25" Background="#FFE2E2FF"/>
 
 
-        <Label x:Name="lbCountry" Content="Ország:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="66,224,0,0" FontSize="12"  Width="150" Height="25" />
-        <TextBox x:Name="tbCountry" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="218,224,0,0" FontSize="12"  Width="200" Height="25" Background="#FFE2E2FF" />
+        <Label x:Name="lbCountry" Content="Ország:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="66,294,0,0" FontSize="12"  Width="150" Height="25" />
+        <TextBox x:Name="tbCountry" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="218,294,0,0" FontSize="12"  Width="200" Height="25" Background="#FFE2E2FF" />
 
 
-        <Label x:Name="lbCity" Content="Város:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="520,223,0,0" FontSize="12"  Width="100" Height="26" />
-        <TextBox x:Name="tbCity" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="625,224,0,0" FontSize="12"  Width="175" Height="25" Background="#FFE2E2FF"/>
+        <Label x:Name="lbCity" Content="Város:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="520,294,0,0" FontSize="12"  Width="100" Height="26" />
+        <TextBox x:Name="tbCity" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="625,294,0,0" FontSize="12"  Width="175" Height="25" Background="#FFE2E2FF"/>
 
-        <Label x:Name="lbStreet" Content="Utca:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="66,284,0,0" FontSize="12"  Width="150" Height="25" />
-        <TextBox x:Name="tbStreet" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="218,284,0,0" FontSize="12"  Width="200" Height="25" Background="#FFE2E2FF"/>
+        <Label x:Name="lbStreet" Content="Utca:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="66,354,0,0" FontSize="12"  Width="150" Height="25" />
+        <TextBox x:Name="tbStreet" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="218,354,0,0" FontSize="12"  Width="200" Height="25" Background="#FFE2E2FF"/>
 
-        <Label x:Name="lbStreetNumber" Content="Házszám:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="520,284,0,0" FontSize="12"  Width="100" Height="26" />
-        <TextBox x:Name="tbStreetNumber" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="625,284,0,0" FontSize="12"  Width="175" Height="25" Background="#FFE2E2FF"/>
+        <Label x:Name="lbStreetNumber" Content="Házszám:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="520,354,0,0" FontSize="12"  Width="100" Height="26" />
+        <TextBox x:Name="tbStreetNumber" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="625,354,0,0" FontSize="12"  Width="175" Height="25" Background="#FFE2E2FF"/>
 
-        <Button x:Name="btBooking" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="41,408,0,0" FontSize="12"  Width="155" Height="25" Content="Hajó bérlés" Click="btBooking_Click" />
-        <Button x:Name="btMyShips" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="253,408,0,0" FontSize="12"  Width="165" Height="25" Content="Hajóim és eszközeim" Click="btMyShips_Click" />
+        <!--<Button x:Name="btBooking" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="41,408,0,0" FontSize="12"  Width="155" Height="25" Content="Hajó bérlés" Click="btBooking_Click" />
+        <Button x:Name="btMyShips" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="253,408,0,0" FontSize="12"  Width="165" Height="25" Content="Hajóim és eszközeim" Click="btMyShips_Click" />-->
 
-        <Button x:Name="btSave" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="520,358,0,0" FontSize="12"  Width="255" Height="25" Content="Adatok módosítása" Click="btSave_Click" />
-        <Button x:Name="btCancel" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="520,408,0,0" FontSize="12"  Width="255" Height="25" Content="Kilépés" Click="btCancel_Click" />
+        <Button x:Name="btSave" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,560,16,0" FontSize="12"  Width="255" Height="25" Content="Adatok módosítása" Click="btSave_Click" />
+        <!--<Button x:Name="btCancel" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="520,408,0,0" FontSize="12"  Width="255" Height="25" Content="Kilépés" Click="btCancel_Click" />
 
         <Button x:Name="btCloseAdminRegister" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="200,358,0,0" FontSize="12"  Width="25" Height="25" Content="X" Click="btCloseAdminRegister_Click" />
         <Button x:Name="btAdminRegiszter" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="41,358,0,0" FontSize="12"  Width="155" Height="25" Content="Felhasználó regisztrálása" Click="btAdminRegiszter_Click" />
         <Button Content="Új hajó regisztrálása" HorizontalAlignment="Left" VerticalAlignment="Top" Width="165" Height="25" Margin="253,318,0,0" Click="NewBoat_Click"/>
         <Button Content="Új szállítóeszköz regisztrálása" HorizontalAlignment="Left" VerticalAlignment="Top" Width="165" Height="25" Margin="253,378,0,0" Click="NewTransportDevice_Click"/>
-        <Button Name="btNotification" Content="Értesítések" HorizontalAlignment="Left" Height="25" Margin="253,348,0,0" VerticalAlignment="Top" Width="165" Click="Notification_Click"/>
+        <Button Name="btNotification" Content="Értesítések" HorizontalAlignment="Left" Height="25" Margin="253,348,0,0" VerticalAlignment="Top" Width="165" Click="Notification_Click"/>-->
 
 
 

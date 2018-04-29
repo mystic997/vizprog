@@ -38,13 +38,17 @@ namespace YachtKlub
                 imgProfilePicture.Source = bitmap;
 
                 lbUdvozlet.Content = "Üdvözöljük " + loadUserDataService.ResponseMessage["lastname"] + loadUserDataService.ResponseMessage["firstname"] + "!";
-                
+
+                welcome udv = new welcome();
+                spMenu.Children.Clear();
+                spMenu.Children.Add(udv);
 
             }
             catch (Exception ex)
             {
                 new ExceptionToConsole(ex);
             }
+
         }
         private void Window_MouseDown(object sender, MouseButtonEventArgs e) //az ablak mozgatásához kell
         {

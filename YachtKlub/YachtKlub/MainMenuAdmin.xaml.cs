@@ -39,6 +39,10 @@ namespace YachtKlub
 
                 lbUdvozlet.Content = "Üdvözöljük " + loadUserDataService.ResponseMessage["lastname"] + loadUserDataService.ResponseMessage["firstname"] + "!";
 
+                welcome udv = new welcome();
+                spMenu.Children.Clear();
+                spMenu.Children.Add(udv);
+
             }
             catch (Exception ex)
             {

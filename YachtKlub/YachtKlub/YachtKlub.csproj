@@ -148,6 +148,9 @@
     <Compile Include="validator\ValidationBase.cs" />
     <Compile Include="validator\ValidationResult.cs" />
     <Compile Include="validator\Validator.cs" />
+    <Compile Include="welcome.xaml.cs">
+      <DependentUpon>welcome.xaml</DependentUpon>
+    </Compile>
     <Page Include="BookableBoatsUC.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -235,6 +238,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="welcome.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MemberRegisterWindow.xaml.cs">
@@ -318,6 +325,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="resources\menu_admin_register.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="resources\menu_welcome.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

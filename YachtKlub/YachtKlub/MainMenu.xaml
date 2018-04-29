@@ -13,7 +13,7 @@
                 <GradientStop Color="#FF0882D3" Offset="1"/>
             </LinearGradientBrush>
         </Grid.Background>
-        <StackPanel x:Name="spMenu" HorizontalAlignment="Right" Width="900" Margin="0,60,0,0">
+        <StackPanel x:Name="spMenu" HorizontalAlignment="Right" Height="600" Width="900" Margin="0,60,10,33">
             <StackPanel.Background>
                 <ImageBrush ImageSource="resources/menu_bg.png"/>
             </StackPanel.Background>
@@ -33,7 +33,7 @@
         </Button>
         <!--<Image x:Name="imgLogout" HorizontalAlignment="Right" Height="30" Margin="0,15,10,0" VerticalAlignment="Top" Width="30" Source="resources/menu_logout.png"/>-->
 
-        <Grid HorizontalAlignment="Left" Margin="0" Width="240">
+        <Grid HorizontalAlignment="Left" Margin="0" Width="250">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="50"/>
                 <ColumnDefinition Width="190"/>
@@ -49,10 +49,10 @@
 
             <Image x:Name="imgLogo" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" Source="resources/login_logo.png" Grid.ColumnSpan="2"/>
 
-            <Button x:Name="btProfil" HorizontalAlignment="Right" Grid.Row="1" FontSize="20" Content="        Profilom" Background="#FFEFF9FF" Foreground="#FF72AED2" Width="240" Grid.ColumnSpan="2" Click="btProfil_Click"/>
-            <Button x:Name="btBooking" HorizontalAlignment="Right" Grid.Row="2" FontSize="20" Content="        Hajó foglalása" Background="#FFEFF9FF" Foreground="#FF72AED2" Width="240" Grid.ColumnSpan="2" Click="btBooking_Click"/>
-            <Button x:Name="btMyShips" HorizontalAlignment="Right" Grid.Row="3" FontSize="20" Content="         Hajóim és eszközeim" Background="#FFEFF9FF" Foreground="#FF72AED2" Width="240" Grid.ColumnSpan="2" Click="btMyShips_Click"/>
-            <Button x:Name="btNotifications" HorizontalAlignment="Right" Grid.Row="4" FontSize="20" Content="        Értesítéseim" Background="#FFEFF9FF" Foreground="#FF72AED2" Width="240" Grid.ColumnSpan="2" Click="btNotifications_Click"/>
+            <Button x:Name="btProfil" HorizontalAlignment="Right" Grid.Row="1" FontSize="20" Content="        Profilom" Background="#FFEFF9FF" Foreground="#FF72AED2" Width="250" Grid.ColumnSpan="2" Click="btProfil_Click"/>
+            <Button x:Name="btBooking" HorizontalAlignment="Right" Grid.Row="2" FontSize="20" Content="        Hajó foglalása" Background="#FFEFF9FF" Foreground="#FF72AED2" Width="250" Grid.ColumnSpan="2" Click="btBooking_Click"/>
+            <Button x:Name="btMyShips" HorizontalAlignment="Right" Grid.Row="3" FontSize="20" Content="         Hajóim és eszközeim" Background="#FFEFF9FF" Foreground="#FF72AED2" Width="250" Grid.ColumnSpan="2" Click="btMyShips_Click"/>
+            <Button x:Name="btNotifications" HorizontalAlignment="Right" Grid.Row="4" FontSize="20" Content="        Értesítéseim" Background="#FFEFF9FF" Foreground="#FF72AED2" Width="250" Grid.ColumnSpan="2" Click="btNotifications_Click"/>
             <!--
             Admin regisztráció:
             <Button x:Name="btRegister" HorizontalAlignment="Right" Grid.Row="5" FontSize="20" Content="Egyéb regisztrálása" Background="#FFEFF9FF" Foreground="#FF72AED2" Width="208"/>

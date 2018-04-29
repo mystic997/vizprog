@@ -35,7 +35,7 @@ namespace YachtKlub
 
             try
             {
-                btCloseAdminRegister.Visibility = Visibility.Hidden;
+                //btCloseAdminRegister.Visibility = Visibility.Hidden;
 
                 tbEmail.IsEnabled = false;
                 tbEmailAgain.IsEnabled = false;
@@ -107,14 +107,14 @@ namespace YachtKlub
 
                 if (btSave.Content.Equals("Adatok módosítása"))
                 {
-                    btAdminRegiszter.IsEnabled = false;
-                    btBooking.IsEnabled = false;
-                    btMyShips.IsEnabled = false;
+                    //btAdminRegiszter.IsEnabled = false;
+                    //btBooking.IsEnabled = false;
+                    //btMyShips.IsEnabled = false;
                     btSave.Content = "Változtatások mentése";
                     fields.ForEach(i => i.IsEnabled = true);
                     btChangePassword.IsEnabled = false;
-                    btMyShips.IsEnabled = false;
-                    btBooking.IsEnabled = false;
+                    //btMyShips.IsEnabled = false;
+                    //btBooking.IsEnabled = false;
                     btUploadProfilePicture.IsEnabled = true;
                 }
                 else
@@ -123,14 +123,14 @@ namespace YachtKlub
 
                     UpdateUserDataService updateUserService = new UpdateUserDataService(firstname, lastname, email, country, city, street, houseNumber, 0, picturePath); // 0 is admin
 
-                    btAdminRegiszter.IsEnabled = true;
-                    btBooking.IsEnabled = true;
-                    btMyShips.IsEnabled = true;
+                    //btAdminRegiszter.IsEnabled = true;
+                    //btBooking.IsEnabled = true;
+                    //btMyShips.IsEnabled = true;
                     btSave.Content = "Adatok módosítása";
                     fields.ForEach(i => i.IsEnabled = false);
                     btChangePassword.IsEnabled = true;
-                    btMyShips.IsEnabled = true;
-                    btBooking.IsEnabled = true;
+                    //btMyShips.IsEnabled = true;
+                    //btBooking.IsEnabled = true;
                     btUploadProfilePicture.IsEnabled = false;
                 }
             }
@@ -205,7 +205,7 @@ namespace YachtKlub
                     permission = 0;
                 }
 
-                if (btAdminRegiszter.Content.Equals("Felhasználó regisztrálása"))
+                /*if (btAdminRegiszter.Content.Equals("Felhasználó regisztrálása"))
                 {
                     btSave.IsEnabled = false;
                     btBooking.IsEnabled = false;
@@ -230,7 +230,7 @@ namespace YachtKlub
                     var bitmap = new BitmapImage(uri);
                     imgProfilePicture.Source = bitmap;
                     btUploadProfilePicture.IsEnabled = true;
-                    btCloseAdminRegister.Visibility = Visibility.Visible;
+                    //btCloseAdminRegister.Visibility = Visibility.Visible;
                 }
                 else
                 {
@@ -253,10 +253,10 @@ namespace YachtKlub
                     lbEmailAgain.Visibility = Visibility.Hidden;
                     btUploadProfilePicture.IsEnabled = false;
 
-                    btCloseAdminRegister.Visibility = Visibility.Hidden;
+                    ///btCloseAdminRegister.Visibility = Visibility.Hidden;
 
                     fillFieldsWithUserData(adminEmain);
-                }
+                }*/
             }
             catch (Exception ex)
             {
@@ -267,15 +267,15 @@ namespace YachtKlub
         private void btCloseAdminRegister_Click(object sender, RoutedEventArgs e)
         {
             btSave.IsEnabled = true;
-            btAdminRegiszter.Content = "Felhasználó regisztrálása";
+            //btAdminRegiszter.Content = "Felhasználó regisztrálása";
             fields.ForEach(i => i.IsEnabled = false);
             cbPermission.IsEnabled = false;
             tbEmail.IsEnabled = false;
             tbEmailAgain.IsEnabled = false;
 
             btChangePassword.Visibility = Visibility.Visible;
-            btBooking.IsEnabled = true;
-            btMyShips.IsEnabled = true;
+            //btBooking.IsEnabled = true;
+            //btMyShips.IsEnabled = true;
             lbPassword.Visibility = Visibility.Hidden;
             tbPassword.Visibility = Visibility.Hidden;
             lbPasswordAgain.Visibility = Visibility.Hidden;
@@ -284,7 +284,7 @@ namespace YachtKlub
             lbEmailAgain.Visibility = Visibility.Hidden;
             btUploadProfilePicture.IsEnabled = false;
 
-            btCloseAdminRegister.Visibility = Visibility.Hidden;
+            //btCloseAdminRegister.Visibility = Visibility.Hidden;
 
             fillFieldsWithUserData(adminEmain);
         }

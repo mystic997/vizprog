@@ -12,51 +12,51 @@
             <Image x:Name="imgBoatPicture" HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="100" Canvas.Left="133" Canvas.Top="277"/>
 
             <Label x:Name="lbBoatName" Content="Név:" HorizontalAlignment="Left" FontSize="12" VerticalAlignment="Top"/>
-            <TextBox x:Name="tbBoatName" HorizontalAlignment="Right" VerticalAlignment="Top" FontSize="12"  Width="304" Height="25" Canvas.Left="92" Canvas.Top="2" />
+            <TextBox x:Name="tbBoatName" HorizontalAlignment="Right" VerticalAlignment="Top" FontSize="12"  Width="304" Height="25" Canvas.Left="92" Canvas.Top="2" Background="#FFEBEBFF"/>
 
             <Label x:Name="lbBoatPrice" Content="Ár:" HorizontalAlignment="Left" FontSize="12" VerticalAlignment="Top" Canvas.Top="38"/>
-            <TextBox x:Name="tbBoatPrice" HorizontalAlignment="Right" VerticalAlignment="Top" FontSize="12"  Width="65" Height="25" Canvas.Left="92" Canvas.Top="40" />
+            <TextBox x:Name="tbBoatPrice" HorizontalAlignment="Right" VerticalAlignment="Top" FontSize="12"  Width="65" Height="25" Canvas.Left="92" Canvas.Top="40" Background="#FFEBEBFF"/>
             <Label x:Name="lbPrice" Content="Ft/nap&#xA;" HorizontalAlignment="Left" VerticalAlignment="Top" Width="48" Height="25" Canvas.Left="157" Canvas.Top="38"/>
 
             <Label x:Name="lbBoatType" Content="Típus:" HorizontalAlignment="Left" FontSize="12" VerticalAlignment="Top" Canvas.Top="76"/>
-            <TextBox x:Name="tbBoatType" HorizontalAlignment="Right" VerticalAlignment="Top" FontSize="12"  Width="304" Height="25" Canvas.Left="92" Canvas.Top="78" />
+            <TextBox x:Name="tbBoatType" HorizontalAlignment="Right" VerticalAlignment="Top" FontSize="12"  Width="304" Height="25" Canvas.Left="92" Canvas.Top="78" Background="#FFEBEBFF"/>
 
             <Label x:Name="lbBoatConsumption" Content="Fogyasztás:" HorizontalAlignment="Left" FontSize="12" VerticalAlignment="Top" Canvas.Left="215" Canvas.Top="38"/>
-            <TextBox x:Name="tbBoatConsumption" HorizontalAlignment="Right" VerticalAlignment="Top" FontSize="12"  Width="65" Height="25" Canvas.Left="288" Canvas.Top="40" />
+            <TextBox x:Name="tbBoatConsumption" HorizontalAlignment="Right" VerticalAlignment="Top" FontSize="12"  Width="65" Height="25" Canvas.Left="288" Canvas.Top="40" Background="#FFEBEBFF"/>
             <Label x:Name="lbConsumption" Content="l/h" HorizontalAlignment="Left" VerticalAlignment="Top" Width="35" Height="25" Canvas.Left="353" Canvas.Top="38"/>
 
             <Label x:Name="lbBoatManpower" Content="Max. létszám:" HorizontalAlignment="Left" FontSize="12" VerticalAlignment="Top" Canvas.Top="114"/>
-            <TextBox x:Name="tbBoatManpower" HorizontalAlignment="Right" VerticalAlignment="Top" FontSize="12"  Width="65" Height="25" Canvas.Left="92" Canvas.Top="116" />
+            <TextBox x:Name="tbBoatManpower" HorizontalAlignment="Right" VerticalAlignment="Top" FontSize="12"  Width="65" Height="25" Canvas.Left="92" Canvas.Top="116" Background="#FFEBEBFF"/>
             <Label x:Name="lbManpower" Content="fő" HorizontalAlignment="Left" VerticalAlignment="Top" Width="48" Height="30" Canvas.Left="157" Canvas.Top="114"/>
 
             <Label x:Name="lbBoatSpeed" Content="Max. sebesség:" HorizontalAlignment="Left" FontSize="12" VerticalAlignment="Top" Canvas.Left="196" Canvas.Top="114"/>
-            <TextBox x:Name="tbBoatSpeed" HorizontalAlignment="Right" VerticalAlignment="Top" FontSize="12"  Width="65" Height="25" RenderTransformOrigin="0.162,0.56" Canvas.Left="288" Canvas.Top="115" />
+            <TextBox x:Name="tbBoatSpeed" HorizontalAlignment="Right" VerticalAlignment="Top" FontSize="12"  Width="65" Height="25" RenderTransformOrigin="0.162,0.56" Canvas.Left="288" Canvas.Top="115" Background="#FFEBEBFF"/>
             <Label x:Name="lbSpeed" Content="km/h" HorizontalAlignment="Left" VerticalAlignment="Top" Width="51" Height="25" Canvas.Left="353" Canvas.Top="114"/>
 
             <Label x:Name="lbBoatWidth" Content="Szélesség:" HorizontalAlignment="Left" FontSize="12" VerticalAlignment="Top" Canvas.Top="152"/>
-            <TextBox x:Name="tbBoatWidth" HorizontalAlignment="Right" VerticalAlignment="Top" FontSize="12"  Width="65" Height="25" Canvas.Left="92" Canvas.Top="154" />
+            <TextBox x:Name="tbBoatWidth" HorizontalAlignment="Right" VerticalAlignment="Top" FontSize="12"  Width="65" Height="25" Canvas.Left="92" Canvas.Top="154" Background="#FFEBEBFF"/>
             <Label x:Name="lbWidth" Content="m" HorizontalAlignment="Left" VerticalAlignment="Top" Width="51" Height="25" Canvas.Left="157" Canvas.Top="154"/>
 
             <Label x:Name="lbBoatLenght" Content="Hosszúság:" HorizontalAlignment="Left" FontSize="12" VerticalAlignment="Top" Canvas.Left="214" Canvas.Top="153"/>
-            <TextBox x:Name="tbBoatLenght" HorizontalAlignment="Right" VerticalAlignment="Top" FontSize="12"  Width="65" Height="25" Canvas.Left="288" Canvas.Top="154" />
+            <TextBox x:Name="tbBoatLenght" HorizontalAlignment="Right" VerticalAlignment="Top" FontSize="12"  Width="65" Height="25" Canvas.Left="288" Canvas.Top="154" Background="#FFEBEBFF"/>
             <Label x:Name="lbLenght" Content="m" HorizontalAlignment="Left" VerticalAlignment="Top" Width="51" Height="25" Canvas.Left="353" Canvas.Top="154"/>
 
             <Label x:Name="lbBoatYear" Content="Gyártási év:" HorizontalAlignment="Left" FontSize="12" VerticalAlignment="Top" Canvas.Top="190"/>
-            <TextBox x:Name="tbBoatYear" HorizontalAlignment="Right" VerticalAlignment="Top" FontSize="12"  Width="65" Height="25" Canvas.Left="92" Canvas.Top="192" />
+            <TextBox x:Name="tbBoatYear" HorizontalAlignment="Right" VerticalAlignment="Top" FontSize="12"  Width="65" Height="25" Canvas.Left="92" Canvas.Top="192" Background="#FFEBEBFF"/>
 
             <Label x:Name="lbBoatDept" Content="Merülési mélység:" HorizontalAlignment="Left" FontSize="12" VerticalAlignment="Top" Width="107" Canvas.Left="178" Canvas.Top="190"/>
-            <TextBox x:Name="tbBoatDept" HorizontalAlignment="Right" VerticalAlignment="Top" FontSize="12"  Width="65" Height="25" Canvas.Left="288" Canvas.Top="190" />
+            <TextBox x:Name="tbBoatDept" HorizontalAlignment="Right" VerticalAlignment="Top" FontSize="12"  Width="65" Height="25" Canvas.Left="288" Canvas.Top="190" Background="#FFEBEBFF"/>
             <Label x:Name="lbDepth" Content="m" HorizontalAlignment="Left" VerticalAlignment="Top" Width="51" Height="25" Canvas.Left="353" Canvas.Top="190"/>
 
             <Label x:Name="lbBoatPlace" Content="Tartózkodási helye:" HorizontalAlignment="Left" FontSize="12" VerticalAlignment="Top" Canvas.Top="228"/>
-            <TextBox x:Name="tbBoatPlace" HorizontalAlignment="Right" VerticalAlignment="Top" FontSize="12"  Width="281" Height="25" Canvas.Left="115" Canvas.Top="229" />
+            <TextBox x:Name="tbBoatPlace" HorizontalAlignment="Right" VerticalAlignment="Top" FontSize="12"  Width="281" Height="25" Canvas.Left="115" Canvas.Top="229" Background="#FFEBEBFF"/>
             <Button x:Name="btUploadPic" Content="Kép feltöltése" Height="25" Canvas.Left="288" Canvas.Top="277" Width="100" Click="btUploadPicture_Click"/>
             <Label Content="Ha új képet töltesz &#xD;&#xA;fel, akkor az előző&#xA;törlésre kerül!" Height="60" FontSize="11" Canvas.Left="288" Canvas.Top="312" Width="100" FontStyle="Italic"/>
 
         </Canvas>
         <!--<Button x:Name="btExit" Content="Kilépés" HorizontalAlignment="Left" Height="25" Margin="744,524,0,0" VerticalAlignment="Top" Width="100" Click="Exit_Click"/>-->
         <StackPanel x:Name="spMyBoatsUC" HorizontalAlignment="Left" Height="430" VerticalAlignment="Top" Width="200" Margin="48,84,0,0" >
-            <ListView x:Name="lvBoats" Height="430" Margin="0,0,0.4,0" Width="200">
+            <ListView x:Name="lvBoats" Height="430" Margin="0,0,0.4,0" Width="200" Background="#FFEBEBFF">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <Grid Height="40">
@@ -78,7 +78,7 @@
         </StackPanel>
         <!--Selector.SelectionChanged="SelectionChanged"-->
         <StackPanel x:Name="spMyDevicesUC" HorizontalAlignment="Left" Height="430" VerticalAlignment="Top" Width="200" Margin="694,84,0,0">
-            <ListView x:Name="lvTransports" Height="426" Margin="0,0,0.4,0">
+            <ListView x:Name="lvTransports" Height="426" Margin="0,0,0.4,0" Background="#FFEBEBFF">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <Grid Height="40">
