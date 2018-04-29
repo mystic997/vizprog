@@ -11,10 +11,16 @@ namespace YachtKlub.entity
     [Table("RentRequests")]
     class RentRequestsEntity
     {
-        [Column("startingDate", TypeName = "Date", Order = 0)]
+        [Column("boatRentalsId", Order = 0)]
+        [StringLength(150)]
         [Key]
         [Required]
+        public string BoatRentalsId { get; set; }
+        [Column("startingDate", TypeName = "Date", Order = 2)]
+
         public DateTime StartingDate { get; set; }
+
+
 
         [Column("endDate", TypeName = "Date", Order = 1)]
         [Key]

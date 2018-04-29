@@ -100,5 +100,16 @@ namespace YachtKlub
         {
             //this.Close();
         }
+
+        private void btAccept_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btDecline_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
     }
 }
