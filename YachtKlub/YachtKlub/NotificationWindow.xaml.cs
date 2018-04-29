@@ -22,7 +22,11 @@ namespace YachtKlub
     /// </summary>
     public partial class NotificationWindow : UserControl
     {
+        DatabaseContext dbc;
+
         string email;
+        RentRequestsEntity GlobalRequest;
+
         public NotificationWindow(string email)
         {
             InitializeComponent();
@@ -40,6 +44,7 @@ namespace YachtKlub
                 {
                     if (Requests.HowManyPersonWillTravel > 0)
                     {
+                        GlobalRequest = Requests;
                         lbNotification.Visibility = Visibility.Hidden;
                         btAccept.Visibility = Visibility.Visible;
                         btDecline.Visibility = Visibility.Visible;
@@ -72,7 +77,14 @@ namespace YachtKlub
                         tbBoatWidth.Text = Hajok.BoatWidth.ToString();
                         tbBoatLenght.Text = Hajok.BoatLength.ToString();
                         tbBoatYear.Text = Hajok.YearOfManufacture.ToString();
-                        
+
+
+                        LoadUserDataService loadUserDataService = new LoadUserDataService(email);
+
+                        imgRenterPicture.Tag = loadUserDataService.ResponseMessage["MemberImage"];
+                        var uri = new Uri(Convert.ToString(imgRenterPicture.Tag), UriKind.Absolute);
+                        var bitmap = new BitmapImage(uri);
+                        imgRenterPicture.Source = bitmap;
 
                         LoadSelectedBoatService loadSelectedBoatService = new LoadSelectedBoatService(Convert.ToString(Requests.BoatToBorrow.BoatId));
                         imgBoatPicture.Source = LoadImage(loadSelectedBoatService.ResponseMessage["BoatImage"]);
@@ -103,13 +115,34 @@ namespace YachtKlub
 
         private void btAccept_Click(object sender, RoutedEventArgs e)
         {
+            BoatRentalsEntity boatRentalsEntity = new BoatRentalsEntity();
+            boatRentalsEntity.BoatRentalsId = generateID();
+            boatRentalsEntity.EndDate = GlobalRequest.EndDate;
+            boatRentalsEntity.FKRentedBoat = GlobalRequest.BoatToBorrow;
+            boatRentalsEntity.FKRentedDevice = GlobalRequest.DeviceToBorrow;
+            boatRentalsEntity.FKWhoRents = GlobalRequest.WhoBorrows;
+            boatRentalsEntity.FromWhere = GlobalRequest.FromWhere;
+            boatRentalsEntity.HowManyPersonWillTravel = GlobalRequest.HowManyPersonWillTravel;
+            boatRentalsEntity.StartingDate = GlobalRequest.StartingDate;
+            boatRentalsEntity.ToWhere = GlobalRequest.ToWhere;
 
+            dbc = AliveContext.Context;
+            AcceptRequesttService acceptRequesttService = new AcceptRequesttService(ref boatRentalsEntity);
+
+            //következő kérés betöltése
         }
 
         private void btDecline_Click(object sender, RoutedEventArgs e)
         {
 
-        }
+            dbc = AliveContext.Context;
+            dbc.RentRequests.Remove(GlobalRequest);
+            //következő kérés betöltése
 
+        }
+        public string generateID()
+        {
+            return Guid.NewGuid().ToString("N");
+        }
     }
 }

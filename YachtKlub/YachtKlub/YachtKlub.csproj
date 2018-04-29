@@ -110,6 +110,7 @@
     <Compile Include="RegisterUC.xaml.cs">
       <DependentUpon>RegisterUC.xaml</DependentUpon>
     </Compile>
+    <Compile Include="service\AcceptRequesttService.cs" />
     <Compile Include="service\BookingService.cs" />
     <Compile Include="service\LoadBookableBoatsService.cs" />
     <Compile Include="service\LoadMyBoatsService.cs" />
