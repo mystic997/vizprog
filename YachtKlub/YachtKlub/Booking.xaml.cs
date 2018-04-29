@@ -21,7 +21,7 @@ namespace YachtKlub
     /// <summary>
     /// Interaction logic for Booking.xaml
     /// </summary>
-    public partial class Booking : Window
+    public partial class Booking : UserControl
     {
         private DateTime startingDate;
         private DateTime endingDate;
@@ -111,7 +111,7 @@ namespace YachtKlub
 
         private void btBack_Click(object sender, RoutedEventArgs e)
         {
-            this.Close();
+            //this.Close();
         }
 
         private void btBook_Click(object sender, RoutedEventArgs e)

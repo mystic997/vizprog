@@ -318,7 +318,7 @@ namespace YachtKlub
         private void btBooking_Click(object sender, RoutedEventArgs e)
         {
             Booking ToBooking = new Booking(adminEmain);
-            ToBooking.Show();
+            //ToBooking.Show();
         }
 
         private void btMyShips_Click(object sender, RoutedEventArgs e)
@@ -353,7 +353,7 @@ namespace YachtKlub
         private void Notification_Click(object sender, RoutedEventArgs e)
         {
             NotificationWindow ToNotificationWindow = new NotificationWindow(adminEmain);
-            ToNotificationWindow.Show();
+            //ToNotificationWindow.Show();
         }
     }
 }

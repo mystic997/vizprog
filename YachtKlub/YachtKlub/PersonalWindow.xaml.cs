@@ -22,7 +22,7 @@ namespace YachtKlub
     /// </summary>
     /// 
 
-    public partial class PersonalWindow : Window
+    public partial class PersonalWindow : UserControl
     {
         List<TextBox> fields;
         private string email;
@@ -78,7 +78,7 @@ namespace YachtKlub
         {
             LoginWindow ToLoginWindow = new LoginWindow();
             ToLoginWindow.Show();
-            this.Close();
+            //this.Close();
         }
 
         private void btSave_Click(object sender, RoutedEventArgs e)
@@ -179,12 +179,12 @@ namespace YachtKlub
         private void btBooking_Click(object sender, RoutedEventArgs e)
         {
             Booking ToBooking = new Booking(email);
-            ToBooking.Show();
+            //ToBooking.Show();
         }
         private void Notification_Click(object sender, RoutedEventArgs e)
         {
             NotificationWindow ToNotificationWindow = new NotificationWindow(email);
-            ToNotificationWindow.Show();
+           // ToNotificationWindow.Show();
         }
         public string generateID()
         {

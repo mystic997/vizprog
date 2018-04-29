@@ -1,11 +1,11 @@
-﻿<Window x:Class="YachtKlub.PersonalWindow"
+﻿<UserControl x:Class="YachtKlub.PersonalWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:YachtKlub"
         mc:Ignorable="d"
-        Title="Személyes adatok" Height="510" Width="850" ResizeMode="CanMinimize">
+        Height="600" Width="900">
     <Grid>
         <!--Ebben az ablakban megnyitáskor minden ki van töltve, ahhoz, hogy a mentés sikeres legyen minden mezőnek ki kell lennie töltve..-->
         <!--Ha megnyomjuk a mégse gombot akkor visszakerülünk az Accountképernyőre mentés nélkül.-->
@@ -49,4 +49,4 @@
         <Button Content="Értesítések" HorizontalAlignment="Left" Height="25" Margin="200,358,0,0" VerticalAlignment="Top" Width="165" Click="Notification_Click"/>
 
     </Grid>
-</Window>
+</UserControl>

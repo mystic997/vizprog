@@ -20,7 +20,7 @@ namespace YachtKlub
     /// <summary>
     /// Interaction logic for NotificationWindow.xaml
     /// </summary>
-    public partial class NotificationWindow : Window
+    public partial class NotificationWindow : UserControl
     {
         string email;
         public NotificationWindow(string email)
@@ -98,7 +98,7 @@ namespace YachtKlub
 
         private void btClose_Click(object sender, RoutedEventArgs e)
         {
-            this.Close();
+            //this.Close();
         }
     }
 }

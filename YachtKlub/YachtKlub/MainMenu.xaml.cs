@@ -45,7 +45,9 @@ namespace YachtKlub
 
         private void btProfil_Click(object sender, RoutedEventArgs e)
         {
-
+            PersonalWindow profilom = new PersonalWindow(email);
+            spMenu.Children.Clear();
+            spMenu.Children.Add(profilom);
         }
 
         private void btLogout_Click(object sender, RoutedEventArgs e)
@@ -60,6 +62,25 @@ namespace YachtKlub
             MyBoatsAndDevicesWindow hajoim = new MyBoatsAndDevicesWindow(email);
             spMenu.Children.Clear();
             spMenu.Children.Add(hajoim);
+        }
+
+        private void btBooking_Click(object sender, RoutedEventArgs e)
+        {
+            Booking foglalas = new Booking(email);
+            spMenu.Children.Clear();
+            spMenu.Children.Add(foglalas);
+        }
+
+        private void btMyBooks_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btNotifications_Click(object sender, RoutedEventArgs e)
+        {
+            NotificationWindow ertesitesek = new NotificationWindow(email);
+            spMenu.Children.Clear();
+            spMenu.Children.Add(ertesitesek);
         }
     }
 }

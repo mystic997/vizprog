@@ -1,11 +1,11 @@
-﻿<Window x:Class="YachtKlub.Booking"
+﻿<UserControl x:Class="YachtKlub.Booking"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:YachtKlub"
         mc:Ignorable="d"
-        Title="Bérlés" Height="600" Width="900" ResizeMode="CanMinimize">
+        Height="600" Width="900">
     <Grid>
         
         <Label  x:Name="lbBookableBoats" Content="Foglalható hajók:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="30,100,0,0" FontSize="13"  Width="110" Height="30" />
@@ -94,4 +94,4 @@
         <TextBox x:Name="tbToPlace" HorizontalAlignment="Left" Height="25" Margin="637,65,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="130"/>
         <TextBox x:Name="tbNumberOfPerson" HorizontalAlignment="Left" Height="25" Margin="794,65,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="65"/>
     </Grid>
-</Window>
+</UserControl>
