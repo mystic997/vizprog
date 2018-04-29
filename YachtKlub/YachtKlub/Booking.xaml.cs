@@ -81,6 +81,12 @@ namespace YachtKlub
             tbBoatDept.Text = selectedBoat.DiveDepth.ToString();
             tbBoatPlace.Text = selectedBoat.WhereIsNowTheBoat;
 
+            LoadSelectedBoatService loadSelectedBoatService = new LoadSelectedBoatService(selectedBoat.BoatId.ToString());
+
+
+            imgBoatPicture.Source = LoadImage(loadSelectedBoatService.ResponseMessage["BoatImage"]);
+            imgBoatPicture.Tag = loadSelectedBoatService.ResponseMessage["BoatImage"];
+
             //imgBoatPicture = Image;
 
             e.Handled = true;
