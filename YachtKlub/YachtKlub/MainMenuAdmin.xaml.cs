@@ -27,6 +27,7 @@ namespace YachtKlub
         {
             InitializeComponent();
             this.adminEmain = email;
+            MouseDown += Window_MouseDown; //az ablak mozgatásához kell
 
             try
             {
@@ -36,11 +37,18 @@ namespace YachtKlub
                 var bitmap = new BitmapImage(uri);
                 imgProfilePicture.Source = bitmap;
 
+                lbUdvozlet.Content = "Üdvözöljük " + loadUserDataService.ResponseMessage["lastname"] + loadUserDataService.ResponseMessage["firstname"] + "!";
+
             }
             catch (Exception ex)
             {
                 new ExceptionToConsole(ex);
             }
+        }
+        private void Window_MouseDown(object sender, MouseButtonEventArgs e) //az ablak mozgatásához kell
+        {
+            if (e.ChangedButton == MouseButton.Left)
+                DragMove();
         }
 
         private void btProfil_Click(object sender, RoutedEventArgs e)

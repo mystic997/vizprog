@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:YachtKlub"
         mc:Ignorable="d"
-        Title="Yacht Club" Height="693" Width="1155" Icon="resources/favicon.ico" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+        Title="Yacht Club" Height="693" Width="1155" WindowStyle="None" Icon="resources/favicon.ico" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.Background>
             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">

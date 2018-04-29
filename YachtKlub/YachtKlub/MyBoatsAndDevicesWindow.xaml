@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Height="600" Width="900">
     <Grid>
-        <Canvas x:Name="Boat" Margin="250,110,238,83">
+        <Canvas x:Name="Boat" Margin="270,110,230,83" Background="#7FE0E0E0">
             <Label x:Name="lbBoatPicture" Content="A hajó/eszköz képe:" HorizontalAlignment="Left" FontSize="12" VerticalAlignment="Top" Canvas.Top="304"/>
             <Image x:Name="imgBoatPicture" HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="100" Canvas.Left="133" Canvas.Top="277"/>
 
@@ -27,7 +27,7 @@
 
             <Label x:Name="lbBoatManpower" Content="Max. létszám:" HorizontalAlignment="Left" FontSize="12" VerticalAlignment="Top" Canvas.Top="114"/>
             <TextBox x:Name="tbBoatManpower" HorizontalAlignment="Right" VerticalAlignment="Top" FontSize="12"  Width="65" Height="25" Canvas.Left="92" Canvas.Top="116" />
-            <Label x:Name="lbManpower" Content="fő" HorizontalAlignment="Left" VerticalAlignment="Top" Width="48" Height="25" Canvas.Left="157" Canvas.Top="114"/>
+            <Label x:Name="lbManpower" Content="fő" HorizontalAlignment="Left" VerticalAlignment="Top" Width="48" Height="30" Canvas.Left="157" Canvas.Top="114"/>
 
             <Label x:Name="lbBoatSpeed" Content="Max. sebesség:" HorizontalAlignment="Left" FontSize="12" VerticalAlignment="Top" Canvas.Left="196" Canvas.Top="114"/>
             <TextBox x:Name="tbBoatSpeed" HorizontalAlignment="Right" VerticalAlignment="Top" FontSize="12"  Width="65" Height="25" RenderTransformOrigin="0.162,0.56" Canvas.Left="288" Canvas.Top="115" />
@@ -54,9 +54,9 @@
             <Label Content="Ha új képet töltesz &#xD;&#xA;fel, akkor az előző&#xA;törlésre kerül!" Height="60" FontSize="11" Canvas.Left="288" Canvas.Top="312" Width="100" FontStyle="Italic"/>
 
         </Canvas>
-        <Button x:Name="btExit" Content="Kilépés" HorizontalAlignment="Left" Height="25" Margin="744,524,0,0" VerticalAlignment="Top" Width="100" Click="Exit_Click"/>
-        <StackPanel x:Name="spMyBoatsUC" HorizontalAlignment="Left" Height="429" VerticalAlignment="Top" Width="150" Margin="48,84,0,0" >
-            <ListView x:Name="lvBoats" Height="426" Margin="0,0,0.4,0">
+        <!--<Button x:Name="btExit" Content="Kilépés" HorizontalAlignment="Left" Height="25" Margin="744,524,0,0" VerticalAlignment="Top" Width="100" Click="Exit_Click"/>-->
+        <StackPanel x:Name="spMyBoatsUC" HorizontalAlignment="Left" Height="430" VerticalAlignment="Top" Width="200" Margin="48,84,0,0" >
+            <ListView x:Name="lvBoats" Height="430" Margin="0,0,0.4,0" Width="200">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <Grid Height="40">
@@ -77,7 +77,7 @@
             </ListView>
         </StackPanel>
         <!--Selector.SelectionChanged="SelectionChanged"-->
-        <StackPanel x:Name="spMyDevicesUC" HorizontalAlignment="Left" Height="429" VerticalAlignment="Top" Width="150" Margin="694,84,0,0">
+        <StackPanel x:Name="spMyDevicesUC" HorizontalAlignment="Left" Height="430" VerticalAlignment="Top" Width="200" Margin="694,84,0,0">
             <ListView x:Name="lvTransports" Height="426" Margin="0,0,0.4,0">
                 <ListView.ItemTemplate>
                     <DataTemplate>
@@ -101,11 +101,11 @@
         <!--Selector.SelectionChanged="SelectionChanged"-->
         <Label Content="Hajóim:" FontSize="15" HorizontalAlignment="Left" Height="30" Margin="48,54,0,0" VerticalAlignment="Top" Width="128"/>
         <Label Content="Eszközeim:" FontSize="15" HorizontalAlignment="Left" Height="30" Margin="694,54,0,0" VerticalAlignment="Top" Width="90"/>
-        <Button  x:Name="btSave" Content="Mentés" HorizontalAlignment="Left" Height="25" Margin="440,524,0,0" VerticalAlignment="Top" Width="100" Click="Save_Click"/>
-        <Button  x:Name="btModify" Content="Módosítás" HorizontalAlignment="Left" Height="25" Margin="590,524,0,0" VerticalAlignment="Top" Width="100" Click="Modify_Click"/>
-        <Button  x:Name="btStatistics" Content="Statisztika" HorizontalAlignment="Left" Height="25" Margin="325,524,0,0" VerticalAlignment="Top" Width="100" Click="btStatistics_Click"/>
-        <Button Content="Új hajó regisztrálása" HorizontalAlignment="Left" VerticalAlignment="Top" Width="114" Height="25" Margin="48,524,0,0" Click="NewBoat_Click"/>
-        <Button Content="Új szállító regisztrálása" HorizontalAlignment="Left" VerticalAlignment="Top" Width="124" Height="25" Margin="181,524,0,0" Click="NewTransportDevice_Click"/>
+        <Button  x:Name="btSave" Content="Mentés" HorizontalAlignment="Left" Height="25" Margin="400,524,0,0" VerticalAlignment="Top" Width="100" Click="Save_Click"/>
+        <Button  x:Name="btModify" Content="Módosítás" HorizontalAlignment="Left" Height="25" Margin="570,524,0,0" VerticalAlignment="Top" Width="100" Click="Modify_Click"/>
+        <Button  x:Name="btStatistics" Content="Statisztika" HorizontalAlignment="Left" Height="25" Margin="270,524,0,0" VerticalAlignment="Top" Width="100" Click="btStatistics_Click"/>
+        <!--<Button Content="Új hajó regisztrálása" HorizontalAlignment="Left" VerticalAlignment="Top" Width="114" Height="25" Margin="48,524,0,0" Click="NewBoat_Click"/>
+        <Button Content="Új szállító regisztrálása" HorizontalAlignment="Left" VerticalAlignment="Top" Width="124" Height="25" Margin="181,524,0,0" Click="NewTransportDevice_Click"/>-->
         <CheckBox x:Name="tbIsLoan" HorizontalAlignment="Right" VerticalAlignment="Top" FontSize="12"  Width="16" Height="14" RenderTransformOrigin="0.162,0.56"  Margin="0,491,271.6,0" />
         <Label x:Name="lbIsLoan" Content="Bérelhető" HorizontalAlignment="Left" FontSize="12" VerticalAlignment="Top" Margin="540,487,0,0"/>
 

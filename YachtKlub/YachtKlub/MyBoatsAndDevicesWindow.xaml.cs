@@ -96,7 +96,7 @@ namespace YachtKlub
             btfields.Add(btModify);
             btfields.Add(btSave);
             btfields.Add(btUploadPic);
-            btfields.Add(btExit);
+            //btfields.Add(btExit);
 
             btfields.ForEach(i => i.IsEnabled = false);
 
@@ -106,7 +106,7 @@ namespace YachtKlub
 
             lvfields.ForEach(i => i.IsEnabled = true);
 
-            btExit.IsEnabled = true;
+            //btExit.IsEnabled = true;
             btModify.IsEnabled = false;
 
             tbIsLoan.IsEnabled = false;
@@ -157,8 +157,8 @@ namespace YachtKlub
                 /*Módosítások előtti adatok visszatöltése*/
                 lvfields.ForEach(i => i.IsEnabled = true);
                 btModify.IsEnabled = true;
-                btExit.IsEnabled = true;
-                btExit.Content = "Kilépés";
+                //btExit.IsEnabled = true;
+                //btExit.Content = "Kilépés";
             }
             else
             {
@@ -177,8 +177,8 @@ namespace YachtKlub
             tbIsLoan.IsEnabled = true;
             btUploadPic.IsEnabled = true;
             btSave.IsEnabled = true;
-            btExit.IsEnabled = true;
-            btExit.Content = "Vissza";
+            //btExit.IsEnabled = true;
+            //btExit.Content = "Vissza";
         }
 
 
@@ -192,8 +192,8 @@ namespace YachtKlub
             /*Adatmódosítás kódja*/
             lvfields.ForEach(i => i.IsEnabled = true);
             btModify.IsEnabled = true;
-            btExit.IsEnabled = true;
-            btExit.Content = "Kilépés";
+            //btExit.IsEnabled = true;
+            //btExit.Content = "Kilépés";
             if (boatClicked)
             {
                 Validator registerValidator = new Validator();
@@ -338,7 +338,7 @@ namespace YachtKlub
 
             lbPrice.Visibility = Visibility.Hidden;
             lbBoatManpower.Content = "Kapacitás";
-            lbManpower.Content = "Kg";
+            lbManpower.Content = "kg";
 
             btStatistics.IsEnabled = true;
 

@@ -100,8 +100,8 @@ namespace YachtKlub
                     fields.ForEach(i => i.IsEnabled = true);
                     btChangePassword.IsEnabled = false;
                     btUploadProfilePicture.IsEnabled = true;
-                    btMyShips.IsEnabled = false;
-                    btBooking.IsEnabled = false;
+                    //btMyShips.IsEnabled = false;
+                    //btBooking.IsEnabled = false;
                 }
                 else
                 {
@@ -113,8 +113,8 @@ namespace YachtKlub
                     fields.ForEach(i => i.IsEnabled = false);
                     btChangePassword.IsEnabled = true;
                     btUploadProfilePicture.IsEnabled = false;
-                    btMyShips.IsEnabled = true;
-                    btBooking.IsEnabled = true;
+                    //btMyShips.IsEnabled = true;
+                   // btBooking.IsEnabled = true;
                 }
             }
             catch (Exception ex)
@@ -171,21 +171,9 @@ namespace YachtKlub
 
             }
         }
-        private void btMyShips_Click(object sender, RoutedEventArgs e)
-        {
-            MyBoatsAndDevicesWindow ToMyBoatsAndDevicesWindow = new MyBoatsAndDevicesWindow(email);
-            //ToMyBoatsAndDevicesWindow.Show();
-        }
-        private void btBooking_Click(object sender, RoutedEventArgs e)
-        {
-            Booking ToBooking = new Booking(email);
-            //ToBooking.Show();
-        }
-        private void Notification_Click(object sender, RoutedEventArgs e)
-        {
-            NotificationWindow ToNotificationWindow = new NotificationWindow(email);
-           // ToNotificationWindow.Show();
-        }
+        
+        
+        
         public string generateID()
         {
             return Guid.NewGuid().ToString("N");
