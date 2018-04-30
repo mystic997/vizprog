@@ -123,6 +123,11 @@ namespace YachtKlub
             else
             {
                 btAccept.Visibility = Visibility.Hidden;
+                btDecline.Visibility = Visibility.Hidden;
+                cv1.Visibility = Visibility.Hidden;
+                cv2.Visibility = Visibility.Hidden;
+                cv3.Visibility = Visibility.Hidden;
+                lbNotification.Visibility = Visibility.Visible;
             }
         }
 
