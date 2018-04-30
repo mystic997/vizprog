@@ -5,14 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:YachtKlub"
         mc:Ignorable="d"
-        Title="StatisicsWindow1" Height="306.4" Width="428.025" WindowStyle="None"  WindowStartupLocation="CenterScreen">
+        Title="StatisicsWindow1" Height="330" Width="428.025" WindowStyle="None"  WindowStartupLocation="CenterScreen">
     <Grid>
+        <Button x:Name="btExit" Content="Bezár" Width="157" FontSize="14" Height="25" HorizontalAlignment="Left" VerticalAlignment="Bottom"  Click="btExit_Click" Margin="253,0,0,0"/>
 
         <TabControl Height="270" Margin="0,0,0,0.4">
             <TabItem Header="Éves kölcsönzések">
                 <Grid>
                     <Canvas Name="YearlyIncomeCanvas" Margin="0,0,0,0" Background="#99DDE9FF" >
                         <Button x:Name="btStatYearly" Content="Bevétel Kimutatás készítése" Width="157" Height="26" HorizontalAlignment="Left" VerticalAlignment="Bottom" Canvas.Top="197" Click="btStatYearly_Click"/>
+
                     </Canvas>
                 </Grid>
             </TabItem>

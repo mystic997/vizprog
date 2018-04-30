@@ -120,5 +120,10 @@ namespace YachtKlub
             StatisticsWindow2 statisticsWindow2 = new StatisticsWindow2(listDataGlobal, "dayly");
             statisticsWindow2.Show();
         }
+
+        private void btExit_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
     }
 }
