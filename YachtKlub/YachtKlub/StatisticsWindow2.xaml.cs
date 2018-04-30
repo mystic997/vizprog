@@ -141,6 +141,10 @@ System.Globalization.DateTimeFormatInfo();
             if (e.ChangedButton == MouseButton.Left)
                 DragMove();
         }
-    
+
+        private void btExit_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
     }
 }
