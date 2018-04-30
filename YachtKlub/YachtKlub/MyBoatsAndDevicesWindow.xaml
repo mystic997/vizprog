@@ -50,7 +50,7 @@
 
             <Label x:Name="lbBoatPlace" Content="Tartózkodási helye:" HorizontalAlignment="Left" FontSize="12" VerticalAlignment="Top" Canvas.Top="228"/>
             <TextBox x:Name="tbBoatPlace" HorizontalAlignment="Right" VerticalAlignment="Top" FontSize="12"  Width="281" Height="25" Canvas.Left="115" Canvas.Top="229" Background="#FFEBEBFF"/>
-            <Button x:Name="btUploadPic" Content="Kép feltöltése" Height="25" Canvas.Left="288" Canvas.Top="277" Width="100" Click="btUploadPicture_Click"/>
+            <Button x:Name="btUploadPic" Content="Kép feltöltése" Height="25" Canvas.Left="288" Canvas.Top="277" Width="100" Click="btUploadPicture_Click" Background="White" Foreground="#FF72AED2" BorderBrush="#FF0066CC"/>
             <Label Content="Ha új képet töltesz &#xD;&#xA;fel, akkor az előző&#xA;törlésre kerül!" Height="60" FontSize="11" Canvas.Left="288" Canvas.Top="312" Width="100" FontStyle="Italic"/>
 
         </Canvas>
@@ -101,9 +101,9 @@
         <!--Selector.SelectionChanged="SelectionChanged"-->
         <Label Content="Hajóim:" FontSize="15" HorizontalAlignment="Left" Height="30" Margin="48,54,0,0" VerticalAlignment="Top" Width="128"/>
         <Label Content="Eszközeim:" FontSize="15" HorizontalAlignment="Left" Height="30" Margin="694,54,0,0" VerticalAlignment="Top" Width="90"/>
-        <Button  x:Name="btSave" Content="Mentés" HorizontalAlignment="Left" Height="25" Margin="400,524,0,0" VerticalAlignment="Top" Width="100" Click="Save_Click"/>
-        <Button  x:Name="btModify" Content="Módosítás" HorizontalAlignment="Left" Height="25" Margin="570,524,0,0" VerticalAlignment="Top" Width="100" Click="Modify_Click"/>
-        <Button  x:Name="btStatistics" Content="Statisztika" HorizontalAlignment="Left" Height="25" Margin="270,524,0,0" VerticalAlignment="Top" Width="100" Click="btStatistics_Click"/>
+        <Button  x:Name="btSave" Content="Mentés" HorizontalAlignment="Left" Height="25" Margin="400,524,0,0" VerticalAlignment="Top" Width="100" Click="Save_Click" Background="White" Foreground="#FF72AED2" BorderBrush="#FF0066CC"/>
+        <Button  x:Name="btModify" Content="Módosítás" HorizontalAlignment="Left" Height="25" Margin="570,524,0,0" VerticalAlignment="Top" Width="100" Click="Modify_Click" Background="White" Foreground="#FF72AED2" BorderBrush="#FF0066CC"/>
+        <Button  x:Name="btStatistics" Content="Statisztika" HorizontalAlignment="Left" Height="25" Margin="270,524,0,0" VerticalAlignment="Top" Width="100" Click="btStatistics_Click" Background="White" Foreground="#FF72AED2" BorderBrush="#FF0066CC"/>
         <!--<Button Content="Új hajó regisztrálása" HorizontalAlignment="Left" VerticalAlignment="Top" Width="114" Height="25" Margin="48,524,0,0" Click="NewBoat_Click"/>
         <Button Content="Új szállító regisztrálása" HorizontalAlignment="Left" VerticalAlignment="Top" Width="124" Height="25" Margin="181,524,0,0" Click="NewTransportDevice_Click"/>-->
         <CheckBox x:Name="tbIsLoan" HorizontalAlignment="Right" VerticalAlignment="Top" FontSize="12"  Width="16" Height="14" RenderTransformOrigin="0.162,0.56"  Margin="0,491,271.6,0" />

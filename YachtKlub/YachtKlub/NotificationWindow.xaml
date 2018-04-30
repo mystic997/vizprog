@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:YachtKlub"
         mc:Ignorable="d"
-        Height="600" Width="800">
+        Height="600" Width="900">
     <Grid>
         <Button Name="btAccept" Visibility="Hidden" Content="Bérbeadás visszaigazolása" Background="Green" HorizontalAlignment="Left" Margin="301,534,0,0" VerticalAlignment="Top" Height="25" Width="150" Click="btAccept_Click"/>
         <Button Name="btDecline" Visibility="Hidden" Content="Bérbeadás elutasítása" Background="Red" HorizontalAlignment="Left" Margin="481,534,0,0" VerticalAlignment="Top" Height="25" Width="150" Click="btDecline_Click"/>
@@ -31,7 +31,7 @@
             <DatePicker x:Name="dpEnd"   HorizontalAlignment="Left" VerticalAlignment="Top" Height="25" Width="150"  Canvas.Left="209" Canvas.Top="26"/>
 
         </Canvas>
-        <Canvas Name="cv3" Margin="358,23,30,68" Visibility="Visible">
+        <Canvas Name="cv3" Margin="448,23,30,68" Visibility="Visible">
             <Label x:Name="lbBoatData" Content="Kiválasztott hajó adatai:" HorizontalAlignment="Left" FontSize="18" VerticalAlignment="Top" Canvas.Top="57"/>
             <Label x:Name="lbBoatPicture" Content="A hajó képe:" HorizontalAlignment="Left" FontSize="12" VerticalAlignment="Top" Canvas.Top="378"/>
             <Image x:Name="imgBoatPicture" HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="100" Canvas.Left="115" Canvas.Top="378"/>

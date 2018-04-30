@@ -82,7 +82,7 @@
         <DatePicker x:Name="dpEnd" HorizontalAlignment="Left" Margin="238,65,0,0" VerticalAlignment="Top" Height="25" Width="150" SelectedDateChanged="dpEnd_SelectedDateChanged"/>
 
 
-        <Button x:Name="btBook" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,534,16,0" FontSize="12"  Width="150" Height="25" Content="A hajó foglalása" Click="btBook_Click" />
+        <Button x:Name="btBook" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,16,16" FontSize="16"  Width="150" Height="35" Content="A hajó foglalása" Click="btBook_Click" Background="White" Foreground="#FF72AED2" BorderBrush="#FF0066CC"/>
         <!--<Button x:Name="btBack" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,534,16,0" FontSize="12"  Width="150" Height="25" Content="Mégsem" Click="btBack_Click" />-->
         <Label Content="Adja meg, mely időszakban van szüksége hajóra, majd válasszon az ajánlatok közül: " HorizontalAlignment="Left" Height="37" Margin="10,10,0,0" VerticalAlignment="Top" Width="840" FontWeight="Bold" FontSize="18"/>
         
