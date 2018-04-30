@@ -43,7 +43,7 @@ namespace YachtKlub
             RentRequestsDaoImpl RentRequests = new RentRequestsDaoImpl();
             BoatsDaoImpl Boats = new BoatsDaoImpl();
 
-
+            int vaneuj = 0;
 
             foreach (var Hajok in Boats.GetAllBoatsByOwner(Members.getMemberByEmail(email)))
             {
@@ -52,55 +52,77 @@ namespace YachtKlub
                 {
                     if (Requests.HowManyPersonWillTravel > 0)
                     {
-                        GlobalRequest = Requests;
-                        lbNotification.Visibility = Visibility.Hidden;
-                        btAccept.Visibility = Visibility.Visible;
-                        btDecline.Visibility = Visibility.Visible;
-                        cv1.Visibility = Visibility.Visible;
-                        cv2.Visibility = Visibility.Visible;
-                        cv3.Visibility = Visibility.Visible;
-                        tbRenterEmail.Text = Requests.WhoBorrows.Email;
-                        tbRenterName.Text = Requests.WhoBorrows.MemberName;
-                        tbRenterResidency.Text = Requests.WhoBorrows.City;
-                        tbStartPlace.Text = Requests.FromWhere;
-                        tbEndPlace.Text = Requests.ToWhere;
-                        tbPeople.Text = Requests.HowManyPersonWillTravel.ToString();
-
-                        tbBoatName.Text = Requests.ToWhere;
-
-
-                        dpEnd.Text = Requests.EndDate.ToString();
-                        dpEnd.IsEnabled = false;
-                        dpStart.Text = Requests.StartingDate.ToString();
-                        dpStart.IsEnabled = false;
-
-                        tbBoatName.Text = Hajok.BoatName;
-                        tbBoatPlace.Text = Hajok.WhereIsNowTheBoat;
-                        tbBoatDept.Text = Hajok.DiveDepth.ToString();
-                        tbBoatPrice.Text = Hajok.DailyPrice.ToString();
-                        tbBoatConsumption.Text = Hajok.Consumption.ToString();
-                        tbBoatType.Text = Hajok.BoatType;
-                        tbBoatManpower.Text = Hajok.MaxPerson.ToString();
-                        tbBoatSpeed.Text = Hajok.MaxSpeed.ToString();
-                        tbBoatWidth.Text = Hajok.BoatWidth.ToString();
-                        tbBoatLenght.Text = Hajok.BoatLength.ToString();
-                        tbBoatYear.Text = Hajok.YearOfManufacture.ToString();
-
-
-                        LoadUserDataService loadUserDataService = new LoadUserDataService(email);
-
-                        imgRenterPicture.Tag = loadUserDataService.ResponseMessage["MemberImage"];
-                        var uri = new Uri(Convert.ToString(imgRenterPicture.Tag), UriKind.Absolute);
-                        var bitmap = new BitmapImage(uri);
-                        imgRenterPicture.Source = bitmap;
-
-                        LoadSelectedBoatService loadSelectedBoatService = new LoadSelectedBoatService(Convert.ToString(Requests.BoatToBorrow.BoatId));
-                        imgBoatPicture.Source = LoadImage(loadSelectedBoatService.ResponseMessage["BoatImage"]);
-                        imgBoatPicture.Tag = loadSelectedBoatService.ResponseMessage["BoatImage"];
-
+                        vaneuj++;
                     }
-                }
 
+                }
+            }
+
+
+            if (vaneuj != 0)
+            {
+
+                foreach (var Hajok in Boats.GetAllBoatsByOwner(Members.getMemberByEmail(email)))
+                {
+
+                    foreach (var Requests in RentRequests.GetAllRentRequestsByBoatToBorrow(Hajok))
+                    {
+                        if (Requests.HowManyPersonWillTravel > 0)
+                        {
+                            GlobalRequest = Requests;
+                            lbNotification.Visibility = Visibility.Hidden;
+                            btAccept.Visibility = Visibility.Visible;
+                            btDecline.Visibility = Visibility.Visible;
+                            cv1.Visibility = Visibility.Visible;
+                            cv2.Visibility = Visibility.Visible;
+                            cv3.Visibility = Visibility.Visible;
+                            tbRenterEmail.Text = Requests.WhoBorrows.Email;
+                            tbRenterName.Text = Requests.WhoBorrows.MemberName;
+                            tbRenterResidency.Text = Requests.WhoBorrows.City;
+                            tbStartPlace.Text = Requests.FromWhere;
+                            tbEndPlace.Text = Requests.ToWhere;
+                            tbPeople.Text = Requests.HowManyPersonWillTravel.ToString();
+
+                            tbBoatName.Text = Requests.ToWhere;
+
+
+                            dpEnd.Text = Requests.EndDate.ToString();
+                            dpEnd.IsEnabled = false;
+                            dpStart.Text = Requests.StartingDate.ToString();
+                            dpStart.IsEnabled = false;
+
+                            tbBoatName.Text = Hajok.BoatName;
+                            tbBoatPlace.Text = Hajok.WhereIsNowTheBoat;
+                            tbBoatDept.Text = Hajok.DiveDepth.ToString();
+                            tbBoatPrice.Text = Hajok.DailyPrice.ToString();
+                            tbBoatConsumption.Text = Hajok.Consumption.ToString();
+                            tbBoatType.Text = Hajok.BoatType;
+                            tbBoatManpower.Text = Hajok.MaxPerson.ToString();
+                            tbBoatSpeed.Text = Hajok.MaxSpeed.ToString();
+                            tbBoatWidth.Text = Hajok.BoatWidth.ToString();
+                            tbBoatLenght.Text = Hajok.BoatLength.ToString();
+                            tbBoatYear.Text = Hajok.YearOfManufacture.ToString();
+
+
+                            LoadUserDataService loadUserDataService = new LoadUserDataService(email);
+
+                            imgRenterPicture.Tag = loadUserDataService.ResponseMessage["MemberImage"];
+                            var uri = new Uri(Convert.ToString(imgRenterPicture.Tag), UriKind.Absolute);
+                            var bitmap = new BitmapImage(uri);
+                            imgRenterPicture.Source = bitmap;
+
+                            LoadSelectedBoatService loadSelectedBoatService = new LoadSelectedBoatService(Convert.ToString(Requests.BoatToBorrow.BoatId));
+                            imgBoatPicture.Source = LoadImage(loadSelectedBoatService.ResponseMessage["BoatImage"]);
+                            imgBoatPicture.Tag = loadSelectedBoatService.ResponseMessage["BoatImage"];
+
+                        }
+                    }
+
+                }
+            }
+            else
+            {
+                btAccept.Visibility = Visibility.Hidden;
             }
         }
 
@@ -132,6 +154,8 @@ namespace YachtKlub
 
             dbc = AliveContext.Context;
             AcceptRequesttService acceptRequesttService = new AcceptRequesttService(ref boatRentalsEntity);
+            dbc.RentRequests.Remove(GlobalRequest);
+            dbc.SaveChanges();
 
             //következő kérés betöltése
             LoadData(email);
@@ -142,6 +166,7 @@ namespace YachtKlub
 
             dbc = AliveContext.Context;
             dbc.RentRequests.Remove(GlobalRequest);
+            dbc.SaveChanges();
             //következő kérés betöltése
 
         }
