@@ -35,7 +35,7 @@ namespace YachtKlub
 
             try
             {
-                //btCloseAdminRegister.Visibility = Visibility.Hidden;
+                btCloseAdminRegister.Visibility = Visibility.Hidden;
 
                 tbEmail.IsEnabled = false;
                 tbEmailAgain.IsEnabled = false;
@@ -107,7 +107,7 @@ namespace YachtKlub
 
                 if (btSave.Content.Equals("Adatok módosítása"))
                 {
-                    //btAdminRegiszter.IsEnabled = false;
+                    btAdminRegiszter.IsEnabled = false;
                     //btBooking.IsEnabled = false;
                     //btMyShips.IsEnabled = false;
                     btSave.Content = "Változtatások mentése";
@@ -123,7 +123,7 @@ namespace YachtKlub
 
                     UpdateUserDataService updateUserService = new UpdateUserDataService(firstname, lastname, email, country, city, street, houseNumber, 0, picturePath); // 0 is admin
 
-                    //btAdminRegiszter.IsEnabled = true;
+                    btAdminRegiszter.IsEnabled = true;
                     //btBooking.IsEnabled = true;
                     //btMyShips.IsEnabled = true;
                     btSave.Content = "Adatok módosítása";
@@ -205,11 +205,11 @@ namespace YachtKlub
                     permission = 0;
                 }
 
-                /*if (btAdminRegiszter.Content.Equals("Felhasználó regisztrálása"))
+                if (btAdminRegiszter.Content.Equals("Felhasználó regisztrálása"))
                 {
                     btSave.IsEnabled = false;
-                    btBooking.IsEnabled = false;
-                    btMyShips.IsEnabled = false;
+                    //btBooking.IsEnabled = false;
+                    //btMyShips.IsEnabled = false;
                     btAdminRegiszter.Content = "Változtatások mentése";
                     fields.ForEach(i => i.IsEnabled = true);
                     fields.ForEach(i => i.Text = "");
@@ -230,7 +230,7 @@ namespace YachtKlub
                     var bitmap = new BitmapImage(uri);
                     imgProfilePicture.Source = bitmap;
                     btUploadProfilePicture.IsEnabled = true;
-                    //btCloseAdminRegister.Visibility = Visibility.Visible;
+                    btCloseAdminRegister.Visibility = Visibility.Visible;
                 }
                 else
                 {
@@ -242,8 +242,8 @@ namespace YachtKlub
                         throw new Exception();
 
                     btSave.IsEnabled = true;
-                    btBooking.IsEnabled = true;
-                    btMyShips.IsEnabled = true;
+                    //btBooking.IsEnabled = true;
+                    //btMyShips.IsEnabled = true;
                     btAdminRegiszter.Content = "Felhasználó regisztrálása";
                     fields.ForEach(i => i.IsEnabled = false);
                     cbPermission.IsEnabled = false;
@@ -253,10 +253,10 @@ namespace YachtKlub
                     lbEmailAgain.Visibility = Visibility.Hidden;
                     btUploadProfilePicture.IsEnabled = false;
 
-                    ///btCloseAdminRegister.Visibility = Visibility.Hidden;
+                    btCloseAdminRegister.Visibility = Visibility.Hidden;
 
                     fillFieldsWithUserData(adminEmain);
-                }*/
+                }
             }
             catch (Exception ex)
             {
@@ -267,7 +267,7 @@ namespace YachtKlub
         private void btCloseAdminRegister_Click(object sender, RoutedEventArgs e)
         {
             btSave.IsEnabled = true;
-            //btAdminRegiszter.Content = "Felhasználó regisztrálása";
+            btAdminRegiszter.Content = "Felhasználó regisztrálása";
             fields.ForEach(i => i.IsEnabled = false);
             cbPermission.IsEnabled = false;
             tbEmail.IsEnabled = false;
@@ -284,7 +284,7 @@ namespace YachtKlub
             lbEmailAgain.Visibility = Visibility.Hidden;
             btUploadProfilePicture.IsEnabled = false;
 
-            //btCloseAdminRegister.Visibility = Visibility.Hidden;
+            btCloseAdminRegister.Visibility = Visibility.Hidden;
 
             fillFieldsWithUserData(adminEmain);
         }

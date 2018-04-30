@@ -8,13 +8,13 @@
              d:DesignHeight="600" d:DesignWidth="900">
     <Grid>
 
-        <Image x:Name="imgHajo" HorizontalAlignment="Left" Height="300" Margin="65,100,0,0" VerticalAlignment="Top" Width="200"  Source="resources/menu_ships.png"/>
-        <Image x:Name="imgUser" HorizontalAlignment="Center" Height="300" Margin="0,100,0,0" VerticalAlignment="Top" Width="200"  Source="resources/menu_profile.png"/>
-        <Image x:Name="imgVan" HorizontalAlignment="Right" Height="300" Margin="0,100,65,0" VerticalAlignment="Top" Width="200"  Source="resources/menu_van.png"/>
+        <Image x:Name="imgHajo" HorizontalAlignment="Left" Height="300" Margin="150,100,0,0" VerticalAlignment="Top" Width="200"  Source="resources/menu_ships.png"/>
+        <!--<Image x:Name="imgUser" HorizontalAlignment="Center" Height="300" Margin="0,100,0,0" VerticalAlignment="Top" Width="200"  Source="resources/menu_profile.png"/>-->
+        <Image x:Name="imgVan" HorizontalAlignment="Right" Height="300" Margin="0,100,150,0" VerticalAlignment="Top" Width="200"  Source="resources/menu_van.png"/>
         
-        <Button x:Name="btHajo" Content="Hajó regisztrálása" HorizontalAlignment="Left" Margin="30,350,0,0" VerticalAlignment="Top" Width="270" Height="100" Click="btHajo_Click" Background="White" Foreground="#FF72AED2" BorderBrush="#FF0066CC" FontSize="22"/>
-        <Button x:Name="btUser" Content="Felhasználó regisztrálása" HorizontalAlignment="Center" Margin="0,350,0,0" VerticalAlignment="Top" Width="270" Height="100" Click="btUser_Click" Background="White" Foreground="#FF72AED2" BorderBrush="#FF0066CC" FontSize="22"/>
-        <Button x:Name="btVan" Content="Szállítóeszköz regisztrálása" HorizontalAlignment="Right" Margin="0,350,30,0" VerticalAlignment="Top" Width="270" Height="100" Background="White" Foreground="#FF72AED2" BorderBrush="#FF0066CC" FontSize="22" Click="btVan_Click"/>
+        <Button x:Name="btHajo" Content="Hajó regisztrálása" HorizontalAlignment="Left" Margin="100,350,0,0" VerticalAlignment="Top" Width="300" Height="100" Click="btHajo_Click" Background="White" Foreground="#FF72AED2" BorderBrush="#FF0066CC" FontSize="22"/>
+        <!--<Button x:Name="btUser" Content="Felhasználó regisztrálása" HorizontalAlignment="Center" Margin="0,350,0,0" VerticalAlignment="Top" Width="270" Height="100" Click="btUser_Click" Background="White" Foreground="#FF72AED2" BorderBrush="#FF0066CC" FontSize="22"/>-->
+        <Button x:Name="btVan" Content="Szállítóeszköz regisztrálása" HorizontalAlignment="Right" Margin="0,350,100,0" VerticalAlignment="Top" Width="300" Height="100" Background="White" Foreground="#FF72AED2" BorderBrush="#FF0066CC" FontSize="22" Click="btVan_Click"/>
         
 
     </Grid>
