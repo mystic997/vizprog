@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -86,6 +87,31 @@ namespace YachtKlub
         public string generateID()
         {
             return Guid.NewGuid().ToString("N");
+        }
+
+        private void btUploadProfilePicture_Click(object sender, RoutedEventArgs e)
+        {
+            Microsoft.Win32.OpenFileDialog dialog = new Microsoft.Win32.OpenFileDialog();
+
+            dialog.DefaultExt = ".jpg";
+            dialog.Filter = "All supported graphics|*.jpg;*.jpeg;*.png|" + "JPEG (*.jpg;*.jpeg)|*.jpg;*.jpeg|" + "Portable Network Graphic (*.png)|*.png";
+
+            Nullable<bool> result = dialog.ShowDialog();
+
+            if (result == true)
+            {
+                // Open document
+                imgProfilePicture.Tag = dialog.FileName;
+                System.IO.Directory.CreateDirectory(System.AppDomain.CurrentDomain.BaseDirectory + "\\" + "resources");
+                string fileName = System.IO.Path.GetFileName(Convert.ToString(imgProfilePicture.Tag));
+                string newFileName = generateID() + ".jpg";
+                File.Copy(Convert.ToString(imgProfilePicture.Tag), System.AppDomain.CurrentDomain.BaseDirectory + "\\" + "resources" + "\\" + newFileName, true);
+                imgProfilePicture.Tag = System.AppDomain.CurrentDomain.BaseDirectory + "\\" + "resources" + "\\" + newFileName;
+                var uri = new Uri(System.AppDomain.CurrentDomain.BaseDirectory + "\\" + "resources" + "\\" + newFileName, UriKind.Absolute);
+                var bitmap = new BitmapImage(uri);
+                imgProfilePicture.Source = bitmap;
+
+            }
         }
     }
 }
