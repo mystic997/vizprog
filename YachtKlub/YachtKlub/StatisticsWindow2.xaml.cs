@@ -132,7 +132,15 @@ System.Globalization.DateTimeFormatInfo();
                 }
                 
             }
-            
+            MouseDown += Window_MouseDown; //az ablak mozgatásához kell
+
+
         }
+        private void Window_MouseDown(object sender, MouseButtonEventArgs e) //az ablak mozgatásához kell
+        {
+            if (e.ChangedButton == MouseButton.Left)
+                DragMove();
+        }
+    
     }
 }

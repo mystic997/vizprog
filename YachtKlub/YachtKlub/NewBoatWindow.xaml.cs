@@ -31,7 +31,16 @@ namespace YachtKlub
             this.email = email;
             InitializeComponent();
             tbOwnerName.Text = email;
+            MouseDown += Window_MouseDown; //az ablak mozgatásához kell
+
+
         }
+        private void Window_MouseDown(object sender, MouseButtonEventArgs e) //az ablak mozgatásához kell
+        {
+            if (e.ChangedButton == MouseButton.Left)
+                DragMove();
+        }
+    
 
         private void Register_Click(object sender, RoutedEventArgs e)
         {

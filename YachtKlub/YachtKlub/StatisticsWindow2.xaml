@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:YachtKlub"
         mc:Ignorable="d"
-        Title="StatisticsWindow2" Height="300" Width="300"  WindowStartupLocation="CenterScreen">
+        Title="StatisticsWindow2" Height="300" Width="300" WindowStyle="None" WindowStartupLocation="CenterScreen">
     <Grid>
         <ListView x:Name="lwIncome" HorizontalAlignment="Left" Height="269" VerticalAlignment="Top" Width="292" >
             <ListView.View>

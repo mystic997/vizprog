@@ -46,9 +46,17 @@ namespace YachtKlub
                 towerChart(20 + i * 25, 100 - boatRentalsDao.GetHowManyBoatRentalsByWeekAndBoat(i, Convert.ToInt32(listData.id)) * 10, boatRentalsDao.GetHowManyBoatRentalsByWeekAndBoat(i, Convert.ToInt32(listData.id)) * 10, ref WeeklyIncomeCanvas, 10, i);
 
             }
-            
+
+            MouseDown += Window_MouseDown; //az ablak mozgatásához kell
+
 
         }
+        private void Window_MouseDown(object sender, MouseButtonEventArgs e) //az ablak mozgatásához kell
+        {
+            if (e.ChangedButton == MouseButton.Left)
+                DragMove();
+        }
+    
 
         public void towerChart(double x, double y, double height, ref Canvas canvas, double width, int number)
         {

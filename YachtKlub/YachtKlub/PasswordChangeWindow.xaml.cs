@@ -29,7 +29,16 @@ namespace YachtKlub
         {
             InitializeComponent();
             Email = email;
+            MouseDown += Window_MouseDown; //az ablak mozgatásához kell
+
+
         }
+        private void Window_MouseDown(object sender, MouseButtonEventArgs e) //az ablak mozgatásához kell
+        {
+            if (e.ChangedButton == MouseButton.Left)
+                DragMove();
+        }
+    
 
         private void btCancel_Click(object sender, RoutedEventArgs e)
         {
