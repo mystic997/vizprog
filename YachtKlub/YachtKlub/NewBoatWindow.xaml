@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:YachtKlub"
         mc:Ignorable="d"
-        Title="Új hajó regisztrálása" Height="600" Width="450" ResizeMode="CanMinimize">
+        Title="Új hajó regisztrálása" Height="600" Width="450" ResizeMode="CanMinimize"  WindowStartupLocation="CenterScreen">
     <Grid>
         <Canvas Margin="10,133,22,55">
 

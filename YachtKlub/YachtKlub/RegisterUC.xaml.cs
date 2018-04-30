@@ -36,6 +36,12 @@ namespace YachtKlub
 
         private void btUser_Click(object sender, RoutedEventArgs e)
         {
+            MemberRegisterWindow ToNewMemberRegisterWindow = new MemberRegisterWindow();
+            ToNewMemberRegisterWindow.Show();
+        }
+
+        private void btVan_Click(object sender, RoutedEventArgs e)
+        {
             NewTransportDeviceWindow ToNewBoatWindow = new NewTransportDeviceWindow(adminEmain);
             ToNewBoatWindow.Show();
         }
