@@ -173,6 +173,7 @@ namespace YachtKlub
             dbc.RentRequests.Remove(GlobalRequest);
             dbc.SaveChanges();
             //következő kérés betöltése
+            LoadData(email);
 
         }
         public string generateID()

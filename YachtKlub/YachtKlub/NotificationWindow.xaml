@@ -11,7 +11,7 @@
         <Button Name="btDecline" Visibility="Hidden" Content="Bérbeadás elutasítása" Background="Red" HorizontalAlignment="Left" Margin="481,534,0,0" VerticalAlignment="Top" Height="25" Width="150" Click="btDecline_Click"/>
         
 
-        <Label Name="lbNotification" Content="Önnek nincs értesítése!" HorizontalAlignment="Left" FontSize="24" Height="85" Margin="22,10,0,0" VerticalAlignment="Top" Width="260"/>
+        <Label Name="lbNotification" Content="Önnek nincs értesítése!" HorizontalAlignment="Left" FontSize="40" Height="85" Margin="22,10,0,0" VerticalAlignment="Top" Width="646"/>
         <Canvas Name="cv1" Visibility="Hidden" Margin="22,46,483,119">
             <Label x:Name="lbOwnerData" Content="A leendő bérlő adatai:" HorizontalAlignment="Left" FontSize="13" VerticalAlignment="Top" Canvas.Left="41" Width="164"/>
             <Label x:Name="lbRenterName" Content="Név:" HorizontalAlignment="Left" FontSize="12" VerticalAlignment="Top" Canvas.Top="50"/>
