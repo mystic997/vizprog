@@ -30,6 +30,14 @@ namespace YachtKlub
         public NotificationWindow(string email)
         {
             InitializeComponent();
+
+            LoadData(email);
+
+
+        }
+
+        public void LoadData(string email)
+        {
             this.email = email;
             MembersDaoImpl Members = new MembersDaoImpl();
             RentRequestsDaoImpl RentRequests = new RentRequestsDaoImpl();
@@ -94,11 +102,7 @@ namespace YachtKlub
                 }
 
             }
-
-
-
         }
-
 
 
         private BitmapImage LoadImage(string newFileName)
@@ -130,6 +134,7 @@ namespace YachtKlub
             AcceptRequesttService acceptRequesttService = new AcceptRequesttService(ref boatRentalsEntity);
 
             //következő kérés betöltése
+            LoadData(email);
         }
 
         private void btDecline_Click(object sender, RoutedEventArgs e)
