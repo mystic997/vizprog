@@ -119,7 +119,7 @@ namespace YachtKlub
                 string fileName = System.IO.Path.GetFileName(Convert.ToString(imgBoatPicture.Tag));
                 string newFileName = generateID() + ".jpg";
                 File.Copy(Convert.ToString(imgBoatPicture.Tag), System.AppDomain.CurrentDomain.BaseDirectory + "\\" + "resources" + "\\" + newFileName, true);
-                imgBoatPicture.Tag = System.AppDomain.CurrentDomain.BaseDirectory + "\\" + "resources" + "\\" + newFileName;
+                imgBoatPicture.Tag =  newFileName;
                 var uri = new Uri(System.AppDomain.CurrentDomain.BaseDirectory + "\\" + "resources" + "\\" + newFileName, UriKind.Absolute);
                 var bitmap = new BitmapImage(uri);
                 imgBoatPicture.Source = bitmap;
