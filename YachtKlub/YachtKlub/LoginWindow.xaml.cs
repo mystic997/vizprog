@@ -45,13 +45,13 @@ namespace YachtKlub
                 string password = tbPasswordLogin.Text;
 
                 // ki kell majd venni!
-                if (email.Equals("") && password.Equals(""))
-                {
-                    tbEmailLogin.Text = "user1@gmail.com";
-                    tbPasswordLogin.Text = "user1";
-                    btLogin_Click(sender, e);
-                    return;
-                }
+                //if (email.Equals("") && password.Equals(""))
+                //{
+                //    tbEmailLogin.Text = "user1@gmail.com";
+                //    tbPasswordLogin.Text = "user1";
+                //    btLogin_Click(sender, e);
+                //    return;
+                //}
 
                 Validator loginValidator = new Validator();
                 loginValidator.ValidationComponents.Add(new EmptyFieldValidator(email, "e-mail cím"));
