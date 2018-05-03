@@ -61,7 +61,8 @@
                 <TextBox x:Name="tbEmailLogin" Grid.Row="2" Opacity="1" Width="170" FontSize="18" Margin="117,0" KeyDown="tbEmailLogin_KeyDown" BorderBrush="{x:Null}" BorderThickness="3" Grid.ColumnSpan="2" Background="#FF7CB7DA"/>
 
                 <Label x:Name="lbPasswordLogin" Grid.Row="3" Width="60" FontSize="18" HorizontalAlignment="Left" Margin="25,0,0,0" Content="Jelszó:" Foreground="White"/>
-                <TextBox x:Name="tbPasswordLogin" Grid.Row="3" Width="170" FontSize="18" Margin="117,0" KeyDown="tbPasswordLogin_KeyDown" BorderThickness="3" Grid.ColumnSpan="2" Background="#FF7CB7DA" BorderBrush="{x:Null}"/>
+                <!--<TextBox x:Name="tbPasswordLogin" Grid.Row="3" Width="170" FontSize="18" Margin="117,0" KeyDown="tbPasswordLogin_KeyDown" BorderThickness="3" Grid.ColumnSpan="2" Background="#FF7CB7DA" BorderBrush="{x:Null}"/>-->
+                <PasswordBox x:Name="tbPasswordLogin" Grid.Row="3" Width="170" FontSize="18" Margin="117,0" KeyDown="tbPasswordLogin_KeyDown" BorderThickness="3" Grid.ColumnSpan="2" Background="#FF7CB7DA" BorderBrush="{x:Null}"></PasswordBox>
 
                 <Button x:Name="btLogin" Opacity="1" Grid.Row="4" Width="170" FontSize="20" Click="btLogin_Click" Margin="117,10,117,30"  Content="Belépés" Background="White" Foreground="#FF72AED2" Grid.ColumnSpan="2" Grid.RowSpan="2" BorderBrush="{x:Null}"/>
                 <Button x:Name="btExit" Opacity="1" Grid.Row="5" Width="170" FontSize="20" Margin="117,10"  Content="Bezár" Click="btExit_Click" Background="#FF72AED2" Foreground="White" Grid.ColumnSpan="2" Grid.RowSpan="2" BorderBrush="{x:Null}"/>

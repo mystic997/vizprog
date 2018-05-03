@@ -42,13 +42,13 @@ namespace YachtKlub
             try
             {
                 string email = tbEmailLogin.Text;
-                string password = tbPasswordLogin.Text;
+                string password = tbPasswordLogin.Password.ToString();
 
                 // ki kell majd venni!
                 //if (email.Equals("") && password.Equals(""))
                 //{
                 //    tbEmailLogin.Text = "user1@gmail.com";
-                //    tbPasswordLogin.Text = "user1";
+                //    tbPasswordLogin.Password.ToString() = "user1";
                 //    btLogin_Click(sender, e);
                 //    return;
                 //}
@@ -96,9 +96,9 @@ namespace YachtKlub
 
         private void btLogin_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
         {
-            tbEmailLogin.Text = "user0@gmail.com";
-            tbPasswordLogin.Text = "user0";
-            btLogin_Click(sender, e);
+            //tbEmailLogin.Text = "user0@gmail.com";
+            //tbPasswordLogin.Password.ToString() = "user0";
+            //btLogin_Click(sender, e);
         }
 
         private void btExit_Click(object sender, RoutedEventArgs e)
